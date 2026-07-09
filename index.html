@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markus Fischer</title>
+<meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, climbing geology, climate music and notes.">
+<style>
+  :root{
+    --bg:#fbfbfa;--fg:#22232a;--muted:#6b6c74;--faint:#8b8c94;--line:#e7e7e4;
+    --accent:#3a5a48;--soft:#f0f2ee;--card:#ffffff;--max:760px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#14151a;--fg:#e6e6e8;--muted:#9c9da6;--faint:#7d7e88;--line:#272831;
+          --accent:#8bbfa0;--soft:#1b1e22;--card:#191a1f;}
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-size:17px;line-height:1.7;
+       font-family:Georgia,"Iowan Old Style",Charter,"Times New Roman",serif;-webkit-font-smoothing:antialiased}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:currentColor}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+
+  /* language switch: default EN */
+  .de{display:none}
+  body.lang-de .de{display:revert}
+  body.lang-de .en{display:none}
+  li.de,li.en{}
+  body.lang-de li.en{display:none}
+
+  .topbar{display:flex;justify-content:flex-end;padding-top:16px}
+  .langsw{font-family:-apple-system,sans-serif;font-size:.8rem;letter-spacing:.04em}
+  .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--faint);
+        font:inherit;padding:4px 6px}
+  .langsw button.active{color:var(--fg);font-weight:700}
+  .langsw .div{color:var(--line)}
+
+  header.hero{padding:12px 0 32px;border-bottom:1px solid var(--line)}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+            font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 32px}
+  .hero h1{font-size:2.5rem;font-weight:600;margin:0 0 12px;letter-spacing:-.022em;line-height:1.08}
+  .hero .role{color:var(--muted);font-size:.8rem;margin:0;
+              font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+              letter-spacing:.14em;text-transform:uppercase}
+  .hero .role .sep{opacity:.4;margin:0 7px}
+
+  nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+        border-bottom:1px solid var(--line);backdrop-filter:saturate(160%) blur(8px)}
+  nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+  .tab-btn{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);
+           font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+           font-size:.85rem;letter-spacing:.01em;padding:16px 16px 14px;border-bottom:2px solid transparent;white-space:nowrap}
+  .tab-btn:hover{color:var(--fg)}
+  .tab-btn.active{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
+
+  .panel{display:none;padding:40px 0 10px;animation:fade .3s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  h2{font-size:1.05rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+     font-weight:600;letter-spacing:.02em;margin:0 0 18px;color:var(--fg)}
+  h3{font-size:1.15rem;font-weight:600;margin:26px 0 8px}
+  p{margin:0 0 16px}
+  .lead{font-size:1.12rem}
+  .muted{color:var(--muted)}
+  .small{font-size:.9rem}
+
+  .cv{list-style:none;padding:0;margin:8px 0 0;border-left:1px solid var(--line)}
+  .cv li{position:relative;padding:0 0 20px 22px}
+  .cv li:before{content:"";position:absolute;left:-4px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .cv .yr{font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--faint);letter-spacing:.03em}
+  .cv .w{font-weight:600}
+
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+  .fact{font-family:-apple-system,sans-serif;font-size:.85rem;color:var(--muted);
+        background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:5px 11px}
+
+  .links{margin-top:24px;display:flex;flex-wrap:wrap;gap:16px;font-family:-apple-system,sans-serif;font-size:.9rem}
+
+  ol.refs{list-style:none;padding:0;margin:0}
+  ol.refs li.ref{padding:14px 0;border-bottom:1px solid var(--line);font-size:.98rem;display:block}
+  ol.refs li.ref:last-child{border-bottom:none}
+  .refs .meta{font-family:-apple-system,sans-serif;font-size:.85rem;color:var(--faint);margin-top:3px}
+  .refs .self{font-weight:600}
+  .yrhead{font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--faint);letter-spacing:.06em;
+          margin:22px 0 2px;font-weight:700}
+  .filterbar{display:flex;gap:8px;margin:0 0 6px;font-family:-apple-system,sans-serif}
+  .chip{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--muted);
+        border-radius:999px;padding:5px 12px;font:inherit;font-size:.82rem;cursor:pointer}
+  .chip.active{border-color:var(--accent);color:var(--accent)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;margin-top:14px}
+  .kicker{font-family:-apple-system,sans-serif;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  .byline{color:var(--muted);font-size:.92rem;margin:2px 0 14px}
+  .series{border-left:2px solid var(--accent);padding-left:16px;margin-top:22px}
+  .series h4{margin:0 0 6px;font-family:-apple-system,sans-serif;font-size:.95rem}
+  .series ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+  .series li{margin-bottom:6px}
+  .series li.done{color:var(--fg)}
+
+  .post{padding:20px 0;border-bottom:1px solid var(--line)}
+  .post:last-child{border-bottom:none}
+  .post .date{font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--faint);letter-spacing:.03em}
+  .post h3{margin:4px 0 6px}
+  .post .excerpt{color:var(--muted);margin:0}
+  .ph{color:var(--faint);font-style:italic}
+
+  .revlist{list-style:none;padding:0;margin:8px 0 0;font-family:-apple-system,sans-serif;font-size:.95rem}
+  .revlist li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--fg)}
+  .revlist li:last-child{border-bottom:none}
+  .revlist .n{color:var(--faint);font-variant-numeric:tabular-nums}
+  .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:12px;
+             padding:15px 17px;margin-top:8px;background:var(--card);text-decoration:none;color:var(--fg)}
+  .mediacard:hover{border-color:var(--accent)}
+  .mediacard .play{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--accent);
+             color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.85rem;padding-left:2px}
+  .mediacard .mc-title{display:block;font-weight:600}
+  .mediacard .mc-sub{display:block;color:var(--muted);font-size:.84rem;font-family:-apple-system,sans-serif}
+  .portrait{float:right;width:156px;height:156px;border-radius:12px;object-fit:cover;
+            margin:4px 0 14px 24px;border:1px solid var(--line)}
+  @media(max-width:600px){.portrait{width:108px;height:108px;margin-left:16px}}
+  footer{padding:40px 0 60px;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line);margin-top:44px;
+         font-family:-apple-system,sans-serif}
+  @media(max-width:600px){.hero h1{font-size:1.7rem}}
+</style>
+</head>
+<body class="lang-en">
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="langsw">
+      <button data-lang="en" class="active">EN</button><span class="div">·</span><button data-lang="de">DE</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="wordmark">Spatial Perspective</p>
+    <h1>Markus Fischer</h1>
+    <p class="role">
+      <span class="en">Geoscientist <span class="sep">·</span> Palaeoclimate <span class="sep">·</span> University of Potsdam</span>
+      <span class="de">Geowissenschaftler <span class="sep">·</span> Paläoklima <span class="sep">·</span> Universität Potsdam</span>
+    </p>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <button class="tab-btn active" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></button>
+    <button class="tab-btn" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></button>
+    <button class="tab-btn" data-tab="expertise"><span class="en">Expertise</span><span class="de">Expertise</span></button>
+    <button class="tab-btn" data-tab="klettergeologie"><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></button>
+    <button class="tab-btn" data-tab="klimamusik"><span class="en">Climate music</span><span class="de">Klimamusik</span></button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="panel active" id="ueber">
+    <h2><span class="en">About</span><span class="de">Über</span></h2>
+    <img class="portrait" src="portrait.jpg" alt="Markus Fischer">
+    <p class="lead en">I am a postdoc in the Palaeoclimate Dynamics group at the University of
+       Potsdam. I study how water comes and goes in drylands and East African rift lakes over long
+       timescales — and how to reconstruct it from sediments, models and time series.</p>
+    <p class="lead de">Ich arbeite als Postdoc in der AG Paläoklimadynamik an der Universität
+       Potsdam. Mich interessiert, wie Wasser in Trockengebieten und ostafrikanischen Riftseen über
+       lange Zeiträume kommt und geht — und wie man das aus Sedimenten, Modellen und Zeitreihen
+       rekonstruiert.</p>
+    <p class="muted en">Alongside that I write about climbing geology, experiment with turning
+       climate data into sound, and collect occasional notes.</p>
+    <p class="muted de">Daneben schreibe ich über Klettergeologie, experimentiere mit der Vertonung
+       von Klimadaten und sammle hier gelegentlich Notizen.</p>
+
+    <h3><span class="en">Background</span><span class="de">Werdegang</span></h3>
+    <ul class="cv">
+      <li><span class="yr"><span class="en">since 2022</span><span class="de">seit 2022</span></span><br>
+        <span class="en"><span class="w">Postdoc</span>, Palaeoclimate Dynamics group, University of Potsdam (Campus Golm)</span>
+        <span class="de"><span class="w">Postdoc</span>, AG Paläoklimadynamik, Universität Potsdam (Campus Golm)</span></li>
+      <li><span class="yr">2019 – 2022</span><br>
+        <span class="en"><span class="w">PhD (Dr. rer. nat.)</span>, University of Tübingen &amp; Senckenberg Centre for Human Evolution and Paleoenvironment — scholarship of the Stiftung der deutschen Wirtschaft</span>
+        <span class="de"><span class="w">Promotion (Dr. rer. nat.)</span>, Universität Tübingen &amp; Senckenberg Centre for Human Evolution and Paleoenvironment — Stipendium der Stiftung der deutschen Wirtschaft</span></li>
+      <li><span class="yr">2014 – 2018</span><br>
+        <span class="en"><span class="w">M.Sc. Physical Geography</span>, University of Leipzig</span>
+        <span class="de"><span class="w">M.Sc. Physische Geographie</span>, Universität Leipzig</span></li>
+      <li><span class="yr">2010 – 2014</span><br>
+        <span class="en"><span class="w">B.Sc. Geography</span>, University of Leipzig</span>
+        <span class="de"><span class="w">B.Sc. Geographie</span>, Universität Leipzig</span></li>
+    </ul>
+
+    <h3><span class="en">Peer review</span><span class="de">Gutachtertätigkeit</span></h3>
+    <p class="muted en">Reviewer for scientific journals (verified via <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a>):</p>
+    <p class="muted de">Gutachter für Fachzeitschriften (über <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a> verifiziert):</p>
+    <ul class="revlist">
+      <li><span>Nature Communications</span></li>
+      <li><span>Quaternary International</span></li>
+      <li><span>International Journal of Earth Sciences</span></li>
+      <li><span>Palaeogeography, Palaeoclimatology, Palaeoecology</span></li>
+    </ul>
+
+    <h3><span class="en">Talks &amp; media</span><span class="de">Vorträge &amp; Medien</span></h3>
+    <p class="muted en">A podcast conversation about my doctoral research, my path into science, and what
+       fascinates me at the interface of anthropology and palaeoenvironmental research (University of Potsdam).</p>
+    <p class="muted de">Ein Podcast-Gespräch über meine Promotion, meinen Werdegang und was mich an der
+       Schnittstelle von Anthropologie und Paläoumweltforschung fasziniert (Universität Potsdam).</p>
+    <a class="mediacard" href="https://videoup.uni-potsdam.de/Panopto/Pages/Viewer.aspx?id=e17a1908-c894-4f1b-aa4b-b2e600896843" target="_blank" rel="noopener">
+      <span class="play" aria-hidden="true">&#9654;</span>
+      <span class="mc-text">
+        <span class="mc-title"><span class="en">Listen on Panopto</span><span class="de">Auf Panopto anhören</span></span>
+        <span class="mc-sub"><span class="en">University of Potsdam · opens in a new tab</span><span class="de">Universität Potsdam · öffnet in neuem Tab</span></span>
+      </span>
+    </a>
+
+    <div class="links">
+      <a href="mailto:markus.lothar.fischer@uni-potsdam.de"><span class="en">Email</span><span class="de">E-Mail</span></a>
+      <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=29uQRgsAAAAJ&hl=de">Google Scholar</a>
+      <a href="https://www.uni-potsdam.de/en/geo/research/paleoclimate-dynamics/members"><span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span></a>
+      <a href="https://www.researchgate.net/profile/Markus-Fischer-32">ResearchGate</a>
+      <a href="https://github.com/MLFischer">GitHub</a>
+    </div>
+  </section>
+
+  <section class="panel" id="publikationen">
+    <h2><span class="en">Research &amp; publications</span><span class="de">Forschung &amp; Publikationen</span></h2>
+    <p class="lead en">Data-driven palaeoclimate researcher focused on climate dynamics, system
+       coupling, and human–environment interactions. I integrate sediment records, mechanistic and
+       data-driven models, and time-series analysis to understand climate and Earth-system dynamics
+       across scales.</p>
+    <p class="lead de">Datengetriebener Paläoklimaforscher mit Fokus auf Klimadynamik, System-Kopplung
+       und Mensch-Umwelt-Interaktionen. Ich verbinde Sedimentarchive, mechanistische und
+       datengetriebene Modelle sowie Zeitreihenanalyse, um Klima- und Erdsystemdynamik über
+       verschiedene Skalen hinweg zu verstehen.</p>
+    <p class="muted small en">Current direction: metaparameters in Earth-system science — measures that
+       make environmental processes comparable and translatable across scales, including their link to
+       the biosphere and human systems.</p>
+    <p class="muted small de">Aktuelle Richtung: Metaparameter in der Erdsystemwissenschaft — Maße, die
+       Umweltprozesse skalenübergreifend vergleichbar und übersetzbar machen, samt ihrer Kopplung an
+       die Biosphäre und den Menschen.</p>
+    <p class="muted en">Regional focus: southern Ethiopia (Chew Bahir basin), extended to pan-African
+       climate coupling and comparative drylands (Willandra Lakes, Australia). 14 peer-reviewed papers.</p>
+    <p class="muted de">Regionaler Schwerpunkt: Südäthiopien (Chew-Bahir-Becken), erweitert auf
+       pan-afrikanische Klimakopplung und vergleichende Trockengebiete (Willandra Lakes, Australien).
+       14 begutachtete Arbeiten.</p>
+    <div class="filterbar">
+      <button class="chip active" data-filter="all"><span class="en">All</span><span class="de">Alle</span></button>
+      <button class="chip" data-filter="first"><span class="en">First author</span><span class="de">Erstautor</span></button>
+    </div>
+    <ol class="refs">
+      <li class="yrhead">2026</li>
+      <li class="ref" data-role="co">Foerster, V., Asrat, A., Bronk Ramsey, C., Brown, E. T., Deino, A., Erbello, A., Fischer, M. L., Gebregiorgis, D., Junginger, A., Kaboth-Bahr, S., Lane, C. S., Opitz, S., Noren, A., Roberts, H. M., Tiedemann, R., Vidal, C.-M., Viehberg, F., Vogelsang, R., Zachow, C., Zinaye, B., Cohen, A. S., Lamb, H. F., Schaebitz, F. &amp; Trauth, M. H. (2026). Scientific deep drilling in the Chew Bahir basin: advantages and pitfalls of two overlapping sediment cores. <em>Scientific Drilling, 35</em>, 61–81.<div class="meta"><a href="https://doi.org/10.5194/sd-35-61-2026">doi.org/10.5194/sd-35-61-2026</a></div></li>
+      <li class="ref" data-role="co">Hein, M., Kasper, T., Samudra, A. B., Theuerkauf, M., Fischer, M. L., … Urban, B. (2026). Towards an 'absolute' timing of biostratigraphic and environmental phases from the Saalian late glacial to the Weichselian pleniglacial in central Europe. <em>Boreas.</em> Advance online publication.<div class="meta"><a href="https://doi.org/10.1111/bor.70066">doi.org/10.1111/bor.70066</a></div></li>
+      <li class="ref" data-role="co">Zielhofer, C., Rabiger-Völlmer, J., Westermann, H., Fischer, M. L., Schneider, B., Lindauer, S., Khosravichenar, A., Bauch, M., Pohle, M. &amp; Werban, U. (2026). Fluvial deposits of the Ahr river (western Germany) reveal recurring high-magnitude flood events over the last 1,500 years. <em>Earth Surface Processes and Landforms, 51</em>(1).<div class="meta"><a href="https://doi.org/10.1002/esp.70219">doi.org/10.1002/esp.70219</a></div></li>
+
+      <li class="yrhead">2025</li>
+      <li class="ref" data-role="co">Fitzsimmons, K. E., Fischer, M. L., Smith, T., Lauer, T., Nowatzki, M., Mishra, K. &amp; Murray-Wallace, C. V. (2025). Long-term hydrologic connectivity on the Australian dryland margins: evidence from the Willandra Lakes World Heritage Area over the last 60 ky. <em>Journal of Quaternary Science, 40</em>(5), 876–892.<div class="meta"><a href="https://doi.org/10.1002/jqs.3717">doi.org/10.1002/jqs.3717</a></div></li>
+      <li class="ref" data-role="co">Gosling, W. D., Chevalier, M., Fischer, M. L., Holewijn, M., Finch, J., Gil-Romera, G., Hill, T., Houngnon, A., Leonardi, M., Manica, A. &amp; Kaboth-Bahr, S. (2025). A multi-model approach to the spatial and temporal characterization of the African Humid Period. <em>Quaternary International, 744</em>, 109933.<div class="meta"><a href="https://doi.org/10.1016/j.quaint.2025.109933">doi.org/10.1016/j.quaint.2025.109933</a></div></li>
+
+      <li class="yrhead">2024</li>
+      <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Munz, P. M., Asrat, A., Foerster, V., Kaboth-Bahr, S., Marwan, N., Schaebitz, F., Schwanghart, W. &amp; Trauth, M. H. (2024). Spatio-temporal variations of climate along possible African-Arabian routes of <em>H. sapiens</em> expansion. <em>Quaternary Science Advances, 14</em>, 100174.<div class="meta"><a href="https://doi.org/10.1016/j.qsa.2024.100174">doi.org/10.1016/j.qsa.2024.100174</a></div></li>
+      <li class="ref" data-role="co">Trauth, M. H., Asrat, A., Fischer, M. L., Foerster, V., Kaboth-Bahr, S., Lamb, H. F., Marwan, N., Roberts, H. M. &amp; Schaebitz, F. (2024). Combining orbital tuning and direct dating approaches to age-depth model development for Chew Bahir, Ethiopia. <em>Quaternary Science Advances, 15</em>, 100208.<div class="meta"><a href="https://doi.org/10.1016/j.qsa.2024.100208">doi.org/10.1016/j.qsa.2024.100208</a></div></li>
+      <li class="ref" data-role="co">Trauth, M. H., Asrat, A., Fischer, M. L., Hopcroft, P. O., Foerster, V., Kaboth-Bahr, S., Kindermann, K., Lamb, H. F., Marwan, N., Maslin, M. A., Schaebitz, F. &amp; Valdes, P. J. (2024). Early warning signals of the termination of the African Humid Period(s). <em>Nature Communications, 15</em>(1), 3697.<div class="meta"><a href="https://doi.org/10.1038/s41467-024-47921-1">doi.org/10.1038/s41467-024-47921-1</a></div></li>
+
+      <li class="yrhead">2023</li>
+      <li class="ref" data-role="co">Scholz, S., Westermann, H., Hegemann, R., Popp, M., Richter, T., Fischer, M. L. &amp; Zielhofer, C. (2023). An international stratigraphic dataset and geological map of the Ahr River catchment, Germany. <em>Data in Brief, 51</em>, 109677.<div class="meta"><a href="https://doi.org/10.1016/j.dib.2023.109677">doi.org/10.1016/j.dib.2023.109677</a></div></li>
+
+      <li class="yrhead">2022</li>
+      <li class="ref" data-role="co">Hildebrand, E., Grillo, K. M., Chritz, K. L., Fischer, M. L., Goldstein, S. T., Janzen, A., Junginger, A., Kinyanjui, R. N., Ndiema, E., Sawchuk, E., Beyin, A. &amp; Pfeiffer, S. K. (2022). Buffering new risks? Environmental, social and economic changes in the Turkana Basin during and after the African Humid Period. <em>The Holocene, 32</em>(12), 1373–1392.<div class="meta"><a href="https://doi.org/10.1177/09596836221121766">doi.org/10.1177/09596836221121766</a></div></li>
+      <li class="ref" data-role="co">Markowska, M., Martin, A. N., Vonhof, H. B., Guinoiseau, D., Fischer, M. L., Zinaye, B., Galer, S. J. G., Asrat, A. &amp; Junginger, A. (2022). A multi-isotope and modelling approach for constraining hydro-connectivity in the East African Rift System, southern Ethiopia. <em>Quaternary Science Reviews, 279</em>, 107387.<div class="meta"><a href="https://doi.org/10.1016/j.quascirev.2022.107387">doi.org/10.1016/j.quascirev.2022.107387</a></div></li>
+      <li class="ref" data-role="co">von Suchodoletz, H., Kirkitadze, G., Koff, T., Fischer, M. L., Poch, R. M., Khosravichenar, A., Schneider, B., Glaser, B., Lindauer, S., Hoth, S., Skokan, A., Navrozashvili, L., Lobjanidze, M., Akhalaia, M., Losaberidze, L. &amp; Elashvili, M. (2022). Human-environmental interactions and seismic activity in a Late Bronze to Early Iron Age settlement center in the southeastern Caucasus. <em>Frontiers in Earth Science, 10</em>, 964188.<div class="meta"><a href="https://doi.org/10.3389/feart.2022.964188">doi.org/10.3389/feart.2022.964188</a></div></li>
+
+      <li class="yrhead">2021</li>
+      <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Bachofer, F., Yost, C. L., Bludau, I. J. E., Schepers, C., Foerster, V., Lamb, H., Schäbitz, F., Asrat, A., Trauth, M. H. &amp; Junginger, A. (2021). A phytolith supported biosphere-hydrosphere predictive model for southern Ethiopia. <em>Geosciences, 11</em>(10), 418.<div class="meta"><a href="https://doi.org/10.3390/geosciences11100418">doi.org/10.3390/geosciences11100418</a></div></li>
+
+      <li class="yrhead">2020</li>
+      <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Markowska, M., Bachofer, F., Foerster, V. E., Asrat, A., Zielhofer, C., Trauth, M. H. &amp; Junginger, A. (2020). Determining the pace and magnitude of lake level changes in southern Ethiopia over the last 20,000 years using lake balance modeling and SEBAL. <em>Frontiers in Earth Science, 8</em>, 197.<div class="meta"><a href="https://doi.org/10.3389/feart.2020.00197">doi.org/10.3389/feart.2020.00197</a></div></li>
+    </ol>
+  </section>
+
+  <section class="panel" id="expertise">
+    <h2><span class="en">Expertise</span><span class="de">Expertise</span></h2>
+    <p class="en">I work where Earth-system science, data science and scientific computing meet —
+       reconstructing past climate and environmental change, and what it meant for human evolution.
+       Field and lab data meet numerical climate models, statistics and modern data science, across
+       timescales from millennia to millions of years.</p>
+    <p class="en">The focus is palaeoclimatology, Quaternary science and the climate dynamics of Africa
+       and the Mediterranean: integrating high-resolution proxy archives, climate simulations and
+       spatial data to trace regional climate variability, environmental change and possible migration
+       corridors of early hominins.</p>
+    <p class="en">Methodologically I sit between statistics, time-series analysis and machine learning —
+       PCA, random forests, Monte-Carlo and uncertainty analysis, and nonlinear methods like Recurrence
+       Quantification Analysis (RQA) for determinism and tipping points. Much of it is reproducible
+       scientific software and automated pipelines, mostly in MATLAB and R. Alongside: designing
+       projects, writing papers and grants, running international workshops — and making Earth-system
+       processes legible through visualisation and interactive tools.</p>
+
+    <p class="de">Ich arbeite dort, wo Erdsystemwissenschaft, Data Science und Scientific Computing
+       zusammenkommen — und rekonstruiere vergangene Klima- und Umweltveränderungen
+       und ihre Bedeutung für die Evolution des Menschen. Feld- und Labordaten treffen auf numerische
+       Klimamodelle, Statistik und moderne Data Science, über Zeitskalen von Jahrtausenden bis
+       Jahrmillionen.</p>
+    <p class="de">Schwerpunkte sind Paläoklimatologie, Quartärforschung und die Klimadynamik Afrikas und
+       des Mittelmeerraums: die Integration hochauflösender Proxyarchive, Klimasimulationen und
+       räumlicher Daten, um regionale Klimavariabilität, Umweltwandel und mögliche Migrationskorridore
+       früher Homininen quantitativ zu fassen.</p>
+    <p class="de">Methodisch bewege ich mich zwischen Statistik, Zeitreihenanalyse und Machine Learning —
+       PCA, Random Forests, Monte-Carlo- und Unsicherheitsanalysen sowie nichtlineare Verfahren wie
+       Recurrence Quantification Analysis (RQA) für Determinismus und Kipppunkte. Ein großer Teil ist
+       reproduzierbare wissenschaftliche Software und automatisierte Pipelines, überwiegend in MATLAB
+       und R. Dazu: Projekte konzipieren, Publikationen und Anträge schreiben, internationale Workshops
+       organisieren — und Erdsystemprozesse lesbar machen, über Visualisierung und interaktive Tools.</p>
+
+    <h3><span class="en">Research areas</span><span class="de">Forschungsfelder</span></h3>
+    <div class="facts">
+      <span class="fact"><span class="en">Palaeoclimatology</span><span class="de">Paläoklimatologie</span></span>
+      <span class="fact"><span class="en">Quaternary science</span><span class="de">Quartärforschung</span></span>
+      <span class="fact"><span class="en">Climate dynamics</span><span class="de">Klimadynamik</span></span>
+      <span class="fact"><span class="en">Human–environment interactions</span><span class="de">Mensch-Umwelt-Interaktionen</span></span>
+      <span class="fact"><span class="en">Earth-system science</span><span class="de">Erdsystemwissenschaften</span></span>
+      <span class="fact"><span class="en">Proxy–model integration</span><span class="de">Proxy-Modell-Integration</span></span>
+    </div>
+
+  </section>
+
+  <section class="panel" id="klettergeologie">
+    <h2><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></h2>
+    <p class="muted en">A series at the interface of geology and climbing: what does the way a rock
+       formed reveal about how it feels and how it climbs?</p>
+    <p class="muted de">Eine Reihe an der Schnittstelle von Geologie und Klettern: Was verrät die
+       Entstehung eines Gesteins darüber, wie es sich anfühlt und klettern lässt?</p>
+
+    <div class="card">
+      <span class="kicker"><span class="en">Boulder Magazine · Part 1</span><span class="de">Boulder Magazine · Teil 1</span></span>
+      <h3 style="margin-top:6px">Sandstein — Millionen Jahre Griffmodellierung in Sněžník und Fontainebleau</h3>
+      <p class="byline">Markus Fischer &amp; Philipp Krause · <span class="en">Photos</span><span class="de">Fotos</span>: Ludwig Ander-Donath</p>
+      <p class="en">Two iconic sandstone bouldering areas compared: the finely sorted "Sables de
+         Fontainebleau" of the Paris Basin and the Elbe sandstone at Děčínský Sněžník. Why do they
+         look stylistically similar yet differ so clearly? Grain size, sorting and cementation
+         govern weathering, friction and hold types — from silica crusts and the Lusatian Overthrust
+         to Arduino's historical subdivision of Earth history.</p>
+      <p class="de">Zwei ikonische Sandstein-Bouldergebiete im Vergleich: die feinst sortierten
+         „Sables de Fontainebleau" im Pariser Becken und der Elbsandstein am Děčínský Sněžník. Warum
+         ähneln sie sich im Stil und unterscheiden sich zugleich deutlich? Korngröße, Sortierung und
+         Zementation entscheiden über Verwitterung, Reibung und Grifftypen — von Silikatkrusten über
+         die Lausitzer Überschiebung bis zu Arduinos historischer Gliederung der Erdgeschichte.</p>
+      <div class="links">
+        <a href="klettergeologie-sandstein.pdf" target="_blank" rel="noopener"><span class="en">Read the PDF</span><span class="de">PDF lesen</span></a>
+        <a href="https://www.boulder-mag.de">Boulder Magazine</a>
+      </div>
+    </div>
+
+    <div class="series">
+      <h4><span class="en">About the series</span><span class="de">Zur Reihe</span></h4>
+      <p class="muted small en">Each installment takes a rock or a geological epoch and translates it
+         into climbing and bouldering character — building, piece by piece, a "stratigraphy of climbing".</p>
+      <p class="muted small de">Jede Folge nimmt ein Gestein oder eine erdgeschichtliche Epoche und
+         übersetzt sie in Kletter- und Bouldercharakter — so entsteht nach und nach eine
+         „Stratigraphie des Kletterns".</p>
+      <ul>
+        <li class="done"><span class="en">Part 1 — Sandstone (Fontainebleau &amp; Sněžník) · published</span><span class="de">Teil 1 — Sandstein (Fontainebleau &amp; Sněžník) · erschienen</span></li>
+        <li><span class="en">Next issue — Gneiss: the Alps &amp; Magic Wood</span><span class="de">Nächste Ausgabe — Gneis: die Alpen &amp; Magic Wood</span></li>
+        <li><span class="en">Later — Palaeozoic (announced in the article)</span><span class="de">Später — Paläozoikum (im Artikel angekündigt)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel" id="klimamusik">
+    <h2><span class="en">Climate music</span><span class="de">Klimamusik</span></h2>
+    <p class="muted en">Making climate data audible: <em>climate · time · sound</em> turns real climate
+       records into music live in the browser — warmer = higher, extremes = accents, one month = one
+       beat. A bilingual (EN/DE) teaching tool for music, climate and time series.</p>
+    <p class="muted de">Klimadaten hörbar machen: <em>climate · time · sound</em> übersetzt echte
+       Klimareihen live im Browser in Musik — wärmer = höher, Extreme = Akzente, ein Monat = ein
+       Schlag. Ein zweisprachiges (EN/DE) Lehrwerkzeug zu Musik, Klima und Zeitreihen.</p>
+    <div class="card">
+      <span class="kicker"><span class="en">Project · Web Audio (JavaScript), no server</span><span class="de">Projekt · Web Audio (JavaScript), ohne Server</span></span>
+      <h3 style="margin-top:6px">climate · time · sound</h3>
+      <p class="en">Three modes: <strong>learn</strong> (guided signal path data → mapping → sound,
+         with a live legend), <strong>studio</strong> (twelve finished style scores driven by the
+         same mapping rules) and <strong>paleo</strong> (deep time as a multitrack piece from real
+         records — including LR04, EPICA CO₂, Milankovitch cycles and Chew Bahir/HSPDP). It runs as a
+         static page, exports to WAV and is shareable by link.</p>
+      <p class="de">Drei Modi: <strong>learn</strong> (geführter Signalweg Daten → Übersetzung →
+         Klang, mit Live-Legende), <strong>studio</strong> (zwölf fertige Stil-Partituren nach
+         denselben Mapping-Regeln) und <strong>paleo</strong> (Tiefenzeit als Mehrspur-Stück aus
+         echten Reihen — u. a. LR04, EPICA-CO₂, Milankovitch-Zyklen und Chew Bahir/HSPDP). Läuft als
+         statische Seite, exportiert als WAV und ist per Link teilbar.</p>
+      <p class="small muted en">Core idea: styles change only tempo, timbre and rhythm — never the
+         data or the rules. Sonification as a design decision on top of honest data.</p>
+      <p class="small muted de">Kerngedanke: Die Stile ändern nur Tempo, Klangfarbe und Rhythmus —
+         nie die Daten oder die Regeln. Sonifikation als gestalterische Entscheidung auf ehrlichen Daten.</p>
+      <div class="links">
+        <a href="https://mlfischer.github.io/climate-time-sound/"><span class="en">Live demo</span><span class="de">Live-Demo</span></a>
+        <a href="https://github.com/MLFischer/climate-time-sound">Repository</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="y"></span> Markus Fischer · University of Potsdam</div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  // Language
+  const body=document.body;
+  function setLang(l){
+    body.classList.toggle('lang-de',l==='de');
+    body.classList.toggle('lang-en',l==='en');
+    document.documentElement.lang=l;
+    document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.langsw button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
+  setLang(saved);
+  // Tabs
+  const btns=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.panel');
+  function show(id){btns.forEach(x=>x.classList.toggle('active',x.dataset.tab===id));
+    panels.forEach(p=>p.classList.toggle('active',p.id===id));}
+  btns.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.tab);history.replaceState(null,'','#'+b.dataset.tab);window.scrollTo({top:0,behavior:'smooth'});}));
+  if(location.hash){const id=location.hash.slice(1);if(document.getElementById(id))show(id);}
+  // Publication filter
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));c.classList.add('active');
+    const f=c.dataset.filter;
+    document.querySelectorAll('.refs .ref').forEach(li=>{li.style.display=(f==='all'||li.dataset.role===f)?'':'none';});
+    document.querySelectorAll('.refs .yrhead').forEach(h=>{h.style.display=(f==='all')?'':'none';});
+  }));
+</script>
+</body>
+</html>
