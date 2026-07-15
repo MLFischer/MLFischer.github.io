@@ -462,7 +462,8 @@
     document.querySelectorAll('.refs .ref').forEach(li=>{li.style.display=(f==='all'||li.dataset.role===f)?'':'none';});
     document.querySelectorAll('.refs .yrhead').forEach(h=>{h.style.display=(f==='all')?'':'none';});
   }));
-  // GeoCrimps gallery — reads the published crimps and groups them by calendar week
+  // GeoCrimps gallery — shows the full weekly compilations (Mon–Sun calendar weeks).
+  // Reads queue.json live, so each new week appears automatically once its crimps are queued.
   (function(){
     const host=document.getElementById('gc-gallery');
     if(!host) return;
@@ -470,6 +471,7 @@
     const PROFILE='https://www.instagram.com/geocrimps/';
     const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+    function num(p){return parseInt(p,10)||0;}
     function monday(ds){const p=String(ds).split('-').map(Number);const x=new Date(p[0],(p[1]||1)-1,p[2]||1);
       const day=(x.getDay()+6)%7;x.setDate(x.getDate()-day);x.setHours(0,0,0,0);return x;}
     function fmt(d){return MONTHS[d.getMonth()]+' '+d.getDate();}
@@ -478,15 +480,17 @@
       return 'Week of '+fmt(mon)+' – '+right+', '+sun.getFullYear();}
     fetch(QUEUE).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
       const base=q.image_base_url||'';
-      const items=(q.items||[]).filter(it=>it&&it.published&&it.image);
-      if(!items.length){host.innerHTML='<p class="gc-empty">No crimps published yet — check back soon.</p>';return;}
+      const items=(q.items||[]).filter(it=>it&&it.image&&it.date);
+      if(!items.length){host.innerHTML='<p class="gc-empty">No crimps yet — check back soon.</p>';return;}
+      // group by Monday–Sunday calendar week
       const weeks={};
       items.forEach(it=>{const m=monday(it.date);const k=m.getTime();(weeks[k]=weeks[k]||{mon:m,items:[]}).items.push(it);});
-      const keys=Object.keys(weeks).map(Number).sort((a,b)=>b-a);
+      const keys=Object.keys(weeks).map(Number).sort((a,b)=>b-a); // newest week first
       host.innerHTML='';
       keys.forEach(k=>{
         const w=weeks[k];
-        const posts=w.items.slice().sort((a,b)=>String(b.date+b.post).localeCompare(String(a.date+a.post)));
+        const posts=w.items.slice().sort((a,b)=>num(a.post)-num(b.post)); // #001 → … within the week
+        const label=weekLabel(w.mon);
         let cards='';
         posts.forEach(it=>{
           cards+='<a class="gc-card" href="'+PROFILE+'" target="_blank" rel="noopener">'
@@ -495,7 +499,7 @@
             +'<span class="gc-title">'+esc(it.title||'')+'</span></span></a>';
         });
         const sec=document.createElement('div');sec.className='gc-week';
-        sec.innerHTML='<h3>'+esc(weekLabel(w.mon))+'</h3><div class="gc-grid">'+cards+'</div>';
+        sec.innerHTML='<h3>'+esc(label)+'</h3><div class="gc-grid">'+cards+'</div>';
         host.appendChild(sec);
       });
     }).catch(function(){host.innerHTML='<p class="gc-empty">Could not load the crimps right now — see <a href="'+PROFILE+'">Instagram @geocrimps</a>.</p>';});
