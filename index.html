@@ -472,25 +472,25 @@
     const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
     function num(p){return parseInt(p,10)||0;}
-    function monday(ds){const p=String(ds).split('-').map(Number);const x=new Date(p[0],(p[1]||1)-1,p[2]||1);
-      const day=(x.getDay()+6)%7;x.setDate(x.getDate()-day);x.setHours(0,0,0,0);return x;}
+    function pdate(ds){const p=String(ds).split('-').map(Number);return new Date(p[0],(p[1]||1)-1,p[2]||1);}
     function fmt(d){return MONTHS[d.getMonth()]+' '+d.getDate();}
-    function weekLabel(mon){const sun=new Date(mon);sun.setDate(sun.getDate()+6);
-      const right=(mon.getMonth()===sun.getMonth())?String(sun.getDate()):fmt(sun);
-      return 'Week of '+fmt(mon)+' – '+right+', '+sun.getFullYear();}
+    function rangeLabel(a,b){const da=pdate(a),db=pdate(b);
+      const right=(da.getMonth()===db.getMonth())?String(db.getDate()):fmt(db);
+      return fmt(da)+' – '+right+', '+db.getFullYear();}
     fetch(QUEUE).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
       const base=q.image_base_url||'';
-      const items=(q.items||[]).filter(it=>it&&it.image&&it.date);
+      const items=(q.items||[]).filter(it=>it&&it.image);
       if(!items.length){host.innerHTML='<p class="gc-empty">No crimps yet — check back soon.</p>';return;}
-      // group by Monday–Sunday calendar week
+      // group into weekly batches of 7: Week 1 = #001–007, Week 2 = #008–014, …
       const weeks={};
-      items.forEach(it=>{const m=monday(it.date);const k=m.getTime();(weeks[k]=weeks[k]||{mon:m,items:[]}).items.push(it);});
+      items.forEach(it=>{const wk=Math.floor((num(it.post)-1)/7);(weeks[wk]=weeks[wk]||{wk:wk,items:[]}).items.push(it);});
       const keys=Object.keys(weeks).map(Number).sort((a,b)=>b-a); // newest week first
       host.innerHTML='';
       keys.forEach(k=>{
         const w=weeks[k];
-        const posts=w.items.slice().sort((a,b)=>num(a.post)-num(b.post)); // #001 → … within the week
-        const label=weekLabel(w.mon);
+        const posts=w.items.slice().sort((a,b)=>num(a.post)-num(b.post)); // #001 → #007 within the week
+        const dates=posts.map(p=>p.date).filter(Boolean).sort();
+        const label='Week '+(k+1)+(dates.length?' · '+rangeLabel(dates[0],dates[dates.length-1]):'');
         let cards='';
         posts.forEach(it=>{
           cards+='<a class="gc-card" href="'+PROFILE+'" target="_blank" rel="noopener">'
