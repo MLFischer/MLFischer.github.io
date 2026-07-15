@@ -110,6 +110,23 @@
   .revlist li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--fg)}
   .revlist li:last-child{border-bottom:none}
   .revlist .n{color:var(--faint);font-variant-numeric:tabular-nums}
+
+  /* GeoCrimps gallery */
+  .gc-intro{margin-top:0}
+  .gc-week{margin-top:30px}
+  .gc-week h3{margin:0 0 14px;font-family:-apple-system,sans-serif;font-size:1rem;
+              letter-spacing:.01em;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .gc-card{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+           background:var(--card);color:var(--fg);text-decoration:none}
+  .gc-card:hover{border-color:var(--accent)}
+  .gc-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
+  .gc-card .gc-meta{padding:10px 12px;display:block}
+  .gc-card .gc-num{font-family:-apple-system,sans-serif;font-size:.72rem;letter-spacing:.06em;
+                   text-transform:uppercase;color:var(--faint);display:block}
+  .gc-card .gc-title{font-size:.95rem;font-weight:600;margin-top:2px;line-height:1.3;display:block}
+  .gc-empty{color:var(--faint);font-style:italic}
+
   .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:12px;
              padding:15px 17px;margin-top:8px;background:var(--card);text-decoration:none;color:var(--fg)}
   .mediacard:hover{border-color:var(--accent)}
@@ -152,6 +169,7 @@
     <button class="tab-btn" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></button>
     <button class="tab-btn" data-tab="expertise"><span class="en">Expertise</span><span class="de">Expertise</span></button>
     <button class="tab-btn" data-tab="klettergeologie"><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></button>
+    <button class="tab-btn" data-tab="geocrimps">GeoCrimps</button>
     <button class="tab-btn" data-tab="klimamusik"><span class="en">Climate music</span><span class="de">Klimamusik</span></button>
   </div>
 </nav>
@@ -194,6 +212,7 @@
     <p class="muted de">Gutachter für Fachzeitschriften (über <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a> verifiziert):</p>
     <ul class="revlist">
       <li><span>Nature Communications</span></li>
+      <li><span>Nature Geoscience</span></li>
       <li><span>Quaternary International</span></li>
       <li><span>International Journal of Earth Sciences</span></li>
       <li><span>Palaeogeography, Palaeoclimatology, Palaeoecology</span></li>
@@ -365,6 +384,18 @@
     </div>
   </section>
 
+  <section class="panel" id="geocrimps">
+    <h2>GeoCrimps</h2>
+    <p class="muted gc-intro">A daily micro-series on the geology of climbing — one illustrated
+       "crimp" a day, each explaining why a rock feels and climbs the way it does. Rock crimps, map
+       crimps, ice crimps, climate crimps: small holds, big Earth. New crimps appear here automatically,
+       grouped by week.</p>
+    <div class="links" style="margin-top:14px">
+      <a href="https://www.instagram.com/geocrimps/" target="_blank" rel="noopener">Instagram @geocrimps</a>
+    </div>
+    <div id="gc-gallery"><p class="ph">Loading crimps…</p></div>
+  </section>
+
   <section class="panel" id="klimamusik">
     <h2><span class="en">Climate music</span><span class="de">Klimamusik</span></h2>
     <p class="muted en">Making climate data audible: <em>climate · time · sound</em> turns real climate
@@ -430,6 +461,44 @@
     document.querySelectorAll('.refs .ref').forEach(li=>{li.style.display=(f==='all'||li.dataset.role===f)?'':'none';});
     document.querySelectorAll('.refs .yrhead').forEach(h=>{h.style.display=(f==='all')?'':'none';});
   }));
+  // GeoCrimps gallery — reads the published crimps and groups them by calendar week
+  (function(){
+    const host=document.getElementById('gc-gallery');
+    if(!host) return;
+    const QUEUE='https://raw.githubusercontent.com/MLFischer/geocrimps-assets/main/queue.json';
+    const PROFILE='https://www.instagram.com/geocrimps/';
+    const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+    function monday(ds){const p=String(ds).split('-').map(Number);const x=new Date(p[0],(p[1]||1)-1,p[2]||1);
+      const day=(x.getDay()+6)%7;x.setDate(x.getDate()-day);x.setHours(0,0,0,0);return x;}
+    function fmt(d){return MONTHS[d.getMonth()]+' '+d.getDate();}
+    function weekLabel(mon){const sun=new Date(mon);sun.setDate(sun.getDate()+6);
+      const right=(mon.getMonth()===sun.getMonth())?String(sun.getDate()):fmt(sun);
+      return 'Week of '+fmt(mon)+' – '+right+', '+sun.getFullYear();}
+    fetch(QUEUE).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
+      const base=q.image_base_url||'';
+      const items=(q.items||[]).filter(it=>it&&it.published&&it.image);
+      if(!items.length){host.innerHTML='<p class="gc-empty">No crimps published yet — check back soon.</p>';return;}
+      const weeks={};
+      items.forEach(it=>{const m=monday(it.date);const k=m.getTime();(weeks[k]=weeks[k]||{mon:m,items:[]}).items.push(it);});
+      const keys=Object.keys(weeks).map(Number).sort((a,b)=>b-a);
+      host.innerHTML='';
+      keys.forEach(k=>{
+        const w=weeks[k];
+        const posts=w.items.slice().sort((a,b)=>String(b.date+b.post).localeCompare(String(a.date+a.post)));
+        let cards='';
+        posts.forEach(it=>{
+          cards+='<a class="gc-card" href="'+PROFILE+'" target="_blank" rel="noopener">'
+            +'<img loading="lazy" src="'+esc(base+it.image)+'" alt="'+esc(it.title||'GeoCrimp')+'">'
+            +'<span class="gc-meta"><span class="gc-num">GeoCrimp #'+esc(it.post)+'</span>'
+            +'<span class="gc-title">'+esc(it.title||'')+'</span></span></a>';
+        });
+        const sec=document.createElement('div');sec.className='gc-week';
+        sec.innerHTML='<h3>'+esc(weekLabel(w.mon))+'</h3><div class="gc-grid">'+cards+'</div>';
+        host.appendChild(sec);
+      });
+    }).catch(function(){host.innerHTML='<p class="gc-empty">Could not load the crimps right now — see <a href="'+PROFILE+'">Instagram @geocrimps</a>.</p>';});
+  })();
 </script>
 </body>
 </html>
