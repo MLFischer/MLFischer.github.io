@@ -477,7 +477,7 @@
     function rangeLabel(a,b){const da=pdate(a),db=pdate(b);
       const right=(da.getMonth()===db.getMonth())?String(db.getDate()):fmt(db);
       return fmt(da)+' – '+right+', '+db.getFullYear();}
-    fetch(QUEUE).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
+    fetch(QUEUE+'?t='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
       const base=q.image_base_url||'';
       const items=(q.items||[]).filter(it=>it&&it.image);
       if(!items.length){host.innerHTML='<p class="gc-empty">No crimps yet — check back soon.</p>';return;}
