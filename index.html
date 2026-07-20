@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Markus Fischer</title>
-<meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, climbing geology, climate music and notes.">
+<meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. GeoNews weekly palaeoclimate digest, research, climbing geology and climate music.">
 <style>
   :root{
     --bg:#fbfbfa;--fg:#22232a;--muted:#6b6c74;--faint:#8b8c94;--line:#e7e7e4;
@@ -140,6 +140,55 @@
   footer{padding:40px 0 60px;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line);margin-top:44px;
          font-family:-apple-system,sans-serif}
   @media(max-width:600px){.hero h1{font-size:1.7rem}}
+
+  /* ---- geonews:css ---- */
+  #geonews .gn-issue{margin-top:26px}
+  #geonews .gn-issue h2{font-size:1.15rem;margin:26px 0 8px}
+  #geonews .gn-issue h3{font-size:1rem;margin:20px 0 6px;color:var(--muted)}
+  #geonews .gn-issue blockquote{margin:18px 0;padding:14px 18px;background:var(--soft);
+        border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.94rem}
+  #geonews .gn-issue blockquote p{margin:6px 0}
+  #geonews .gn-issue hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+  #geonews .gn-issue ul{padding-left:20px}
+  #geonews .gn-issue li{margin:8px 0}
+  #geonews .gn-issue em{color:var(--muted)}
+  .gn-dot{display:inline-block;width:.62em;height:.62em;border-radius:50%;
+        vertical-align:baseline;margin-right:.3em}
+  .gn-red{background:#c2453f}.gn-yel{background:#d29200}.gn-grn{background:#3f8a4f}
+  .gn-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 0}
+  .gn-badge{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+        font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);
+        border:1px solid var(--line);border-radius:100px;padding:4px 11px}
+
+  /* Archiv: eine Zeile je Woche, PDFs rechts */
+  .gn-arch{margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+  .gn-arch h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+        color:var(--faint);font-family:-apple-system,sans-serif;margin:0 0 4px}
+  .gn-arch .gn-note{color:var(--faint);font-size:.82rem;margin:0 0 16px;
+        font-family:-apple-system,sans-serif}
+  .gn-arch ol{list-style:none;padding:0;margin:0}
+  .gn-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;
+        padding:14px 0;border-bottom:1px solid var(--line)}
+  .gn-row:last-child{border-bottom:none}
+  .gn-row.gn-cur{background:var(--soft);margin:0 -14px;padding:14px;border-radius:8px;
+        border-bottom:none}
+  .gn-left{min-width:0;flex:1}
+  .gn-wk{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+        font-size:.78rem;letter-spacing:.05em;color:var(--fg);font-weight:600}
+  .gn-when{font-family:-apple-system,sans-serif;font-size:.76rem;color:var(--faint);
+        margin-left:8px;font-weight:400;letter-spacing:0}
+  .gn-teaser{font-size:.88rem;color:var(--muted);margin:5px 0 0;line-height:1.55}
+  .gn-pdfs{display:flex;gap:7px;flex-shrink:0;padding-top:2px}
+  .gn-pdf{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+        font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+        border:1px solid var(--line);border-radius:5px;padding:5px 10px;
+        color:var(--muted);white-space:nowrap;background:var(--card)}
+  .gn-pdf:hover{border-color:var(--accent);color:var(--accent)}
+  .gn-ph{color:var(--faint);font-style:italic}
+  @media (max-width:560px){
+    .gn-row{flex-direction:column;gap:10px}
+    .gn-pdfs{padding-top:0}
+  }
 </style>
 </head>
 <body class="lang-en">
@@ -168,9 +217,10 @@
     <button class="tab-btn active" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></button>
     <button class="tab-btn" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></button>
     <button class="tab-btn" data-tab="expertise"><span class="en">Expertise</span><span class="de">Expertise</span></button>
-    <button class="tab-btn" data-tab="klettergeologie"><span class="en">Climbing Earth History</span><span class="de">Klettergeologie</span></button>
+    <button class="tab-btn" data-tab="geonews">GeoNews</button>
+    <button class="tab-btn" data-tab="klettergeologie">ClimbingEarth</button>
     <button class="tab-btn" data-tab="geocrimps">GeoCrimps</button>
-    <button class="tab-btn" data-tab="klimamusik"><span class="en">Climate Music</span><span class="de">Klimamusik</span></button>
+    <button class="tab-btn" data-tab="klimamusik">ClimateMusic</button>
   </div>
 </nav>
 
@@ -342,8 +392,38 @@
 
   </section>
 
+
+  <!-- geonews:start -->
+  <section class="panel" id="geonews">
+    <h2>GeoNews</h2>
+    <p class="lead en">An automatically generated weekly digest on Quaternary palaeoclimate
+       research, East African rift dynamics, palaeohydrology and time-series analysis — plus
+       funding calls, research policy and community deadlines. New issue every Monday.</p>
+    <p class="lead de">Ein automatisiert erstellter Wochen-Digest zu quartärer Paläoklimaforschung,
+       ostafrikanischer Riftdynamik, Paläohydrologie und Zeitreihenanalyse — dazu Fördercalls,
+       Wissenschaftspolitik und Community-Termine. Jeden Montag eine neue Ausgabe.</p>
+    <p class="muted en">A research workflow screens new publications and sources each week, scores
+       them against a fixed set of criteria and assembles the issue. The thematic profile follows
+       my own research interests, so this is a focused digest rather than a complete survey of the
+       field. Selection and summaries are machine-generated and reviewed before publication — where
+       in doubt, the linked original source governs.</p>
+    <p class="muted de">Ein Recherche-Workflow sichtet wöchentlich neue Publikationen und Quellen,
+       bewertet sie nach festen Kriterien und setzt daraus die Ausgabe zusammen. Das Themenprofil
+       folgt meinen eigenen Forschungsinteressen — es ist also ein fokussierter Digest und keine
+       vollständige Übersicht des Fachs. Auswahl und Kurztexte entstehen maschinell und werden vor
+       der Veröffentlichung gesichtet; im Zweifel gilt die verlinkte Originalquelle.</p>
+    <div class="gn-bar">
+      <span class="gn-badge"><span class="en">Automated</span><span class="de">Automatisiert</span></span>
+      <span class="gn-badge"><span class="en">Weekly · Mondays</span><span class="de">Wöchentlich · montags</span></span>
+      <span class="gn-badge">EN / DE</span>
+    </div>
+    <div id="gn-latest"><p class="gn-ph"><span class="en">Loading the latest issue…</span><span class="de">Aktuelle Ausgabe wird geladen…</span></p></div>
+    <div id="gn-archive"></div>
+  </section>
+  <!-- geonews:end -->
+
   <section class="panel" id="klettergeologie">
-    <h2><span class="en">Climbing Earth History</span><span class="de">Klettergeologie</span></h2>
+    <h2>ClimbingEarth</h2>
     <p class="muted en">A series at the interface of geology and climbing: what does the way a rock
        formed reveal about how it feels and how it climbs?</p>
     <p class="muted de">Eine Reihe an der Schnittstelle von Geologie und Klettern: Was verrät die
@@ -398,7 +478,7 @@
   </section>
 
   <section class="panel" id="klimamusik">
-    <h2><span class="en">Climate Music</span><span class="de">Klimamusik</span></h2>
+    <h2>ClimateMusic</h2>
     <p class="muted en">Making climate data audible: <em>climate · time · sound</em> turns real climate
        records into music live in the browser — warmer = higher, extremes = accents, one month = one
        beat. A bilingual (EN/DE) teaching tool for music, climate and time series.</p>
@@ -503,6 +583,72 @@
         host.appendChild(sec);
       });
     }).catch(function(){host.innerHTML='<p class="gc-empty">Could not load the crimps right now — see <a href="'+PROFILE+'">Instagram @geocrimps</a>.</p>';});
+  })();
+
+  // GeoNews — loads issues.json live, so each new Monday issue appears automatically.
+  (function(){
+    var host=document.getElementById('gn-latest'), arch=document.getElementById('gn-archive');
+    if(!host) return;
+    var SRC='geonews/issues.json';
+    function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function nice(ds,lang){
+      var p=String(ds).split('-'), d=new Date(+p[0],+p[1]-1,+p[2]);
+      return d.toLocaleDateString(lang==='de'?'de-DE':'en-GB',
+        {year:'numeric',month:'long',day:'numeric'});
+    }
+    function fail(){host.innerHTML='<p class="gn-ph"><span class="en">The latest issue could not be '
+      +'loaded right now.</span><span class="de">Die aktuelle Ausgabe konnte gerade nicht geladen '
+      +'werden.</span></p>';}
+    // eine Archivzeile: Woche + Datum, Teaser, PDF-Buttons je Sprache
+    function row(it,base,isCurrent){
+      // PDF-Buttons sind sprachneutral beschriftet und in beiden Modi sichtbar
+      var pdfs='';
+      if(it.pdf_en) pdfs+='<a class="gn-pdf" href="'+esc(base+it.pdf_en)+'">PDF EN</a>';
+      if(it.pdf_de) pdfs+='<a class="gn-pdf" href="'+esc(base+it.pdf_de)+'">PDF DE</a>';
+      var cur='';
+      if(isCurrent) cur='<span class="gn-badge" style="margin-left:8px">'
+        +'<span class="en">current</span><span class="de">aktuell</span></span>';
+      return '<li class="gn-row'+(isCurrent?' gn-cur':'')+'"><div class="gn-left">'
+        +'<span class="en"><span class="gn-wk">'+esc(it.week_en)+'</span>'
+        +'<span class="gn-when">'+esc(nice(it.date,'en'))+'</span>'+cur
+        +'<p class="gn-teaser">'+esc(it.teaser_en||'')+'</p></span>'
+        +'<span class="de"><span class="gn-wk">'+esc(it.week_de)+'</span>'
+        +'<span class="gn-when">'+esc(nice(it.date,'de'))+'</span>'+cur
+        +'<p class="gn-teaser">'+esc(it.teaser_de||'')+'</p></span>'
+        +'</div><div class="gn-pdfs">'+pdfs+'</div></li>';
+    }
+    fetch(SRC+'?t='+Date.now(),{cache:'no-store'}).then(function(r){
+      if(!r.ok) throw new Error(r.status); return r.json();
+    }).then(function(q){
+      var base=q.base_url||'', list=(q.issues||[]).slice();
+      if(!list.length){host.innerHTML='<p class="gn-ph"><span class="en">No issues yet.</span>'
+        +'<span class="de">Noch keine Ausgaben.</span></p>';return;}
+      var cur=list[0];
+      return Promise.all([
+        fetch(base+cur.html_en).then(function(r){return r.text();}),
+        fetch(base+cur.html_de).then(function(r){return r.text();})
+      ]).then(function(parts){
+        var head='<div class="gn-bar" style="margin-bottom:6px">'
+          +'<span class="gn-badge"><span class="en">'+esc(cur.week_en)+' · '+esc(nice(cur.date,'en'))
+          +'</span><span class="de">'+esc(cur.week_de)+' · '+esc(nice(cur.date,'de'))+'</span></span>';
+        if(cur.pdf_en) head+='<a class="gn-pdf" href="'+esc(base+cur.pdf_en)+'">PDF EN</a>';
+        if(cur.pdf_de) head+='<a class="gn-pdf" href="'+esc(base+cur.pdf_de)+'">PDF DE</a>';
+        head+='</div>';
+        host.innerHTML=head
+          +'<div class="gn-issue en">'+parts[0]+'</div>'
+          +'<div class="gn-issue de">'+parts[1]+'</div>';
+        if(!arch) return;
+        // Archiv listet ALLE Ausgaben, neueste zuerst
+        var rows='';
+        list.forEach(function(it,i){rows+=row(it,base,i===0);});
+        arch.innerHTML='<div class="gn-arch">'
+          +'<h3><span class="en">Archive</span><span class="de">Archiv</span></h3>'
+          +'<p class="gn-note"><span class="en">Every issue as a PDF, week by week — '
+          +'English and German.</span><span class="de">Jede Ausgabe als PDF, Woche für Woche — '
+          +'englisch und deutsch.</span></p><ol>'+rows+'</ol></div>';
+      });
+    }).catch(fail);
   })();
 </script>
 </body>

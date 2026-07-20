@@ -1,0 +1,19 @@
+{
+  "base_url": "geonews/",
+  "issues": [
+    {
+      "date": "2026-07-20",
+      "week_de": "KW 30/2026",
+      "week_en": "Week 30/2026",
+      "title_de": "GeoNews — KW 30/2026",
+      "title_en": "GeoNews — Week 30/2026",
+      "teaser_de": "Fünf Must-reads, und die Woche ist ungewöhnlich stark an den Rändern des Profils. Aus der Kernregion kommt eine Sedimentbudget-Studie zum Omo-Einzugsgebiet und seinem Beitrag zur Turkana-Depression über 27 Millionen Jahre — dasselbe Becken, andere Zeitskala. …",
+      "teaser_en": "Five must-reads, and the week is unusually strong at the edges of the profile. From the core region comes a sediment-budget study of the Omo catchment and its contribution to the Turkana Depression across 27 million years — the same basin, a different …",
+      "html_de": "issues/2026-07-20/de.html",
+      "html_en": "issues/2026-07-20/en.html",
+      "pdf_de": "issues/2026-07-20/GeoNews_2026-07-20_DE.pdf",
+      "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
+    }
+  ],
+  "updated": "2026-07-20T12:28:01+00:00"
+}
