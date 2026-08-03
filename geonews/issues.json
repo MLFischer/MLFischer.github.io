@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-08-03",
+      "week_de": "KW 32/2026",
+      "week_en": "Week 32/2026",
+      "title_de": "GeoNews — KW 32/2026",
+      "title_en": "GeoNews — Week 32/2026",
+      "teaser_de": "Sechs relevante Arbeiten, vier auf dem Radar, dazu zehn Titel-Nachweise aus den Elsevier-Kernjournalen — und erstmals seit drei Ausgaben wieder ein 🔴 Must-read an der Spitze. Der Crossref-Zugriff aus der Rechenumgebung war wie in den Vorwochen blockiert …",
+      "teaser_en": "Six relevant papers, four on the radar, plus ten title-level records from the Elsevier core journals — and, for the first time in three issues, a 🔴 must-read at the top. Crossref access from the compute environment was blocked as in previous weeks (proxy …",
+      "html_de": "issues/2026-08-03/de.html",
+      "html_en": "issues/2026-08-03/en.html",
+      "pdf_de": "issues/2026-08-03/GeoNews_2026-08-03_DE.pdf",
+      "pdf_en": "issues/2026-08-03/GeoNews_2026-08-03_EN.pdf"
+    },
+    {
       "date": "2026-08-02",
       "week_de": "KW 31/2026",
       "week_en": "Week 31/2026",
@@ -41,5 +54,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-08-02T22:00:02+00:00"
+  "updated": "2026-08-03T12:27:41+00:00"
 }
