@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-08-17",
+      "week_de": "KW 34/2026",
+      "week_en": "Week 34/2026",
+      "title_de": "GeoNews — KW 34/2026",
+      "title_en": "GeoNews — Week 34/2026",
+      "teaser_de": "Sechs bewertete Arbeiten im Ranking, dazu zwei auf dem Radar. An der Spitze steht diese Woche ein klarer 🔴 Must-read, der zugleich der thematische Volltreffer ist: eine Holozän-Hydroklima-Rekonstruktion des Sees Sidi Ali im marokkanischen Mittleren Atlas mit …",
+      "teaser_en": "Six scored papers in the ranking, plus two on the radar. At the top this week sits a clear 🔴 must-read that is also the thematic bullseye: a Holocene hydroclimate reconstruction of Lake Sidi Ali in the Moroccan Middle Atlas with Redfit and wavelet time-series …",
+      "html_de": "issues/2026-08-17/de.html",
+      "html_en": "issues/2026-08-17/en.html",
+      "pdf_de": "issues/2026-08-17/GeoNews_2026-08-17_DE.pdf",
+      "pdf_en": "issues/2026-08-17/GeoNews_2026-08-17_EN.pdf"
+    },
+    {
       "date": "2026-08-03",
       "week_de": "KW 32/2026",
       "week_en": "Week 32/2026",
@@ -54,5 +67,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-08-03T12:27:41+00:00"
+  "updated": "2026-08-17T10:44:26+00:00"
 }
