@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-08-24",
+      "week_de": "KW 35/2026",
+      "week_en": "Week 35/2026",
+      "title_de": "GeoNews — KW 35/2026",
+      "title_en": "GeoNews — Week 35/2026",
+      "teaser_de": "Elf bewertete Arbeiten, diese Woche kein 🔴 Must-read: Keine Neuerscheinung im Fenster erreicht die 75-Punkte-Schwelle. An der Spitze stehen zwei 🟡-Arbeiten. Erste ist eine peer-reviewte Climate-of-the-Past-Studie zur Dichteschichtung der Tiefsee über die …",
+      "teaser_en": "Eleven scored papers, and no 🔴 must-read this week: no new publication in the window reaches the 75-point threshold. At the top are two 🟡 papers. The first is a peer-reviewed Climate of the Past study of deep-ocean density stratification across the Middle …",
+      "html_de": "issues/2026-08-24/de.html",
+      "html_en": "issues/2026-08-24/en.html",
+      "pdf_de": "issues/2026-08-24/GeoNews_2026-08-24_DE.pdf",
+      "pdf_en": "issues/2026-08-24/GeoNews_2026-08-24_EN.pdf"
+    },
+    {
       "date": "2026-08-17",
       "week_de": "KW 34/2026",
       "week_en": "Week 34/2026",
@@ -67,5 +80,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-08-17T10:44:26+00:00"
+  "updated": "2026-08-24T06:35:00+00:00"
 }
