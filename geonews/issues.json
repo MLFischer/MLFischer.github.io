@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-09-18",
+      "week_de": "KW 38/2026",
+      "week_en": "Week 38/2026",
+      "title_de": "GeoNews — KW 38/2026",
+      "title_en": "GeoNews — Week 38/2026",
+      "teaser_de": "Achtzehn bewertete Arbeiten, diese Woche zwei 🔴 Must-reads. An der Spitze eine peer-reviewte, frei zugängliche Communications-Earth-&-Environment-Studie zu Sommer- und Wintertemperaturen des Holozäns in Ostmitteleuropa aus fünf Pollenrecords der Karpaten: …",
+      "teaser_en": "Eighteen scored papers, and two 🔴 must-reads this week. At the top is a peer-reviewed, open-access Communications Earth & Environment study of Holocene summer and winter temperatures in East-Central Europe from five Carpathian pollen records: separate …",
+      "html_de": "issues/2026-09-18/de.html",
+      "html_en": "issues/2026-09-18/en.html",
+      "pdf_de": "issues/2026-09-18/GeoNews_2026-09-18_DE.pdf",
+      "pdf_en": "issues/2026-09-18/GeoNews_2026-09-18_EN.pdf"
+    },
+    {
       "date": "2026-08-24",
       "week_de": "KW 35/2026",
       "week_en": "Week 35/2026",
@@ -80,5 +93,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-08-24T06:35:00+00:00"
+  "updated": "2026-09-19T08:03:45+00:00"
 }
