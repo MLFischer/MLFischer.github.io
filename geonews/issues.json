@@ -2,6 +2,32 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-09-28",
+      "week_de": "KW 40/2026",
+      "week_en": "Week 40/2026",
+      "title_de": "GeoNews — KW 40/2026",
+      "title_en": "GeoNews — Week 40/2026",
+      "teaser_de": "Über zwei Dutzend bewertete Arbeiten, diese Woche drei 🔴 Must-reads — zwei davon abstract-gestützt, einer auf Basis von Titel und Journal. An der Spitze eine Paleoceanography-and-Paleoclimatology-Studie zur saisonalen Struktur der pazifischen …",
+      "teaser_en": "More than two dozen scored works, with three 🔴 must-reads this week — two abstract-backed, one based on title and journal. Leading is a Paleoceanography and Paleoclimatology study on the seasonal structure of the Pacific Walker Circulation during the …",
+      "html_de": "issues/2026-09-28/de.html",
+      "html_en": "issues/2026-09-28/en.html",
+      "pdf_de": "issues/2026-09-28/GeoNews_2026-09-28_DE.pdf",
+      "pdf_en": "issues/2026-09-28/GeoNews_2026-09-28_EN.pdf"
+    },
+    {
+      "date": "2026-09-21",
+      "week_de": "KW 39/2026",
+      "week_en": "Week 39/2026",
+      "title_de": "GeoNews — KW 39/2026",
+      "title_en": "GeoNews — Week 39/2026",
+      "teaser_de": "Einundzwanzig bewertete Arbeiten, diese Woche ein 🔴 Must-read. An der Spitze eine peer-reviewte, frei zugängliche Communications-Earth-&-Environment-Studie zur pazifischen Walker-Zirkulation über die letzten 800.000 Jahre: aus …",
+      "teaser_en": "Twenty-one scored papers, and one 🔴 must-read this week. At the top is a peer-reviewed, open-access Communications Earth & Environment study of the Pacific Walker Circulation over the past 800,000 years: an ENSO-Modoki index is reconstructed from sea-surface …",
+      "html_de": "issues/2026-09-21/de.html",
+      "html_en": "issues/2026-09-21/en.html",
+      "pdf_de": "issues/2026-09-21/GeoNews_2026-09-21_DE.pdf",
+      "pdf_en": "issues/2026-09-21/GeoNews_2026-09-21_EN.pdf"
+    },
+    {
       "date": "2026-09-18",
       "week_de": "KW 38/2026",
       "week_en": "Week 38/2026",
@@ -93,5 +119,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-09-19T08:03:45+00:00"
+  "updated": "2026-09-29T11:35:01+00:00"
 }
