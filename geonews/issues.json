@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-10-19",
+      "week_de": "KW 43/2026",
+      "week_en": "Week 43/2026",
+      "title_de": "GeoNews — KW 43/2026",
+      "title_en": "GeoNews — Week 43/2026",
+      "teaser_de": "Rund drei Dutzend bewertete Arbeiten, diese Woche vier 🔴 Must-reads, alle abstract-gestützt. Ein direkter Primärtreffer aus dem Ostafrikanischen Rift fehlt diesmal; der Schwerpunkt liegt auf Zeitreihenmethodik an Seen- und Höhlenarchiven und auf Bohrkernen …",
+      "teaser_en": "About three dozen scored papers, with four 🔴 must-reads this week, all based on abstracts. There is no direct primary hit from the East African Rift this time; the emphasis is on time-series methods applied to lake and cave archives and on drill cores from …",
+      "html_de": "issues/2026-10-19/de.html",
+      "html_en": "issues/2026-10-19/en.html",
+      "pdf_de": "issues/2026-10-19/GeoNews_2026-10-19_DE.pdf",
+      "pdf_en": "issues/2026-10-19/GeoNews_2026-10-19_EN.pdf"
+    },
+    {
       "date": "2026-10-12",
       "week_de": "KW 42/2026",
       "week_en": "Week 42/2026",
@@ -132,5 +145,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-10-12T06:48:35+00:00"
+  "updated": "2026-10-19T11:58:03+00:00"
 }
