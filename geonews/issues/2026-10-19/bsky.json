@@ -1,0 +1,29 @@
+{
+  "issue": "2026-10-19",
+  "week_en": "Week 43/2026",
+  "week_de": "KW 43/2026",
+  "posts": [
+    {
+      "id": "2026-10-19-01",
+      "slot": "mi",
+      "scheduled": "2026-10-21T17:00:00+02:00",
+      "title": "When decadal dry-wet swings cluster",
+      "text": "Five lake records from China, decomposed with EMD and the Hilbert transform: decadal dry-wet shifts over the last millennium were more frequent where the centennial-scale contrast was larger.",
+      "doi": "10.1016/j.quascirev.2026.110338",
+      "image": "bsky_01.png",
+      "alt": "Schematic chart on a light background: five lake names in rows, with filled dots showing whether decadal dry-wet shifts were more frequent in the Medieval Climate Anomaly column or the Little Ice Age column.",
+      "hold": false
+    },
+    {
+      "id": "2026-10-19-02",
+      "slot": "fr",
+      "scheduled": "2026-10-23T17:00:00+02:00",
+      "title": "A lake that drained around 9 ka",
+      "text": "A 58 m ICDP core from the Lago Maggiore system: ice retreat, glaciolacustrine silts, then sudden delta progradation attributed to a dam breach and lake-level drop at about 9 ka. The site fell dry around 7 ka.",
+      "doi": "10.1002/jqs.70122",
+      "image": "bsky_02.png",
+      "alt": "Schematic sediment core column on a light background with four layers: a coarse base, about 35 m of silts and sands, sandier lake deposits above a dashed line marked ca. 9 ka (dam breach, lake-level drop), and colluvium at the top.",
+      "hold": false
+    }
+  ]
+}

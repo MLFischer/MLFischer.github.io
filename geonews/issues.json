@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-10-26",
+      "week_de": "KW 44/2026",
+      "week_en": "Week 44/2026",
+      "title_de": "GeoNews — KW 44/2026",
+      "title_en": "GeoNews — Week 44/2026",
+      "teaser_de": "Rund vierzig bewertete Arbeiten, diese Woche sechs 🔴 Must-reads, alle abstract-gestützt. Ein Primärtreffer direkt aus dem Ostafrikanischen Rift fehlt erneut; dafür stehen Monsun und Mensch-Umwelt-Kopplung auf Orbitalskala sowie Seewasserbilanz und …",
+      "teaser_en": "Around forty papers assessed, this week six 🔴 must-reads, all abstract-based. A primary hit directly from the East African Rift is again missing; instead the focus is on monsoon and human–environment coupling on orbital timescales and on lake water balance …",
+      "html_de": "issues/2026-10-26/de.html",
+      "html_en": "issues/2026-10-26/en.html",
+      "pdf_de": "issues/2026-10-26/GeoNews_2026-10-26_DE.pdf",
+      "pdf_en": "issues/2026-10-26/GeoNews_2026-10-26_EN.pdf"
+    },
+    {
       "date": "2026-10-19",
       "week_de": "KW 43/2026",
       "week_en": "Week 43/2026",
@@ -145,5 +158,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-10-19T11:58:03+00:00"
+  "updated": "2026-10-26T09:25:39+00:00"
 }

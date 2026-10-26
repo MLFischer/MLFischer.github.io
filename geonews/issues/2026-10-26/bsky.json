@@ -1,0 +1,40 @@
+{
+  "issue": "2026-10-26",
+  "week_en": "Week 44/2026",
+  "week_de": "KW 44/2026",
+  "posts": [
+    {
+      "id": "2026-10-26-01",
+      "slot": "mo",
+      "scheduled": "2026-10-26T17:00:00+01:00",
+      "title": "Two kinds of rain opened Arabia",
+      "text": "A 500,000-year dust record from the western equatorial Indian Ocean links hominin expansions in Arabia to Green Arabia humid phases, and also to brief, intense rainfall phases within some glacials.",
+      "doi": "10.1038/s41467-026-78983-y",
+      "image": "bsky_01.png",
+      "alt": "Schematic diagram on an off-white (#FBFBFA) background with a forest-green accent band: two boxes, 'prolonged humid (Green Arabia)' and 'brief, intense rain within some glacials', both point with arrows to a box labelled 'hominin population expansions in Arabia'.",
+      "hold": false
+    },
+    {
+      "id": "2026-10-26-02",
+      "slot": "mi",
+      "scheduled": "2026-10-28T17:00:00+01:00",
+      "title": "When two monsoons fell in step",
+      "text": "A 450,000-year speleothem record from the Amazon: the South American and Asian monsoons were mostly out of phase, but crossed a synchronicity threshold in ten events, including glacial terminations.",
+      "doi": "10.1038/s41586-026-11166-3",
+      "image": "bsky_02.png",
+      "alt": "Schematic chart on an off-white (#FBFBFA) background with a forest-green accent band: two wavy lines from 450 ka to today, the South American and Asian monsoon, mostly mirror images; two shaded windows mark where they move in step, with a note on ten synchronous events.",
+      "hold": false
+    },
+    {
+      "id": "2026-10-26-03",
+      "slot": "fr",
+      "scheduled": "2026-10-30T17:00:00+01:00",
+      "title": "Rain and evaporation, told apart",
+      "text": "Lake Junin, Peru: H and C isotopes of terrestrial and aquatic n-alkanes separate precipitation from evaporation since the LGM. Reduced P-E and local water stress stand out in the mid-Holocene.",
+      "doi": "10.1016/j.quascirev.2026.110341",
+      "image": "bsky_03.png",
+      "alt": "Schematic diagram on an off-white (#FBFBFA) background with a forest-green accent band: a box for terrestrial wax (precipitation) and a box for aquatic lipids (evaporation) feed arrows into a box labelled water balance P minus E; a note says reduced P minus E was most evident in the middle Holocene.",
+      "hold": false
+    }
+  ]
+}
