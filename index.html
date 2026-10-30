@@ -4,230 +4,264 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Markus Fischer</title>
+<meta name="theme-color" content="#f2f1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12162a" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Instrument+Sans:wght@400..600&display=swap">
 <meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. GeoNews weekly palaeoclimate digest, research, climbing geology and climate music.">
 <style>
+  /* ------------------------------------------------------------------
+     Corporate design "Kelani" — derived from Ernst Haeckel's watercolour
+     "Urwald am Blauen Fluß (Kelany-Ganga)", Ceylon, 2 Feb 1882.
+     Blue river = ink and links · morning mist = space · moss = living
+     details · one vermilion flame per view (the flowering tree).
+     ------------------------------------------------------------------ */
   :root{
-    --bg:#fbfbfa;--fg:#22232a;--muted:#6b6c74;--faint:#8b8c94;--line:#e7e7e4;
-    --accent:#3a5a48;--soft:#f0f2ee;--card:#ffffff;--max:760px;
+    /* pigments (from the painting) */
+    --kelani:#2a4486;      /* blue river: primary accent */
+    --mist:#f2f1f5;        /* morning mist: page */
+    --cloud:#fbfaf8;       /* clouds: surfaces */
+    --lilac:#a8a3bd;       /* mountain lilac */
+    --moss:#5f6a1f;        /* moss (text-safe) */
+    --lime:#c2c66a;        /* lime leaf (decorative) */
+    --flame:#b4381e;       /* flame tree (spark) */
+    --peach:#ecc9b6;       /* dawn */
+    --ochre:#a78233;
+    /* roles */
+    --bg:var(--mist);--card:var(--cloud);--fg:#1d2340;--muted:#4f5470;--faint:#666a83;
+    --line:#d3cfe0;--soft:#e8e6ef;--accent:var(--kelani);--accent-2:var(--moss);
+    /* hero sky (light: dawn) */
+    --h-sky1:#c9d4e6;--h-sky2:#dcd6e6;--h-sky3:#ecc9b6;--h-sky4:#f3e1d3;--h-cloud:#fbf6ec;
+    --h-mtn1:#b9b2c9;--h-mtn2:#a39cbb;--h-haze:#c2c3cf;--h-forest:#8d9a92;--h-forest2:#76857d;
+    --h-water1:#bdb9ca;--h-water2:#a6a3b8;--h-glint:#f1edf5;--h-river:#2a4486;--h-river2:#3e5ca8;
+    --h-jungle1:#2f3a22;--h-jungle2:#45532a;--h-mossy:#7d8a2c;--h-lime:#b9c25b;--h-trunk:#6e4127;
+    --h-flame:#c2401f;--h-flame2:#de6a33;
+    /* type */
+    --serif:"Brygada 1918",Georgia,"Times New Roman",serif;
+    --ui:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --max:720px;
   }
   @media (prefers-color-scheme:dark){
-    :root{--bg:#14151a;--fg:#e6e6e8;--muted:#9c9da6;--faint:#7d7e88;--line:#272831;
-          --accent:#8bbfa0;--soft:#1b1e22;--card:#191a1f;}
+    :root{
+      --bg:#12162a;--card:#191e35;--fg:#ece9e1;--muted:#b8b4c9;--faint:#9a97b0;--line:#2b3150;--soft:#1f2440;
+      --accent:#9fb4f0;--accent-2:#c2c66a;--flame:#ef6c4f;--ochre:#d1a54a;
+      /* hero sky (dark: before sunrise) */
+      --h-sky1:#151a33;--h-sky2:#2a2b4d;--h-sky3:#6b4a5e;--h-sky4:#8f6461;--h-cloud:#3b3c5e;
+      --h-mtn1:#3b3a5e;--h-mtn2:#2f2f50;--h-haze:#373a58;--h-forest:#26303a;--h-forest2:#1f2830;
+      --h-water1:#262b48;--h-water2:#1d213b;--h-glint:#4a4e72;--h-river:#4f6fd0;--h-river2:#7d97e6;
+      --h-jungle1:#0e130b;--h-jungle2:#1b2412;--h-mossy:#46521a;--h-lime:#7d8a2c;--h-trunk:#3e2416;
+      --h-flame:#e0583a;--h-flame2:#f08a4f;
+    }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--fg);font-size:17px;line-height:1.7;
-       font-family:Georgia,"Iowan Old Style",Charter,"Times New Roman",serif;-webkit-font-smoothing:antialiased}
-  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
-  a:hover{border-bottom-color:currentColor}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--bg);color:var(--fg);font-size:18px;line-height:1.68;
+       font-family:var(--serif);-webkit-font-smoothing:antialiased;font-variant-numeric:oldstyle-nums proportional-nums}
+  .sans{font-family:var(--ui)}
+  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;
+    text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{text-decoration-color:currentColor}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
   /* language switch: default EN */
   .de{display:none}
   body.lang-de .de{display:revert}
   body.lang-de .en{display:none}
-  li.de,li.en{}
   body.lang-de li.en{display:none}
 
-  .topbar{display:flex;justify-content:flex-end;padding-top:16px}
-  .langsw{font-family:-apple-system,sans-serif;font-size:.8rem;letter-spacing:.04em}
-  .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--faint);
-        font:inherit;padding:4px 6px}
-  .langsw button.active{color:var(--fg);font-weight:700}
-  .langsw .div{color:var(--line)}
+  /* ---- hero: the river at dawn ---- */
+  header.hero{position:relative;overflow:hidden;min-height:clamp(360px,44vw,450px);
+        display:flex;flex-direction:column;background:var(--h-sky2)}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero .topbar,.hero .hero-text{position:relative;z-index:1;width:100%}
+  .topbar{display:flex;justify-content:flex-end;padding-top:14px}
+  .langsw{font-family:var(--ui);font-size:.82rem}
+  .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);
+        font:inherit;padding:6px 7px;border-radius:6px}
+  .langsw button.active{color:var(--fg);font-weight:600}
+  .langsw .div{color:var(--muted);opacity:.6}
+  .hero-text{padding-top:clamp(18px,4.5vw,46px);padding-bottom:28px}
+  .wordmark{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--muted);margin:0 0 6px}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,7.2vw,4.6rem);line-height:.98;
+        letter-spacing:-.025em;margin:0 0 14px;color:var(--fg);max-width:9.5em}
+  .hero .role{font-family:var(--ui);font-size:1rem;color:var(--muted);margin:0;max-width:30em;line-height:1.45}
+  .hero .flame-blossom{transform-box:fill-box;transform-origin:center;animation:bloom 1.4s cubic-bezier(.2,.7,.2,1) both}
+  .hero .flame-blossom:nth-of-type(2n){animation-delay:.12s}.hero .flame-blossom:nth-of-type(3n){animation-delay:.24s}
+  @keyframes bloom{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
 
-  header.hero{padding:12px 0 32px;border-bottom:1px solid var(--line)}
-  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-            font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 32px}
-  .hero h1{font-size:2.5rem;font-weight:600;margin:0 0 12px;letter-spacing:-.022em;line-height:1.08}
-  .hero .role{color:var(--muted);font-size:.8rem;margin:0;
-              font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-              letter-spacing:.14em;text-transform:uppercase}
-  .hero .role .sep{opacity:.4;margin:0 7px}
-
-  nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
-        border-bottom:1px solid var(--line);backdrop-filter:saturate(160%) blur(8px)}
-  nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
-  .tab-btn{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);
-           font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-           font-size:.85rem;letter-spacing:.01em;padding:16px 16px 14px;border-bottom:2px solid transparent;white-space:nowrap}
+  /* ---- tabs ---- */
+  nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);
+        border-bottom:1px solid var(--line);backdrop-filter:saturate(150%) blur(10px)}
+  nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  nav.tabs .wrap::-webkit-scrollbar{display:none}
+  @media(max-width:700px){nav.tabs .wrap{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}
+  .tab-btn{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font-family:var(--ui);
+        font-size:.92rem;padding:15px 10px 13px;border-bottom:2px solid transparent;white-space:nowrap;margin-bottom:-1px}
+  .tab-btn:first-child{padding-left:0}
   .tab-btn:hover{color:var(--fg)}
   .tab-btn.active{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
 
-  .panel{display:none;padding:40px 0 10px;animation:fade .3s ease}
+  .panel{display:none;padding:44px 0 10px;animation:fade .35s ease}
   .panel.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-  h2{font-size:1.05rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-     font-weight:600;letter-spacing:.02em;margin:0 0 18px;color:var(--fg)}
-  h3{font-size:1.15rem;font-weight:600;margin:26px 0 8px}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  h2{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:-.015em;line-height:1.15;margin:0 0 20px;color:var(--fg)}
+  h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.25;margin:30px 0 8px}
   p{margin:0 0 16px}
-  .lead{font-size:1.12rem}
+  .lead{font-size:1.2rem;line-height:1.6}
   .muted{color:var(--muted)}
-  .small{font-size:.9rem}
+  .small{font-size:.92rem}
+  strong{font-weight:600}
 
-  .cv{list-style:none;padding:0;margin:8px 0 0;border-left:1px solid var(--line)}
-  .cv li{position:relative;padding:0 0 20px 22px}
-  .cv li:before{content:"";position:absolute;left:-4px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
-  .cv .yr{font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--faint);letter-spacing:.03em}
+  .cv{list-style:none;padding:0;margin:10px 0 0;border-left:2px solid var(--line)}
+  .cv li{position:relative;padding:0 0 22px 22px}
+  .cv li:before{content:"";position:absolute;left:-6px;top:10px;width:10px;height:10px;border-radius:50%;
+        background:var(--bg);border:2px solid var(--accent)}
+  .cv li:first-child:before{background:var(--accent)}
+  .cv .yr{font-family:var(--ui);font-size:.85rem;color:var(--faint)}
   .cv .w{font-weight:600}
 
-  .facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-  .fact{font-family:-apple-system,sans-serif;font-size:.85rem;color:var(--muted);
-        background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:5px 11px}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+  .fact{font-family:var(--ui);font-size:.88rem;color:var(--fg);background:var(--card);
+        border:1px solid var(--line);border-radius:999px;padding:5px 13px}
 
-  .links{margin-top:24px;display:flex;flex-wrap:wrap;gap:16px;font-family:-apple-system,sans-serif;font-size:.9rem}
+  .links{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--ui);font-size:.95rem}
 
+  /* ---- references ---- */
   ol.refs{list-style:none;padding:0;margin:0}
-  ol.refs li.ref{padding:14px 0;border-bottom:1px solid var(--line);font-size:.98rem;display:block}
+  ol.refs li.ref{padding:15px 0;border-bottom:1px solid var(--line);font-size:1rem;line-height:1.6;display:block}
   ol.refs li.ref:last-child{border-bottom:none}
-  .refs .meta{font-family:-apple-system,sans-serif;font-size:.85rem;color:var(--faint);margin-top:3px}
-  .refs .self{font-weight:600}
-  .yrhead{font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--faint);letter-spacing:.06em;
-          margin:22px 0 2px;font-weight:700}
-  .filterbar{display:flex;gap:8px;margin:0 0 6px;font-family:-apple-system,sans-serif}
+  .refs .meta{font-family:var(--ui);font-size:.86rem;color:var(--faint);margin-top:4px}
+  .refs .self{font-weight:700;color:var(--accent)}
+  .yrhead{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--accent);margin:30px 0 2px;
+        font-variant-numeric:lining-nums}
+  .filterbar{display:flex;gap:8px;margin:4px 0 8px;font-family:var(--ui)}
   .chip{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--muted);
-        border-radius:999px;padding:5px 12px;font:inherit;font-size:.82rem;cursor:pointer}
-  .chip.active{border-color:var(--accent);color:var(--accent)}
+        border-radius:999px;padding:6px 14px;font:inherit;font-size:.88rem;cursor:pointer}
+  .chip:hover{color:var(--fg)}
+  .chip.active{border-color:var(--accent);background:var(--accent);color:var(--bg)}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;margin-top:14px}
-  .kicker{font-family:-apple-system,sans-serif;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-  .byline{color:var(--muted);font-size:.92rem;margin:2px 0 14px}
-  .series{border-left:2px solid var(--accent);padding-left:16px;margin-top:22px}
-  .series h4{margin:0 0 6px;font-family:-apple-system,sans-serif;font-size:.95rem}
-  .series ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-top:16px}
+  .kicker{font-family:var(--ui);font-size:.86rem;color:var(--faint)}
+  .byline{color:var(--muted);font-size:.94rem;margin:2px 0 14px}
+  .series{border-left:2px solid var(--accent-2);padding-left:18px;margin-top:26px}
+  .series h4{margin:0 0 6px;font-family:var(--serif);font-size:1.08rem;font-weight:600}
+  .series ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.96rem}
   .series li{margin-bottom:6px}
   .series li.done{color:var(--fg)}
-
-  .post{padding:20px 0;border-bottom:1px solid var(--line)}
-  .post:last-child{border-bottom:none}
-  .post .date{font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--faint);letter-spacing:.03em}
-  .post h3{margin:4px 0 6px}
-  .post .excerpt{color:var(--muted);margin:0}
+  .series li::marker{color:var(--accent-2)}
   .ph{color:var(--faint);font-style:italic}
 
-  .revlist{list-style:none;padding:0;margin:8px 0 0;font-family:-apple-system,sans-serif;font-size:.95rem}
-  .revlist li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--fg)}
+  .revlist{list-style:none;padding:0;margin:8px 0 0;font-size:1rem}
+  .revlist li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--fg)}
   .revlist li:last-child{border-bottom:none}
-  .revlist .n{color:var(--faint);font-variant-numeric:tabular-nums}
 
-  /* Climbing geology: GeoCrimps reels + crimps, ClimbingEarth */
-  .kg-block{margin-top:38px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:70px}
+  /* ---- climbing geology: GeoCrimps + ClimbingEarth ---- */
+  .kg-block{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);scroll-margin-top:70px}
   .kg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .kg-head h3{margin:0 0 8px;font-size:1.35rem}
-  .kg-tag{font-family:-apple-system,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-  .kg-label{font-family:-apple-system,sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
-            color:var(--faint);margin:26px 0 10px;font-weight:600}
-  .reel-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .kg-head h3{margin:0 0 8px;font-size:1.6rem}
+  .kg-tag{font-family:var(--ui);font-size:.86rem;color:var(--faint)}
+  .kg-label{font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--accent);margin:30px 0 12px}
+  .reel-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
   .reel-card,.crimp-card{appearance:none;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0;
-            background:none;border:none;display:block;width:100%}
-  .reel-media{position:relative;display:block;border-radius:12px;overflow:hidden;background:#111;
-            aspect-ratio:9/16;border:1px solid var(--line)}
+        background:none;border:none;display:block;width:100%;align-self:start}
+  .reel-media{position:relative;display:block;border-radius:14px;overflow:hidden;background:#0d0f14;aspect-ratio:9/16}
   .reel-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
   .reel-card:hover .reel-media img,.reel-card:focus-visible .reel-media img{transform:scale(1.03)}
-  .reel-play{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
-            background:color-mix(in srgb,var(--bg) 88%,transparent);box-shadow:0 4px 18px rgba(0,0,0,.25)}
-  .reel-play:after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:10px 0 10px 16px;
-            border-color:transparent transparent transparent var(--accent)}
-  .reel-fmt{display:block;margin-top:9px;font-family:-apple-system,sans-serif;font-size:.68rem;letter-spacing:.12em;
-            text-transform:uppercase;color:var(--faint)}
-  .reel-title{display:block;font-size:.95rem;line-height:1.35;margin-top:2px;font-weight:600}
+  .reel-play{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;
+        background:color-mix(in srgb,var(--cloud) 92%,transparent);box-shadow:0 6px 20px rgba(13,15,30,.3)}
+  .reel-play:after{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:10px 0 10px 16px;
+        border-color:transparent transparent transparent var(--kelani)}
+  .reel-fmt{display:block;margin-top:10px;font-family:var(--ui);font-size:.8rem;color:var(--faint)}
+  .reel-title{display:block;font-size:.98rem;line-height:1.35;margin-top:1px;font-weight:600}
   .crimp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .crimp-card{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+  .crimp-card{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
   .crimp-card:hover,.crimp-card:focus-visible{border-color:var(--accent)}
   .crimp-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
-  .crimp-meta{display:block;padding:9px 11px 11px}
-  .crimp-num{display:block;font-family:-apple-system,sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-  .crimp-title{display:block;font-size:.88rem;line-height:1.3;font-weight:600;margin-top:2px}
-  .crimp-count{position:absolute;top:8px;right:8px;font-family:-apple-system,sans-serif;font-size:.66rem;
-            background:color-mix(in srgb,var(--bg) 85%,transparent);color:var(--fg);border-radius:99px;padding:2px 8px}
+  .crimp-meta{display:block;padding:9px 11px 12px}
+  .crimp-num{display:block;font-family:var(--ui);font-size:.76rem;color:var(--faint)}
+  .crimp-title{display:block;font-size:.9rem;line-height:1.3;font-weight:600;margin-top:1px}
+  .crimp-count{position:absolute;top:8px;right:8px;font-family:var(--ui);font-size:.72rem;
+        background:color-mix(in srgb,var(--cloud) 90%,transparent);color:#1d2340;border-radius:99px;padding:2px 8px}
   .ce-card{padding:0;overflow:hidden}
-  .ce-card>:not(.ce-spread){margin-left:22px;margin-right:22px}
-  .ce-card .links{margin-bottom:22px}
-  .ce-spread{display:block;border-bottom:1px solid var(--line);margin-bottom:18px}
-  .ce-spread:hover{border-bottom-color:var(--line)}
+  .ce-card>:not(.ce-spread){margin-left:24px;margin-right:24px}
+  .ce-card .links{margin-bottom:24px}
+  .ce-spread{display:block;border-bottom:1px solid var(--line);margin-bottom:18px;text-decoration:none}
   .ce-spread img{display:block;width:100%;height:auto}
   .ce-card .kicker{display:block}
   dialog.lb{border:none;padding:0;background:transparent;max-width:min(94vw,560px);width:100%;color:var(--fg)}
-  dialog.lb::backdrop{background:rgba(10,12,14,.82);backdrop-filter:blur(3px)}
+  dialog.lb::backdrop{background:rgba(13,16,34,.84);backdrop-filter:blur(4px)}
   .lb-inner{position:relative;background:var(--card);border-radius:14px;overflow:hidden}
-  .lb-stage{display:flex;align-items:center;justify-content:center;background:#0d0f12}
+  .lb-stage{display:flex;align-items:center;justify-content:center;background:#0d0f14}
   .lb-stage video{display:block;width:100%;max-height:78vh;aspect-ratio:9/16;background:#000}
   .lb-stage img{display:block;width:100%;max-height:78vh;object-fit:contain}
   .lb-stage.is-reel{max-width:calc(78vh*9/16);margin:0 auto}
   .lb-bar{display:flex;align-items:center;gap:10px;padding:10px 12px}
   .lb-cap{flex:1;min-width:0}
-  .lb-num{display:block;font-family:-apple-system,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .lb-num{display:block;font-family:var(--ui);font-size:.78rem;color:var(--faint)}
   .lb-title{display:block;font-weight:600;line-height:1.3}
   .lb-prev,.lb-next,.lb-close{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--fg);
-            border-radius:99px;width:38px;height:38px;font-size:1.3rem;line-height:1;cursor:pointer;flex:0 0 38px}
+        border-radius:99px;width:40px;height:40px;font-size:1.35rem;line-height:1;cursor:pointer;flex:0 0 40px}
   .lb-prev:disabled,.lb-next:disabled{opacity:.35;cursor:default}
   .lb-close{position:absolute;top:10px;right:10px;z-index:2}
-  @media(max-width:640px){.reel-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
-    .reel-title{font-size:.82rem}.crimp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:640px){.reel-row{gap:9px}.reel-title{font-size:.84rem}.crimp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-  .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:12px;
-             padding:15px 17px;margin-top:8px;background:var(--card);text-decoration:none;color:var(--fg)}
+  .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:10px;
+        padding:15px 17px;margin-top:10px;background:var(--card);text-decoration:none;color:var(--fg)}
   .mediacard:hover{border-color:var(--accent)}
-  .mediacard .play{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--accent);
-             color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.85rem;padding-left:2px}
+  .mediacard .play{width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:var(--accent);
+        color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.85rem;padding-left:2px}
   .mediacard .mc-title{display:block;font-weight:600}
-  .mediacard .mc-sub{display:block;color:var(--muted);font-size:.84rem;font-family:-apple-system,sans-serif}
-  .portrait{float:right;width:156px;height:156px;border-radius:12px;object-fit:cover;
-            margin:4px 0 14px 24px;border:1px solid var(--line)}
-  @media(max-width:600px){.portrait{width:108px;height:108px;margin-left:16px}}
-  footer{padding:40px 0 60px;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line);margin-top:44px;
-         font-family:-apple-system,sans-serif}
-  @media(max-width:600px){.hero h1{font-size:1.7rem}}
+  .mediacard .mc-sub{display:block;color:var(--muted);font-size:.86rem;font-family:var(--ui)}
+  .portrait{float:right;width:164px;height:164px;border-radius:50% 50% 50% 14px;object-fit:cover;
+        margin:4px 0 14px 26px;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
+  @media(max-width:600px){.portrait{width:112px;height:112px;margin-left:16px}}
+  footer{padding:36px 0 60px;color:var(--faint);font-size:.86rem;border-top:1px solid var(--line);margin-top:52px;
+        font-family:var(--ui)}
+  footer .credit{display:block;margin-top:6px;font-size:.8rem}
 
   /* ---- geonews:css ---- */
   #geonews .gn-issue{margin-top:26px}
-  #geonews .gn-issue h2{font-size:1.15rem;margin:26px 0 8px}
-  #geonews .gn-issue h3{font-size:1rem;margin:20px 0 6px;color:var(--muted)}
-  #geonews .gn-issue blockquote{margin:18px 0;padding:14px 18px;background:var(--soft);
-        border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.94rem}
+  #geonews .gn-issue h2{font-size:1.4rem;margin:28px 0 8px}
+  #geonews .gn-issue h3{font-size:1.08rem;margin:20px 0 6px;color:var(--muted)}
+  #geonews .gn-issue blockquote{margin:18px 0;padding:14px 18px;background:var(--card);
+        border-left:3px solid var(--accent-2);border-radius:0 8px 8px 0;font-size:.96rem}
   #geonews .gn-issue blockquote p{margin:6px 0}
   #geonews .gn-issue hr{border:none;border-top:1px solid var(--line);margin:26px 0}
   #geonews .gn-issue ul{padding-left:20px}
   #geonews .gn-issue li{margin:8px 0}
   #geonews .gn-issue em{color:var(--muted)}
-  .gn-dot{display:inline-block;width:.62em;height:.62em;border-radius:50%;
-        vertical-align:baseline;margin-right:.3em}
-  .gn-red{background:#c2453f}.gn-yel{background:#d29200}.gn-grn{background:#3f8a4f}
-  .gn-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 0}
-  .gn-badge{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-        font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);
-        border:1px solid var(--line);border-radius:100px;padding:4px 11px}
+  .gn-dot{display:inline-block;width:.62em;height:.62em;border-radius:50%;vertical-align:baseline;margin-right:.3em}
+  .gn-red{background:var(--flame)}.gn-yel{background:var(--ochre)}.gn-grn{background:var(--accent-2)}
+  .gn-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 0}
+  .gn-badge{font-family:var(--ui);font-size:.82rem;color:var(--muted);background:var(--card);
+        border:1px solid var(--line);border-radius:100px;padding:4px 12px}
 
-  /* Archiv: eine Zeile je Woche, PDFs rechts */
-  .gn-arch{margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
-  .gn-arch h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
-        color:var(--faint);font-family:-apple-system,sans-serif;margin:0 0 4px}
-  .gn-arch .gn-note{color:var(--faint);font-size:.82rem;margin:0 0 16px;
-        font-family:-apple-system,sans-serif}
+  /* archive: one row per week, PDFs right */
+  .gn-arch{margin-top:44px;border-top:1px solid var(--line);padding-top:22px}
+  .gn-arch h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.2rem;color:var(--accent);margin:0 0 4px}
+  .gn-arch .gn-note{color:var(--faint);font-size:.86rem;margin:0 0 16px;font-family:var(--ui)}
   .gn-arch ol{list-style:none;padding:0;margin:0}
   .gn-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;
         padding:14px 0;border-bottom:1px solid var(--line)}
   .gn-row:last-child{border-bottom:none}
-  .gn-row.gn-cur{background:var(--soft);margin:0 -14px;padding:14px;border-radius:8px;
-        border-bottom:none}
+  .gn-row.gn-cur{background:var(--card);margin:0 -14px;padding:14px;border-radius:10px;border-bottom:none}
   .gn-left{min-width:0;flex:1}
-  .gn-wk{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-        font-size:.78rem;letter-spacing:.05em;color:var(--fg);font-weight:600}
-  .gn-when{font-family:-apple-system,sans-serif;font-size:.76rem;color:var(--faint);
-        margin-left:8px;font-weight:400;letter-spacing:0}
-  .gn-teaser{font-size:.88rem;color:var(--muted);margin:5px 0 0;line-height:1.55}
+  .gn-wk{font-family:var(--ui);font-size:.9rem;color:var(--fg);font-weight:600}
+  .gn-when{font-family:var(--ui);font-size:.82rem;color:var(--faint);margin-left:8px;font-weight:400}
+  .gn-teaser{font-size:.94rem;color:var(--muted);margin:5px 0 0;line-height:1.55}
   .gn-pdfs{display:flex;gap:7px;flex-shrink:0;padding-top:2px}
-  .gn-pdf{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-        font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
-        border:1px solid var(--line);border-radius:5px;padding:5px 10px;
-        color:var(--muted);white-space:nowrap;background:var(--card)}
+  .gn-pdf{font-family:var(--ui);font-size:.8rem;border:1px solid var(--line);border-radius:6px;padding:4px 10px;
+        color:var(--muted);white-space:nowrap;background:var(--card);text-decoration:none}
   .gn-pdf:hover{border-color:var(--accent);color:var(--accent)}
   .gn-ph{color:var(--faint);font-style:italic}
   @media (max-width:560px){
     .gn-row{flex-direction:column;gap:10px}
     .gn-pdfs{padding-top:0}
   }
+  @media(max-width:600px){body{font-size:17px}h2{font-size:1.7rem}.lead{font-size:1.1rem}}
 </style>
 <!-- GoatCounter: privacy-friendly visitor stats (dashboard: mlfischer.goatcounter.com) -->
 <script data-goatcounter="https://mlfischer.goatcounter.com/count"
@@ -235,21 +269,143 @@
 </head>
 <body class="lang-en">
 
-<div class="wrap">
-  <div class="topbar">
+<header class="hero">
+  <svg class="hero-art" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="k-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--h-sky1)"/>
+        <stop offset=".42" style="stop-color:var(--h-sky2)"/>
+        <stop offset=".62" style="stop-color:var(--h-sky3)"/>
+        <stop offset=".72" style="stop-color:var(--h-sky4)"/>
+      </linearGradient>
+      <linearGradient id="k-water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--h-water1)"/>
+        <stop offset="1" style="stop-color:var(--h-water2)"/>
+      </linearGradient>
+      <radialGradient id="k-river" cx=".5" cy=".42" r=".5">
+        <stop offset="0" style="stop-color:var(--h-river)"/>
+        <stop offset=".6" style="stop-color:var(--h-river2);stop-opacity:.8"/>
+        <stop offset="1" style="stop-color:var(--h-river2);stop-opacity:0"/>
+      </radialGradient>
+      <!-- watercolour: soft, irregular edges -->
+      <filter id="k-wc" x="-5%" y="-8%" width="110%" height="116%">
+        <feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="3" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="k-wc2" x="-10%" y="-20%" width="120%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="9" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="k-soft" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
+      <filter id="k-haze" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+      <filter id="k-grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="2" stitchTiles="stitch"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 .12  0 0 0 0 .12  0 0 0 0 .22  .9 0 0 0 -.42"/>
+      </filter>
+    </defs>
+
+    <!-- dawn sky: graded wash with soft clouds -->
+    <rect width="1440" height="560" fill="url(#k-sky)"/>
+    <g filter="url(#k-soft)">
+      <ellipse cx="200" cy="250" rx="260" ry="40" style="fill:var(--h-sky4)" opacity=".7"/>
+      <ellipse cx="1000" cy="236" rx="300" ry="36" style="fill:var(--h-sky3)" opacity=".6"/>
+      <g style="fill:var(--h-cloud)" opacity=".8">
+        <ellipse cx="330" cy="118" rx="230" ry="44"/><ellipse cx="820" cy="78" rx="280" ry="38"/>
+        <ellipse cx="1150" cy="168" rx="190" ry="40"/><ellipse cx="610" cy="206" rx="180" ry="22"/>
+      </g>
+    </g>
+
+    <!-- mountain lilac -->
+    <g filter="url(#k-wc)">
+      <path style="fill:var(--h-mtn1)" d="M-20 358 C120 340 210 328 300 332 C380 336 432 312 498 284 C556 258 600 234 640 224 C684 232 724 256 772 276 C842 302 902 308 980 316 C1080 326 1180 320 1280 334 C1360 344 1410 348 1460 350 V440 H-20Z"/>
+      <path style="fill:var(--h-mtn2)" d="M392 372 C460 342 528 310 588 292 C626 280 652 272 682 280 C724 292 764 320 822 344 C884 366 944 372 1004 376 V440 H392Z" opacity=".9"/>
+    </g>
+    <rect y="350" width="1440" height="40" style="fill:var(--h-haze)" opacity=".65" filter="url(#k-haze)"/>
+
+    <!-- far bank: misty forest, a band of light, the blue river between -->
+    <path style="fill:var(--h-sky4)" opacity=".9" d="M500 398 C580 392 680 392 760 398 L760 406 L500 406Z" filter="url(#k-haze)"/>
+    <ellipse cx="646" cy="418" rx="168" ry="20" style="fill:url(#k-river)"/>
+    <g filter="url(#k-wc2)">
+      <path style="fill:var(--h-forest)" d="M-10 400 C30 380 62 376 92 384 C112 364 152 360 174 376 C198 358 238 360 254 380 C282 368 314 372 332 388 C362 376 398 380 422 394 C454 386 488 388 522 400 C542 392 560 394 576 404 L576 430 H-10Z"/>
+      <path style="fill:var(--h-forest2)" d="M716 404 C746 386 786 382 816 394 C846 374 896 374 920 392 C946 380 986 382 1006 398 C1036 388 1074 392 1094 406 L1094 430 H716Z"/>
+    </g>
+    <rect y="428" width="1440" height="132" style="fill:url(#k-water)"/>
+    <ellipse cx="648" cy="440" rx="120" ry="12" style="fill:url(#k-river)" opacity=".55"/>
+    <g style="stroke:var(--h-glint)" stroke-width="2" stroke-linecap="round" opacity=".45" filter="url(#k-wc2)">
+      <path d="M40 454 H210"/><path d="M262 478 H362"/><path d="M92 508 H300"/>
+      <path d="M422 460 H520"/><path d="M380 534 H560"/><path d="M60 546 H140"/><path d="M612 524 H700"/>
+    </g>
+
+    <!-- the slender tree on the left bank -->
+    <g filter="url(#k-wc2)">
+      <path style="fill:var(--h-trunk)" d="M119 436 C121 360 123 280 126 192 L130 192 C132 280 134 360 137 436 Z"/>
+      <path style="fill:var(--h-mossy)" opacity=".9" d="M108 436 C114 386 119 330 124 268 L132 268 C136 330 142 386 150 436 Z"/>
+    </g>
+    <g filter="url(#k-wc)">
+      <ellipse cx="128" cy="190" rx="78" ry="17" style="fill:var(--h-forest2)"/>
+      <ellipse cx="96" cy="180" rx="42" ry="13" style="fill:var(--h-forest)"/>
+      <ellipse cx="164" cy="178" rx="46" ry="13" style="fill:var(--h-forest)"/>
+      <ellipse cx="130" cy="170" rx="34" ry="11" style="fill:var(--h-mossy)" opacity=".7"/>
+    </g>
+
+    <!-- jungle on the near bank -->
+    <g filter="url(#k-wc)">
+      <g style="fill:var(--h-jungle2)">
+        <path d="M1012 440 C1008 390 1028 338 1060 308 C1050 268 1080 226 1120 220 C1120 176 1160 146 1200 152 C1210 106 1260 82 1300 96 C1320 56 1380 46 1420 70 L1460 74 V440 Z"/>
+        <ellipse cx="1110" cy="250" rx="58" ry="40"/><ellipse cx="1240" cy="132" rx="70" ry="48"/><ellipse cx="1390" cy="90" rx="80" ry="46"/>
+      </g>
+      <path style="fill:var(--h-mossy)" d="M1150 448 C1166 382 1188 302 1216 238 C1232 202 1246 178 1262 162 L1286 174 C1268 198 1254 228 1242 264 C1222 326 1202 394 1190 450 Z"/>
+      <g style="fill:var(--h-jungle1)">
+        <path d="M1098 448 C1108 388 1148 348 1188 338 C1198 298 1248 278 1288 292 C1308 248 1368 244 1398 270 L1460 268 V448 Z"/>
+      </g>
+    </g>
+    <g filter="url(#k-soft)" style="fill:var(--h-mossy)" opacity=".75">
+      <ellipse cx="1150" cy="236" rx="34" ry="22"/><ellipse cx="1230" cy="150" rx="40" ry="20"/><ellipse cx="1350" cy="104" rx="46" ry="22"/>
+    </g>
+    <g style="stroke:var(--h-lime);fill:none" stroke-width="2.5" stroke-linecap="round" opacity=".8" filter="url(#k-wc2)">
+      <path d="M1196 184 C1194 214 1200 240 1194 272"/><path d="M1206 190 C1208 222 1202 250 1208 292"/><path d="M1216 192 C1216 214 1220 232 1216 252"/>
+      <path d="M1122 250 C1120 276 1126 298 1120 324"/><path d="M1134 254 C1136 272 1132 290 1136 306"/>
+      <path d="M1322 132 C1320 168 1326 196 1320 236"/><path d="M1336 136 C1340 166 1334 190 1340 222"/><path d="M1350 132 C1350 152 1354 168 1350 186"/>
+    </g>
+    <g filter="url(#k-wc2)">
+      <ellipse cx="1060" cy="430" rx="42" ry="26" style="fill:var(--h-lime)"/>
+      <ellipse cx="1040" cy="420" rx="22" ry="15" style="fill:var(--h-mossy)"/>
+    </g>
+
+    <!-- the flame tree: one branch across the water -->
+    <g style="stroke:var(--h-trunk);fill:none" stroke-linecap="round" filter="url(#k-wc2)">
+      <path stroke-width="11" d="M1132 460 C1052 448 990 460 938 454 C888 448 848 464 798 458 C766 454 736 460 704 454"/>
+      <path stroke-width="6" d="M938 454 C920 438 904 432 882 434"/>
+      <path stroke-width="6" d="M828 460 C814 478 798 484 778 482"/>
+      <path stroke-width="6" d="M1018 454 C1008 438 998 428 980 426"/>
+      <path stroke-width="5" d="M740 456 C730 444 720 440 708 440"/>
+    </g>
+    <g filter="url(#k-wc2)">
+      <g class="flame-blossom"><circle cx="706" cy="440" r="14" style="fill:var(--h-flame)"/><circle cx="692" cy="432" r="10" style="fill:var(--h-flame2)"/><circle cx="722" cy="430" r="9" style="fill:var(--h-flame2)"/><circle cx="712" cy="450" r="8" style="fill:var(--h-flame)"/><circle cx="688" cy="446" r="7" style="fill:var(--h-flame)"/></g>
+      <g class="flame-blossom"><circle cx="776" cy="440" r="13" style="fill:var(--h-flame)"/><circle cx="792" cy="430" r="9" style="fill:var(--h-flame2)"/><circle cx="764" cy="432" r="8" style="fill:var(--h-flame2)"/><circle cx="788" cy="446" r="7" style="fill:var(--h-flame)"/></g>
+      <g class="flame-blossom"><circle cx="880" cy="424" r="16" style="fill:var(--h-flame)"/><circle cx="862" cy="414" r="10" style="fill:var(--h-flame2)"/><circle cx="898" cy="412" r="9" style="fill:var(--h-flame2)"/><circle cx="868" cy="432" r="8" style="fill:var(--h-flame)"/><circle cx="896" cy="434" r="8" style="fill:var(--h-flame)"/><circle cx="882" cy="404" r="7" style="fill:var(--h-flame2)"/></g>
+      <g class="flame-blossom"><circle cx="978" cy="418" r="14" style="fill:var(--h-flame)"/><circle cx="994" cy="410" r="8" style="fill:var(--h-flame2)"/><circle cx="964" cy="410" r="8" style="fill:var(--h-flame2)"/><circle cx="984" cy="428" r="7" style="fill:var(--h-flame)"/></g>
+      <g class="flame-blossom"><circle cx="776" cy="482" r="10" style="fill:var(--h-flame)"/><circle cx="764" cy="476" r="7" style="fill:var(--h-flame2)"/><circle cx="788" cy="488" r="6" style="fill:var(--h-flame)"/></g>
+    </g>
+    <g style="fill:var(--h-flame)" opacity=".2" filter="url(#k-haze)">
+      <ellipse cx="712" cy="496" rx="30" ry="5"/><ellipse cx="880" cy="504" rx="34" ry="5"/><ellipse cx="978" cy="498" rx="26" ry="4"/>
+    </g>
+
+    <!-- paper grain over everything -->
+    <rect width="1440" height="560" filter="url(#k-grain)" opacity=".28"/>
+  </svg>
+
+  <div class="wrap topbar">
     <div class="langsw">
-      <button data-lang="en" class="active">EN</button><span class="div">·</span><button data-lang="de">DE</button>
+      <button data-lang="en" class="active">EN</button><span class="div">/</span><button data-lang="de">DE</button>
     </div>
   </div>
-</div>
-
-<header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-text">
     <p class="wordmark">Spatial Perspective</p>
     <h1>Markus Fischer</h1>
     <p class="role">
-      <span class="en">Geoscientist <span class="sep">·</span> Palaeoclimate <span class="sep">·</span> University of Potsdam</span>
-      <span class="de">Geowissenschaftler <span class="sep">·</span> Paläoklima <span class="sep">·</span> Universität Potsdam</span>
+      <span class="en">Geoscientist working on palaeoclimate, University of Potsdam</span>
+      <span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam</span>
     </p>
   </div>
 </header>
@@ -318,7 +474,7 @@
       <span class="play" aria-hidden="true">&#9654;</span>
       <span class="mc-text">
         <span class="mc-title"><span class="en">Listen on Panopto</span><span class="de">Auf Panopto anhören</span></span>
-        <span class="mc-sub"><span class="en">University of Potsdam · opens in a new tab</span><span class="de">Universität Potsdam · öffnet in neuem Tab</span></span>
+        <span class="mc-sub"><span class="en">University of Potsdam, opens in a new tab</span><span class="de">Universität Potsdam, öffnet in neuem Tab</span></span>
       </span>
     </a>
 
@@ -363,7 +519,7 @@
       <li class="ref" data-role="co">Foerster, V., Asrat, A., Bronk Ramsey, C., Brown, E. T., Deino, A., Erbello, A., Fischer, M. L., Gebregiorgis, D., Junginger, A., Kaboth-Bahr, S., Lane, C. S., Opitz, S., Noren, A., Roberts, H. M., Tiedemann, R., Vidal, C.-M., Viehberg, F., Vogelsang, R., Zachow, C., Zinaye, B., Cohen, A. S., Lamb, H. F., Schaebitz, F. &amp; Trauth, M. H. (2026). Scientific deep drilling in the Chew Bahir basin: advantages and pitfalls of two overlapping sediment cores. <em>Scientific Drilling, 35</em>, 61–81.<div class="meta"><a href="https://doi.org/10.5194/sd-35-61-2026">doi.org/10.5194/sd-35-61-2026</a></div></li>
       <li class="ref" data-role="co">Hein, M., Kasper, T., Samudra, A. B., Theuerkauf, M., Fischer, M. L., … Urban, B. (2026). Towards an 'absolute' timing of biostratigraphic and environmental phases from the Saalian late glacial to the Weichselian pleniglacial in central Europe—insights from a lacustrine succession in Lichtenberg, northern Germany. <em>Boreas.</em> Advance online publication.<div class="meta"><a href="https://doi.org/10.1111/bor.70066">doi.org/10.1111/bor.70066</a></div></li>
       <li class="ref" data-role="co">Lemma, B., Beil, L., Bromm, T., Glaser, B., Stein, M., Kobe, F., Fischer, M. L., Trauth, M. H., Gosling, W. D., Foerster, V., Schaebitz, F., Tarasov, P. E. &amp; Kaboth-Bahr, S. (2026). Hierarchical controls on charcoal signatures: a framework for interpreting paleo-fire proxies. <em>Organic Geochemistry, 221</em>, 105298.<div class="meta"><a href="https://doi.org/10.1016/j.orggeochem.2026.105298">doi.org/10.1016/j.orggeochem.2026.105298</a></div></li>
-      <li class="ref" data-role="co">Torfstein, A., Aizenshtat-Soffer, E., Armon, M., … Zachow, C. &amp; the KIND consortium (2026). Workshop report: Lake KINneret Drilling (KIND) – reconstructing Pliocene–Quaternary hydroclimate and seismic history of the Levant. <em>Scientific Drilling, 35</em>, 255–273.<div class="meta"><span class="en">Member of the KIND consortium</span><span class="de">Mitglied des KIND-Konsortiums</span> · <a href="https://doi.org/10.5194/sd-35-255-2026">doi.org/10.5194/sd-35-255-2026</a></div></li>
+      <li class="ref" data-role="co">Torfstein, A., Aizenshtat-Soffer, E., Armon, M., … Zachow, C. &amp; the KIND consortium (2026). Workshop report: Lake KINneret Drilling (KIND) – reconstructing Pliocene–Quaternary hydroclimate and seismic history of the Levant. <em>Scientific Drilling, 35</em>, 255–273.<div class="meta"><a href="https://doi.org/10.5194/sd-35-255-2026">doi.org/10.5194/sd-35-255-2026</a>, <span class="en">as a member of the KIND consortium</span><span class="de">als Mitglied des KIND-Konsortiums</span></div></li>
       <li class="ref" data-role="co">Zielhofer, C., Rabiger-Völlmer, J., Westermann, H., Fischer, M. L., Schneider, B., Lindauer, S., Khosravichenar, A., Bauch, M., Pohle, M. &amp; Werban, U. (2026). Fluvial deposits of the Ahr river (western Germany) reveal recurring high-magnitude flood events over the last 1,500 years. <em>Earth Surface Processes and Landforms, 51</em>(1).<div class="meta"><a href="https://doi.org/10.1002/esp.70219">doi.org/10.1002/esp.70219</a></div></li>
 
       <li class="yrhead">2025</li>
@@ -372,7 +528,7 @@
 
       <li class="yrhead">2024</li>
       <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Munz, P. M., Asrat, A., Foerster, V., Kaboth-Bahr, S., Marwan, N., Schaebitz, F., Schwanghart, W. &amp; Trauth, M. H. (2024). Spatio-temporal variations of climate along possible African-Arabian routes of <em>H. sapiens</em> expansion. <em>Quaternary Science Advances, 14</em>, 100174.<div class="meta"><a href="https://doi.org/10.1016/j.qsa.2024.100174">doi.org/10.1016/j.qsa.2024.100174</a></div></li>
-      <li class="ref" data-role="co">Foubert, A., Keir, D., Atnafu, B., Kidane, T. &amp; the ADD-ON Workshop Consortium (2024). Workshop report: Afar Dallol Drilling – ONset of sedimentary processes in an active rift basin (ADD-ON). <em>Scientific Drilling, 33</em>, 207–218.<div class="meta"><span class="en">Member of the ADD-ON Workshop Consortium</span><span class="de">Mitglied des ADD-ON-Workshop-Konsortiums</span> · <a href="https://doi.org/10.5194/sd-33-207-2024">doi.org/10.5194/sd-33-207-2024</a></div></li>
+      <li class="ref" data-role="co">Foubert, A., Keir, D., Atnafu, B., Kidane, T. &amp; the ADD-ON Workshop Consortium (2024). Workshop report: Afar Dallol Drilling – ONset of sedimentary processes in an active rift basin (ADD-ON). <em>Scientific Drilling, 33</em>, 207–218.<div class="meta"><a href="https://doi.org/10.5194/sd-33-207-2024">doi.org/10.5194/sd-33-207-2024</a>, <span class="en">as a member of the ADD-ON Workshop Consortium</span><span class="de">als Mitglied des ADD-ON-Workshop-Konsortiums</span></div></li>
       <li class="ref" data-role="co">Trauth, M. H., Asrat, A., Fischer, M. L., Foerster, V., Kaboth-Bahr, S., Lamb, H. F., Marwan, N., Roberts, H. M. &amp; Schaebitz, F. (2024). Combining orbital tuning and direct dating approaches to age-depth model development for Chew Bahir, Ethiopia. <em>Quaternary Science Advances, 15</em>, 100208.<div class="meta"><a href="https://doi.org/10.1016/j.qsa.2024.100208">doi.org/10.1016/j.qsa.2024.100208</a></div></li>
       <li class="ref" data-role="co">Trauth, M. H., Asrat, A., Fischer, M. L., Hopcroft, P. O., Foerster, V., Kaboth-Bahr, S., Kindermann, K., Lamb, H. F., Marwan, N., Maslin, M. A., Schaebitz, F. &amp; Valdes, P. J. (2024). Early warning signals of the termination of the African Humid Period(s). <em>Nature Communications, 15</em>(1), 3697.<div class="meta"><a href="https://doi.org/10.1038/s41467-024-47921-1">doi.org/10.1038/s41467-024-47921-1</a></div></li>
 
@@ -459,7 +615,7 @@
        der Veröffentlichung gesichtet; im Zweifel gilt die verlinkte Originalquelle.</p>
     <div class="gn-bar">
       <span class="gn-badge"><span class="en">Automated</span><span class="de">Automatisiert</span></span>
-      <span class="gn-badge"><span class="en">Weekly · Mondays</span><span class="de">Wöchentlich · montags</span></span>
+      <span class="gn-badge"><span class="en">Weekly on Mondays</span><span class="de">Wöchentlich montags</span></span>
       <span class="gn-badge">EN / DE</span>
     </div>
     <div id="gn-latest"><p class="gn-ph"><span class="en">Loading the latest issue…</span><span class="de">Aktuelle Ausgabe wird geladen…</span></p></div>
@@ -479,7 +635,7 @@
     <div class="kg-block" id="geocrimps">
       <div class="kg-head">
         <h3>GeoCrimps</h3>
-        <span class="kg-tag"><span class="en">Reels · Tue &amp; Fri</span><span class="de">Reels · Di &amp; Fr</span></span>
+        <span class="kg-tag"><span class="en">New reels on Tuesdays and Fridays</span><span class="de">Neue Reels dienstags und freitags</span></span>
       </div>
       <p class="muted en">Started in July 2026 as daily illustrated posts, and continuing since October as
          animated reels: one rock, one hold, one piece of Earth history at a time. Small holds, big Earth.</p>
@@ -516,9 +672,9 @@
           <img loading="lazy" src="assets/climbingearth-sandstein-spread.jpg" width="1400" height="1018"
                alt="Opening spread of the article: sandstone boulder at Děčínský Sněžník, headline Sandstein — Millionen Jahre Griffmodellierung">
         </a>
-        <span class="kicker"><span class="en">Boulder Magazine · Part 1</span><span class="de">Boulder Magazine · Teil 1</span></span>
+        <span class="kicker"><span class="en">Boulder Magazine, part 1</span><span class="de">Boulder Magazine, Teil 1</span></span>
         <h3 style="margin-top:6px">Sandstein — Millionen Jahre Griffmodellierung in Sněžník und Fontainebleau</h3>
-        <p class="byline">Markus Fischer &amp; Philipp Krause · <span class="en">Photos</span><span class="de">Fotos</span>: Ludwig Ander-Donath</p>
+        <p class="byline">Markus Fischer &amp; Philipp Krause, <span class="en">photos by</span><span class="de">Fotos:</span> Ludwig Ander-Donath</p>
         <p class="en">Two iconic sandstone bouldering areas compared: the finely sorted "Sables de
            Fontainebleau" of the Paris Basin and the Elbe sandstone at Děčínský Sněžník. Why do they
            look stylistically similar yet differ so clearly? Grain size, sorting and cementation
@@ -543,9 +699,9 @@
            übersetzt sie in Kletter- und Bouldercharakter — so entsteht nach und nach eine
            „Stratigraphie des Kletterns".</p>
         <ul>
-          <li class="done"><span class="en">Part 1 — Sandstone (Fontainebleau &amp; Sněžník) · published</span><span class="de">Teil 1 — Sandstein (Fontainebleau &amp; Sněžník) · erschienen</span></li>
-          <li><span class="en">Next issue — Gneiss: the Alps &amp; Magic Wood</span><span class="de">Nächste Ausgabe — Gneis: die Alpen &amp; Magic Wood</span></li>
-          <li><span class="en">Later — Palaeozoic (announced in the article)</span><span class="de">Später — Paläozoikum (im Artikel angekündigt)</span></li>
+          <li class="done"><span class="en">Part 1: Sandstone (Fontainebleau &amp; Sněžník), published</span><span class="de">Teil 1: Sandstein (Fontainebleau &amp; Sněžník), erschienen</span></li>
+          <li><span class="en">Next issue: gneiss in the Alps and Magic Wood</span><span class="de">Nächste Ausgabe: Gneis in den Alpen und im Magic Wood</span></li>
+          <li><span class="en">Later: the Palaeozoic, as announced in the article</span><span class="de">Später: das Paläozoikum, wie im Artikel angekündigt</span></li>
         </ul>
       </div>
     </div>
@@ -572,7 +728,7 @@
        Klimareihen live im Browser in Musik — wärmer = höher, Extreme = Akzente, ein Monat = ein
        Schlag. Ein zweisprachiges (EN/DE) Lehrwerkzeug zu Musik, Klima und Zeitreihen.</p>
     <div class="card">
-      <span class="kicker"><span class="en">Project · Web Audio (JavaScript), no server</span><span class="de">Projekt · Web Audio (JavaScript), ohne Server</span></span>
+      <span class="kicker"><span class="en">Web Audio project in JavaScript, runs without a server</span><span class="de">Web-Audio-Projekt in JavaScript, läuft ohne Server</span></span>
       <h3 style="margin-top:6px">climate · time · sound</h3>
       <p class="en">Three modes: <strong>learn</strong> (guided signal path data → mapping → sound,
          with a live legend), <strong>studio</strong> (twelve finished style scores driven by the
@@ -598,7 +754,8 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="y"></span> Markus Fischer · University of Potsdam</div>
+  <div class="wrap">© <span id="y"></span> Markus Fischer, <span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span>
+    <span class="credit"><span class="en">Header motif after Ernst Haeckel's watercolour “Urwald am Blauen Fluß (Kelany-Ganga)”, Ceylon 1882.</span><span class="de">Kopfmotiv nach Ernst Haeckels Aquarell „Urwald am Blauen Fluß (Kelany-Ganga)“, Ceylon 1882.</span></span></div>
 </footer>
 
 <script>
@@ -651,6 +808,7 @@
     ].map(([n,t,k])=>({post:n,title:t,slides:k===1?[BASE+'v1/'+n+'.png']:[1,2,3,4].map(s=>BASE+'v1/'+n+'_'+s+'.png')}));
 
     const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const fmtName=f=>String(f||'').toLowerCase().replace(/^\w/,c=>c.toUpperCase()).replace(/\bid\b/,'ID');
     const lang=()=>document.body.classList.contains('lang-de')?'de':'en';
     const dlg=document.getElementById('gc-lightbox');
     const stage=dlg.querySelector('.lb-stage'),num=dlg.querySelector('.lb-num'),ttl=dlg.querySelector('.lb-title');
@@ -661,7 +819,7 @@
       const b=document.createElement('button');b.type='button';b.className='reel-card';
       b.innerHTML='<span class="reel-media"><img loading="lazy" src="'+esc(BASE+'reels/'+r.slug+'.jpg')+'" alt="">'
         +'<span class="reel-play" aria-hidden="true"></span></span>'
-        +'<span class="reel-fmt">'+esc(r.fmt)+'</span>'
+        +'<span class="reel-fmt">'+esc(fmtName(r.fmt))+'</span>'
         +'<span class="reel-title">'+(r.en===r.de?esc(r.en)
           :'<span class="en">'+esc(r.en)+'</span><span class="de">'+esc(r.de)+'</span>')+'</span>';
       b.addEventListener('click',()=>open({kind:'reel',item:r}));
@@ -682,13 +840,13 @@
         stage.innerHTML='<video controls autoplay playsinline preload="metadata" poster="'+esc(BASE+'reels/'+r.slug+'.jpg')+'">'
           +'<source src="'+esc(BASE+'reels/'+r.slug+'.mp4')+'" type="video/mp4"></video>';
         stage.className='lb-stage is-reel';
-        num.textContent=r.fmt;ttl.textContent=lang()==='de'?r.de:r.en;
+        num.textContent=fmtName(r.fmt);ttl.textContent=lang()==='de'?r.de:r.en;
         prev.hidden=next.hidden=true;
       }else{
         const c=cur.item,n=c.slides.length;
         stage.innerHTML='<img src="'+esc(c.slides[idx])+'" alt="'+esc(c.title+(n>1?' — '+(idx+1)+'/'+n:''))+'">';
         stage.className='lb-stage is-crimp';
-        num.textContent='GeoCrimp #'+c.post+(n>1?' · '+(idx+1)+'/'+n:'');ttl.textContent=c.title;
+        num.textContent='GeoCrimp #'+c.post+(n>1?', '+(idx+1)+'/'+n:'');ttl.textContent=c.title;
         prev.hidden=next.hidden=n<2;prev.disabled=idx===0;next.disabled=idx===n-1;
       }
     }
