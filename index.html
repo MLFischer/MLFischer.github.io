@@ -111,21 +111,60 @@
   .revlist li:last-child{border-bottom:none}
   .revlist .n{color:var(--faint);font-variant-numeric:tabular-nums}
 
-  /* GeoCrimps gallery */
-  .gc-intro{margin-top:0}
-  .gc-week{margin-top:30px}
-  .gc-week h3{margin:0 0 14px;font-family:-apple-system,sans-serif;font-size:1rem;
-              letter-spacing:.01em;padding-bottom:8px;border-bottom:1px solid var(--line)}
-  .gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
-  .gc-card{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;
-           background:var(--card);color:var(--fg);text-decoration:none}
-  .gc-card:hover{border-color:var(--accent)}
-  .gc-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
-  .gc-card .gc-meta{padding:10px 12px;display:block}
-  .gc-card .gc-num{font-family:-apple-system,sans-serif;font-size:.72rem;letter-spacing:.06em;
-                   text-transform:uppercase;color:var(--faint);display:block}
-  .gc-card .gc-title{font-size:.95rem;font-weight:600;margin-top:2px;line-height:1.3;display:block}
-  .gc-empty{color:var(--faint);font-style:italic}
+  /* Climbing geology: GeoCrimps reels + crimps, ClimbingEarth */
+  .kg-block{margin-top:38px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:70px}
+  .kg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .kg-head h3{margin:0 0 8px;font-size:1.35rem}
+  .kg-tag{font-family:-apple-system,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .kg-label{font-family:-apple-system,sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+            color:var(--faint);margin:26px 0 10px;font-weight:600}
+  .reel-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .reel-card,.crimp-card{appearance:none;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0;
+            background:none;border:none;display:block;width:100%}
+  .reel-media{position:relative;display:block;border-radius:12px;overflow:hidden;background:#111;
+            aspect-ratio:9/16;border:1px solid var(--line)}
+  .reel-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .reel-card:hover .reel-media img,.reel-card:focus-visible .reel-media img{transform:scale(1.03)}
+  .reel-play{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
+            background:color-mix(in srgb,var(--bg) 88%,transparent);box-shadow:0 4px 18px rgba(0,0,0,.25)}
+  .reel-play:after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:10px 0 10px 16px;
+            border-color:transparent transparent transparent var(--accent)}
+  .reel-fmt{display:block;margin-top:9px;font-family:-apple-system,sans-serif;font-size:.68rem;letter-spacing:.12em;
+            text-transform:uppercase;color:var(--faint)}
+  .reel-title{display:block;font-size:.95rem;line-height:1.35;margin-top:2px;font-weight:600}
+  .crimp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .crimp-card{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+  .crimp-card:hover,.crimp-card:focus-visible{border-color:var(--accent)}
+  .crimp-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
+  .crimp-meta{display:block;padding:9px 11px 11px}
+  .crimp-num{display:block;font-family:-apple-system,sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .crimp-title{display:block;font-size:.88rem;line-height:1.3;font-weight:600;margin-top:2px}
+  .crimp-count{position:absolute;top:8px;right:8px;font-family:-apple-system,sans-serif;font-size:.66rem;
+            background:color-mix(in srgb,var(--bg) 85%,transparent);color:var(--fg);border-radius:99px;padding:2px 8px}
+  .ce-card{padding:0;overflow:hidden}
+  .ce-card>:not(.ce-spread){margin-left:22px;margin-right:22px}
+  .ce-card .links{margin-bottom:22px}
+  .ce-spread{display:block;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .ce-spread:hover{border-bottom-color:var(--line)}
+  .ce-spread img{display:block;width:100%;height:auto}
+  .ce-card .kicker{display:block}
+  dialog.lb{border:none;padding:0;background:transparent;max-width:min(94vw,560px);width:100%;color:var(--fg)}
+  dialog.lb::backdrop{background:rgba(10,12,14,.82);backdrop-filter:blur(3px)}
+  .lb-inner{position:relative;background:var(--card);border-radius:14px;overflow:hidden}
+  .lb-stage{display:flex;align-items:center;justify-content:center;background:#0d0f12}
+  .lb-stage video{display:block;width:100%;max-height:78vh;aspect-ratio:9/16;background:#000}
+  .lb-stage img{display:block;width:100%;max-height:78vh;object-fit:contain}
+  .lb-stage.is-reel{max-width:calc(78vh*9/16);margin:0 auto}
+  .lb-bar{display:flex;align-items:center;gap:10px;padding:10px 12px}
+  .lb-cap{flex:1;min-width:0}
+  .lb-num{display:block;font-family:-apple-system,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .lb-title{display:block;font-weight:600;line-height:1.3}
+  .lb-prev,.lb-next,.lb-close{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--fg);
+            border-radius:99px;width:38px;height:38px;font-size:1.3rem;line-height:1;cursor:pointer;flex:0 0 38px}
+  .lb-prev:disabled,.lb-next:disabled{opacity:.35;cursor:default}
+  .lb-close{position:absolute;top:10px;right:10px;z-index:2}
+  @media(max-width:640px){.reel-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+    .reel-title{font-size:.82rem}.crimp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
   .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:12px;
              padding:15px 17px;margin-top:8px;background:var(--card);text-decoration:none;color:var(--fg)}
@@ -221,8 +260,7 @@
     <button class="tab-btn" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></button>
     <button class="tab-btn" data-tab="expertise"><span class="en">Expertise</span><span class="de">Expertise</span></button>
     <button class="tab-btn" data-tab="geonews">GeoNews</button>
-    <button class="tab-btn" data-tab="klettergeologie">ClimbingEarth</button>
-    <button class="tab-btn" data-tab="geocrimps">GeoCrimps</button>
+    <button class="tab-btn" data-tab="klettergeologie"><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></button>
     <button class="tab-btn" data-tab="klimamusik">ClimateMusic</button>
   </div>
 </nav>
@@ -430,58 +468,99 @@
   <!-- geonews:end -->
 
   <section class="panel" id="klettergeologie">
-    <h2>ClimbingEarth</h2>
-    <p class="muted en">A series at the interface of geology and climbing: what does the way a rock
-       formed reveal about how it feels and how it climbs?</p>
-    <p class="muted de">Eine Reihe an der Schnittstelle von Geologie und Klettern: Was verrät die
-       Entstehung eines Gesteins darüber, wie es sich anfühlt und klettern lässt?</p>
+    <h2><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></h2>
+    <p class="lead en">Why does a rock feel and climb the way it does? Two formats on the same
+       question: <strong>GeoCrimps</strong>, short reels and illustrated posts, and
+       <strong>ClimbingEarth</strong>, a long-read series in Boulder Magazine.</p>
+    <p class="lead de">Warum fühlt sich ein Fels so an — und warum klettert er sich so? Zwei Formate
+       zur selben Frage: <strong>GeoCrimps</strong>, kurze Reels und illustrierte Posts, und
+       <strong>ClimbingEarth</strong>, eine Artikelreihe im Boulder Magazine.</p>
 
-    <div class="card">
-      <span class="kicker"><span class="en">Boulder Magazine · Part 1</span><span class="de">Boulder Magazine · Teil 1</span></span>
-      <h3 style="margin-top:6px">Sandstein — Millionen Jahre Griffmodellierung in Sněžník und Fontainebleau</h3>
-      <p class="byline">Markus Fischer &amp; Philipp Krause · <span class="en">Photos</span><span class="de">Fotos</span>: Ludwig Ander-Donath</p>
-      <p class="en">Two iconic sandstone bouldering areas compared: the finely sorted "Sables de
-         Fontainebleau" of the Paris Basin and the Elbe sandstone at Děčínský Sněžník. Why do they
-         look stylistically similar yet differ so clearly? Grain size, sorting and cementation
-         govern weathering, friction and hold types — from silica crusts and the Lusatian Overthrust
-         to Arduino's historical subdivision of Earth history.</p>
-      <p class="de">Zwei ikonische Sandstein-Bouldergebiete im Vergleich: die feinst sortierten
-         „Sables de Fontainebleau" im Pariser Becken und der Elbsandstein am Děčínský Sněžník. Warum
-         ähneln sie sich im Stil und unterscheiden sich zugleich deutlich? Korngröße, Sortierung und
-         Zementation entscheiden über Verwitterung, Reibung und Grifftypen — von Silikatkrusten über
-         die Lausitzer Überschiebung bis zu Arduinos historischer Gliederung der Erdgeschichte.</p>
+    <div class="kg-block" id="geocrimps">
+      <div class="kg-head">
+        <h3>GeoCrimps</h3>
+        <span class="kg-tag"><span class="en">Reels · Tue &amp; Fri</span><span class="de">Reels · Di &amp; Fr</span></span>
+      </div>
+      <p class="muted en">Started in July 2026 as daily illustrated posts, and continuing since October as
+         animated reels: one rock, one hold, one piece of Earth history at a time. Small holds, big Earth.</p>
+      <p class="muted de">Im Juli 2026 als tägliche illustrierte Posts gestartet, seit Oktober als animierte
+         Reels: ein Gestein, ein Griff, ein Stück Erdgeschichte nach dem anderen. Kleine Griffe, große Erde.</p>
+
+      <p class="kg-label"><span class="en">Featured reels</span><span class="de">Ausgewählte Reels</span></p>
+      <div class="reel-row" id="gc-best"></div>
+
+      <p class="kg-label"><span class="en">Latest reels</span><span class="de">Neueste Reels</span></p>
+      <div class="reel-row" id="gc-latest"><p class="ph"><span class="en">Loading reels…</span><span class="de">Reels werden geladen…</span></p></div>
+
+      <p class="kg-label"><span class="en">From the crimp archive</span><span class="de">Aus dem Crimp-Archiv</span></p>
+      <div class="crimp-grid" id="gc-crimps"></div>
+
       <div class="links">
-        <a href="klettergeologie-sandstein.pdf" target="_blank" rel="noopener"><span class="en">Read the PDF</span><span class="de">PDF lesen</span></a>
-        <a href="https://www.boulder-mag.de">Boulder Magazine</a>
+        <a href="https://www.instagram.com/geocrimps/" target="_blank" rel="noopener">Instagram @geocrimps</a>
+        <a href="https://bsky.app/profile/geocrimps.bsky.social" target="_blank" rel="noopener">Bluesky @geocrimps</a>
       </div>
     </div>
 
-    <div class="series">
-      <h4><span class="en">About the series</span><span class="de">Zur Reihe</span></h4>
-      <p class="muted small en">Each installment takes a rock or a geological epoch and translates it
-         into climbing and bouldering character — building, piece by piece, a "stratigraphy of climbing".</p>
-      <p class="muted small de">Jede Folge nimmt ein Gestein oder eine erdgeschichtliche Epoche und
-         übersetzt sie in Kletter- und Bouldercharakter — so entsteht nach und nach eine
-         „Stratigraphie des Kletterns".</p>
-      <ul>
-        <li class="done"><span class="en">Part 1 — Sandstone (Fontainebleau &amp; Sněžník) · published</span><span class="de">Teil 1 — Sandstein (Fontainebleau &amp; Sněžník) · erschienen</span></li>
-        <li><span class="en">Next issue — Gneiss: the Alps &amp; Magic Wood</span><span class="de">Nächste Ausgabe — Gneis: die Alpen &amp; Magic Wood</span></li>
-        <li><span class="en">Later — Palaeozoic (announced in the article)</span><span class="de">Später — Paläozoikum (im Artikel angekündigt)</span></li>
-      </ul>
-    </div>
-  </section>
+    <div class="kg-block" id="climbingearth">
+      <div class="kg-head">
+        <h3>ClimbingEarth</h3>
+        <span class="kg-tag"><span class="en">Boulder Magazine series</span><span class="de">Reihe im Boulder Magazine</span></span>
+      </div>
+      <p class="muted en">A series at the interface of geology and climbing: what does the way a rock
+         formed reveal about how it feels and how it climbs?</p>
+      <p class="muted de">Eine Reihe an der Schnittstelle von Geologie und Klettern: Was verrät die
+         Entstehung eines Gesteins darüber, wie es sich anfühlt und klettern lässt?</p>
 
-  <section class="panel" id="geocrimps">
-    <h2>GeoCrimps</h2>
-    <p class="muted gc-intro">A daily micro-series on the geology of climbing — one illustrated
-       "crimp" a day, each explaining why a rock feels and climbs the way it does. Rock crimps, map
-       crimps, ice crimps, climate crimps: small holds, big Earth. New crimps appear here automatically,
-       grouped by week.</p>
-    <div class="links" style="margin-top:14px">
-      <a href="https://www.instagram.com/geocrimps/" target="_blank" rel="noopener">Instagram @geocrimps</a>
-      <a href="https://bsky.app/profile/geocrimps.bsky.social" target="_blank" rel="noopener">Bluesky @geocrimps</a>
+      <article class="card ce-card">
+        <a class="ce-spread" href="klettergeologie-sandstein.pdf" target="_blank" rel="noopener">
+          <img loading="lazy" src="assets/climbingearth-sandstein-spread.jpg" width="1400" height="1018"
+               alt="Opening spread of the article: sandstone boulder at Děčínský Sněžník, headline Sandstein — Millionen Jahre Griffmodellierung">
+        </a>
+        <span class="kicker"><span class="en">Boulder Magazine · Part 1</span><span class="de">Boulder Magazine · Teil 1</span></span>
+        <h3 style="margin-top:6px">Sandstein — Millionen Jahre Griffmodellierung in Sněžník und Fontainebleau</h3>
+        <p class="byline">Markus Fischer &amp; Philipp Krause · <span class="en">Photos</span><span class="de">Fotos</span>: Ludwig Ander-Donath</p>
+        <p class="en">Two iconic sandstone bouldering areas compared: the finely sorted "Sables de
+           Fontainebleau" of the Paris Basin and the Elbe sandstone at Děčínský Sněžník. Why do they
+           look stylistically similar yet differ so clearly? Grain size, sorting and cementation
+           govern weathering, friction and hold types — from silica crusts and the Lusatian Overthrust
+           to Arduino's historical subdivision of Earth history.</p>
+        <p class="de">Zwei ikonische Sandstein-Bouldergebiete im Vergleich: die feinst sortierten
+           „Sables de Fontainebleau" im Pariser Becken und der Elbsandstein am Děčínský Sněžník. Warum
+           ähneln sie sich im Stil und unterscheiden sich zugleich deutlich? Korngröße, Sortierung und
+           Zementation entscheiden über Verwitterung, Reibung und Grifftypen — von Silikatkrusten über
+           die Lausitzer Überschiebung bis zu Arduinos historischer Gliederung der Erdgeschichte.</p>
+        <div class="links">
+          <a href="klettergeologie-sandstein.pdf" target="_blank" rel="noopener"><span class="en">Read the PDF</span><span class="de">PDF lesen</span></a>
+          <a href="https://www.boulder-mag.de">Boulder Magazine</a>
+        </div>
+      </article>
+
+      <div class="series">
+        <h4><span class="en">About the series</span><span class="de">Zur Reihe</span></h4>
+        <p class="muted small en">Each installment takes a rock or a geological epoch and translates it
+           into climbing and bouldering character — building, piece by piece, a "stratigraphy of climbing".</p>
+        <p class="muted small de">Jede Folge nimmt ein Gestein oder eine erdgeschichtliche Epoche und
+           übersetzt sie in Kletter- und Bouldercharakter — so entsteht nach und nach eine
+           „Stratigraphie des Kletterns".</p>
+        <ul>
+          <li class="done"><span class="en">Part 1 — Sandstone (Fontainebleau &amp; Sněžník) · published</span><span class="de">Teil 1 — Sandstein (Fontainebleau &amp; Sněžník) · erschienen</span></li>
+          <li><span class="en">Next issue — Gneiss: the Alps &amp; Magic Wood</span><span class="de">Nächste Ausgabe — Gneis: die Alpen &amp; Magic Wood</span></li>
+          <li><span class="en">Later — Palaeozoic (announced in the article)</span><span class="de">Später — Paläozoikum (im Artikel angekündigt)</span></li>
+        </ul>
+      </div>
     </div>
-    <div id="gc-gallery"><p class="ph">Loading crimps…</p></div>
+
+    <dialog class="lb" id="gc-lightbox" aria-label="GeoCrimps">
+      <div class="lb-inner">
+        <button class="lb-close" type="button" aria-label="Close / Schließen">&times;</button>
+        <div class="lb-stage"></div>
+        <div class="lb-bar">
+          <button class="lb-prev" type="button" aria-label="Previous slide / Vorherige Folie">&#8249;</button>
+          <div class="lb-cap"><span class="lb-num"></span><span class="lb-title"></span></div>
+          <button class="lb-next" type="button" aria-label="Next slide / Nächste Folie">&#8250;</button>
+        </div>
+      </div>
+    </dialog>
   </section>
 
   <section class="panel" id="klimamusik">
@@ -539,9 +618,11 @@
   // Tabs
   const btns=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.panel');
   function show(id){btns.forEach(x=>x.classList.toggle('active',x.dataset.tab===id));
-    panels.forEach(p=>p.classList.toggle('active',p.id===id));}
+    panels.forEach(p=>p.classList.toggle('active',p.id===id));
+    if(id==='klettergeologie'&&window.KG)KG.build();}
   btns.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.tab);history.replaceState(null,'','#'+b.dataset.tab);window.scrollTo({top:0,behavior:'smooth'});}));
-  if(location.hash){const id=location.hash.slice(1);if(document.getElementById(id))show(id);}
+  if(location.hash){const el=document.getElementById(location.hash.slice(1)),pn=el&&el.closest('.panel');
+    if(pn){show(pn.id);if(pn!==el)setTimeout(()=>el.scrollIntoView({block:'start'}),60);}}
   // Publication filter
   document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
     document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));c.classList.add('active');
@@ -549,48 +630,101 @@
     document.querySelectorAll('.refs .ref').forEach(li=>{li.style.display=(f==='all'||li.dataset.role===f)?'':'none';});
     document.querySelectorAll('.refs .yrhead').forEach(h=>{h.style.display=(f==='all')?'':'none';});
   }));
-  // GeoCrimps gallery — shows the full weekly compilations (Mon–Sun calendar weeks).
-  // Reads queue.json live, so each new week appears automatically once its crimps are queued.
-  (function(){
-    const host=document.getElementById('gc-gallery');
-    if(!host) return;
-    const QUEUE='https://raw.githubusercontent.com/MLFischer/geocrimps-assets/main/queue.json';
-    const PROFILE='https://www.instagram.com/geocrimps/';
-    const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
-    function num(p){return parseInt(p,10)||0;}
-    function pdate(ds){const p=String(ds).split('-').map(Number);return new Date(p[0],(p[1]||1)-1,p[2]||1);}
-    function fmt(d){return MONTHS[d.getMonth()]+' '+d.getDate();}
-    function rangeLabel(a,b){const da=pdate(a),db=pdate(b);
-      const right=(da.getMonth()===db.getMonth())?String(db.getDate()):fmt(db);
-      return fmt(da)+' – '+right+', '+db.getFullYear();}
-    fetch(QUEUE+'?t='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
-      const base=q.image_base_url||'';
-      const items=(q.items||[]).filter(it=>it&&it.image);
-      if(!items.length){host.innerHTML='<p class="gc-empty">No crimps yet — check back soon.</p>';return;}
-      // group into weekly batches of 7: Week 1 = #001–007, Week 2 = #008–014, …
-      const weeks={};
-      items.forEach(it=>{const wk=Math.floor((num(it.post)-1)/7);(weeks[wk]=weeks[wk]||{wk:wk,items:[]}).items.push(it);});
-      const keys=Object.keys(weeks).map(Number).sort((a,b)=>b-a); // newest week first
-      host.innerHTML='';
-      keys.forEach(k=>{
-        const w=weeks[k];
-        const posts=w.items.slice().sort((a,b)=>num(a.post)-num(b.post)); // #001 → #007 within the week
-        const dates=posts.map(p=>p.date).filter(Boolean).sort();
-        const label='Week '+(k+1)+(dates.length?' · '+rangeLabel(dates[0],dates[dates.length-1]):'');
-        let cards='';
-        posts.forEach(it=>{
-          cards+='<a class="gc-card" href="'+PROFILE+'" target="_blank" rel="noopener">'
-            +'<img loading="lazy" src="'+esc(base+it.image)+'" alt="'+esc(it.title||'GeoCrimp')+'">'
-            +'<span class="gc-meta"><span class="gc-num">GeoCrimp #'+esc(it.post)+'</span>'
-            +'<span class="gc-title">'+esc(it.title||'')+'</span></span></a>';
-        });
-        const sec=document.createElement('div');sec.className='gc-week';
-        sec.innerHTML='<h3>'+esc(label)+'</h3><div class="gc-grid">'+cards+'</div>';
-        host.appendChild(sec);
-      });
-    }).catch(function(){host.innerHTML='<p class="gc-empty">Could not load the crimps right now — see <a href="'+PROFILE+'">Instagram @geocrimps</a>.</p>';});
+  // Climbing geology tab: GeoCrimps reels + crimp archive, shown on-site in a lightbox.
+  // Built on first opening of the tab, so visitors who never open it load none of the media.
+  var KG=(function(){
+    const BASE='https://mlfischer.github.io/geocrimps-assets/';
+    // Featured reels: chosen from the Instagram insights report of 26 Oct 2026
+    // (v2/kennzahlen/verlauf.csv): r001 = most views and likes, r002 = best watch-through
+    // and lowest skip rate, r005 = fastest start (views per day). Swap ids here to re-curate.
+    const FEATURED=[
+      {id:'r001',slug:'2026-10-12_whodunit-01',fmt:'WHODUNIT #01',en:'Nobody drilled these holes.',de:'Diese Löcher hat niemand gebohrt.'},
+      {id:'r002',slug:'2026-10-13_holdid-01',fmt:'HOLD ID #01',en:'Why does this edge stick out?',de:'Warum steht diese Leiste vor?'},
+      {id:'r005',slug:'2026-10-23_holdid-02',fmt:'HOLD ID #02',en:'Tufa on limestone: how did this hold form?',de:'Sinter am Kalk: Wie ist dieser Griff entstanden?'}
+    ];
+    // Crimp archive (V1 "Bedrock", posts #001–#050): editorial selection across rock, climate and Earth history.
+    const CRIMPS=[
+      ['001','Why Font feels like glass',1],['007','When the Sahara was green',1],
+      ['011','Why granite splits into perfect cracks',4],['012','Tufa: the rock that grows',4],
+      ['018',"You're climbing a coral reef",4],['025','Devils Tower is a cracked cooling body',4],
+      ['035','800,000 years of air',4],['042','The day the ocean rusted',4]
+    ].map(([n,t,k])=>({post:n,title:t,slides:k===1?[BASE+'v1/'+n+'.png']:[1,2,3,4].map(s=>BASE+'v1/'+n+'_'+s+'.png')}));
+
+    const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const lang=()=>document.body.classList.contains('lang-de')?'de':'en';
+    const dlg=document.getElementById('gc-lightbox');
+    const stage=dlg.querySelector('.lb-stage'),num=dlg.querySelector('.lb-num'),ttl=dlg.querySelector('.lb-title');
+    const prev=dlg.querySelector('.lb-prev'),next=dlg.querySelector('.lb-next');
+    let cur=null,idx=0,built=false;
+
+    function reelCard(r){
+      const b=document.createElement('button');b.type='button';b.className='reel-card';
+      b.innerHTML='<span class="reel-media"><img loading="lazy" src="'+esc(BASE+'reels/'+r.slug+'.jpg')+'" alt="">'
+        +'<span class="reel-play" aria-hidden="true"></span></span>'
+        +'<span class="reel-fmt">'+esc(r.fmt)+'</span>'
+        +'<span class="reel-title">'+(r.en===r.de?esc(r.en)
+          :'<span class="en">'+esc(r.en)+'</span><span class="de">'+esc(r.de)+'</span>')+'</span>';
+      b.addEventListener('click',()=>open({kind:'reel',item:r}));
+      return b;
+    }
+    function crimpCard(c){
+      const b=document.createElement('button');b.type='button';b.className='crimp-card';
+      b.innerHTML='<img loading="lazy" src="'+esc(c.slides[0])+'" alt="">'
+        +'<span class="crimp-meta"><span class="crimp-num">GeoCrimp #'+esc(c.post)+'</span>'
+        +'<span class="crimp-title">'+esc(c.title)+'</span></span>'
+        +(c.slides.length>1?'<span class="crimp-count" aria-hidden="true">1/'+c.slides.length+'</span>':'');
+      b.addEventListener('click',()=>open({kind:'crimp',item:c}));
+      return b;
+    }
+    function render(){
+      if(cur.kind==='reel'){
+        const r=cur.item;
+        stage.innerHTML='<video controls autoplay playsinline preload="metadata" poster="'+esc(BASE+'reels/'+r.slug+'.jpg')+'">'
+          +'<source src="'+esc(BASE+'reels/'+r.slug+'.mp4')+'" type="video/mp4"></video>';
+        stage.className='lb-stage is-reel';
+        num.textContent=r.fmt;ttl.textContent=lang()==='de'?r.de:r.en;
+        prev.hidden=next.hidden=true;
+      }else{
+        const c=cur.item,n=c.slides.length;
+        stage.innerHTML='<img src="'+esc(c.slides[idx])+'" alt="'+esc(c.title+(n>1?' — '+(idx+1)+'/'+n:''))+'">';
+        stage.className='lb-stage is-crimp';
+        num.textContent='GeoCrimp #'+c.post+(n>1?' · '+(idx+1)+'/'+n:'');ttl.textContent=c.title;
+        prev.hidden=next.hidden=n<2;prev.disabled=idx===0;next.disabled=idx===n-1;
+      }
+    }
+    function open(o){cur=o;idx=0;render();if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
+    function close(){stage.querySelectorAll('video').forEach(v=>v.pause());stage.innerHTML='';
+      if(dlg.open&&typeof dlg.close==='function')dlg.close();else dlg.removeAttribute('open');}
+    function step(d){if(!cur||cur.kind!=='crimp')return;const n=cur.item.slides.length;
+      idx=Math.max(0,Math.min(n-1,idx+d));render();}
+    dlg.querySelector('.lb-close').addEventListener('click',close);
+    prev.addEventListener('click',()=>step(-1));next.addEventListener('click',()=>step(1));
+    dlg.addEventListener('click',e=>{if(e.target===dlg)close();});          // click on backdrop
+    dlg.addEventListener('close',()=>{stage.querySelectorAll('video').forEach(v=>v.pause());stage.innerHTML='';});
+    dlg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
+
+    function captionTitle(c){ // "FORMAT #01 · First sentence. Rest…" -> "First sentence."
+      const s=String(c||'').split('\n')[0].replace(/^[^·]*·\s*/,'');
+      const m=s.match(/^.*?[?.!](?=\s|$)/);return (m?m[0]:s).trim();
+    }
+    function build(){
+      if(built)return;built=true;
+      const best=document.getElementById('gc-best'),latest=document.getElementById('gc-latest'),crimps=document.getElementById('gc-crimps');
+      FEATURED.forEach(r=>best.appendChild(reelCard(r)));
+      CRIMPS.forEach(c=>crimps.appendChild(crimpCard(c)));
+      fetch(BASE+'v2/reels.json?t='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
+        const skip=new Set(FEATURED.map(f=>f.id));
+        const items=(q.reels||[]).filter(r=>r&&r.status==='published'&&!r.hold&&r.slug&&!skip.has(r.id))
+          .sort((a,b)=>String(b.published_at||'').localeCompare(String(a.published_at||''))).slice(0,3)
+          .map(r=>{const t=captionTitle(r.caption);return {id:r.id,slug:r.slug,fmt:(r.format||'Reel')+(r.nr?' #'+String(r.nr).padStart(2,'0'):''),en:t,de:t};});
+        latest.innerHTML='';
+        if(!items.length){latest.innerHTML='<p class="ph"><span class="en">New reels appear here automatically.</span><span class="de">Neue Reels erscheinen hier automatisch.</span></p>';return;}
+        items.forEach(r=>latest.appendChild(reelCard(r)));
+      }).catch(()=>{latest.innerHTML='<p class="ph"><span class="en">Could not load the latest reels — see </span><span class="de">Die neuesten Reels konnten nicht geladen werden — siehe </span><a href="https://www.instagram.com/geocrimps/">@geocrimps</a>.</p>';});
+    }
+    return {build};
   })();
+  if(document.getElementById('klettergeologie').classList.contains('active'))KG.build(); // opened via #hash before KG existed
 
   // GeoNews — loads issues.json live, so each new Monday issue appears automatically.
   (function(){
