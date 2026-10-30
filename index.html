@@ -4,67 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Markus Fischer</title>
-<meta name="theme-color" content="#f2f1f5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#12162a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#231d1a" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Instrument+Sans:wght@400..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. GeoNews weekly palaeoclimate digest, research, climbing geology and climate music.">
 <style>
   /* ------------------------------------------------------------------
-     Corporate design "Kelani" — derived from Ernst Haeckel's watercolour
-     "Urwald am Blauen Fluß (Kelany-Ganga)", Ceylon, 2 Feb 1882.
-     Blue river = ink and links · morning mist = space · moss = living
-     details · one vermilion flame per view (the flowering tree).
+     Corporate design "Kelani": colour space measured from Ernst Haeckel's
+     watercolour "Urwald am Blauen Fluß (Kelany-Ganga)", Ceylon 1882
+     (10 k-means clusters in CIELAB, shares = area in the painting).
+     Warm stone paper, umber ink, indigo river as the one interactive
+     accent, rust as the spark. One calm sans: Hanken Grotesk.
+     Geometry: squares. 1 square = 1 % of the painting.
      ------------------------------------------------------------------ */
   :root{
-    /* pigments (from the painting) */
-    --kelani:#2a4486;      /* blue river: primary accent */
-    --mist:#f2f1f5;        /* morning mist: page */
-    --cloud:#fbfaf8;       /* clouds: surfaces */
-    --lilac:#a8a3bd;       /* mountain lilac */
-    --moss:#5f6a1f;        /* moss (text-safe) */
-    --lime:#c2c66a;        /* lime leaf (decorative) */
-    --flame:#b4381e;       /* flame tree (spark) */
-    --peach:#ecc9b6;       /* dawn */
-    --ochre:#a78233;
+    /* colour space (measured, ordered top to bottom in the painting) */
+    --fr-cloud:#e4d5b0;--fr-mist:#c2bcb0;--fr-shade:#4b3516;--fr-olive:#715c23;--fr-umber:#2d1a0e;
+    --fr-moss:#a18b3a;--fr-khaki:#9a8e75;--fr-sage:#6a675b;--fr-slate:#464549;--fr-rust:#863b1b;
     /* roles */
-    --bg:var(--mist);--card:var(--cloud);--fg:#1d2340;--muted:#4f5470;--faint:#666a83;
-    --line:#d3cfe0;--soft:#e8e6ef;--accent:var(--kelani);--accent-2:var(--moss);
-    /* hero sky (light: dawn) */
-    --h-sky1:#c9d4e6;--h-sky2:#dcd6e6;--h-sky3:#ecc9b6;--h-sky4:#f3e1d3;--h-cloud:#fbf6ec;
-    --h-mtn1:#b9b2c9;--h-mtn2:#a39cbb;--h-haze:#c2c3cf;--h-forest:#8d9a92;--h-forest2:#76857d;
-    --h-water1:#bdb9ca;--h-water2:#a6a3b8;--h-glint:#f1edf5;--h-river:#2a4486;--h-river2:#3e5ca8;
-    --h-jungle1:#2f3a22;--h-jungle2:#45532a;--h-mossy:#7d8a2c;--h-lime:#b9c25b;--h-trunk:#6e4127;
-    --h-flame:#c2401f;--h-flame2:#de6a33;
-    /* type */
-    --serif:"Brygada 1918",Georgia,"Times New Roman",serif;
-    --ui:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --bg:#f6f1ec;--card:#fdfbf8;--soft:#ebe6df;--line:#dad3cb;
+    --fg:#2e241e;--muted:#60584f;--faint:#736c61;
+    --accent:#33407a;--on-accent:#f6f1ec;--spark:#863b1b;--moss-text:#70631d;--plate:transparent;
+    --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     --max:720px;
   }
   @media (prefers-color-scheme:dark){
-    :root{
-      --bg:#12162a;--card:#191e35;--fg:#ece9e1;--muted:#b8b4c9;--faint:#9a97b0;--line:#2b3150;--soft:#1f2440;
-      --accent:#9fb4f0;--accent-2:#c2c66a;--flame:#ef6c4f;--ochre:#d1a54a;
-      /* hero sky (dark: before sunrise) */
-      --h-sky1:#151a33;--h-sky2:#2a2b4d;--h-sky3:#6b4a5e;--h-sky4:#8f6461;--h-cloud:#3b3c5e;
-      --h-mtn1:#3b3a5e;--h-mtn2:#2f2f50;--h-haze:#373a58;--h-forest:#26303a;--h-forest2:#1f2830;
-      --h-water1:#262b48;--h-water2:#1d213b;--h-glint:#4a4e72;--h-river:#4f6fd0;--h-river2:#7d97e6;
-      --h-jungle1:#0e130b;--h-jungle2:#1b2412;--h-mossy:#46521a;--h-lime:#7d8a2c;--h-trunk:#3e2416;
-      --h-flame:#e0583a;--h-flame2:#f08a4f;
-    }
+    :root{--bg:#231d1a;--card:#2b2622;--soft:#332d29;--line:#443c37;
+      --fg:#eee7df;--muted:#bfb8ae;--faint:#a19a91;
+      --accent:#a4b5e8;--on-accent:#231d1a;--spark:#b4583a;--moss-text:#c3b063;--plate:#e8e2d9;}
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-  body{margin:0;background:var(--bg);color:var(--fg);font-size:18px;line-height:1.68;
-       font-family:var(--serif);-webkit-font-smoothing:antialiased;font-variant-numeric:oldstyle-nums proportional-nums}
-  .sans{font-family:var(--ui)}
-  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;
-    text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.65;
+       font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .sans{font-family:var(--sans)}
+  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;
+    text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent)}
   a:hover{text-decoration-color:currentColor}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  em{font-style:italic}
 
   /* language switch: default EN */
   .de{display:none}
@@ -72,119 +55,124 @@
   body.lang-de .en{display:none}
   body.lang-de li.en{display:none}
 
-  /* ---- hero: the river at dawn ---- */
-  header.hero{position:relative;overflow:hidden;min-height:clamp(360px,44vw,450px);
-        display:flex;flex-direction:column;background:var(--h-sky2)}
-  .hero-art{position:absolute;inset:0;width:100%;height:100%;display:block}
-  .hero .topbar,.hero .hero-text{position:relative;z-index:1;width:100%}
-  .topbar{display:flex;justify-content:flex-end;padding-top:14px}
-  .langsw{font-family:var(--ui);font-size:.82rem}
-  .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);
-        font:inherit;padding:6px 7px;border-radius:6px}
+  /* ---- hero: name + colour space ---- */
+  header.hero{padding:14px 0 44px}
+  .topbar{display:flex;justify-content:flex-end}
+  .langsw{font-size:.86rem}
+  .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font:inherit;padding:6px 7px}
   .langsw button.active{color:var(--fg);font-weight:600}
-  .langsw .div{color:var(--muted);opacity:.6}
-  .hero-text{padding-top:clamp(18px,4.5vw,46px);padding-bottom:28px}
-  .wordmark{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--muted);margin:0 0 6px}
-  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,7.2vw,4.6rem);line-height:.98;
-        letter-spacing:-.025em;margin:0 0 14px;color:var(--fg);max-width:9.5em}
-  .hero .role{font-family:var(--ui);font-size:1rem;color:var(--muted);margin:0;max-width:30em;line-height:1.45}
-  .hero .flame-blossom{transform-box:fill-box;transform-origin:center;animation:bloom 1.4s cubic-bezier(.2,.7,.2,1) both}
-  .hero .flame-blossom:nth-of-type(2n){animation-delay:.12s}.hero .flame-blossom:nth-of-type(3n){animation-delay:.24s}
-  @keyframes bloom{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+  .langsw .div{color:var(--line)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 188px;gap:28px 40px;align-items:end;padding-top:30px}
+  .wordmark{font-size:.92rem;color:var(--muted);margin:0 0 10px}
+  .hero h1{font-weight:500;font-size:clamp(2.5rem,6.4vw,3.9rem);line-height:1.02;letter-spacing:-.028em;margin:0 0 14px;
+        text-wrap:balance}
+  .hero .role{font-size:1.05rem;color:var(--muted);margin:0;max-width:30em;line-height:1.5}
+  .farbraum-wrap{background:var(--plate);border-radius:4px;padding:0;line-height:0}
+  @media (prefers-color-scheme:dark){.farbraum-wrap{padding:8px}}
+  .farbraum{display:block;width:100%;height:auto}
+  .fr-cloud{fill:var(--fr-cloud)}.fr-mist{fill:var(--fr-mist)}.fr-shade{fill:var(--fr-shade)}.fr-olive{fill:var(--fr-olive)}
+  .fr-umber{fill:var(--fr-umber)}.fr-moss{fill:var(--fr-moss)}.fr-khaki{fill:var(--fr-khaki)}.fr-sage{fill:var(--fr-sage)}
+  .fr-slate{fill:var(--fr-slate)}.fr-rust{fill:var(--fr-rust)}
+  .farbraum rect{transition:opacity .2s}
+  .farbraum g:hover rect{opacity:.75}
+  @media(max-width:640px){
+    .hero-grid{grid-template-columns:1fr;padding-top:18px}
+    .farbraum-wrap{order:-1;width:112px}
+  }
+  .band{display:flex;height:6px;width:100%}
+  .band span{display:block;height:100%}
 
   /* ---- tabs ---- */
-  nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);
-        border-bottom:1px solid var(--line);backdrop-filter:saturate(150%) blur(10px)}
-  nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+        border-top:1px solid var(--line);border-bottom:1px solid var(--line);backdrop-filter:saturate(140%) blur(10px)}
+  nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
   nav.tabs .wrap::-webkit-scrollbar{display:none}
   @media(max-width:700px){nav.tabs .wrap{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}
-  .tab-btn{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font-family:var(--ui);
-        font-size:.92rem;padding:15px 10px 13px;border-bottom:2px solid transparent;white-space:nowrap;margin-bottom:-1px}
+  .tab-btn{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font-family:var(--sans);
+        font-size:.94rem;padding:14px 10px 12px;border-bottom:2px solid transparent;white-space:nowrap;margin-bottom:-1px}
   .tab-btn:first-child{padding-left:0}
   .tab-btn:hover{color:var(--fg)}
   .tab-btn.active{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
 
-  .panel{display:none;padding:44px 0 10px;animation:fade .35s ease}
+  .panel{display:none;padding:46px 0 10px}
   .panel.active{display:block}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  h2{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:-.015em;line-height:1.15;margin:0 0 20px;color:var(--fg)}
-  h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.25;margin:30px 0 8px}
+  h2{font-size:1.8rem;font-weight:600;letter-spacing:-.018em;line-height:1.2;margin:0 0 20px;color:var(--fg);text-wrap:balance}
+  h3{font-size:1.2rem;font-weight:600;letter-spacing:-.008em;line-height:1.3;margin:32px 0 8px}
   p{margin:0 0 16px}
-  .lead{font-size:1.2rem;line-height:1.6}
+  .lead{font-size:1.16rem;line-height:1.6;color:var(--fg)}
   .muted{color:var(--muted)}
   .small{font-size:.92rem}
   strong{font-weight:600}
 
-  .cv{list-style:none;padding:0;margin:10px 0 0;border-left:2px solid var(--line)}
-  .cv li{position:relative;padding:0 0 22px 22px}
-  .cv li:before{content:"";position:absolute;left:-6px;top:10px;width:10px;height:10px;border-radius:50%;
-        background:var(--bg);border:2px solid var(--accent)}
+  /* square marker: the colour-space unit, used as list and section marker */
+  .cv{list-style:none;padding:0;margin:12px 0 0;border-left:1px solid var(--line)}
+  .cv li{position:relative;padding:0 0 22px 24px}
+  .cv li:before{content:"";position:absolute;left:-5px;top:9px;width:9px;height:9px;border-radius:2px;background:var(--line)}
   .cv li:first-child:before{background:var(--accent)}
-  .cv .yr{font-family:var(--ui);font-size:.85rem;color:var(--faint)}
+  .cv .yr{font-size:.86rem;color:var(--faint)}
   .cv .w{font-weight:600}
 
   .facts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-  .fact{font-family:var(--ui);font-size:.88rem;color:var(--fg);background:var(--card);
-        border:1px solid var(--line);border-radius:999px;padding:5px 13px}
+  .fact{font-size:.88rem;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:4px 11px}
 
-  .links{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--ui);font-size:.95rem}
+  .links{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.95rem}
 
   /* ---- references ---- */
   ol.refs{list-style:none;padding:0;margin:0}
-  ol.refs li.ref{padding:15px 0;border-bottom:1px solid var(--line);font-size:1rem;line-height:1.6;display:block}
+  ol.refs li.ref{padding:15px 0;border-bottom:1px solid var(--line);font-size:.97rem;line-height:1.6;display:block}
   ol.refs li.ref:last-child{border-bottom:none}
-  .refs .meta{font-family:var(--ui);font-size:.86rem;color:var(--faint);margin-top:4px}
+  .refs .meta{font-size:.86rem;color:var(--faint);margin-top:4px}
   .refs .self{font-weight:700;color:var(--accent)}
-  .yrhead{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--accent);margin:30px 0 2px;
-        font-variant-numeric:lining-nums}
-  .filterbar{display:flex;gap:8px;margin:4px 0 8px;font-family:var(--ui)}
+  .yrhead{font-size:1rem;font-weight:600;color:var(--fg);margin:32px 0 4px;display:flex;align-items:center;gap:10px}
+  .yrhead:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--accent);flex:0 0 10px}
+  .filterbar{display:flex;gap:8px;margin:4px 0 8px}
   .chip{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--muted);
-        border-radius:999px;padding:6px 14px;font:inherit;font-size:.88rem;cursor:pointer}
+        border-radius:4px;padding:5px 13px;font:inherit;font-size:.88rem;cursor:pointer}
   .chip:hover{color:var(--fg)}
-  .chip.active{border-color:var(--accent);background:var(--accent);color:var(--bg)}
+  .chip.active{border-color:var(--accent);background:var(--accent);color:var(--on-accent)}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-top:16px}
-  .kicker{font-family:var(--ui);font-size:.86rem;color:var(--faint)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;margin-top:16px}
+  .kicker{font-size:.86rem;color:var(--faint)}
   .byline{color:var(--muted);font-size:.94rem;margin:2px 0 14px}
-  .series{border-left:2px solid var(--accent-2);padding-left:18px;margin-top:26px}
-  .series h4{margin:0 0 6px;font-family:var(--serif);font-size:1.08rem;font-weight:600}
+  .series{border-left:2px solid var(--fr-moss);padding-left:18px;margin-top:26px}
+  .series h4{margin:0 0 6px;font-size:1.02rem;font-weight:600}
   .series ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.96rem}
   .series li{margin-bottom:6px}
   .series li.done{color:var(--fg)}
-  .series li::marker{color:var(--accent-2)}
+  .series li::marker{color:var(--moss-text)}
   .ph{color:var(--faint);font-style:italic}
 
-  .revlist{list-style:none;padding:0;margin:8px 0 0;font-size:1rem}
+  .revlist{list-style:none;padding:0;margin:8px 0 0;font-size:.98rem}
   .revlist li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--fg)}
   .revlist li:last-child{border-bottom:none}
 
-  /* ---- climbing geology: GeoCrimps + ClimbingEarth ---- */
+  /* ---- climbing geology: ClimbingEarth + GeoCrimps ---- */
   .kg-block{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);scroll-margin-top:70px}
   .kg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .kg-head h3{margin:0 0 8px;font-size:1.6rem}
-  .kg-tag{font-family:var(--ui);font-size:.86rem;color:var(--faint)}
-  .kg-label{font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--accent);margin:30px 0 12px}
+  .kg-head h3{margin:0 0 8px;font-size:1.45rem}
+  .kg-tag{font-size:.86rem;color:var(--faint)}
+  .kg-label{font-size:1rem;font-weight:600;color:var(--fg);margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+  .kg-label:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--accent);flex:0 0 10px}
   .reel-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
   .reel-card,.crimp-card{appearance:none;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0;
         background:none;border:none;display:block;width:100%;align-self:start}
-  .reel-media{position:relative;display:block;border-radius:14px;overflow:hidden;background:#0d0f14;aspect-ratio:9/16}
+  .reel-media{position:relative;display:block;border-radius:8px;overflow:hidden;background:#0d0f14;aspect-ratio:9/16}
   .reel-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
   .reel-card:hover .reel-media img,.reel-card:focus-visible .reel-media img{transform:scale(1.03)}
-  .reel-play{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;
-        background:color-mix(in srgb,var(--cloud) 92%,transparent);box-shadow:0 6px 20px rgba(13,15,30,.3)}
-  .reel-play:after{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:10px 0 10px 16px;
-        border-color:transparent transparent transparent var(--kelani)}
-  .reel-fmt{display:block;margin-top:10px;font-family:var(--ui);font-size:.8rem;color:var(--faint)}
-  .reel-title{display:block;font-size:.98rem;line-height:1.35;margin-top:1px;font-weight:600}
+  .reel-play{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
+        background:#fdfbf8;box-shadow:0 6px 20px rgba(20,14,10,.3)}
+  .reel-play:after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:10px 0 10px 16px;
+        border-color:transparent transparent transparent #33407a}
+  .reel-fmt{display:block;margin-top:10px;font-size:.82rem;color:var(--faint)}
+  .reel-title{display:block;font-size:.97rem;line-height:1.35;margin-top:1px;font-weight:600}
   .crimp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .crimp-card{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+  .crimp-card{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card)}
   .crimp-card:hover,.crimp-card:focus-visible{border-color:var(--accent)}
   .crimp-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
   .crimp-meta{display:block;padding:9px 11px 12px}
-  .crimp-num{display:block;font-family:var(--ui);font-size:.76rem;color:var(--faint)}
-  .crimp-title{display:block;font-size:.9rem;line-height:1.3;font-weight:600;margin-top:1px}
-  .crimp-count{position:absolute;top:8px;right:8px;font-family:var(--ui);font-size:.72rem;
-        background:color-mix(in srgb,var(--cloud) 90%,transparent);color:#1d2340;border-radius:99px;padding:2px 8px}
+  .crimp-num{display:block;font-size:.78rem;color:var(--faint)}
+  .crimp-title{display:block;font-size:.88rem;line-height:1.3;font-weight:600;margin-top:1px}
+  .crimp-count{position:absolute;top:8px;right:8px;font-size:.72rem;background:#fdfbf8e6;color:#2e241e;border-radius:3px;padding:2px 7px}
   .ce-card{padding:0;overflow:hidden}
   .ce-card>:not(.ce-spread){margin-left:24px;margin-right:24px}
   .ce-card .links{margin-bottom:24px}
@@ -192,76 +180,72 @@
   .ce-spread img{display:block;width:100%;height:auto}
   .ce-card .kicker{display:block}
   dialog.lb{border:none;padding:0;background:transparent;max-width:min(94vw,560px);width:100%;color:var(--fg)}
-  dialog.lb::backdrop{background:rgba(13,16,34,.84);backdrop-filter:blur(4px)}
-  .lb-inner{position:relative;background:var(--card);border-radius:14px;overflow:hidden}
+  dialog.lb::backdrop{background:rgba(22,17,14,.84);backdrop-filter:blur(4px)}
+  .lb-inner{position:relative;background:var(--card);border-radius:10px;overflow:hidden}
   .lb-stage{display:flex;align-items:center;justify-content:center;background:#0d0f14}
   .lb-stage video{display:block;width:100%;max-height:78vh;aspect-ratio:9/16;background:#000}
   .lb-stage img{display:block;width:100%;max-height:78vh;object-fit:contain}
   .lb-stage.is-reel{max-width:calc(78vh*9/16);margin:0 auto}
   .lb-bar{display:flex;align-items:center;gap:10px;padding:10px 12px}
   .lb-cap{flex:1;min-width:0}
-  .lb-num{display:block;font-family:var(--ui);font-size:.78rem;color:var(--faint)}
+  .lb-num{display:block;font-size:.78rem;color:var(--faint)}
   .lb-title{display:block;font-weight:600;line-height:1.3}
   .lb-prev,.lb-next,.lb-close{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--fg);
-        border-radius:99px;width:40px;height:40px;font-size:1.35rem;line-height:1;cursor:pointer;flex:0 0 40px}
+        border-radius:4px;width:40px;height:40px;font-size:1.3rem;line-height:1;cursor:pointer;flex:0 0 40px}
   .lb-prev:disabled,.lb-next:disabled{opacity:.35;cursor:default}
   .lb-close{position:absolute;top:10px;right:10px;z-index:2}
   @media(max-width:640px){.reel-row{gap:9px}.reel-title{font-size:.84rem}.crimp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-  .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:10px;
+  .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:6px;
         padding:15px 17px;margin-top:10px;background:var(--card);text-decoration:none;color:var(--fg)}
   .mediacard:hover{border-color:var(--accent)}
-  .mediacard .play{width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:var(--accent);
-        color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.85rem;padding-left:2px}
+  .mediacard .play{width:40px;height:40px;flex:0 0 40px;border-radius:4px;background:var(--accent);
+        color:var(--on-accent);display:flex;align-items:center;justify-content:center;font-size:.8rem;padding-left:2px}
   .mediacard .mc-title{display:block;font-weight:600}
-  .mediacard .mc-sub{display:block;color:var(--muted);font-size:.86rem;font-family:var(--ui)}
-  .portrait{float:right;width:164px;height:164px;border-radius:50% 50% 50% 14px;object-fit:cover;
-        margin:4px 0 14px 26px;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
-  @media(max-width:600px){.portrait{width:112px;height:112px;margin-left:16px}}
-  footer{padding:36px 0 60px;color:var(--faint);font-size:.86rem;border-top:1px solid var(--line);margin-top:52px;
-        font-family:var(--ui)}
+  .mediacard .mc-sub{display:block;color:var(--muted);font-size:.86rem}
+  .portrait{float:right;width:156px;height:156px;border-radius:4px;object-fit:cover;margin:4px 0 14px 26px}
+  @media(max-width:600px){.portrait{width:104px;height:104px;margin-left:16px}}
+  footer{padding:0 0 60px;color:var(--faint);font-size:.86rem;margin-top:56px}
+  footer .band{margin-bottom:26px}
   footer .credit{display:block;margin-top:6px;font-size:.8rem}
+  .foot-mark{display:block;width:20px;height:20px;border-radius:1px;margin-bottom:12px}
 
   /* ---- geonews:css ---- */
   #geonews .gn-issue{margin-top:26px}
-  #geonews .gn-issue h2{font-size:1.4rem;margin:28px 0 8px}
-  #geonews .gn-issue h3{font-size:1.08rem;margin:20px 0 6px;color:var(--muted)}
+  #geonews .gn-issue h2{font-size:1.35rem;margin:28px 0 8px}
+  #geonews .gn-issue h3{font-size:1.04rem;margin:20px 0 6px;color:var(--muted)}
   #geonews .gn-issue blockquote{margin:18px 0;padding:14px 18px;background:var(--card);
-        border-left:3px solid var(--accent-2);border-radius:0 8px 8px 0;font-size:.96rem}
+        border-left:3px solid var(--fr-moss);border-radius:0 6px 6px 0;font-size:.95rem}
   #geonews .gn-issue blockquote p{margin:6px 0}
   #geonews .gn-issue hr{border:none;border-top:1px solid var(--line);margin:26px 0}
   #geonews .gn-issue ul{padding-left:20px}
   #geonews .gn-issue li{margin:8px 0}
   #geonews .gn-issue em{color:var(--muted)}
-  .gn-dot{display:inline-block;width:.62em;height:.62em;border-radius:50%;vertical-align:baseline;margin-right:.3em}
-  .gn-red{background:var(--flame)}.gn-yel{background:var(--ochre)}.gn-grn{background:var(--accent-2)}
+  .gn-dot{display:inline-block;width:.6em;height:.6em;border-radius:2px;vertical-align:baseline;margin-right:.3em}
+  .gn-red{background:var(--spark)}.gn-yel{background:var(--fr-moss)}.gn-grn{background:var(--fr-sage)}
   .gn-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 0}
-  .gn-badge{font-family:var(--ui);font-size:.82rem;color:var(--muted);background:var(--card);
-        border:1px solid var(--line);border-radius:100px;padding:4px 12px}
+  .gn-badge{font-size:.82rem;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:3px 10px}
 
   /* archive: one row per week, PDFs right */
   .gn-arch{margin-top:44px;border-top:1px solid var(--line);padding-top:22px}
-  .gn-arch h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.2rem;color:var(--accent);margin:0 0 4px}
-  .gn-arch .gn-note{color:var(--faint);font-size:.86rem;margin:0 0 16px;font-family:var(--ui)}
+  .gn-arch h3{font-size:1rem;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+  .gn-arch h3:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--accent);flex:0 0 10px}
+  .gn-arch .gn-note{color:var(--faint);font-size:.86rem;margin:0 0 16px}
   .gn-arch ol{list-style:none;padding:0;margin:0}
-  .gn-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;
-        padding:14px 0;border-bottom:1px solid var(--line)}
+  .gn-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
   .gn-row:last-child{border-bottom:none}
-  .gn-row.gn-cur{background:var(--card);margin:0 -14px;padding:14px;border-radius:10px;border-bottom:none}
+  .gn-row.gn-cur{background:var(--card);margin:0 -14px;padding:14px;border-radius:6px;border-bottom:none}
   .gn-left{min-width:0;flex:1}
-  .gn-wk{font-family:var(--ui);font-size:.9rem;color:var(--fg);font-weight:600}
-  .gn-when{font-family:var(--ui);font-size:.82rem;color:var(--faint);margin-left:8px;font-weight:400}
-  .gn-teaser{font-size:.94rem;color:var(--muted);margin:5px 0 0;line-height:1.55}
+  .gn-wk{font-size:.9rem;color:var(--fg);font-weight:600}
+  .gn-when{font-size:.82rem;color:var(--faint);margin-left:8px;font-weight:400}
+  .gn-teaser{font-size:.93rem;color:var(--muted);margin:5px 0 0;line-height:1.55}
   .gn-pdfs{display:flex;gap:7px;flex-shrink:0;padding-top:2px}
-  .gn-pdf{font-family:var(--ui);font-size:.8rem;border:1px solid var(--line);border-radius:6px;padding:4px 10px;
-        color:var(--muted);white-space:nowrap;background:var(--card);text-decoration:none}
+  .gn-pdf{font-size:.8rem;border:1px solid var(--line);border-radius:4px;padding:4px 10px;color:var(--muted);
+        white-space:nowrap;background:var(--card);text-decoration:none}
   .gn-pdf:hover{border-color:var(--accent);color:var(--accent)}
   .gn-ph{color:var(--faint);font-style:italic}
-  @media (max-width:560px){
-    .gn-row{flex-direction:column;gap:10px}
-    .gn-pdfs{padding-top:0}
-  }
-  @media(max-width:600px){body{font-size:17px}h2{font-size:1.7rem}.lead{font-size:1.1rem}}
+  @media (max-width:560px){.gn-row{flex-direction:column;gap:10px}.gn-pdfs{padding-top:0}}
+  @media(max-width:600px){body{font-size:16.5px}h2{font-size:1.55rem}.lead{font-size:1.08rem}}
 </style>
 <!-- GoatCounter: privacy-friendly visitor stats (dashboard: mlfischer.goatcounter.com) -->
 <script data-goatcounter="https://mlfischer.goatcounter.com/count"
@@ -270,143 +254,37 @@
 <body class="lang-en">
 
 <header class="hero">
-  <svg class="hero-art" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
-    <defs>
-      <linearGradient id="k-sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" style="stop-color:var(--h-sky1)"/>
-        <stop offset=".42" style="stop-color:var(--h-sky2)"/>
-        <stop offset=".62" style="stop-color:var(--h-sky3)"/>
-        <stop offset=".72" style="stop-color:var(--h-sky4)"/>
-      </linearGradient>
-      <linearGradient id="k-water" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" style="stop-color:var(--h-water1)"/>
-        <stop offset="1" style="stop-color:var(--h-water2)"/>
-      </linearGradient>
-      <radialGradient id="k-river" cx=".5" cy=".42" r=".5">
-        <stop offset="0" style="stop-color:var(--h-river)"/>
-        <stop offset=".6" style="stop-color:var(--h-river2);stop-opacity:.8"/>
-        <stop offset="1" style="stop-color:var(--h-river2);stop-opacity:0"/>
-      </radialGradient>
-      <!-- watercolour: soft, irregular edges -->
-      <filter id="k-wc" x="-5%" y="-8%" width="110%" height="116%">
-        <feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="3" seed="4" result="n"/>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <filter id="k-wc2" x="-10%" y="-20%" width="120%" height="140%">
-        <feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="9" result="n"/>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <filter id="k-soft" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
-      <filter id="k-haze" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
-      <filter id="k-grain" x="0" y="0" width="100%" height="100%">
-        <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="2" stitchTiles="stitch"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 .12  0 0 0 0 .12  0 0 0 0 .22  .9 0 0 0 -.42"/>
-      </filter>
-    </defs>
-
-    <!-- dawn sky: graded wash with soft clouds -->
-    <rect width="1440" height="560" fill="url(#k-sky)"/>
-    <g filter="url(#k-soft)">
-      <ellipse cx="200" cy="250" rx="260" ry="40" style="fill:var(--h-sky4)" opacity=".7"/>
-      <ellipse cx="1000" cy="236" rx="300" ry="36" style="fill:var(--h-sky3)" opacity=".6"/>
-      <g style="fill:var(--h-cloud)" opacity=".8">
-        <ellipse cx="330" cy="118" rx="230" ry="44"/><ellipse cx="820" cy="78" rx="280" ry="38"/>
-        <ellipse cx="1150" cy="168" rx="190" ry="40"/><ellipse cx="610" cy="206" rx="180" ry="22"/>
-      </g>
-    </g>
-
-    <!-- mountain lilac -->
-    <g filter="url(#k-wc)">
-      <path style="fill:var(--h-mtn1)" d="M-20 358 C120 340 210 328 300 332 C380 336 432 312 498 284 C556 258 600 234 640 224 C684 232 724 256 772 276 C842 302 902 308 980 316 C1080 326 1180 320 1280 334 C1360 344 1410 348 1460 350 V440 H-20Z"/>
-      <path style="fill:var(--h-mtn2)" d="M392 372 C460 342 528 310 588 292 C626 280 652 272 682 280 C724 292 764 320 822 344 C884 366 944 372 1004 376 V440 H392Z" opacity=".9"/>
-    </g>
-    <rect y="350" width="1440" height="40" style="fill:var(--h-haze)" opacity=".65" filter="url(#k-haze)"/>
-
-    <!-- far bank: misty forest, a band of light, the blue river between -->
-    <path style="fill:var(--h-sky4)" opacity=".9" d="M500 398 C580 392 680 392 760 398 L760 406 L500 406Z" filter="url(#k-haze)"/>
-    <ellipse cx="646" cy="418" rx="168" ry="20" style="fill:url(#k-river)"/>
-    <g filter="url(#k-wc2)">
-      <path style="fill:var(--h-forest)" d="M-10 400 C30 380 62 376 92 384 C112 364 152 360 174 376 C198 358 238 360 254 380 C282 368 314 372 332 388 C362 376 398 380 422 394 C454 386 488 388 522 400 C542 392 560 394 576 404 L576 430 H-10Z"/>
-      <path style="fill:var(--h-forest2)" d="M716 404 C746 386 786 382 816 394 C846 374 896 374 920 392 C946 380 986 382 1006 398 C1036 388 1074 392 1094 406 L1094 430 H716Z"/>
-    </g>
-    <rect y="428" width="1440" height="132" style="fill:url(#k-water)"/>
-    <ellipse cx="648" cy="440" rx="120" ry="12" style="fill:url(#k-river)" opacity=".55"/>
-    <g style="stroke:var(--h-glint)" stroke-width="2" stroke-linecap="round" opacity=".45" filter="url(#k-wc2)">
-      <path d="M40 454 H210"/><path d="M262 478 H362"/><path d="M92 508 H300"/>
-      <path d="M422 460 H520"/><path d="M380 534 H560"/><path d="M60 546 H140"/><path d="M612 524 H700"/>
-    </g>
-
-    <!-- the slender tree on the left bank -->
-    <g filter="url(#k-wc2)">
-      <path style="fill:var(--h-trunk)" d="M119 436 C121 360 123 280 126 192 L130 192 C132 280 134 360 137 436 Z"/>
-      <path style="fill:var(--h-mossy)" opacity=".9" d="M108 436 C114 386 119 330 124 268 L132 268 C136 330 142 386 150 436 Z"/>
-    </g>
-    <g filter="url(#k-wc)">
-      <ellipse cx="128" cy="190" rx="78" ry="17" style="fill:var(--h-forest2)"/>
-      <ellipse cx="96" cy="180" rx="42" ry="13" style="fill:var(--h-forest)"/>
-      <ellipse cx="164" cy="178" rx="46" ry="13" style="fill:var(--h-forest)"/>
-      <ellipse cx="130" cy="170" rx="34" ry="11" style="fill:var(--h-mossy)" opacity=".7"/>
-    </g>
-
-    <!-- jungle on the near bank -->
-    <g filter="url(#k-wc)">
-      <g style="fill:var(--h-jungle2)">
-        <path d="M1012 440 C1008 390 1028 338 1060 308 C1050 268 1080 226 1120 220 C1120 176 1160 146 1200 152 C1210 106 1260 82 1300 96 C1320 56 1380 46 1420 70 L1460 74 V440 Z"/>
-        <ellipse cx="1110" cy="250" rx="58" ry="40"/><ellipse cx="1240" cy="132" rx="70" ry="48"/><ellipse cx="1390" cy="90" rx="80" ry="46"/>
-      </g>
-      <path style="fill:var(--h-mossy)" d="M1150 448 C1166 382 1188 302 1216 238 C1232 202 1246 178 1262 162 L1286 174 C1268 198 1254 228 1242 264 C1222 326 1202 394 1190 450 Z"/>
-      <g style="fill:var(--h-jungle1)">
-        <path d="M1098 448 C1108 388 1148 348 1188 338 C1198 298 1248 278 1288 292 C1308 248 1368 244 1398 270 L1460 268 V448 Z"/>
-      </g>
-    </g>
-    <g filter="url(#k-soft)" style="fill:var(--h-mossy)" opacity=".75">
-      <ellipse cx="1150" cy="236" rx="34" ry="22"/><ellipse cx="1230" cy="150" rx="40" ry="20"/><ellipse cx="1350" cy="104" rx="46" ry="22"/>
-    </g>
-    <g style="stroke:var(--h-lime);fill:none" stroke-width="2.5" stroke-linecap="round" opacity=".8" filter="url(#k-wc2)">
-      <path d="M1196 184 C1194 214 1200 240 1194 272"/><path d="M1206 190 C1208 222 1202 250 1208 292"/><path d="M1216 192 C1216 214 1220 232 1216 252"/>
-      <path d="M1122 250 C1120 276 1126 298 1120 324"/><path d="M1134 254 C1136 272 1132 290 1136 306"/>
-      <path d="M1322 132 C1320 168 1326 196 1320 236"/><path d="M1336 136 C1340 166 1334 190 1340 222"/><path d="M1350 132 C1350 152 1354 168 1350 186"/>
-    </g>
-    <g filter="url(#k-wc2)">
-      <ellipse cx="1060" cy="430" rx="42" ry="26" style="fill:var(--h-lime)"/>
-      <ellipse cx="1040" cy="420" rx="22" ry="15" style="fill:var(--h-mossy)"/>
-    </g>
-
-    <!-- the flame tree: one branch across the water -->
-    <g style="stroke:var(--h-trunk);fill:none" stroke-linecap="round" filter="url(#k-wc2)">
-      <path stroke-width="11" d="M1132 460 C1052 448 990 460 938 454 C888 448 848 464 798 458 C766 454 736 460 704 454"/>
-      <path stroke-width="6" d="M938 454 C920 438 904 432 882 434"/>
-      <path stroke-width="6" d="M828 460 C814 478 798 484 778 482"/>
-      <path stroke-width="6" d="M1018 454 C1008 438 998 428 980 426"/>
-      <path stroke-width="5" d="M740 456 C730 444 720 440 708 440"/>
-    </g>
-    <g filter="url(#k-wc2)">
-      <g class="flame-blossom"><circle cx="706" cy="440" r="14" style="fill:var(--h-flame)"/><circle cx="692" cy="432" r="10" style="fill:var(--h-flame2)"/><circle cx="722" cy="430" r="9" style="fill:var(--h-flame2)"/><circle cx="712" cy="450" r="8" style="fill:var(--h-flame)"/><circle cx="688" cy="446" r="7" style="fill:var(--h-flame)"/></g>
-      <g class="flame-blossom"><circle cx="776" cy="440" r="13" style="fill:var(--h-flame)"/><circle cx="792" cy="430" r="9" style="fill:var(--h-flame2)"/><circle cx="764" cy="432" r="8" style="fill:var(--h-flame2)"/><circle cx="788" cy="446" r="7" style="fill:var(--h-flame)"/></g>
-      <g class="flame-blossom"><circle cx="880" cy="424" r="16" style="fill:var(--h-flame)"/><circle cx="862" cy="414" r="10" style="fill:var(--h-flame2)"/><circle cx="898" cy="412" r="9" style="fill:var(--h-flame2)"/><circle cx="868" cy="432" r="8" style="fill:var(--h-flame)"/><circle cx="896" cy="434" r="8" style="fill:var(--h-flame)"/><circle cx="882" cy="404" r="7" style="fill:var(--h-flame2)"/></g>
-      <g class="flame-blossom"><circle cx="978" cy="418" r="14" style="fill:var(--h-flame)"/><circle cx="994" cy="410" r="8" style="fill:var(--h-flame2)"/><circle cx="964" cy="410" r="8" style="fill:var(--h-flame2)"/><circle cx="984" cy="428" r="7" style="fill:var(--h-flame)"/></g>
-      <g class="flame-blossom"><circle cx="776" cy="482" r="10" style="fill:var(--h-flame)"/><circle cx="764" cy="476" r="7" style="fill:var(--h-flame2)"/><circle cx="788" cy="488" r="6" style="fill:var(--h-flame)"/></g>
-    </g>
-    <g style="fill:var(--h-flame)" opacity=".2" filter="url(#k-haze)">
-      <ellipse cx="712" cy="496" rx="30" ry="5"/><ellipse cx="880" cy="504" rx="34" ry="5"/><ellipse cx="978" cy="498" rx="26" ry="4"/>
-    </g>
-
-    <!-- paper grain over everything -->
-    <rect width="1440" height="560" filter="url(#k-grain)" opacity=".28"/>
-  </svg>
-
-  <div class="wrap topbar">
-    <div class="langsw">
-      <button data-lang="en" class="active">EN</button><span class="div">/</span><button data-lang="de">DE</button>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="langsw">
+        <button data-lang="en" class="active">EN</button><span class="div">/</span><button data-lang="de">DE</button>
+      </div>
     </div>
-  </div>
-  <div class="wrap hero-text">
-    <p class="wordmark">Spatial Perspective</p>
-    <h1>Markus Fischer</h1>
-    <p class="role">
-      <span class="en">Geoscientist working on palaeoclimate, University of Potsdam</span>
-      <span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam</span>
-    </p>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="wordmark">Spatial Perspective</p>
+        <h1>Markus Fischer</h1>
+        <p class="role">
+          <span class="en">Geoscientist working on palaeoclimate, University of Potsdam</span>
+          <span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam</span>
+        </p>
+      </div>
+      <div class="farbraum-wrap">
+<svg class="farbraum" viewBox="0 0 207 207" role="img" aria-labelledby="fr-t">
+<title id="fr-t">Colour space of Ernst Haeckel's watercolour of the Kelani river: 100 squares, each 1 % of the painting, ordered from top to bottom</title>
+<g class="fr-cloud"><title>Cloud 15 %</title><rect x="0" y="0" width="18" height="18" rx="2"/><rect x="21" y="0" width="18" height="18" rx="2"/><rect x="42" y="0" width="18" height="18" rx="2"/><rect x="63" y="0" width="18" height="18" rx="2"/><rect x="84" y="0" width="18" height="18" rx="2"/><rect x="105" y="0" width="18" height="18" rx="2"/><rect x="126" y="0" width="18" height="18" rx="2"/><rect x="147" y="0" width="18" height="18" rx="2"/><rect x="168" y="0" width="18" height="18" rx="2"/><rect x="189" y="0" width="18" height="18" rx="2"/><rect x="0" y="21" width="18" height="18" rx="2"/><rect x="21" y="21" width="18" height="18" rx="2"/><rect x="42" y="21" width="18" height="18" rx="2"/><rect x="63" y="21" width="18" height="18" rx="2"/><rect x="84" y="21" width="18" height="18" rx="2"/></g>
+<g class="fr-mist"><title>Mist 14 %</title><rect x="105" y="21" width="18" height="18" rx="2"/><rect x="126" y="21" width="18" height="18" rx="2"/><rect x="147" y="21" width="18" height="18" rx="2"/><rect x="168" y="21" width="18" height="18" rx="2"/><rect x="189" y="21" width="18" height="18" rx="2"/><rect x="0" y="42" width="18" height="18" rx="2"/><rect x="21" y="42" width="18" height="18" rx="2"/><rect x="42" y="42" width="18" height="18" rx="2"/><rect x="63" y="42" width="18" height="18" rx="2"/><rect x="84" y="42" width="18" height="18" rx="2"/><rect x="105" y="42" width="18" height="18" rx="2"/><rect x="126" y="42" width="18" height="18" rx="2"/><rect x="147" y="42" width="18" height="18" rx="2"/><rect x="168" y="42" width="18" height="18" rx="2"/></g>
+<g class="fr-shade"><title>Shade 12 %</title><rect x="189" y="42" width="18" height="18" rx="2"/><rect x="0" y="63" width="18" height="18" rx="2"/><rect x="21" y="63" width="18" height="18" rx="2"/><rect x="42" y="63" width="18" height="18" rx="2"/><rect x="63" y="63" width="18" height="18" rx="2"/><rect x="84" y="63" width="18" height="18" rx="2"/><rect x="105" y="63" width="18" height="18" rx="2"/><rect x="126" y="63" width="18" height="18" rx="2"/><rect x="147" y="63" width="18" height="18" rx="2"/><rect x="168" y="63" width="18" height="18" rx="2"/><rect x="189" y="63" width="18" height="18" rx="2"/><rect x="0" y="84" width="18" height="18" rx="2"/></g>
+<g class="fr-olive"><title>Olive 9 %</title><rect x="21" y="84" width="18" height="18" rx="2"/><rect x="42" y="84" width="18" height="18" rx="2"/><rect x="63" y="84" width="18" height="18" rx="2"/><rect x="84" y="84" width="18" height="18" rx="2"/><rect x="105" y="84" width="18" height="18" rx="2"/><rect x="126" y="84" width="18" height="18" rx="2"/><rect x="147" y="84" width="18" height="18" rx="2"/><rect x="168" y="84" width="18" height="18" rx="2"/><rect x="189" y="84" width="18" height="18" rx="2"/></g>
+<g class="fr-umber"><title>Umber 9 %</title><rect x="0" y="105" width="18" height="18" rx="2"/><rect x="21" y="105" width="18" height="18" rx="2"/><rect x="42" y="105" width="18" height="18" rx="2"/><rect x="63" y="105" width="18" height="18" rx="2"/><rect x="84" y="105" width="18" height="18" rx="2"/><rect x="105" y="105" width="18" height="18" rx="2"/><rect x="126" y="105" width="18" height="18" rx="2"/><rect x="147" y="105" width="18" height="18" rx="2"/><rect x="168" y="105" width="18" height="18" rx="2"/></g>
+<g class="fr-moss"><title>Moss 6 %</title><rect x="189" y="105" width="18" height="18" rx="2"/><rect x="0" y="126" width="18" height="18" rx="2"/><rect x="21" y="126" width="18" height="18" rx="2"/><rect x="42" y="126" width="18" height="18" rx="2"/><rect x="63" y="126" width="18" height="18" rx="2"/><rect x="84" y="126" width="18" height="18" rx="2"/></g>
+<g class="fr-khaki"><title>Khaki 10 %</title><rect x="105" y="126" width="18" height="18" rx="2"/><rect x="126" y="126" width="18" height="18" rx="2"/><rect x="147" y="126" width="18" height="18" rx="2"/><rect x="168" y="126" width="18" height="18" rx="2"/><rect x="189" y="126" width="18" height="18" rx="2"/><rect x="0" y="147" width="18" height="18" rx="2"/><rect x="21" y="147" width="18" height="18" rx="2"/><rect x="42" y="147" width="18" height="18" rx="2"/><rect x="63" y="147" width="18" height="18" rx="2"/><rect x="84" y="147" width="18" height="18" rx="2"/></g>
+<g class="fr-sage"><title>Sage 13 %</title><rect x="105" y="147" width="18" height="18" rx="2"/><rect x="126" y="147" width="18" height="18" rx="2"/><rect x="147" y="147" width="18" height="18" rx="2"/><rect x="168" y="147" width="18" height="18" rx="2"/><rect x="189" y="147" width="18" height="18" rx="2"/><rect x="0" y="168" width="18" height="18" rx="2"/><rect x="21" y="168" width="18" height="18" rx="2"/><rect x="42" y="168" width="18" height="18" rx="2"/><rect x="63" y="168" width="18" height="18" rx="2"/><rect x="84" y="168" width="18" height="18" rx="2"/><rect x="105" y="168" width="18" height="18" rx="2"/><rect x="126" y="168" width="18" height="18" rx="2"/><rect x="147" y="168" width="18" height="18" rx="2"/></g>
+<g class="fr-slate"><title>Slate 9 %</title><rect x="168" y="168" width="18" height="18" rx="2"/><rect x="189" y="168" width="18" height="18" rx="2"/><rect x="0" y="189" width="18" height="18" rx="2"/><rect x="21" y="189" width="18" height="18" rx="2"/><rect x="42" y="189" width="18" height="18" rx="2"/><rect x="63" y="189" width="18" height="18" rx="2"/><rect x="84" y="189" width="18" height="18" rx="2"/><rect x="105" y="189" width="18" height="18" rx="2"/><rect x="126" y="189" width="18" height="18" rx="2"/></g>
+<g class="fr-rust"><title>Rust 3 %</title><rect x="147" y="189" width="18" height="18" rx="2"/><rect x="168" y="189" width="18" height="18" rx="2"/><rect x="189" y="189" width="18" height="18" rx="2"/></g>
+</svg>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -754,8 +632,9 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="y"></span> Markus Fischer, <span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span>
-    <span class="credit"><span class="en">Header motif after Ernst Haeckel's watercolour “Urwald am Blauen Fluß (Kelany-Ganga)”, Ceylon 1882.</span><span class="de">Kopfmotiv nach Ernst Haeckels Aquarell „Urwald am Blauen Fluß (Kelany-Ganga)“, Ceylon 1882.</span></span></div>
+  <div class="band" aria-hidden="true"><span style="flex:15;background:var(--fr-cloud)"></span><span style="flex:14;background:var(--fr-mist)"></span><span style="flex:12;background:var(--fr-shade)"></span><span style="flex:9;background:var(--fr-olive)"></span><span style="flex:9;background:var(--fr-umber)"></span><span style="flex:6;background:var(--fr-moss)"></span><span style="flex:10;background:var(--fr-khaki)"></span><span style="flex:13;background:var(--fr-sage)"></span><span style="flex:9;background:var(--fr-slate)"></span><span style="flex:3;background:var(--fr-rust)"></span></div>
+  <div class="wrap"><img class="foot-mark" src="assets/logo-mark.svg" alt="" width="20" height="20">© <span id="y"></span> Markus Fischer, <span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span>
+    <span class="credit"><span class="en">Colours measured from Ernst Haeckel's watercolour “Urwald am Blauen Fluß (Kelany-Ganga)”, Ceylon 1882.</span><span class="de">Farben gemessen an Ernst Haeckels Aquarell „Urwald am Blauen Fluß (Kelany-Ganga)“, Ceylon 1882.</span></span></div>
 </footer>
 
 <script>
