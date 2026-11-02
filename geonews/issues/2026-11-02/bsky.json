@@ -1,0 +1,40 @@
+{
+  "issue": "2026-11-02",
+  "week_en": "Week 45/2026",
+  "week_de": "KW 45/2026",
+  "posts": [
+    {
+      "id": "2026-11-02-01",
+      "slot": "mo",
+      "scheduled": "2026-11-02T17:00:00+01:00",
+      "title": "A dry lake's high past",
+      "text": "Lake Woods, northern Australia's largest freshwater lake: OSL dating finds highstands about 195 and 98 ka ago, 15 to 20 m above the lake floor, but no evidence for a late MIS 3 highstand.",
+      "doi": "10.1002/jqs.70130",
+      "image": "bsky_01.png",
+      "alt": "Schematic chart on an off-white (#FBFBFA) background with a forest-green accent band: lake level in metres above the lake floor against age; dated highstands at 195 ± 16 ka (20 m) and 98 ± 7 ka (15 m), a shaded window at 18.5 m for 95.9–53.8 ka, and a dashed line for the modern maximum of about 5 m.",
+      "hold": false
+    },
+    {
+      "id": "2026-11-02-02",
+      "slot": "mi",
+      "scheduled": "2026-11-04T17:00:00+01:00",
+      "title": "A 1,350-year Holocene rhythm",
+      "text": "An EC-Earth Holocene simulation plus 304 temperature records point to a self-sustained ~1,350-year climate oscillation, driven in the model by tropical–Antarctic ocean–atmosphere interactions.",
+      "doi": "10.1073/pnas.2538010123",
+      "image": "bsky_02.png",
+      "alt": "Schematic cycle diagram on an off-white (#FBFBFA) background with a forest-green accent band: four boxes linked by arrows in a loop, warming with El Niño-like SST, Antarctic Bottom Water strengthens, sea-ice retreat weakens it, cooling phase; the centre reads about 1,350 years.",
+      "hold": false
+    },
+    {
+      "id": "2026-11-02-03",
+      "slot": "fr",
+      "scheduled": "2026-11-06T17:00:00+01:00",
+      "title": "No modern match for their world",
+      "text": "Plant-wax isotopes from Florisbad and Lombard's Drift, South Africa, with new luminescence ages: early Homo sapiens sites show contrasting plant environments with no modern analog.",
+      "doi": "10.1038/s43247-026-04116-4",
+      "image": "bsky_03.png",
+      "alt": "Schematic diagram on an off-white (#FBFBFA) background with a forest-green accent band: three method boxes (luminescence ages, plant n-alkane isotopes, multiple lines of evidence) point to two partly overlapping circles, modern analogs and Middle and Late Pleistocene environments.",
+      "hold": false
+    }
+  ]
+}
