@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Markus Fischer</title>
-<meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. GeoNews weekly palaeoclimate digest, research, climbing geology and climate music.">
+<meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, the GeoNews weekly palaeoclimate digest, GeoLab research tools, climbing geology (GeoCrimps) and climate music.">
 <style>
   :root{
     --bg:#fbfbfa;--fg:#22232a;--muted:#6b6c74;--faint:#8b8c94;--line:#e7e7e4;
@@ -55,7 +55,7 @@
   .tab-btn:hover{color:var(--fg)}
   .tab-btn.active{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
 
-  .panel{display:none;padding:40px 0 10px;animation:fade .3s ease}
+  .panel{display:none;padding:40px 0 10px;animation:fade .3s ease;scroll-margin-top:60px}
   .panel.active{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
   h2{font-size:1.05rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
@@ -228,6 +228,21 @@
     .gn-row{flex-direction:column;gap:10px}
     .gn-pdfs{padding-top:0}
   }
+
+  /* ---- GeoLab: research tools, grouped by category ---- */
+  .gl-cat{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:70px}
+  .gl-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .gl-head h3{margin:0 0 8px;font-size:1.35rem}
+  .gl-tag{font-family:-apple-system,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .gl-card{padding:0;overflow:hidden}
+  .gl-card>:not(.gl-media){margin-left:22px;margin-right:22px}
+  .gl-card .kicker{display:block}
+  .gl-card .facts{margin-top:16px;margin-bottom:0}
+  .gl-card .links{margin-top:18px;margin-bottom:8px}
+  .gl-card .gl-note{margin-bottom:20px}
+  .gl-media{display:block;border-bottom:1px solid var(--line);margin-bottom:18px;background:#fff}
+  .gl-media:hover{border-bottom-color:var(--line)}
+  .gl-media img{display:block;width:100%;height:auto}
 </style>
 <!-- GoatCounter: privacy-friendly visitor stats (dashboard: mlfischer.goatcounter.com) -->
 <script data-goatcounter="https://mlfischer.goatcounter.com/count"
@@ -260,6 +275,7 @@
     <button class="tab-btn" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></button>
     <button class="tab-btn" data-tab="expertise"><span class="en">Expertise</span><span class="de">Expertise</span></button>
     <button class="tab-btn" data-tab="geonews">GeoNews</button>
+    <button class="tab-btn" data-tab="geolab">GeoLab</button>
     <button class="tab-btn" data-tab="klettergeologie"><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></button>
     <button class="tab-btn" data-tab="klimamusik">ClimateMusic</button>
   </div>
@@ -467,6 +483,61 @@
   </section>
   <!-- geonews:end -->
 
+  <section class="panel" id="geolab">
+    <h2>GeoLab</h2>
+    <p class="lead en">Tools and working material from my research — each built for a concrete
+       question and shared here in case it is useful to others.</p>
+    <p class="lead de">Werkzeuge und Arbeitsmaterial aus meiner Forschung — jeweils für eine
+       konkrete Frage gebaut und hier geteilt, falls sie auch anderen nützen.</p>
+
+    <div class="gl-cat" id="literatursuche">
+      <div class="gl-head">
+        <h3><span class="en">Literature search</span><span class="de">Literatursuche</span></h3>
+        <span class="gl-tag"><span class="en">Literature maps</span><span class="de">Literaturkarten</span></span>
+      </div>
+      <p class="muted en">Systematic literature maps: retrieval along a defined scope, text and
+         citation analysis, an interactive map and the complete dataset.</p>
+      <p class="muted de">Systematische Literaturkarten: Recherche entlang eines festgelegten
+         Rahmens, Text- und Zitationsanalyse, eine interaktive Karte und der vollständige Datensatz.</p>
+
+      <article class="card gl-card">
+        <a class="gl-media" href="geolab/exp506s-literature-map/">
+          <img loading="lazy" src="geolab/exp506s-literature-map/figures/preview.jpg" width="1200" height="630"
+               alt="Topic map of the literature around IODP³ Expedition 506S: 17,722 works in 30 topic clusters">
+        </a>
+        <span class="kicker">IODP³ Expedition 506S · SIGNALS</span>
+        <h3 style="margin-top:6px"><span class="en">Literature map around Expedition 506S</span><span class="de">Literaturkarte zu Expedition 506S</span></h3>
+        <p class="en">Which literature exists on the 30 DSDP, ODP and IODP sites that IODP³
+           Expedition 506S (SIGNALS) brings together, and how does the field around them hang
+           together? 17,722 works drawn from OpenAlex, Crossref, OpenCitations and Semantic Scholar,
+           scoped by the expedition's Scientific Prospectus and grouped into 30 topic clusters by
+           text and citation similarity. The interactive map turns any selection into an APA&nbsp;7
+           reference list or a RIS file for Zotero, Citavi or EndNote.</p>
+        <p class="de">Welche Literatur gibt es zu den 30 Bohrlokationen aus DSDP, ODP und IODP, die
+           IODP³-Expedition 506S (SIGNALS) zusammenführt, und wie hängt das Feld darum zusammen?
+           17.722 Arbeiten aus OpenAlex, Crossref, OpenCitations und Semantic Scholar, abgegrenzt
+           nach dem Scientific Prospectus der Expedition und nach Text- und Zitationsähnlichkeit in
+           30 Themencluster gruppiert. Die interaktive Karte macht aus jeder Auswahl eine
+           Literaturliste nach APA&nbsp;7 oder eine RIS-Datei für Zotero, Citavi oder EndNote.</p>
+        <div class="facts">
+          <span class="fact"><span class="en">17,722 works</span><span class="de">17.722 Arbeiten</span></span>
+          <span class="fact"><span class="en">30 topic clusters</span><span class="de">30 Themencluster</span></span>
+          <span class="fact"><span class="en">30 target sites</span><span class="de">30 Bohrlokationen</span></span>
+          <span class="fact"><span class="en">107 prospectus references</span><span class="de">107 Prospectus-Referenzen</span></span>
+        </div>
+        <div class="links">
+          <a href="geolab/exp506s-literature-map/"><span class="en">Read the report</span><span class="de">Bericht lesen (englisch)</span></a>
+          <a href="geolab/exp506s-literature-map/Exp506S_interactive_literature_map.html"><span class="en">Open the interactive map</span><span class="de">Interaktive Karte öffnen</span></a>
+          <a href="geolab/exp506s-literature-map/#files"><span class="en">Data &amp; downloads</span><span class="de">Daten &amp; Downloads</span></a>
+        </div>
+        <p class="small muted gl-note en">As of 2 November 2026 · the interactive map is a single
+           20&nbsp;MB page with a German interface and works best on a desktop.</p>
+        <p class="small muted gl-note de">Stand: 2. November 2026 · die interaktive Karte ist eine
+           einzelne Seite mit 20&nbsp;MB und lässt sich am Desktop am besten bedienen.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="panel" id="klettergeologie">
     <h2><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></h2>
     <p class="lead en">Why does a rock feel and climb the way it does? Two formats on the same
@@ -619,6 +690,10 @@
   const btns=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.panel');
   function show(id){btns.forEach(x=>x.classList.toggle('active',x.dataset.tab===id));
     panels.forEach(p=>p.classList.toggle('active',p.id===id));
+    // narrow screens: scroll the tab bar so the active tab is visible
+    const ab=document.querySelector('.tab-btn.active'),nw=document.querySelector('nav.tabs .wrap');
+    if(ab&&nw&&nw.scrollWidth>nw.clientWidth){const r=ab.getBoundingClientRect(),w=nw.getBoundingClientRect();
+      nw.scrollBy({left:(r.left+r.width/2)-(w.left+w.width/2),behavior:'smooth'});}
     if(id==='klettergeologie'&&window.KG)KG.build();}
   btns.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.tab);history.replaceState(null,'','#'+b.dataset.tab);window.scrollTo({top:0,behavior:'smooth'});}));
   if(location.hash){const el=document.getElementById(location.hash.slice(1)),pn=el&&el.closest('.panel');
