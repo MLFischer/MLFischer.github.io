@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Literature map around IODP³ Expedition 506S (SIGNALS) · Markus Fischer</title>
+<meta name="description" content="17,722 works in 30 topic clusters around IODP³ Expedition 506S (SIGNALS): report, interactive map and data, drawing on OpenAlex, Crossref, OpenCitations and Semantic Scholar (as of 2 November 2026).">
+<link rel="canonical" href="https://mlfischer.github.io/geolab/exp506s-literature-map/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Markus Fischer · Spatial Perspective">
+<meta property="og:title" content="Literature map around IODP³ Expedition 506S (SIGNALS)">
+<meta property="og:description" content="17,722 works in 30 topic clusters: report, interactive map with APA 7 and RIS export, and the full dataset.">
+<meta property="og:url" content="https://mlfischer.github.io/geolab/exp506s-literature-map/">
+<meta property="og:image" content="https://mlfischer.github.io/geolab/exp506s-literature-map/figures/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Topic map of 17,722 works in 30 topic clusters">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{
+    --bg:#fbfbfa;--fg:#22232a;--muted:#6b6c74;--faint:#8b8c94;--line:#e7e7e4;
+    --accent:#3a5a48;--soft:#f0f2ee;--card:#ffffff;--col:760px;--wide:1040px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#14151a;--fg:#e6e6e8;--muted:#9c9da6;--faint:#7d7e88;--line:#272831;
+          --accent:#8bbfa0;--soft:#1b1e22;--card:#191a1f;}
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-size:17px;line-height:1.7;
+       font-family:Georgia,"Iowan Old Style",Charter,"Times New Roman",serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:currentColor}
+  .wrap{max-width:var(--wide);margin:0 auto;padding:0 clamp(16px,4vw,26px)}
+  .col{max-width:var(--col);margin:0 auto}
+  p{margin:0 0 16px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+          padding-top:18px;padding-bottom:4px;font-family:var(--sans)}
+  .wordmark{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+  .crumb{font-size:.82rem;color:var(--muted)}
+  .hero{border-bottom:1px solid var(--line)}
+  .hero .col{padding:30px 0 30px}
+  .kicker{font-family:var(--sans);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+  h1{font-size:2.2rem;font-weight:600;letter-spacing:-.02em;line-height:1.12;margin:0 0 12px}
+  .byline{font-family:var(--sans);font-size:.86rem;color:var(--muted);margin:0}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+  .fact{font-family:var(--sans);font-size:.85rem;color:var(--muted);background:var(--soft);
+        border:1px solid var(--line);border-radius:8px;padding:5px 11px}
+  .fact b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.92rem;
+       font-weight:600;line-height:1.2;padding:12px 17px;border-radius:10px;border:1px solid var(--line);
+       background:var(--card);color:var(--fg)}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  .btn.primary:hover{filter:brightness(1.1)}
+  .note{font-family:var(--sans);font-size:.84rem;color:var(--muted);line-height:1.55;margin:0}
+
+  .toc{font-family:var(--sans);font-size:.84rem;display:flex;flex-wrap:wrap;gap:4px 16px;
+       margin-top:26px;padding-bottom:4px}
+  .toc span{color:var(--faint);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;align-self:center}
+
+  .report{padding:4px 0 8px}
+  .report>*{max-width:var(--col);margin-left:auto;margin-right:auto}
+  .report>.fig,.report>.table-wrap{max-width:none}
+  .report h2{font-family:var(--sans);font-size:1.12rem;font-weight:600;letter-spacing:.01em;
+             margin-top:48px;margin-bottom:14px;scroll-margin-top:16px}
+  .report h3{font-size:1.18rem;font-weight:600;margin-top:32px;margin-bottom:8px;scroll-margin-top:16px}
+  .report ul,.report ol{padding-left:1.3em}
+  .report li{margin:0 0 8px}
+  .anchor{margin-left:.35em;color:var(--faint);font-weight:400;opacity:0;transition:opacity .15s}
+  h2:hover .anchor,h3:hover .anchor,.anchor:focus{opacity:1}
+  sup{font-size:.68em;line-height:0}
+
+  .summary{background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--accent);
+           border-radius:0 10px 10px 0;padding:18px 22px 4px;margin-top:28px;scroll-margin-top:16px}
+  .eyebrow{font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--faint);margin:0 0 6px}
+
+  .fig{margin-top:26px;margin-bottom:34px}
+  .fig a.img{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .fig a.img:hover{border-color:var(--accent)}
+  .fig img{display:block;width:100%;height:auto}
+  .fig figcaption{font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:9px}
+  .fig figcaption b{color:var(--fg);font-weight:600}
+
+  .scroll-hint{display:none;font-family:var(--sans);font-size:.78rem;color:var(--faint);margin-bottom:6px}
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;
+              background:var(--card);margin-top:16px;margin-bottom:24px}
+  table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:.8rem;line-height:1.45}
+  table.catalogue{min-width:960px}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  thead th{background:var(--soft);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+  th.num,td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.catalogue td:nth-child(2){font-weight:600;min-width:180px}
+  table.dict td:first-child{white-space:nowrap;font-weight:600}
+  @media (max-width:1000px){.scroll-hint{display:block}}
+
+  .files li{margin-bottom:12px}
+  .size{display:inline-block;font-family:var(--sans);font-size:.68rem;letter-spacing:.06em;color:var(--faint);
+        border:1px solid var(--line);border-radius:5px;padding:0 6px;margin:0 5px;vertical-align:1px;white-space:nowrap}
+  .report h2.appendix{border-top:1px solid var(--line);padding-top:30px;margin-top:56px}
+
+  footer{border-top:1px solid var(--line);margin-top:48px;padding:30px 0 56px;
+         font-family:var(--sans);font-size:.85rem;color:var(--faint)}
+  @media (max-width:600px){
+    body{font-size:16px}
+    h1{font-size:1.62rem}
+    .btn{flex:1 1 100%}
+    table.dict td:first-child{white-space:normal}
+  }
+</style>
+<!-- GoatCounter: privacy-friendly visitor stats (dashboard: mlfischer.goatcounter.com) -->
+<script data-goatcounter="https://mlfischer.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<div class="wrap"><div class="col topbar">
+  <a class="wordmark" href="../../">Spatial Perspective</a>
+  <a class="crumb" href="../../#literatursuche">GeoLab · Literature search</a>
+</div></div>
+
+<header class="hero">
+  <div class="wrap"><div class="col">
+    <p class="kicker">GeoLab · Literature search</p>
+    <h1>Literature map around IODP³ Expedition 506S (SIGNALS)</h1>
+    <p class="byline">Markus Fischer · As of 2 November 2026 · Sources: OpenAlex, Crossref, OpenCitations, Semantic Scholar</p>
+    <div class="facts">
+      <span class="fact"><b>17,722</b> works</span>
+      <span class="fact"><b>7,342</b> core · <b>10,380</b> field</span>
+      <span class="fact"><b>30</b> topic clusters</span>
+      <span class="fact"><b>30</b> target sites</span>
+      <span class="fact"><b>107</b> prospectus references</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="Exp506S_interactive_literature_map.html">Open the interactive map</a>
+      <a class="btn" href="#files">Data &amp; downloads</a>
+    </div>
+    <p class="note">The interactive map is a single page of 20.1&nbsp;MB with a German interface and works best
+      in a desktop browser: click a point for its APA&nbsp;7 reference, search and filter, or lasso a region
+      to copy a reference list or export it as RIS for Zotero, Citavi or EndNote.</p>
+  </div></div>
+</header>
+
+<main class="wrap">
+  <nav class="col toc" aria-label="Contents"><span>Contents</span><a href="#in-brief">In brief</a><a href="#scope-and-sources">Scope and sources</a><a href="#what-the-map-shows">What the map shows</a><a href="#cluster-catalogue">Cluster catalogue</a><a href="#limitations">Limitations</a><a href="#files">Files</a><a href="#data-dictionary">Data dictionary</a></nav>
+  <article class="report">
+<div class="summary" id="in-brief"><p class="eyebrow">In brief</p><p>The literature that bears on IODP³ Expedition 506S — the SPARC project that integrates North Atlantic DSDP/ODP/IODP legacy sites into a 4-D stratigraphic framework for orbital- and millennial-scale climate since the late Miocene (<a href="https://doi.org/10.5194/piodp-506s-1-2026">Hodell &amp; Seki 2026</a>) — comprises, in this map, <strong>17,722 works</strong> in 30 topic clusters: 7,342 core works (the 107 prospectus references, works that name one of the 30 target sites, and works tightly citation-coupled to the prospectus references) and 10,380 field works (citation-coupled or textually close to the core). Four results stand out. The expedition's own knowledge base sits on stratigraphy, orbital forcing and North Atlantic millennial variability: the prospectus references concentrate in the sediment-geochemistry/core-scanning (12), orbital-forcing/time-series (12), Heinrich-event/IRD (11) and Neogene drill-site (10) clusters. The North Atlantic millennial super-theme peaked around 2013 (~186 works per year, 3-yr mean) and since 2020 has been matched by work on low-latitude and terrestrial teleconnections. The fastest-growing method facets map directly onto the SIGNALS methodological objectives (M2, M3, M5–M7) — core imaging and machine learning (2.7×), proxy system models and data assimilation (1.7×), probabilistic age-depth models (1.5×), bioturbation and temporal resolution (1.35×) and automated alignment (1.2×). And the literatures of the individual legacy sites are topically specialised, which is the fragmentation the expedition sets out to overcome.</p></div>
+<h2 id="scope-and-sources">Scope and sources<a class="anchor" href="#scope-and-sources" title="Link to this section">#</a></h2>
+<p>The search scope was taken from the Scientific Prospectus: its 30 Table 1 sites (12 anchor/priority sites: 907, 980, 981, 982, 983, 984, 1058, 1063, U1308, U1313, U1385, U1391; 18 reference sites: U1587, U1387, U1302–U1307, U1314, 607, 609, 659, 967, 968, 925–928; 607/U1313 and 609/U1308 are re-occupations of the same locations), its paleoclimate objectives P1–P6 and its methodological objectives M1–M7, and its 107 DOI-bearing references, which served as seed papers. Five retrieval routes fed one candidate pool:</p>
+<ol>
+<li>Site searches in OpenAlex full text for every site number ("Site 982", "U1313", "DSDP 607" and so on), plus title/abstract searches for site regions and drilling legs (Feni, Gardar, Björn and Eirik drifts, Orphan Knoll, Ceara Rise, Iberian margin, Gulf of Cádiz, Legs 94/108/151/154/160/162/172, Expeditions 303/306/339/397).</li>
+<li>Works citing the 58 ODP/IODP site and summary chapters of those legs (OpenAlex and OpenCitations).</li>
+<li>Twenty-three thematic query families, each mapped to a prospectus objective (millennial variability, AMOC, MPT/orbital, iNHG/Pliocene, late Miocene, cyclostratigraphy, stacks and age models, alignment algorithms, XRF scanning, core imaging/ML, bioturbation, proxy system models and data assimilation, marine–ice–terrestrial correlation, magnetostratigraphy, carbonate cycle, Mediterranean Outflow, ice sheets, SST, interglacials, tephra, biostratigraphy, cross-timescale interactions, gateways), run in OpenAlex and Semantic Scholar.</li>
+<li>The citation graph of the seeds: works citing at least two seeds (OpenCitations) and works cited by at least two seeds (Crossref reference lists).</li>
+<li>Metadata enrichment of every candidate from OpenAlex (abstracts, references, authorships), with Crossref and Semantic Scholar filling abstract gaps.</li>
+</ol>
+<p>From 41,468 OpenAlex records plus 317 Semantic Scholar-only site records, 9,153 were excluded as off-topic or non-literature (datasets, peer-review comments, back matter) and 593 duplicates (preprint/article pairs) were merged. Each remaining work was assigned a tier. <em>Core</em> requires a seed, a site mention in paleo context, or strong coupling (citing or cited by ≥3 seeds). <em>Field</em> requires two independent signals: either ≥2 seed links, or textual similarity to the core at least as high as the core's own 20th percentile together with paleo-period or region context. All other topical hits form the <em>periphery</em> (14,317 works), delivered separately and not mapped. The exact queries, thresholds and the list of site chapters are in the summary workbook.</p>
+<p>The map itself combines two views of each work: TF-IDF text vectors from title, abstract and keywords, and bibliographic-coupling vectors from shared references, each reduced to 200 SVD dimensions. These were clustered with k-means (k = 30) and projected with UMAP. Cluster names were assigned after reading each cluster's distinctive terms and its most-cited papers. Of the mapped works, 64% carry an abstract and 89% a DOI.</p>
+<h2 id="what-the-map-shows">What the map shows<a class="anchor" href="#what-the-map-shows" title="Link to this section">#</a></h2>
+<h3 id="structure-of-the-field">Structure of the field<a class="anchor" href="#structure-of-the-field" title="Link to this section">#</a></h3>
+<figure class="fig" id="fig1"><a class="img" href="figures/fig1_topic_map.png" title="Open full resolution"><img alt="Topic map: UMAP projection of all works, coloured by six super-themes, with the 30 numbered topic clusters and the prospectus references marked as open circles; the legend lists cluster names and sizes." decoding="async" height="1492" loading="lazy" src="figures/fig1_topic_map.png" width="2268"/></a><figcaption><b>Figure 1</b> · Topic map. <a href="figures/fig1_topic_map.png">Full resolution</a> (PNG, 300 dpi, 799 KB)</figcaption></figure>
+<p>The field resolves into six super-themes. North Atlantic millennial climate and ice sheets is the largest (4,487 works). It is followed by stratigraphy and chronology tools (3,310), low-latitude and terrestrial teleconnections (3,296), deep ocean, sediments and carbon (3,085), orbital climate and major transitions (2,409), and the Mediterranean with its Atlantic exchange (1,135). The most-cited works inside the clusters are the expected landmarks, for example the 0.5-Myr ODP 980 record of millennial variability (<a href="https://doi.org/10.1126/science.283.5404.971">McManus et al. 1999</a>), the benthic δ<sup>18</sup>O stack (<a href="https://doi.org/10.1029/2004pa001071">Lisiecki &amp; Raymo 2005</a>), the astronomical solution (<a href="https://doi.org/10.1051/0004-6361:20041335">Laskar et al. 2004</a>), and the Iberian-margin reference timescale (<a href="https://doi.org/10.1016/j.gloplacha.2015.07.002">Hodell et al. 2015</a>). Twelve clusters contain no prospectus reference at all, among them AMOC dynamics, ice sheets and sea level, land–sea correlation, Asian monsoon, Messinian, sapropels, tephra and nannofossil biostratigraphy. These are places where the expedition's own citation base is thin relative to the size of the literature it will touch.</p>
+<h3 id="growth-and-emerging-topics">Growth and emerging topics<a class="anchor" href="#growth-and-emerging-topics" title="Link to this section">#</a></h3>
+<figure class="fig" id="fig2"><a class="img" href="figures/fig2_publication_trends.png" title="Open full resolution"><img alt="Publication trends: (a) works per year since 1960, core versus field, with the DSDP, ODP and IODP phases shaded; (b) works per year by super-theme, 3-year mean; (c) share of each cluster's works per five-year period, 1975 to 2024." decoding="async" height="2208" loading="lazy" src="figures/fig2_publication_trends.png" width="3196"/></a><figcaption><b>Figure 2</b> · Publication trends. <a href="figures/fig2_publication_trends.png">Full resolution</a> (PNG, 300 dpi, 566 KB)</figcaption></figure>
+<p>Output rose from about 132 works per year in 1990 to 288 in 2000, 501 in 2010 and 579–752 per year since 2015 (maximum in 2025); 2026 is partial (559 works to 2 November). The North Atlantic millennial super-theme peaked in 2013, and by the 3-yr mean low-latitude and terrestrial work has been at or above it every year since 2020 (172 vs 163 works per year in 2025). Mediterranean–Atlantic exchange peaked in 2016, after the Expedition 339 results.</p>
+<figure class="fig" id="fig4"><a class="img" href="figures/fig4_emerging_topics.png" title="Open full resolution"><img alt="Emerging topics: (a) relative growth 2019-26 versus 2009-18 against cluster size; (b) relative growth of method and proxy facets; (c) rising and falling terms in abstracts." decoding="async" height="2311" loading="lazy" src="figures/fig4_emerging_topics.png" width="2811"/></a><figcaption><b>Figure 4</b> · Emerging topics. <a href="figures/fig4_emerging_topics.png">Full resolution</a> (PNG, 300 dpi, 501 KB)</figcaption></figure>
+<p>Relative to the whole corpus, the clusters growing fastest (2019–26 vs 2009–18) are Miocene climate and Cenozoic cooling (2.6×), anchored by the astronomically dated Cenozoic reference record (<a href="https://doi.org/10.1126/science.aba6853">Westerhold et al. 2020</a>) and late Miocene cooling (<a href="https://doi.org/10.1038/ngeo2813">Herbert et al. 2016</a>). They are followed by the Mid-Pleistocene Transition (2.0×; <a href="https://doi.org/10.1016/j.quascirev.2006.07.008">Clark et al. 2006</a>; <a href="https://doi.org/10.1126/sciadv.aav7337">Willeit et al. 2019</a>), the Central American Seaway (1.8×) and Asian loess and monsoon (1.7×). The classic North Atlantic legacy-site topics shrink in relative terms: Mediterranean Outflow and Gulf of Cádiz contourites (0.44×), dinoflagellate cysts (0.49×), Heinrich events and IRD (0.63×), surface-ocean temperature and millennial variability (0.65×), and Plio-Pleistocene stratigraphy (0.67×). Abstract vocabulary tells the same story. "Hydroclimate" rose from 1.0% to 4.8% of abstracts and "Bayesian" from 1.0% to 2.5%, while "North Atlantic" fell from 32% to 22%.</p>
+<p>The method facets give the proposal a concrete argument: the tools SIGNALS plans to deploy are where the field is moving. Core imaging and machine learning grew fastest of all facets, from a small base (143 works). They are followed by proxy system models and data assimilation, probabilistic age-depth models (<a href="https://doi.org/10.1214/11-ba618">Blaauw &amp; Christen 2011</a>; <a href="https://doi.org/10.1029/2018pa003457">Lougheed &amp; Obrochta 2019</a>), bioturbation and temporal resolution (<a href="https://doi.org/10.1029/2000pa000530">Anderson 2001</a>), and automated alignment, from profile-HMM stacking and sequence alignment (<a href="https://doi.org/10.1093/climsys/dzx002">Ahn et al. 2017</a>; <a href="https://doi.org/10.1002/2014pa002713">Lin et al. 2014</a>) to Gaussian-process multiproxy alignment (<a href="https://doi.org/10.48550/arxiv.1907.08738">Lee et al. 2019</a>) and dynamic time warping (<a href="https://doi.org/10.1093/gji/ggaa004">Hagen et al. 2020</a>). Several classic facets are flat or declining in relative share: biostratigraphy (0.78×), Mg/Ca (0.80×), tephrochronology (0.86×), XRF scanning (0.87×) and benthic stacks (0.89×). The flat XRF value may reflect XRF scanning becoming routine and unmentioned in abstracts rather than less used.</p>
+<h3 id="the-legacy-sites">The legacy sites<a class="anchor" href="#the-legacy-sites" title="Link to this section">#</a></h3>
+<figure class="fig" id="fig5"><a class="img" href="figures/fig5_sites_topics.png" title="Open full resolution"><img alt="Legacy sites by topic: (a) share of each site group's works per topic cluster, anchor sites in bold; (b) works per site group by decade." decoding="async" height="1591" loading="lazy" src="figures/fig5_sites_topics.png" width="2412"/></a><figcaption><b>Figure 5</b> · Sites by topic. <a href="figures/fig5_sites_topics.png">Full resolution</a> (PNG, 300 dpi, 258 KB)</figcaption></figure>
+<p>The site groups with the largest literatures are U1385/U1587 (848 works), U1313/607 (566), the Ceara Rise sites 925–929 (556) and 983/984 (531). The smallest are 1058–1060 (214), 907 (221) and 1063 (222). Each site literature has a distinct topical signature. 52% of U1386–U1391 works concern Mediterranean Outflow (<a href="https://doi.org/10.1016/j.epsl.2006.03.014">Voelker et al. 2006</a>; <a href="https://doi.org/10.1126/science.1251306">Hernández-Molina et al. 2014</a>). 29% of 983/984 works are paleomagnetic or RPI studies (<a href="https://doi.org/10.1016/j.epsl.2009.03.012">Channell et al. 2009</a>), and 27% of 964–969 works are about sapropels. U1385/U1587 splits between land–sea correlation (20%; <a href="https://doi.org/10.1007/s00382-001-0212-x">Sánchez Goñi et al. 2002</a>), Mediterranean Outflow (16%) and surface-ocean temperature (15%), and Ceara Rise between Miocene climate (19%) and sediment geochemistry (17%). Since 2010 the Iberian-margin group has accumulated the most literature (390 works in the 2010s, 290 in 2020–26), whereas the Blake Outer Ridge sites have the least recent activity (26 works since 2020). This siloing — one or two topics per site, few studies spanning many sites — is the quantitative version of the prospectus's premise that legacy records "have not been properly correlated and integrated across the entire North Atlantic". It also marks 1058–1060, 1063 and 907 as the least-studied anchor sites.</p>
+<h3 id="venues-people-and-institutions">Venues, people and institutions<a class="anchor" href="#venues-people-and-institutions" title="Link to this section">#</a></h3>
+<figure class="fig" id="fig3"><a class="img" href="figures/fig3_venues_authors.png" title="Open full resolution"><img alt="Venues, authors and institutions: (a) journals with the most works, core versus field; (b) most prolific authors; (c) works by country of author affiliation; (d) German institutions." decoding="async" height="2206" loading="lazy" src="figures/fig3_venues_authors.png" width="2238"/></a><figcaption><b>Figure 3</b> · Venues and authors. <a href="figures/fig3_venues_authors.png">Full resolution</a> (PNG, 300 dpi, 353 KB)</figcaption></figure>
+<p>Two journals, <em>Paleoceanography (and Paleoclimatology)</em> (1,161 works) and <em>Quaternary Science Reviews</em> (1,149), publish 13% of the corpus. They are followed by <em>Palaeogeography, Palaeoclimatology, Palaeoecology</em> (699), <em>EPSL</em> (574), <em>Climate of the Past</em> (537) and the ODP Scientific Results volumes (463). The most prolific author is the 506S co-chief David A. Hodell (209 works, 165 core), followed by F. J. Sierro (167), H. Cheng (167), J.-A. Flores (144), G. Lohmann (126), L. J. Lourens (120), J. E. T. Channell (117), F. J. Hilgen (116), J. F. McManus (115) and M. E. Raymo (108). Germany ranks third by affiliation (2,968 works, 16.7% of the corpus), after the US and UK. The German hubs are the University of Bremen (788), AWI (704), GEOMAR (401) and Kiel University (374), followed by Heidelberg (198), GFZ (184) and Cologne (148).</p>
+<h2 id="cluster-catalogue">Cluster catalogue<a class="anchor" href="#cluster-catalogue" title="Link to this section">#</a></h2>
+<p>Growth is the 2019–26 vs 2009–18 publication ratio relative to the corpus as a whole (1.0× = average). Landmarks are the most-cited works <em>within</em> the corpus; the last column is the most corpus-cited work since 2019.</p>
+<p class="scroll-hint">Swipe sideways to see all columns.</p><div class="table-wrap"><table class="catalogue">
+<thead>
+<tr>
+<th class="num">#</th>
+<th>Cluster</th>
+<th class="num">Works (core)</th>
+<th class="num">Median year</th>
+<th class="num">Growth</th>
+<th>Main site groups</th>
+<th>Landmarks</th>
+<th>Recent anchor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="num">1</td>
+<td>Surface-ocean temperature &amp; millennial variability</td>
+<td class="num">1,264 (526)</td>
+<td class="num">2011</td>
+<td class="num">0.65×</td>
+<td>U1385/U1587, 980/981</td>
+<td><a href="https://doi.org/10.1126/science.283.5404.971">McManus et al. 1999</a>; <a href="https://doi.org/10.1038/342637a0">Fairbanks 1989</a></td>
+<td><a href="https://doi.org/10.1038/s41586-020-2617-x">Tierney et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">2</td>
+<td>AMOC dynamics &amp; abrupt climate change</td>
+<td class="num">944 (280)</td>
+<td class="num">2015</td>
+<td class="num">1.00×</td>
+<td>U1385/U1587, 1063</td>
+<td><a href="https://doi.org/10.1038/nature02494">McManus et al. 2004</a>; <a href="https://doi.org/10.1038/35051500">Ganopolski &amp; Rahmstorf 2001</a></td>
+<td><a href="https://doi.org/10.1038/s43017-020-00106-y">Menviel et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">3</td>
+<td>Heinrich events, IRD &amp; Laurentide instability</td>
+<td class="num">732 (429)</td>
+<td class="num">2006</td>
+<td class="num">0.63×</td>
+<td>U1308/609, U1302-U1307</td>
+<td><a href="https://doi.org/10.1038/365143a0">Bond et al. 1993</a>; <a href="https://doi.org/10.1038/360245a0">Bond et al. 1992</a></td>
+<td><a href="https://doi.org/10.1130/g45335.1">Dalton et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">4</td>
+<td>Ice sheets &amp; sea level</td>
+<td class="num">701 (92)</td>
+<td class="num">2016</td>
+<td class="num">0.84×</td>
+<td>U1302-U1307, U1308/609</td>
+<td><a href="https://doi.org/10.1126/science.1172873">Clark et al. 2009</a>; <a href="https://doi.org/10.1073/pnas.1411762111">Lambeck et al. 2014</a></td>
+<td><a href="https://doi.org/10.1038/s41467-019-11601-2">Batchelor et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">5</td>
+<td>Ice cores &amp; bipolar synchronization</td>
+<td class="num">521 (165)</td>
+<td class="num">2009</td>
+<td class="num">0.97×</td>
+<td>U1385/U1587, U1308/609</td>
+<td><a href="https://doi.org/10.1038/364218a0">Dansgaard et al. 1993</a>; <a href="https://doi.org/10.1038/nature02805">North Greenland Ice Core Project members 2004</a></td>
+<td><a href="https://doi.org/10.1038/s41561-020-00680-2">Bauska et al. 2021</a></td>
+</tr>
+<tr>
+<td class="num">6</td>
+<td>Arctic Ocean &amp; Nordic Seas sea ice</td>
+<td class="num">325 (94)</td>
+<td class="num">2013</td>
+<td class="num">0.80×</td>
+<td>907, U1314/U1312/608</td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2003.12.008">Svendsen et al. 2004</a>; <a href="https://doi.org/10.1016/j.quascirev.2003.12.015">Spielhagen 2004</a></td>
+<td><a href="https://doi.org/10.5194/cp-17-37-2021">Kageyama et al. 2021</a></td>
+</tr>
+<tr>
+<td class="num">7</td>
+<td>Orbital forcing, insolation &amp; time-series analysis</td>
+<td class="num">692 (268)</td>
+<td class="num">2007</td>
+<td class="num">0.83×</td>
+<td>658/659, U1313/607</td>
+<td><a href="https://doi.org/10.1016/0033-5894%2888%2990057-9">Heinrich 1988</a>; <a href="https://doi.org/10.1051/0004-6361:20041335">Laskar et al. 2004</a></td>
+<td><a href="https://doi.org/10.1126/science.abm4033">Barker et al. 2022</a></td>
+</tr>
+<tr>
+<td class="num">8</td>
+<td>Miocene climate &amp; Cenozoic cooling</td>
+<td class="num">548 (243)</td>
+<td class="num">2021</td>
+<td class="num">2.62×</td>
+<td>925-929, U1314/U1312/608</td>
+<td><a href="https://doi.org/10.1126/science.1059412">Zachos et al. 2001</a>; <a href="https://doi.org/10.1126/science.aba6853">Westerhold et al. 2020</a></td>
+<td><a href="https://doi.org/10.1126/sciadv.aaz1346">Miller et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">9</td>
+<td>Pliocene warmth &amp; Northern Hemisphere glaciation</td>
+<td class="num">484 (234)</td>
+<td class="num">2017</td>
+<td class="num">1.05×</td>
+<td>U1313/607, 982</td>
+<td><a href="https://doi.org/10.1016/j.epsl.2010.01.037">Seki et al. 2010</a>; <a href="https://doi.org/10.1038/ngeo724">Pagani et al. 2009</a></td>
+<td><a href="https://doi.org/10.1038/s41598-020-67154-8">de la Vega et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">10</td>
+<td>Mid-Pleistocene Transition</td>
+<td class="num">401 (188)</td>
+<td class="num">2019</td>
+<td class="num">2.03×</td>
+<td>U1313/607, U1385/U1587</td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2006.07.008">Clark et al. 2006</a>; <a href="https://doi.org/10.1126/science.1221294">Elderfield et al. 2012</a></td>
+<td><a href="https://doi.org/10.1126/sciadv.aav7337">Willeit et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">11</td>
+<td>Central American Seaway &amp; Panama closure</td>
+<td class="num">284 (67)</td>
+<td class="num">2018</td>
+<td class="num">1.83×</td>
+<td>925-929, 658/659</td>
+<td><a href="https://doi.org/10.1038/31447">Haug &amp; Tiedemann 1998</a>; <a href="https://doi.org/10.1130/0091-7613%282001%29029%3C0207:ropuoo%3E2.0.co;2">Haug et al. 2001</a></td>
+<td><a href="https://doi.org/10.1038/s41467-019-12034-7">Kirillova et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">12</td>
+<td>Sediment geochemistry &amp; core-scanning proxies</td>
+<td class="num">1,041 (481)</td>
+<td class="num">2007</td>
+<td class="num">1.09×</td>
+<td>925-929, 983/984</td>
+<td><a href="https://doi.org/10.1016/0198-0149%2885%2990017-2">Kroopnick 1985</a>; <a href="https://doi.org/10.1029/94pa03039">McCave et al. 1995</a></td>
+<td><a href="https://doi.org/10.1029/2018pa003457">Lougheed &amp; Obrochta 2019</a></td>
+</tr>
+<tr>
+<td class="num">13</td>
+<td>Deep-water circulation, ventilation &amp; carbon</td>
+<td class="num">919 (302)</td>
+<td class="num">2011</td>
+<td class="num">0.88×</td>
+<td>1063, U1313/607</td>
+<td><a href="https://doi.org/10.1126/science.278.5341.1257">Bond et al. 1997</a>; <a href="https://doi.org/10.1029/pa003i003p00343">Duplessy et al. 1988</a></td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2020.106732">Sigman et al. 2021</a></td>
+</tr>
+<tr>
+<td class="num">14</td>
+<td>Contourite drifts &amp; North Atlantic margin sedimentation</td>
+<td class="num">558 (300)</td>
+<td class="num">2005</td>
+<td class="num">0.94×</td>
+<td>982, U1302-U1307</td>
+<td><a href="https://doi.org/10.1016/j.margeo.2014.03.011">Rebesco et al. 2014</a>; <a href="https://doi.org/10.1016/s0025-3227%2899%2900068-7">Faugères et al. 1999</a></td>
+<td><a href="https://doi.org/10.3390/geosciences10020068">Stow &amp; Smillie 2020</a></td>
+</tr>
+<tr>
+<td class="num">15</td>
+<td>Benthic foraminiferal assemblages &amp; productivity</td>
+<td class="num">334 (155)</td>
+<td class="num">2010</td>
+<td class="num">0.81×</td>
+<td>U1386-U1391, U1385/U1587</td>
+<td><a href="https://doi.org/10.1029/96pa02618">Rasmussen et al. 1996</a>; <a href="https://doi.org/10.1016/s0031-0182%2800%2900035-3">Schönfeld &amp; Zahn 2000</a></td>
+<td><a href="https://doi.org/10.1029/2022pa004565">Gastaldello et al. 2023</a></td>
+</tr>
+<tr>
+<td class="num">16</td>
+<td>Methane, gas hydrates &amp; mud volcanoes</td>
+<td class="num">233 (134)</td>
+<td class="num">2011</td>
+<td class="num">0.90×</td>
+<td>U1386-U1391, U1385/U1587</td>
+<td><a href="https://doi.org/10.1016/s0025-3227%2802%2900686-2">Somoza 2003</a>; <a href="https://doi.org/10.1016/s0025-3227%2802%2900685-0">Pinheiro et al. 2003</a></td>
+<td><a href="https://doi.org/10.1016/j.epsl.2019.04.044">Bradbury &amp; Turchyn 2019</a></td>
+</tr>
+<tr>
+<td class="num">17</td>
+<td>Plio-Pleistocene stratigraphy, timescales &amp; δ<sup>18</sup>O stacks</td>
+<td class="num">1,092 (403)</td>
+<td class="num">2006</td>
+<td class="num">0.67×</td>
+<td>U1313/607, 658/659</td>
+<td><a href="https://doi.org/10.1029/2004pa001071">Lisiecki &amp; Raymo 2005</a>; <a href="https://doi.org/10.1017/s0263593300020782">Shackleton et al. 1990</a></td>
+<td><a href="https://doi.org/10.1016/j.quaint.2019.05.018">Head 2019</a></td>
+</tr>
+<tr>
+<td class="num">18</td>
+<td>Neogene biostratigraphy &amp; drill-site studies</td>
+<td class="num">889 (493)</td>
+<td class="num">1997</td>
+<td class="num">0.79×</td>
+<td>U1314/U1312/608, 925-929</td>
+<td><a href="https://doi.org/10.1029/90jb02015">Miller et al. 1991</a>; <a href="https://doi.org/10.1126/science.217.4557.350">Keigwin 1982</a></td>
+<td><a href="https://doi.org/10.1016/b978-0-12-824360-2.00029-2">Raffi et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">19</td>
+<td>Paleomagnetism, relative paleointensity &amp; excursions</td>
+<td class="num">572 (302)</td>
+<td class="num">2012</td>
+<td class="num">0.84×</td>
+<td>983/984, U1302-U1307</td>
+<td><a href="https://doi.org/10.1111/j.1365-246x.1980.tb02601.x">Kirschvink 1980</a>; <a href="https://doi.org/10.1029/93rg01771">Tauxe 1993</a></td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2019.106114">Channell et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">20</td>
+<td>Calcareous nannofossil biostratigraphy</td>
+<td class="num">344 (160)</td>
+<td class="num">2003</td>
+<td class="num">0.67×</td>
+<td>U1314/U1312/608, U1313/607</td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2006.07.007">Raffi et al. 2006</a>; <a href="https://doi.org/10.2973/odp.proc.sr.107.164.1990">Rio et al. 1990</a></td>
+<td><a href="https://doi.org/10.1130/b35062.1">Bergen et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">21</td>
+<td>Tephrochronology</td>
+<td class="num">219 (56)</td>
+<td class="num">2012</td>
+<td class="num">0.84×</td>
+<td>907, 964-969</td>
+<td><a href="https://doi.org/10.1130/0016-7606%281972%2983%5B2817:vmoiva%5D2.0.co;2">Ruddiman &amp; Glover 1972</a>; <a href="https://doi.org/10.1016/0012-821x%2895%2900145-3">Grönvold et al. 1995</a></td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2019.106003">Giaccio et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">22</td>
+<td>Dinoflagellate cysts &amp; palynostratigraphy</td>
+<td class="num">194 (93)</td>
+<td class="num">2011</td>
+<td class="num">0.49×</td>
+<td>907, U1313/607</td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2004.06.014">de Vernal et al. 2005</a>; <a href="https://doi.org/10.1029/2008pa001725">De Schepper et al. 2009</a></td>
+<td><a href="https://doi.org/10.1016/j.gloplacha.2021.103552">Fersi et al. 2021</a></td>
+</tr>
+<tr>
+<td class="num">23</td>
+<td>Mediterranean Outflow &amp; Gulf of Cádiz contourites</td>
+<td class="num">494 (387)</td>
+<td class="num">2013</td>
+<td class="num">0.44×</td>
+<td>U1386-U1391, U1385/U1587</td>
+<td><a href="https://doi.org/10.1016/j.epsl.2006.03.014">Voelker et al. 2006</a>; <a href="https://doi.org/10.1126/science.1251306">Hernández-Molina et al. 2014</a></td>
+<td><a href="https://doi.org/10.1029/2020pa003931">Sierro et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">24</td>
+<td>Messinian Salinity Crisis &amp; gateways</td>
+<td class="num">353 (80)</td>
+<td class="num">2014</td>
+<td class="num">0.92×</td>
+<td>964-969, 925-929</td>
+<td><a href="https://doi.org/10.1038/23231">Krijgsman et al. 1999</a>; <a href="https://doi.org/10.1029/1999pa000487">Hodell et al. 2001</a></td>
+<td><a href="https://doi.org/10.1016/j.earscirev.2019.05.013">Lirer et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">25</td>
+<td>Eastern Mediterranean sapropels</td>
+<td class="num">288 (188)</td>
+<td class="num">2008</td>
+<td class="num">1.02×</td>
+<td>964-969, 658/659</td>
+<td><a href="https://doi.org/10.1016/0031-0182%2885%2990056-2">Rossignol-Strick 1985</a>; <a href="https://doi.org/10.1016/j.earscirev.2015.01.008">Rohling et al. 2015</a></td>
+<td><a href="https://doi.org/10.1029/2019pa003652">Amies et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">26</td>
+<td>Land-sea correlation, vegetation &amp; radiocarbon</td>
+<td class="num">1,411 (598)</td>
+<td class="num">2014</td>
+<td class="num">0.97×</td>
+<td>U1385/U1587, U1308/609</td>
+<td><a href="https://doi.org/10.2458/azu_js_rc.55.16947">Reimer et al. 2013</a>; <a href="https://doi.org/10.1214/11-ba618">Blaauw &amp; Christen 2011</a></td>
+<td><a href="https://doi.org/10.1017/rdc.2020.41">Reimer et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">27</td>
+<td>Asian monsoon &amp; speleothems</td>
+<td class="num">824 (244)</td>
+<td class="num">2019</td>
+<td class="num">1.67×</td>
+<td>658/659, U1308/609</td>
+<td><a href="https://doi.org/10.1126/science.1064618">Wang et al. 2001</a>; <a href="https://doi.org/10.1038/nature06692">Wang et al. 2008</a></td>
+<td><a href="https://doi.org/10.1126/science.aay5538">Corrick et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">28</td>
+<td>Chinese loess &amp; Asian dust</td>
+<td class="num">457 (156)</td>
+<td class="num">2016</td>
+<td class="num">1.73×</td>
+<td>U1313/607, 658/659</td>
+<td><a href="https://doi.org/10.1038/375305a0">Porter &amp; An 1995</a>; <a href="https://doi.org/10.1016/j.quascirev.2005.07.005">Sun et al. 2006</a></td>
+<td><a href="https://doi.org/10.1073/pnas.1922710117">Fang et al. 2020</a></td>
+</tr>
+<tr>
+<td class="num">29</td>
+<td>African climate, dust &amp; monsoon</td>
+<td class="num">316 (172)</td>
+<td class="num">2017</td>
+<td class="num">1.24×</td>
+<td>658/659, 964-969</td>
+<td><a href="https://doi.org/10.1016/s0277-3791%2899%2900081-5">deMenocal et al. 2000</a>; <a href="https://doi.org/10.1126/science.270.5233.53">deMenocal 1995</a></td>
+<td><a href="https://doi.org/10.1126/sciadv.aav1887">Skonieczny et al. 2019</a></td>
+</tr>
+<tr>
+<td class="num">30</td>
+<td>Glacier chronology &amp; cosmogenic exposure dating</td>
+<td class="num">288 (52)</td>
+<td class="num">2017</td>
+<td class="num">1.22×</td>
+<td>U1385/U1587, U1313/607</td>
+<td><a href="https://doi.org/10.1016/j.earscirev.2013.07.003">Hughes et al. 2013</a>; <a href="https://doi.org/10.1038/nature20146">Schaefer et al. 2016</a></td>
+<td><a href="https://doi.org/10.1016/j.quascirev.2020.106771">Denton et al. 2021</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="limitations">Limitations<a class="anchor" href="#limitations" title="Link to this section">#</a></h2>
+<p>The main OpenAlex retrieval ran after a temporary connection outage; the citation graph therefore combines OpenCitations, Crossref and OpenAlex links, and Proceedings chapters remain under-linked in all three (OpenAlex links only 471 works to the 58 site chapters). Full-text site searches depend on OpenAlex full-text coverage, so site literatures are lower bounds. Tier thresholds are heuristics: in random spot checks about 21 of 25 core and 22–25 of 30 field works were judged on-topic, so the field tier should be read as context, not as a curated reading list. Cluster boundaries are one k-means partition, and labels are interpretations. Cluster 16 (methane, mud volcanoes) and part of cluster 14 entered through Gulf of Cádiz and Rockall region searches and are peripheral to 506S. Growth indices are relative shares within this corpus and are sensitive to indexing lags for 2025–26. Author counts use OpenAlex display names, so name variants split counts, and a few OpenAlex publication years are wrong (IntCal13 is listed as 2010; catalogue citations were checked against Crossref).</p>
+<h2 id="files">Files<a class="anchor" href="#files" title="Link to this section">#</a></h2>
+<ul class="files">
+<li><a href="Exp506S_interactive_literature_map.html">Exp506S_interactive_literature_map.html</a><span class="size">HTML · 20.1 MB</span> — interactive topic map (opens offline in any browser): click a point for its APA 7 reference (copy button, DOI link, RIS export), search by author/title/DOI/site, filter by cluster, tier and year, and lasso-select regions to get a copyable APA reference list or a RIS file for Zotero/Citavi/EndNote.</li>
+<li><a download="" href="data/Exp506S_literature_corpus.csv">data/Exp506S_literature_corpus.csv</a><span class="size">CSV · 28.7 MB</span> — the mapped corpus (17,722 rows): identifiers, bibliographic fields, tier, cluster and super-theme, site groups named, method/proxy facets, seed-coupling counts, within-corpus citations, UMAP coordinates and abstracts.</li>
+<li><a download="" href="data/Exp506S_corpus_summary_tables.xlsx">data/Exp506S_corpus_summary_tables.xlsx</a><span class="size">XLSX · 54 KB</span> — summary workbook with sheets for the cluster catalogue (key papers per cluster), facet and term trends, venues, authors, institutions (including Germany), countries, site × cluster and site × decade matrices, the full search strategy, and the site chapters used.</li>
+<li><a download="" href="data/Exp506S_literature_corpus.xlsx">data/Exp506S_literature_corpus.xlsx</a><span class="size">XLSX · 12.0 MB</span> — the same corpus as an Excel workbook (opens directly in Excel with any locale; abstracts truncated at 4,000 characters as in the CSV).</li>
+<li><a href="#data-dictionary">Data dictionary</a> (below) — column definitions for the CSV/Excel files, tier rules and workbook sheets.</li>
+<li><a download="" href="data/Exp506S_periphery_candidates.csv">data/Exp506S_periphery_candidates.csv</a><span class="size">CSV · 3.4 MB</span> — periphery candidates (14,317) ranked by textual similarity to the core, for checking recall.</li>
+<li>Figures: <a href="figures/fig1_topic_map.png">figures/fig1_topic_map.png</a> topic map; <a href="figures/fig2_publication_trends.png">figures/fig2_publication_trends.png</a> publication trends; <a href="figures/fig3_venues_authors.png">figures/fig3_venues_authors.png</a> venues, authors and institutions; <a href="figures/fig4_emerging_topics.png">figures/fig4_emerging_topics.png</a> emerging topics; <a href="figures/fig5_sites_topics.png">figures/fig5_sites_topics.png</a> sites × topics.</li>
+</ul><h2 class="appendix" id="data-dictionary">Data dictionary<a class="anchor" href="#data-dictionary" title="Link to this section">#</a></h2>
+<h3 id="exp506s_literature_corpuscsv-xlsx-17722-works">Exp506S_literature_corpus.csv / .xlsx (17,722 works)<a class="anchor" href="#exp506s_literature_corpuscsv-xlsx-17722-works" title="Link to this section">#</a></h3>
+<p>CSV encoding: UTF-8, comma-separated, one header row. In Excel use <em>Data → From Text/CSV</em> or open the .xlsx copy.</p>
+<div class="table-wrap"><table class="dict">
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>openalex_id</td>
+<td>OpenAlex work ID (W…); empty for the 317 Semantic Scholar-only site records</td>
+</tr>
+<tr>
+<td>doi</td>
+<td>DOI (lower case, without https://doi.org/)</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+</tr>
+<tr>
+<td>year</td>
+<td>Publication year (OpenAlex; occasional metadata errors)</td>
+</tr>
+<tr>
+<td>first_author</td>
+<td>First author (OpenAlex display name)</td>
+</tr>
+<tr>
+<td>authors</td>
+<td>Up to 10 authors, "; "-separated, "et al." if more</td>
+</tr>
+<tr>
+<td>n_authors</td>
+<td>Number of authors</td>
+</tr>
+<tr>
+<td>venue</td>
+<td>Journal/series (drilling proceedings normalised from DOI prefixes)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>OpenAlex work type</td>
+</tr>
+<tr>
+<td>tier</td>
+<td>core | field (see tier rules below)</td>
+</tr>
+<tr>
+<td>is_prospectus_reference</td>
+<td>TRUE for the 107 DOI-bearing references of the Exp. 506S Scientific Prospectus</td>
+</tr>
+<tr>
+<td>cluster_id</td>
+<td>Topic cluster 1–30 (numbering as in Fig. 1 and the README catalogue)</td>
+</tr>
+<tr>
+<td>cluster_label</td>
+<td>Cluster name</td>
+</tr>
+<tr>
+<td>super_theme</td>
+<td>One of six super-themes</td>
+</tr>
+<tr>
+<td>site_groups</td>
+<td>Site groups the work names (full text, title/abstract, region or leg searches, or citations of site chapters)</td>
+</tr>
+<tr>
+<td>sites_named_in_title_abstract</td>
+<td>Individual Table 1 sites found by the parser in title/abstract</td>
+</tr>
+<tr>
+<td>method_proxy_facets</td>
+<td>Method/proxy facets matched in title/abstract/keywords (regexes in the workbook sheet method_proxy_facets)</td>
+</tr>
+<tr>
+<td>cited_by_count_openalex</td>
+<td>Total citations in OpenAlex</td>
+</tr>
+<tr>
+<td>local_citations_in_corpus</td>
+<td>Citations received from other works in this corpus</td>
+</tr>
+<tr>
+<td>n_prospectus_refs_cited</td>
+<td>Number of prospectus references this work cites (OpenAlex + OpenCitations)</td>
+</tr>
+<tr>
+<td>n_prospectus_refs_citing_it</td>
+<td>Number of prospectus references that cite this work (OpenAlex + Crossref)</td>
+</tr>
+<tr>
+<td>text_similarity_to_core</td>
+<td>Mean cosine similarity (TF-IDF) to the 10 most similar core works</td>
+</tr>
+<tr>
+<td>umap_x / umap_y</td>
+<td>Coordinates in the topic map (Fig. 1)</td>
+</tr>
+<tr>
+<td>query_families</td>
+<td>Retrieval routes/queries that returned the work (ft_ = OpenAlex full text, ta_ = OpenAlex title/abstract, s2_ = Semantic Scholar, citation_pool, cites_site_chapter)</td>
+</tr>
+<tr>
+<td>source</td>
+<td>openalex | s2_only</td>
+</tr>
+<tr>
+<td>url</td>
+<td>DOI link or landing page</td>
+</tr>
+<tr>
+<td>abstract</td>
+<td>Abstract (OpenAlex, else Crossref/Semantic Scholar; truncated at 4,000 characters; publisher boilerplate removed)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tier-rules">Tier rules<a class="anchor" href="#tier-rules" title="Link to this section">#</a></h3>
+<ul>
+<li><strong>core</strong>: prospectus reference; or names a Table 1 site (or its region/leg) in a paleo context; or cites/is cited by ≥3 prospectus references.</li>
+<li><strong>field</strong>: not core, in paleo context, not exclusively pre-Miocene, and either ≥2 links to prospectus references or text similarity to the core ≥ the core's own 20th percentile plus paleo-period or region terms (or 1 seed link plus a thematic hit and similarity ≥ the 10th percentile).</li>
+<li><strong>periphery</strong> (separate file, not mapped): other thematic hits that pass the context filter.</li>
+</ul>
+<h3 id="exp506s_periphery_candidatescsv-14317-works">Exp506S_periphery_candidates.csv (14,317 works)<a class="anchor" href="#exp506s_periphery_candidatescsv-14317-works" title="Link to this section">#</a></h3>
+<p>Columns: openalex_id, doi, title, year, first_author, venue, cited_by_count_openalex, query_families, text_similarity_to_core (sorted descending).</p>
+<h3 id="exp506s_corpus_summary_tablesxlsx">Exp506S_corpus_summary_tables.xlsx<a class="anchor" href="#exp506s_corpus_summary_tablesxlsx" title="Link to this section">#</a></h3>
+<div class="table-wrap"><table class="dict">
+<thead>
+<tr>
+<th>Sheet</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clusters</td>
+<td>30-cluster catalogue: size, core count, prospectus references, median year, growth index, top terms, main site groups, key papers, most-cited since 2019</td>
+</tr>
+<tr>
+<td>method_proxy_facets</td>
+<td>Facet counts 2009–18 vs 2019–26, growth index, matching regex</td>
+</tr>
+<tr>
+<td>emerging_terms</td>
+<td>Rising/falling abstract terms (log-odds z-scores, document shares)</td>
+</tr>
+<tr>
+<td>venues / authors / institutions / institutions_Germany / countries</td>
+<td>Rankings by number of works</td>
+</tr>
+<tr>
+<td>site_x_cluster / site_x_decade</td>
+<td>Works per site group by topic cluster and by decade</td>
+</tr>
+<tr>
+<td>search_strategy</td>
+<td>All query strings and sources</td>
+</tr>
+<tr>
+<td>site_chapters_used</td>
+<td>The 58 ODP/IODP site and summary chapters used for forward-citation searches</td>
+</tr>
+</tbody>
+</table></div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap"><div class="col">© 2026 Markus Fischer · University of Potsdam ·
+    <a href="../../#geolab">GeoLab</a> · <a href="../../">mlfischer.github.io</a></div></div>
+</footer>
+
+</body>
+</html>

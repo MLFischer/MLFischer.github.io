@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-11-02",
+      "week_de": "KW 45/2026",
+      "week_en": "Week 45/2026",
+      "title_de": "GeoNews — KW 45/2026",
+      "title_en": "GeoNews — Week 45/2026",
+      "teaser_de": "Rund 35 bewertete Arbeiten, diese Woche fünf 🔴 Must-reads, alle abstract-gestützt. Schwerpunkte: Seespiegel-Hochstände und Bayes'sche Chronologie, ein Bohrvorhaben entlang des Korridors Ostafrikanischer Rift – Tote-Meer-Transform, millenniale …",
+      "teaser_en": "About 35 scored papers, this week with five 🔴 must-reads, all abstract-based. Focal points: lake highstands and Bayesian chronology, a drilling initiative along the East African Rift – Dead Sea Transform corridor, millennial Holocene variability, and two …",
+      "html_de": "issues/2026-11-02/de.html",
+      "html_en": "issues/2026-11-02/en.html",
+      "pdf_de": "issues/2026-11-02/GeoNews_2026-11-02_DE.pdf",
+      "pdf_en": "issues/2026-11-02/GeoNews_2026-11-02_EN.pdf"
+    },
+    {
       "date": "2026-10-26",
       "week_de": "KW 44/2026",
       "week_en": "Week 44/2026",
@@ -158,5 +171,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-10-26T09:25:39+00:00"
+  "updated": "2026-11-02T07:34:59+00:00"
 }
