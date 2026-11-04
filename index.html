@@ -26,10 +26,12 @@
     --fr-moss:#a18b3a;--fr-khaki:#9a8e75;--fr-sage:#6a675b;--fr-slate:#464549;--fr-rust:#863b1b;
     /* roles: light = morning light after sunrise */
     --bg:#fbf4ef;--card:#fffbf9;--soft:#f2e8e1;--line:#e4d8d0;
-    --fg:#2e241e;--muted:#5f564f;--faint:#726a62;
+    --fg:#2e241e;--muted:#5f564f;--faint:#69615a;
     --accent:#33407a;--on-accent:#fbf4ef;--sun:#c0613b;--spark:#863b1b;--moss-text:#70631d;
     /* dawn wash behind the hero: measured sky hues (zenith blue, mountain lilac, horizon peach), lightened */
     --wash-top:#edf2f3;--wash-mid:#f3f0f6;--wash-low:#fbe3d6;--sq-stroke:transparent;
+    /* water below the horizon: the sky mirrored, a little deeper, fading into the page */
+    --water-0:#f1dcd6;--water-1:#f7f2f3;
     --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     --max:720px;
   }
@@ -38,7 +40,8 @@
     :root{--bg:#181c2a;--card:#212535;--soft:#292e3e;--line:#393d4e;
       --fg:#efe8df;--muted:#bdb9c8;--faint:#9d99a7;
       --accent:#f3bb93;--on-accent:#181c2a;--sun:#ec9577;--spark:#ec9577;--moss-text:#c3b063;
-      --wash-top:#131724;--wash-mid:#211f33;--wash-low:#4a2b33;--sq-stroke:rgba(239,232,223,.09);}
+      --wash-top:#131724;--wash-mid:#211f33;--wash-low:#4a2b33;--sq-stroke:rgba(239,232,223,.09);
+      --water-0:#301c24;--water-1:#1d1e2f;}
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -63,6 +66,9 @@
   /* ---- hero: name + colour space ---- */
   header.hero{padding:14px 0 44px;background:linear-gradient(180deg,var(--wash-top) 0%,var(--wash-mid) 48%,var(--wash-low) 100%)}
   .topbar{display:flex;justify-content:flex-end}
+  .below{background:linear-gradient(180deg,var(--water-0) 0%,var(--water-1) 30%,
+        color-mix(in oklab,var(--water-1) 35%,var(--bg)) 62%,var(--bg) 100%) no-repeat;
+        background-size:100% min(82vh,760px)}
   .langsw{font-size:.86rem}
   .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font:inherit;padding:6px 7px}
   .langsw button.active{color:var(--fg);font-weight:600}
@@ -87,8 +93,10 @@
   .band span{display:block;height:100%}
 
   /* ---- tabs ---- */
-  nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
-        border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);border-bottom:1px solid var(--line);backdrop-filter:saturate(140%) blur(10px)}
+  nav.tabs{position:sticky;top:0;z-index:20;background:transparent;border-bottom:1px solid transparent;
+        transition:background-color .3s,border-color .3s}
+  nav.tabs.stuck{background:color-mix(in srgb,var(--bg) 93%,transparent);border-bottom-color:var(--line);
+        -webkit-backdrop-filter:saturate(140%) blur(12px);backdrop-filter:saturate(140%) blur(12px)}
   nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
   nav.tabs .wrap::-webkit-scrollbar{display:none}
   @media(max-width:700px){nav.tabs .wrap{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}
@@ -306,6 +314,7 @@ set();try{dark.addEventListener("change",set);}catch(e){}})();</script>
   </div>
 </header>
 
+<div class="below">
 <nav class="tabs">
   <div class="wrap">
     <button class="tab-btn active" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></button>
@@ -710,6 +719,7 @@ set();try{dark.addEventListener("change",set);}catch(e){}})();</script>
   <div class="wrap"><picture class="foot-mark"><source srcset="assets/logo-mark-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/logo-mark.svg" alt="" width="28" height="28"></picture>© <span id="y"></span> Markus Fischer, <span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span>
     <span class="credit"><span class="en">Colours measured from Ernst Haeckel's watercolour “Urwald am Blauen Fluß (Kelany-Ganga)”, Ceylon 1882.</span><span class="de">Farben gemessen an Ernst Haeckels Aquarell „Urwald am Blauen Fluß (Kelany-Ganga)“, Ceylon 1882.</span></span></div>
 </footer>
+</div>
 
 <script>
   document.getElementById('y').textContent=new Date().getFullYear();
@@ -735,6 +745,10 @@ set();try{dark.addEventListener("change",set);}catch(e){}})();</script>
       nw.scrollBy({left:(r.left+r.width/2)-(w.left+w.width/2),behavior:'smooth'});}
     if(id==='klettergeologie'&&window.KG)KG.build();}
   btns.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.tab);history.replaceState(null,'','#'+b.dataset.tab);window.scrollTo({top:0,behavior:'smooth'});}));
+  // Tab bar: transparent on the water, frosted once it sticks
+  (function(){var nav=document.querySelector('nav.tabs'),hero=document.querySelector('header.hero');if(!nav||!hero)return;
+    if(!('IntersectionObserver' in window)){nav.classList.add('stuck');return;}
+    new IntersectionObserver(function(e){nav.classList.toggle('stuck',!e[0].isIntersecting);}).observe(hero);})();
   if(location.hash){const el=document.getElementById(location.hash.slice(1)),pn=el&&el.closest('.panel');
     if(pn){show(pn.id);if(pn!==el)setTimeout(()=>el.scrollIntoView({block:'start'}),60);}}
   // Publication filter
