@@ -8,9 +8,11 @@ Reads the package folder (README.md, DATA_DICTIONARY.md, 00_LIESMICH.txt, the in
 figures/ and data/) and (re)writes geolab/exp506s-literature-map/:
 
   index.html                               report page in the site design, built from README.md
-                                           and DATA_DICTIONARY.md (text unchanged)
+                                           and DATA_DICTIONARY.md (text unchanged), with the
+                                           credit "Made with Claude Science and Claude Opus"
   Exp506S_interactive_literature_map.html  the map, unchanged except for page metadata, a link
-                                           back to the report, the site's visitor counter and a
+                                           back to the report, the same credit in the title bar,
+                                           the site's visitor counter and a
                                            layout that also works on narrow screens (there the
                                            legend sits below the plot)
   figures/*.png                            figures, copied unchanged
@@ -231,10 +233,10 @@ def build_report(src, readme, dd, facts):
         description=html.escape(
             f"{facts['total']} works in {facts['clusters']} topic clusters around IODP³ "
             f"Expedition 506S (SIGNALS): report, interactive map and data, drawing on OpenAlex, "
-            f"Crossref, OpenCitations and Semantic Scholar (as of {facts['asof']})."),
+            f"Crossref, OpenCitations and Semantic Scholar (as of {facts['asof']}). {MADE_WITH_EN}"),
         og_description=html.escape(
             f"{facts['total']} works in {facts['clusters']} topic clusters: report, interactive "
-            f"map with APA 7 and RIS export, and the full dataset."),
+            f"map with APA 7 and RIS export, and the full dataset. {MADE_WITH_EN}"),
         asof=facts["asof"], year=facts["asof"].split()[-1],
         total=facts["total"], core=facts["core"], field=facts["field"],
         clusters=facts["clusters"], sites=facts["sites"], seeds=facts["seeds"],
@@ -259,6 +261,9 @@ def patch_map(src, dst, total, clusters):
     if s.count(anchor) != 1:
         sys.exit("Map layout changed: title bar not found exactly once")
     s = s.replace(anchor, anchor + MAP_BACKLINK, 1)
+    # Credit line at the end of the title bar
+    title_end = s.index("</div>", s.index(anchor))
+    s = s[:title_end] + MAP_MADE_WITH + s[title_end:]
     # Narrow screens: legend below the plot instead of on top of the points (desktop unchanged)
     if s.count(MAP_LEGEND_OLD) != 1:
         sys.exit("Map layout changed: legend definition not found exactly once")
@@ -300,18 +305,20 @@ def main():
     print(f"Built {OUT.relative_to(REPO)}/ ({facts['total']} works, as of {facts['asof']})")
 
 
+MADE_WITH_EN = "Made with Claude Science and Claude Opus (Anthropic)."
 MAP_BACKLINK = '<a class="webback" href="./" title="Report, method and downloads">← Bericht &amp; Daten</a>'
+MAP_MADE_WITH = '<span class="madewith"> · erstellt mit Claude Science und Claude Opus</span>'
 MAP_LEGEND_OLD = "legend: { orientation: 'h', x: 0, y: 0, yanchor: 'bottom',"
 MAP_LEGEND_NEW = ("legend: { orientation: 'h', x: 0, y: (innerWidth <= 760 ? -0.02 : 0), "
                   "yanchor: (innerWidth <= 760 ? 'top' : 'bottom'),")
 
 MAP_HEAD = """
 <!-- web:additions (mlfischer.github.io): metadata, back link, visitor count, narrow-screen layout -->
-<meta name="description" content="Interaktive Literaturkarte zu IODP³ Expedition 506S (SIGNALS): $total Arbeiten in $clusters Themenclustern. Suche, Filter, APA-7-Referenzen und RIS-Export für Zotero, Citavi und EndNote.">
+<meta name="description" content="Interaktive Literaturkarte zu IODP³ Expedition 506S (SIGNALS): $total Arbeiten in $clusters Themenclustern. Suche, Filter, APA-7-Referenzen und RIS-Export für Zotero, Citavi und EndNote. Erstellt mit Claude Science und Claude Opus (Anthropic).">
 <link rel="canonical" href="$url$map">
 <meta property="og:type" content="website">
 <meta property="og:title" content="IODP³ Exp. 506S (SIGNALS) – interaktive Literaturkarte">
-<meta property="og:description" content="$total Arbeiten in $clusters Themenclustern: Suche, Filter, APA-7-Referenzen und RIS-Export für Zotero, Citavi und EndNote.">
+<meta property="og:description" content="$total Arbeiten in $clusters Themenclustern: Suche, Filter, APA-7-Referenzen und RIS-Export für Zotero, Citavi und EndNote. Erstellt mit Claude Science und Claude Opus (Anthropic).">
 <meta property="og:url" content="$url$map">
 <meta property="og:image" content="${url}figures/preview.jpg">
 <meta property="og:image:width" content="1200">
@@ -323,6 +330,7 @@ body{display:flex;flex-direction:column;height:100vh;height:100dvh}
 #main{flex:1 1 auto;height:auto;min-height:0}
 .webback{float:right;margin-left:14px;font-weight:400;font-size:13px;color:#1f3b5c;text-decoration:none}
 .webback:hover{text-decoration:underline}
+.madewith{font-weight:400;color:#555}
 @media (max-width:760px){
   body{display:block;height:auto}
   #main{flex-direction:column;height:auto}
@@ -383,6 +391,8 @@ PAGE = """<!DOCTYPE html>
   .kicker{font-family:var(--sans);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
   h1{font-size:2.2rem;font-weight:600;letter-spacing:-.02em;line-height:1.12;margin:0 0 12px}
   .byline{font-family:var(--sans);font-size:.86rem;color:var(--muted);margin:0}
+  .madewith{font-family:var(--sans);font-size:.86rem;color:var(--muted);margin:4px 0 0}
+  .madewith b{color:var(--fg);font-weight:600}
   .facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
   .fact{font-family:var(--sans);font-size:.85rem;color:var(--muted);background:var(--soft);
         border:1px solid var(--line);border-radius:8px;padding:5px 11px}
@@ -467,6 +477,7 @@ PAGE = """<!DOCTYPE html>
     <p class="kicker">GeoLab · Literature search</p>
     <h1>$title</h1>
     <p class="byline">Markus Fischer · As of $asof · Sources: OpenAlex, Crossref, OpenCitations, Semantic Scholar</p>
+    <p class="madewith">Made with <b>Claude Science</b> and <b>Claude Opus</b> (Anthropic)</p>
     <div class="facts">
       <span class="fact"><b>$total</b> works</span>
       <span class="fact"><b>$core</b> core · <b>$field</b> field</span>
