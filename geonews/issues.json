@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-11-09",
+      "week_de": "KW 46/2026",
+      "week_en": "Week 46/2026",
+      "title_de": "GeoNews — KW 46/2026",
+      "title_en": "GeoNews — Week 46/2026",
+      "teaser_de": "Rund 25 bewertete Arbeiten, diese Woche drei 🔴 Must-reads, davon eines nur titelbasiert. Schwerpunkte: Dauer abrupter Klimaübergänge, Proxy-Systemmodelle für Seesedimente und ein neuer Tephra-Ankerpunkt für den Ostafrikanischen Rift.",
+      "teaser_en": "About 25 scored papers, this week with three 🔴 must-reads, one of them title-based only. Focal points: the duration of abrupt climate transitions, proxy system models for lake sediments, and a new tephra tie-point for the East African Rift.",
+      "html_de": "issues/2026-11-09/de.html",
+      "html_en": "issues/2026-11-09/en.html",
+      "pdf_de": "issues/2026-11-09/GeoNews_2026-11-09_DE.pdf",
+      "pdf_en": "issues/2026-11-09/GeoNews_2026-11-09_EN.pdf"
+    },
+    {
       "date": "2026-11-02",
       "week_de": "KW 45/2026",
       "week_en": "Week 45/2026",
@@ -171,5 +184,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-11-02T07:34:59+00:00"
+  "updated": "2026-11-09T09:37:18+00:00"
 }
