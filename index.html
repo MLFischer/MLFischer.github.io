@@ -6,13 +6,29 @@
 <title>Markus Fischer</title>
 <meta name="theme-color" content="#edf2f3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131724" media="(prefers-color-scheme: dark)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
+<meta name="color-scheme" content="light dark">
+<link rel="preload" href="assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, the GeoNews weekly palaeoclimate digest, GeoLab research tools, climbing geology (GeoCrimps) and climate music.">
+<link rel="canonical" href="https://mlfischer.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mlfischer.github.io/">
+<meta property="og:title" content="Markus Fischer">
+<meta property="og:description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, the GeoNews weekly palaeoclimate digest, GeoLab research tools, climbing geology (GeoCrimps) and climate music.">
+<meta property="og:image" content="https://mlfischer.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Markus Fischer, geoscientist working on palaeoclimate, University of Potsdam">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
 <style>
+  /* Hanken Grotesk (SIL OFL), self-hosted: Latin subset, variable weight 100-900 */
+  @font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:100 900;font-display:swap;
+    src:url("assets/fonts/hanken-grotesk-var.woff2") format("woff2")}
+  @font-face{font-family:"Hanken Grotesk";font-style:italic;font-weight:100 900;font-display:swap;
+    src:url("assets/fonts/hanken-grotesk-italic-var.woff2") format("woff2")}
   /* ------------------------------------------------------------------
      Corporate design "Kelani": colour space measured from Ernst Haeckel's
      watercolour "Urwald am Blauen Fluß (Kelany-Ganga)", Ceylon 1882
@@ -47,7 +63,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.65;
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:18px;line-height:1.6;
        font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   .sans{font-family:var(--sans)}
   a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;
@@ -55,6 +71,8 @@
   a:hover{text-decoration-color:currentColor}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-9999px;top:10px;z-index:60;background:var(--card);color:var(--fg);padding:8px 14px;border-radius:4px}
+  .skip:focus{left:16px}
   em{font-style:italic}
   ::selection{background:var(--wash-low);color:var(--fg)}
 
@@ -109,10 +127,11 @@
 
   .panel{display:none;padding:46px 0 10px;scroll-margin-top:60px}
   .panel.active{display:block}
-  h2{font-size:1.8rem;font-weight:600;letter-spacing:-.018em;line-height:1.2;margin:0 0 20px;color:var(--fg);text-wrap:balance}
-  h3{font-size:1.2rem;font-weight:600;letter-spacing:-.008em;line-height:1.3;margin:32px 0 8px}
-  p{margin:0 0 16px}
-  .lead{font-size:1.16rem;line-height:1.6;color:var(--fg)}
+  h2{font-size:1.9rem;font-weight:500;letter-spacing:-.024em;line-height:1.15;margin:0 0 20px;color:var(--fg);text-wrap:balance}
+  h3{font-size:1.3rem;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:32px 0 8px;text-wrap:balance}
+  p{margin:0 0 16px;text-wrap:pretty}
+  main p{max-width:33em}
+  .lead{font-size:1.25rem;line-height:1.55;color:var(--fg)}
   .muted{color:var(--muted)}
   .small{font-size:.92rem}
   strong{font-weight:600}
@@ -132,7 +151,8 @@
 
   /* ---- references ---- */
   ol.refs{list-style:none;padding:0;margin:0}
-  ol.refs li.ref{padding:15px 0;border-bottom:1px solid var(--line);font-size:.97rem;line-height:1.6;display:block}
+  ol.refs li.ref{padding:15px 4em 15px 0;border-bottom:1px solid var(--line);font-size:.94rem;line-height:1.6;display:block}
+  @media(max-width:600px){ol.refs li.ref{padding-right:0}}
   ol.refs li.ref:last-child{border-bottom:none}
   .refs .meta{font-size:.86rem;color:var(--faint);margin-top:4px}
   .refs .self{font-weight:700;color:var(--accent)}
@@ -162,7 +182,7 @@
   /* ---- climbing geology: ClimbingEarth + GeoCrimps ---- */
   .kg-block{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);scroll-margin-top:70px}
   .kg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .kg-head h3{margin:0 0 8px;font-size:1.45rem}
+  .kg-head h3{margin:0 0 8px;font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
   .kg-tag{font-size:.86rem;color:var(--faint)}
   .kg-label{font-size:1rem;font-weight:600;color:var(--fg);margin:30px 0 12px;display:flex;align-items:center;gap:10px}
   .kg-label:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--sun);flex:0 0 10px}
@@ -259,12 +279,12 @@
   .gn-pdf:hover{border-color:var(--accent);color:var(--accent)}
   .gn-ph{color:var(--faint);font-style:italic}
   @media (max-width:560px){.gn-row{flex-direction:column;gap:10px}.gn-pdfs{padding-top:0}}
-  @media(max-width:600px){body{font-size:16.5px}h2{font-size:1.55rem}.lead{font-size:1.08rem}}
+  @media(max-width:600px){body{font-size:17px}h2{font-size:1.6rem}.lead{font-size:1.15rem}}
 
   /* ---- GeoLab: research tools, grouped by category ---- */
   .gl-cat{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);scroll-margin-top:70px}
   .gl-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .gl-head h3{margin:0 0 8px;font-size:1.45rem}
+  .gl-head h3{margin:0 0 8px;font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
   .gl-tag{font-size:.86rem;color:var(--faint)}
   .gl-card{padding:0;overflow:hidden}
   .gl-card>:not(.gl-media){margin-left:24px;margin-right:24px}
@@ -282,6 +302,7 @@
         async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="lang-en">
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="de">Zum Inhalt</span></a>
 
 <header class="hero">
   <div class="wrap">
@@ -330,7 +351,7 @@ set();try{dark.addEventListener("change",set);}catch(e){}})();</script>
   </div>
 </nav>
 
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 
   <section class="panel active" id="ueber">
     <h2><span class="en">About</span><span class="de">Über</span></h2>
