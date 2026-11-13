@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Markus Fischer</title>
-<meta name="theme-color" content="#edf2f3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#131724" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#e8eef0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111523" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
-<link rel="preload" href="assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3">
 <meta name="description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, the GeoNews weekly palaeoclimate digest, GeoLab research tools, climbing geology (GeoCrimps) and climate music.">
 <link rel="canonical" href="https://mlfischer.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mlfischer.github.io/">
 <meta property="og:title" content="Markus Fischer">
 <meta property="og:description" content="Markus Fischer — geoscientist (palaeoclimate), University of Potsdam. Research, the GeoNews weekly palaeoclimate digest, GeoLab research tools, climbing geology (GeoCrimps) and climate music.">
-<meta property="og:image" content="https://mlfischer.github.io/assets/og-card.png">
+<meta property="og:image" content="https://mlfischer.github.io/assets/og-card-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Markus Fischer, geoscientist working on palaeoclimate, University of Potsdam">
@@ -24,928 +24,1264 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  /* Hanken Grotesk (SIL OFL), self-hosted: Latin subset, variable weight 100-900 */
-  @font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:100 900;font-display:swap;
-    src:url("assets/fonts/hanken-grotesk-var.woff2") format("woff2")}
-  @font-face{font-family:"Hanken Grotesk";font-style:italic;font-weight:100 900;font-display:swap;
-    src:url("assets/fonts/hanken-grotesk-italic-var.woff2") format("woff2")}
-  /* ------------------------------------------------------------------
-     Corporate design "Kelani": colour space measured from Ernst Haeckel's
-     watercolour "Urwald am Blauen Fluß (Kelany-Ganga)", Ceylon 1882
-     (10 k-means clusters in CIELAB, shares = area in the painting).
-     Warm stone paper, umber ink, indigo river as the one interactive
-     accent, rust as the spark. One calm sans: Hanken Grotesk.
-     Geometry: squares. 1 square = 1 % of the painting.
-     ------------------------------------------------------------------ */
-  :root{
-    /* colour space (measured, ordered top to bottom in the painting) */
-    --fr-cloud:#e4d5b0;--fr-mist:#c2bcb0;--fr-shade:#4b3516;--fr-olive:#715c23;--fr-umber:#2d1a0e;
-    --fr-moss:#a18b3a;--fr-khaki:#9a8e75;--fr-sage:#6a675b;--fr-slate:#464549;--fr-rust:#863b1b;
-    /* roles: light = morning light after sunrise */
-    --bg:#fbf4ef;--card:#fffbf9;--soft:#f2e8e1;--line:#e4d8d0;
-    --fg:#2e241e;--muted:#5f564f;--faint:#69615a;
-    --accent:#33407a;--on-accent:#fbf4ef;--sun:#c0613b;--spark:#863b1b;--moss-text:#70631d;
-    /* dawn wash behind the hero: measured sky hues (zenith blue, mountain lilac, horizon peach), lightened */
-    --wash-top:#edf2f3;--wash-mid:#f3f0f6;--wash-low:#fbe3d6;--sq-stroke:transparent;
-    /* water below the horizon: the sky mirrored, a little deeper, fading into the page */
-    --water-0:#f1dcd6;--water-1:#f7f2f3;
-    --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    --max:720px;
-  }
-  /* dark = the blue hour before sunrise: same hues, first light as the accent */
-  @media (prefers-color-scheme:dark){
-    :root{--bg:#181c2a;--card:#212535;--soft:#292e3e;--line:#393d4e;
-      --fg:#efe8df;--muted:#bdb9c8;--faint:#9d99a7;
-      --accent:#f3bb93;--on-accent:#181c2a;--sun:#ec9577;--spark:#ec9577;--moss-text:#c3b063;
-      --wash-top:#131724;--wash-mid:#211f33;--wash-low:#4a2b33;--sq-stroke:rgba(239,232,223,.09);
-      --water-0:#301c24;--water-1:#1d1e2f;}
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:18px;line-height:1.6;
-       font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  .sans{font-family:var(--sans)}
-  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;
-    text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent)}
-  a:hover{text-decoration-color:currentColor}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  .skip{position:absolute;left:-9999px;top:10px;z-index:60;background:var(--card);color:var(--fg);padding:8px 14px;border-radius:4px}
-  .skip:focus{left:16px}
-  em{font-style:italic}
-  ::selection{background:var(--wash-low);color:var(--fg)}
+/* ==========================================================================
+   Kelani · mlfischer.github.io · v2
+   One family (Inter, optical sizes), one scale, one grid.
+   Colour: Farbraum of Haeckel's "Urwald am Blauen Fluß (Kelany-Ganga)", 1882.
+   ========================================================================== */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 600;font-display:swap;src:url("/assets/fonts/inter-var.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:400 600;font-display:swap;src:url("/assets/fonts/inter-italic-var.woff2") format("woff2")}
 
-  /* language switch: default EN */
-  .de{display:none}
-  body.lang-de .de{display:revert}
-  body.lang-de .en{display:none}
-  body.lang-de li.en{display:none}
+:root{
+  color-scheme:light dark;
+  /* Farbraum: ten measured clusters */
+  --fr-cloud:#e4d5b0;--fr-mist:#c2bcb0;--fr-shade:#4b3516;--fr-olive:#715c23;--fr-umber:#2d1a0e;
+  --fr-moss:#a18b3a;--fr-khaki:#9a8e75;--fr-sage:#6a675b;--fr-slate:#464549;--fr-rust:#863b1b;
 
-  /* ---- hero: name + colour space ---- */
-  header.hero{padding:14px 0 44px;background:linear-gradient(180deg,var(--wash-top) 0%,var(--wash-mid) 48%,var(--wash-low) 100%)}
-  .topbar{display:flex;justify-content:flex-end}
-  .below{background:linear-gradient(180deg,var(--water-0) 0%,var(--water-1) 30%,
-        color-mix(in oklab,var(--water-1) 35%,var(--bg)) 62%,var(--bg) 100%) no-repeat;
-        background-size:100% min(82vh,760px)}
-  .langsw{font-size:.86rem}
-  .langsw button{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font:inherit;padding:6px 7px}
-  .langsw button.active{color:var(--fg);font-weight:600}
-  .langsw .div{color:var(--line)}
-  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 188px;gap:28px 40px;align-items:end;padding-top:30px}
-  .wordmark{font-size:.92rem;color:var(--muted);margin:0 0 10px}
-  .hero h1{font-weight:500;font-size:clamp(2.5rem,6.4vw,3.9rem);line-height:1.02;letter-spacing:-.028em;margin:0 0 14px;
-        text-wrap:balance}
-  .hero .role{font-size:1.05rem;color:var(--muted);margin:0;max-width:30em;line-height:1.5}
-  .farbraum-wrap{line-height:0}
-  .farbraum{display:block;width:100%;height:auto}
-  .fr-cloud{fill:var(--fr-cloud)}.fr-mist{fill:var(--fr-mist)}.fr-shade{fill:var(--fr-shade)}.fr-olive{fill:var(--fr-olive)}
-  .fr-umber{fill:var(--fr-umber)}.fr-moss{fill:var(--fr-moss)}.fr-khaki{fill:var(--fr-khaki)}.fr-sage{fill:var(--fr-sage)}
-  .fr-slate{fill:var(--fr-slate)}.fr-rust{fill:var(--fr-rust)}
-  .farbraum rect{stroke:var(--sq-stroke);stroke-width:1;transition:fill 1.1s ease,opacity .2s}
-  .farbraum g:hover rect{opacity:.75}
-  @media(max-width:640px){
-    .hero-grid{grid-template-columns:1fr;padding-top:18px}
-    .farbraum-wrap{order:-1;width:112px}
-  }
-  .band{display:flex;height:6px;width:100%}
-  .band span{display:block;height:100%}
+  /* Morgenlicht (light) */
+  --bg:#fbf4ef;--surface:#fffbf8;--soft:#f4ece6;--line:#e7ddd5;--line-2:#d6c9bf;
+  --ink:#2e241e;--ink-2:#5c534c;--ink-3:#675e57;
+  --accent:#33407a;--accent-2:#24306a;--sun:#c0613b;
+  --sky-0:#e8eef0;--sky-1:#f1eef4;--sky-2:#f9e3d7;
+  --dawn-0:#d3dce3;--dawn-1:#e2dbe9;--dawn-2:#efcfc3;
+  --water-0:#f1dcd5;--water-1:#f7f0ee;
+  --m1:#464549;--m2:#6a675b;--m3:#9a8e75;--m4:#a18b3a;--m5:#c0613b;--m-line:#2e241e;
+  --dot-red:#b84a2c;--dot-yel:#b28324;--dot-grn:#698722;--dot-gry:#a39a92;
 
-  /* ---- tabs ---- */
-  nav.tabs{position:sticky;top:0;z-index:20;background:transparent;border-bottom:1px solid transparent;
-        transition:background-color .3s,border-color .3s}
-  nav.tabs.stuck{background:color-mix(in srgb,var(--bg) 93%,transparent);border-bottom-color:var(--line);
-        -webkit-backdrop-filter:saturate(140%) blur(12px);backdrop-filter:saturate(140%) blur(12px)}
-  nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-  nav.tabs .wrap::-webkit-scrollbar{display:none}
-  @media(max-width:700px){nav.tabs .wrap{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}
-  .tab-btn{appearance:none;background:none;border:none;cursor:pointer;color:var(--muted);font-family:var(--sans);
-        font-size:.94rem;padding:14px 10px 12px;border-bottom:2px solid transparent;white-space:nowrap;margin-bottom:-1px}
-  .tab-btn:first-child{padding-left:0}
-  .tab-btn:hover{color:var(--fg)}
-  .tab-btn.active{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
+  /* type: 13 · 15 · 17 · 21 · 26 · 34–46 · 40–72 */
+  --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --fs-micro:.8125rem;
+  --fs-small:.9375rem;
+  --fs-body:clamp(1rem,.97rem + .15vw,1.0625rem);
+  --fs-lead:clamp(1.125rem,1.04rem + .45vw,1.3125rem);
+  --fs-head:clamp(1.375rem,1.27rem + .5vw,1.625rem);
+  --fs-title:clamp(2.125rem,1.55rem + 2.4vw,2.875rem);
+  --fs-display:clamp(2.375rem,1.25rem + 4.6vw,4.5rem);
 
-  .panel{display:none;padding:46px 0 10px;scroll-margin-top:60px}
-  .panel.active{display:block}
-  h2{font-size:1.9rem;font-weight:500;letter-spacing:-.024em;line-height:1.15;margin:0 0 20px;color:var(--fg);text-wrap:balance}
-  h3{font-size:1.3rem;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:32px 0 8px;text-wrap:balance}
-  p{margin:0 0 16px;text-wrap:pretty}
-  main p{max-width:33em}
-  .lead{font-size:1.25rem;line-height:1.55;color:var(--fg)}
-  .muted{color:var(--muted)}
-  .small{font-size:.92rem}
-  strong{font-weight:600}
+  /* layout */
+  --page:1240px;--pad:clamp(20px,4.4vw,56px);--gap:clamp(20px,3vw,40px);
+  --head-h:68px;--r:4px;--r-lg:8px;--ease:cubic-bezier(.2,.7,.2,1);
+}
+@media (prefers-color-scheme:dark){:root{
+  /* Blaue Stunde (dark) */
+  --bg:#171b29;--surface:#1e2233;--soft:#20253a;--line:#2d3245;--line-2:#3c4257;
+  --ink:#efe8df;--ink-2:#c4bfcb;--ink-3:#a7a2b0;
+  --accent:#f3bb93;--accent-2:#f8d0b2;--sun:#ec9577;
+  --sky-0:#111523;--sky-1:#1c1b2f;--sky-2:#3c2733;
+  --dawn-0:#0b0e18;--dawn-1:#141325;--dawn-2:#241a26;
+  --water-0:#2a1b25;--water-1:#1b1c2c;
+  --m1:#7d7a86;--m2:#8f8a7c;--m3:#9a8e75;--m4:#c3b063;--m5:#ec9577;--m-line:#efe8df;
+  --dot-red:#cc6347;--dot-yel:#b78a2c;--dot-grn:#7a9938;--dot-gry:#6f6b7a;
+}}
 
-  /* square marker: the colour-space unit, used as list and section marker */
-  .cv{list-style:none;padding:0;margin:12px 0 0;border-left:1px solid var(--line)}
-  .cv li{position:relative;padding:0 0 22px 24px}
-  .cv li:before{content:"";position:absolute;left:-5px;top:9px;width:9px;height:9px;border-radius:2px;background:var(--line)}
-  .cv li:first-child:before{background:var(--sun)}
-  .cv .yr{font-size:.86rem;color:var(--faint)}
-  .cv .w{font-weight:600}
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--head-h) + 20px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--fs-body);line-height:1.65;
+  font-weight:400;font-optical-sizing:auto;letter-spacing:-.011em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+img,svg,video{display:block;max-width:100%}
+img{height:auto}
+p{margin:0 0 1em;text-wrap:pretty}
+h1,h2,h3,h4{margin:0;font-weight:500;text-wrap:balance}
+b,strong{font-weight:600}
+sup,sub{line-height:0}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.24em;
+  text-decoration-color:color-mix(in srgb,currentColor 32%,transparent);transition:color .15s,text-decoration-color .15s}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+::selection{background:color-mix(in srgb,var(--sun) 24%,var(--bg))}
+button{font:inherit;letter-spacing:inherit;color:inherit}
+.num,time{font-variant-numeric:tabular-nums}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:var(--page);margin-inline:auto;padding-inline:var(--pad)}
+body:not(.lang-de) .de,body.lang-de .en{display:none!important}
+.skip{position:absolute;left:12px;top:-60px;z-index:60;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:var(--r);
+  font-size:var(--fs-small);font-weight:500;text-decoration:none}
+.skip:focus{top:12px}
 
-  .facts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-  .fact{font-size:.88rem;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:4px 11px}
+/* ---------- header ---------- */
+.site-head{position:sticky;top:0;z-index:40;height:var(--head-h);transition:background-color .3s var(--ease),box-shadow .3s var(--ease)}
+.site-head.is-stuck{background:color-mix(in srgb,var(--bg) 86%,transparent);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);backdrop-filter:saturate(160%) blur(16px);box-shadow:0 1px 0 var(--line)}
+.head{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);height:100%}
+.brand{display:inline-flex;align-items:center;gap:12px;margin-right:auto;color:var(--ink);text-decoration:none;border-radius:var(--r)}
+.brand .mark{width:48px;height:33px;flex:none}
+@media (max-width:600px){.brand .mark{width:42px;height:29px}}
+.brand-name{font-size:1.0625rem;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
+.mark .s1{fill:var(--m1)}.mark .s2{fill:var(--m2)}.mark .s3{fill:var(--m3)}.mark .s4{fill:var(--m4)}.mark .s5{fill:var(--m5)}.mark .hz{fill:var(--m-line)}
+.site-head .brand .mark .s{transform-box:fill-box;animation:rise .9s var(--ease) both}
+.site-head .mark .s1{animation-delay:.05s}.site-head .mark .s2{animation-delay:.14s}.site-head .mark .s3{animation-delay:.23s}
+.site-head .mark .s4{animation-delay:.32s}.site-head .mark .s5{animation-delay:.41s}
+@keyframes rise{from{opacity:0;transform:translateY(55%)}to{opacity:1;transform:none}}
 
-  .links{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.95rem}
+.nav{display:flex;align-items:center;gap:clamp(14px,1.75vw,26px)}
+.nav a{position:relative;color:var(--ink-2);text-decoration:none;font-size:var(--fs-small);font-weight:400;letter-spacing:-.006em;padding:8px 0;white-space:nowrap}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink)}
+.nav a::after{content:"";position:absolute;left:50%;bottom:-3px;width:6px;height:6px;margin-left:-3px;border-radius:1.5px;background:var(--ink-3);
+  opacity:0;transform:translateY(3px) scale(.7);transition:opacity .25s var(--ease),transform .25s var(--ease),border-radius .35s var(--ease),background-color .35s}
+.nav a:hover::after{opacity:.55;transform:none}
+.nav a[aria-current="page"]::after{opacity:1;transform:none;border-radius:50%;background:var(--sun)}
+.langsw{display:flex;align-items:center;gap:2px;padding-left:clamp(10px,1.4vw,22px);border-left:1px solid var(--line-2)}
+.langsw button{appearance:none;background:none;border:0;cursor:pointer;font-size:var(--fs-micro);font-weight:500;letter-spacing:.02em;
+  color:var(--ink-3);padding:6px 6px;border-radius:var(--r)}
+.langsw button:hover{color:var(--ink)}
+.langsw button[aria-pressed="true"]{color:var(--ink)}
+.menu-btn{display:none;appearance:none;background:none;border:1px solid var(--line-2);border-radius:999px;cursor:pointer;
+  font-size:var(--fs-small);font-weight:500;color:var(--ink);padding:7px 15px;align-items:center;gap:9px}
+.menu-btn i{display:block;width:14px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor}
+@media (max-width:1060px){.head .nav,.head .langsw{display:none}.menu-btn{display:inline-flex}}
 
-  /* ---- references ---- */
-  ol.refs{list-style:none;padding:0;margin:0}
-  ol.refs li.ref{padding:15px 4em 15px 0;border-bottom:1px solid var(--line);font-size:.94rem;line-height:1.6;display:block}
-  @media(max-width:600px){ol.refs li.ref{padding-right:0}}
-  ol.refs li.ref:last-child{border-bottom:none}
-  .refs .meta{font-size:.86rem;color:var(--faint);margin-top:4px}
-  .refs .self{font-weight:700;color:var(--accent)}
-  .yrhead{font-size:1rem;font-weight:600;color:var(--fg);margin:32px 0 4px;display:flex;align-items:center;gap:10px}
-  .yrhead:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--sun);flex:0 0 10px}
-  .filterbar{display:flex;gap:8px;margin:4px 0 8px}
-  .chip{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--muted);
-        border-radius:4px;padding:5px 13px;font:inherit;font-size:.88rem;cursor:pointer}
-  .chip:hover{color:var(--fg)}
-  .chip.active{border-color:var(--accent);background:var(--accent);color:var(--on-accent)}
+/* mobile menu */
+.menu{border:0;padding:0;margin:0;width:100%;max-width:none;height:100%;max-height:none;color:var(--ink);
+  background:linear-gradient(180deg,var(--sky-0) 0%,var(--sky-1) 58%,var(--sky-2) 100%)}
+.menu::backdrop{background:transparent}
+.menu[open]{display:flex;flex-direction:column;animation:menu-in .28s var(--ease)}
+@keyframes menu-in{from{opacity:0}to{opacity:1}}
+.menu-top{display:flex;align-items:center;justify-content:space-between;height:var(--head-h)}
+.menu-close{appearance:none;background:none;border:1px solid var(--line-2);border-radius:999px;cursor:pointer;font-size:var(--fs-small);font-weight:500;color:var(--ink);padding:7px 15px}
+.menu nav{display:flex;flex-direction:column;padding:clamp(24px,6vh,56px) 0 32px}
+.menu nav a{display:flex;align-items:center;gap:14px;font-size:clamp(1.75rem,1.3rem + 2.4vw,2.375rem);line-height:1.2;font-weight:400;letter-spacing:-.024em;
+  color:var(--ink-2);text-decoration:none;padding:9px 0}
+.menu nav a::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--line-2);flex:none;transition:border-radius .3s,background-color .3s}
+.menu nav a[aria-current="page"]{color:var(--ink)}
+.menu nav a[aria-current="page"]::before{border-radius:50%;background:var(--sun)}
+.menu .langsw{border:0;padding:0;margin-top:auto;padding-bottom:32px}
+.menu .langsw button{font-size:var(--fs-small);padding:8px 10px}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;margin-top:16px}
-  .kicker{font-size:.86rem;color:var(--faint)}
-  .byline{color:var(--muted);font-size:.94rem;margin:2px 0 14px}
-  .series{border-left:2px solid var(--fr-moss);padding-left:18px;margin-top:26px}
-  .series h4{margin:0 0 6px;font-size:1.02rem;font-weight:600}
-  .series ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.96rem}
-  .series li{margin-bottom:6px}
-  .series li.done{color:var(--fg)}
-  .series li::marker{color:var(--moss-text)}
-  .ph{color:var(--faint);font-style:italic}
+/* ---------- panels: sky (page head) + water (content) ---------- */
+.panel{display:none}
+.panel.is-active{display:block;animation:fade .45s var(--ease)}
+@keyframes fade{from{opacity:.001}to{opacity:1}}
+.sky{margin-top:calc(-1 * var(--head-h));padding:calc(var(--head-h) + clamp(48px,8vh,96px)) 0 clamp(52px,8vh,92px);
+  background:linear-gradient(180deg,var(--sky-0) 0%,var(--sky-1) 56%,var(--sky-2) 100%)}
+.sky.is-home{position:relative;isolation:isolate;padding-top:calc(var(--head-h) + clamp(56px,15vh,176px));padding-bottom:clamp(56px,11vh,128px)}
+/* first visit of the home page: the sky brightens from blue hour to morning */
+.sky.is-home::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,var(--dawn-0) 0%,var(--dawn-1) 56%,var(--dawn-2) 100%);animation:dawn 2.8s .15s cubic-bezier(.4,0,.2,1) both}
+@keyframes dawn{from{opacity:1}to{opacity:0}}
+.water{padding-bottom:clamp(72px,11vh,136px);
+  background:linear-gradient(180deg,var(--water-0) 0,var(--water-1) 170px,color-mix(in oklab,var(--water-1) 38%,var(--bg)) 400px,var(--bg) 620px) no-repeat}
+.eyebrow{font-size:var(--fs-small);line-height:1.5;color:var(--ink-2);margin:0 0 clamp(16px,2.4vh,24px)}
+.display{font-size:var(--fs-display);line-height:1.04;letter-spacing:-.03em;font-weight:400;max-width:14.5em;margin:0}
+.title{font-size:var(--fs-title);line-height:1.08;letter-spacing:-.026em;font-weight:400;max-width:17em;margin:0}
+.lead{font-size:var(--fs-lead);line-height:1.5;letter-spacing:-.016em;color:var(--ink-2);max-width:33em;margin:clamp(18px,2.6vh,28px) 0 0}
+.facts-line{display:flex;flex-wrap:wrap;gap:6px 18px;margin:22px 0 0;padding:0;list-style:none;font-size:var(--fs-small);color:var(--ink-2)}
+.facts-line li{display:flex;align-items:center;gap:8px}
+.facts-line li::before{content:"";width:6px;height:6px;border-radius:1.5px;background:var(--ink-3)}
+.facts-line li:first-child::before{border-radius:50%;background:var(--sun)}
 
-  .revlist{list-style:none;padding:0;margin:8px 0 0;font-size:.98rem}
-  .revlist li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--fg)}
-  .revlist li:last-child{border-bottom:none}
+/* ---------- editorial rows: rubric | body ---------- */
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);column-gap:var(--gap);padding:clamp(40px,6vh,64px) 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0;padding-top:clamp(36px,5.5vh,60px)}
+.rubric-col{min-width:0}
+.rubric{display:flex;align-items:baseline;gap:10px;font-size:var(--fs-small);line-height:1.45;font-weight:500;letter-spacing:-.006em;color:var(--ink);margin:0;padding-top:.18em}
+.rubric::before{content:"";width:6px;height:6px;border-radius:1.5px;background:var(--sun);flex:none;transform:translateY(-1px)}
+.rubric-note{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3);margin:6px 0 0 16px;max-width:17em}
+.body{min-width:0}
+.body>p,.prose{max-width:38em}
+.body>p:last-child{margin-bottom:0}
+.muted{color:var(--ink-2)}
+.sub{display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-size:var(--fs-small);font-weight:500;color:var(--ink);
+  margin:clamp(36px,5vh,52px) 0 16px;padding-top:16px;border-top:1px solid var(--line)}
+.sub span{font-weight:400;color:var(--ink-3);font-size:var(--fs-micro)}
+.body>.sub:first-child{margin-top:0}
+@media (max-width:860px){
+  .row{grid-template-columns:minmax(0,1fr);row-gap:20px}
+  .rubric-note{max-width:none}
+}
 
-  /* ---- climbing geology: ClimbingEarth + GeoCrimps ---- */
-  .kg-block{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);scroll-margin-top:70px}
-  .kg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .kg-head h3{margin:0 0 8px;font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
-  .kg-tag{font-size:.86rem;color:var(--faint)}
-  .kg-label{font-size:1rem;font-weight:600;color:var(--fg);margin:30px 0 12px;display:flex;align-items:center;gap:10px}
-  .kg-label:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--sun);flex:0 0 10px}
-  .reel-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-  .reel-card,.crimp-card{appearance:none;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0;
-        background:none;border:none;display:block;width:100%;align-self:start}
-  .reel-media{position:relative;display:block;border-radius:8px;overflow:hidden;background:#0d0f14;aspect-ratio:9/16}
-  .reel-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .reel-card:hover .reel-media img,.reel-card:focus-visible .reel-media img{transform:scale(1.03)}
-  .reel-play{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
-        background:#fdfbf8;box-shadow:0 6px 20px rgba(20,14,10,.3)}
-  .reel-play:after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:10px 0 10px 16px;
-        border-color:transparent transparent transparent #33407a}
-  .reel-fmt{display:block;margin-top:10px;font-size:.82rem;color:var(--faint)}
-  .reel-title{display:block;font-size:.97rem;line-height:1.35;margin-top:1px;font-weight:600}
-  .crimp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .crimp-card{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card)}
-  .crimp-card:hover,.crimp-card:focus-visible{border-color:var(--accent)}
-  .crimp-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
-  .crimp-meta{display:block;padding:9px 11px 12px}
-  .crimp-num{display:block;font-size:.78rem;color:var(--faint)}
-  .crimp-title{display:block;font-size:.88rem;line-height:1.3;font-weight:600;margin-top:1px}
-  .crimp-count{position:absolute;top:8px;right:8px;font-size:.72rem;background:#fdfbf8e6;color:#2e241e;border-radius:3px;padding:2px 7px}
-  .ce-card{padding:0;overflow:hidden}
-  .ce-card>:not(.ce-spread){margin-left:24px;margin-right:24px}
-  .ce-card .links{margin-bottom:24px}
-  .ce-spread{display:block;border-bottom:1px solid var(--line);margin-bottom:18px;text-decoration:none}
-  .ce-spread img{display:block;width:100%;height:auto}
-  .ce-card .kicker{display:block}
-  dialog.lb{border:none;padding:0;background:transparent;max-width:min(94vw,560px);width:100%;color:var(--fg)}
-  dialog.lb::backdrop{background:rgba(22,17,14,.84);backdrop-filter:blur(4px)}
-  .lb-inner{position:relative;background:var(--card);border-radius:10px;overflow:hidden}
-  .lb-stage{display:flex;align-items:center;justify-content:center;background:#0d0f14}
-  .lb-stage video{display:block;width:100%;max-height:78vh;aspect-ratio:9/16;background:#000}
-  .lb-stage img{display:block;width:100%;max-height:78vh;object-fit:contain}
-  .lb-stage.is-reel{max-width:calc(78vh*9/16);margin:0 auto}
-  .lb-bar{display:flex;align-items:center;gap:10px;padding:10px 12px}
-  .lb-cap{flex:1;min-width:0}
-  .lb-num{display:block;font-size:.78rem;color:var(--faint)}
-  .lb-title{display:block;font-weight:600;line-height:1.3}
-  .lb-prev,.lb-next,.lb-close{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--fg);
-        border-radius:4px;width:40px;height:40px;font-size:1.3rem;line-height:1;cursor:pointer;flex:0 0 40px}
-  .lb-prev:disabled,.lb-next:disabled{opacity:.35;cursor:default}
-  .lb-close{position:absolute;top:10px;right:10px;z-index:2}
-  @media(max-width:640px){.reel-row{gap:9px}.reel-title{font-size:.84rem}.crimp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* links & actions */
+.go{display:inline-flex;align-items:baseline;gap:.35em;font-weight:500;text-decoration:none;color:var(--accent)}
+.go .arr{display:inline-block;transition:transform .25s var(--ease)}
+.go:hover .arr{transform:translate(2px,-2px)}
+.go.int:hover .arr{transform:translateX(3px)}
+.go:hover{color:var(--accent-2)}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;margin:24px 0 0;font-size:var(--fs-small)}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:10px 18px 10px 19px;border-radius:999px;background:var(--ink);color:var(--bg);
+  font-size:var(--fs-small);font-weight:500;letter-spacing:-.006em;text-decoration:none;transition:background-color .2s,transform .2s var(--ease)}
+.btn:hover{background:var(--accent);color:var(--bg)}
+.btn .arr{display:inline-block;transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translate(2px,-2px)}
+.linkgrid{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;max-width:44rem}
+.linkgrid li{border-top:1px solid var(--line)}
+.linkgrid a{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;font-size:var(--fs-small);font-weight:500;color:var(--ink);text-decoration:none}
+.linkgrid a .arr{color:var(--ink-3);transition:transform .25s var(--ease),color .2s}
+.linkgrid a:hover{color:var(--accent)}
+.linkgrid a:hover .arr{color:var(--accent);transform:translate(2px,-2px)}
+@media (max-width:640px){.linkgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-  .mediacard{display:flex;align-items:center;gap:15px;border:1px solid var(--line);border-radius:6px;
-        padding:15px 17px;margin-top:10px;background:var(--card);text-decoration:none;color:var(--fg)}
-  .mediacard:hover{border-color:var(--accent)}
-  .mediacard .play{width:40px;height:40px;flex:0 0 40px;border-radius:4px;background:var(--accent);
-        color:var(--on-accent);display:flex;align-items:center;justify-content:center;font-size:.8rem;padding-left:2px}
-  .mediacard .mc-title{display:block;font-weight:600}
-  .mediacard .mc-sub{display:block;color:var(--muted);font-size:.86rem}
-  .portrait{float:right;width:156px;height:156px;border-radius:4px;object-fit:cover;margin:4px 0 14px 26px}
-  @media(max-width:600px){.portrait{width:104px;height:104px;margin-left:16px}}
-  footer{padding:0 0 60px;color:var(--faint);font-size:.86rem;margin-top:56px}
-  footer .band{margin-bottom:26px}
-  footer .credit{display:block;margin-top:6px;font-size:.8rem}
-  .foot-mark{display:block;margin-bottom:12px}
-  .foot-mark img{display:block;height:23px;width:auto}
+/* lists */
+.sq{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px;max-width:44rem}
+.sq li{position:relative;padding-left:18px;line-height:1.5}
+.sq li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:1.5px;background:var(--ink-3)}
+.sq.one{grid-template-columns:minmax(0,1fr)}
+@media (max-width:560px){.sq{grid-template-columns:minmax(0,1fr)}}
+.cv{list-style:none;margin:0;padding:0;max-width:44rem}
+.cv li{display:grid;grid-template-columns:7.5em minmax(0,1fr);column-gap:20px;padding:15px 0;border-top:1px solid var(--line)}
+.cv li:first-child{border-top:0;padding-top:0}
+.cv .when{font-size:var(--fs-small);line-height:1.5;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:.12em}
+.cv .what{line-height:1.5}
+.cv .inst{display:block;color:var(--ink-2);font-size:var(--fs-small);margin-top:2px}
+@media (max-width:480px){.cv li{grid-template-columns:minmax(0,1fr);row-gap:2px}}
+.modes{margin:0;max-width:44rem}
+.modes div{display:grid;grid-template-columns:6.5em minmax(0,1fr);column-gap:20px;padding:14px 0;border-top:1px solid var(--line)}
+.modes div:first-child{border-top:0;padding-top:0}
+.modes dt{font-weight:500}
+.modes dd{margin:0;color:var(--ink-2)}
+@media (max-width:480px){.modes div{grid-template-columns:minmax(0,1fr)}}
 
-  /* ---- geonews:css ---- */
-  #geonews .gn-issue{margin-top:26px}
-  #geonews .gn-issue h2{font-size:1.35rem;margin:28px 0 8px}
-  #geonews .gn-issue h3{font-size:1.04rem;margin:20px 0 6px;color:var(--muted)}
-  #geonews .gn-issue blockquote{margin:18px 0;padding:14px 18px;background:var(--card);
-        border-left:3px solid var(--fr-moss);border-radius:0 6px 6px 0;font-size:.95rem}
-  #geonews .gn-issue blockquote p{margin:6px 0}
-  #geonews .gn-issue hr{border:none;border-top:1px solid var(--line);margin:26px 0}
-  #geonews .gn-issue ul{padding-left:20px}
-  #geonews .gn-issue li{margin:8px 0}
-  #geonews .gn-issue em{color:var(--muted)}
-  .gn-dot{display:inline-block;width:.6em;height:.6em;border-radius:2px;vertical-align:baseline;margin-right:.3em}
-  .gn-red{background:var(--spark)}.gn-yel{background:var(--fr-moss)}.gn-grn{background:var(--fr-sage)}
-  .gn-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 0}
-  .gn-badge{font-size:.82rem;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:3px 10px}
+/* portrait */
+.portrait{width:100%;max-width:216px;aspect-ratio:1;object-fit:cover;border-radius:var(--r);margin:22px 0 0;background:var(--soft)}
+@media (max-width:860px){.portrait{max-width:132px;margin-top:16px}}
 
-  /* archive: one row per week, PDFs right */
-  .gn-arch{margin-top:44px;border-top:1px solid var(--line);padding-top:22px}
-  .gn-arch h3{font-size:1rem;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:10px}
-  .gn-arch h3:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--sun);flex:0 0 10px}
-  .gn-arch .gn-note{color:var(--faint);font-size:.86rem;margin:0 0 16px}
-  .gn-arch ol{list-style:none;padding:0;margin:0}
-  .gn-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
-  .gn-row:last-child{border-bottom:none}
-  .gn-row.gn-cur{background:var(--card);margin:0 -14px;padding:14px;border-radius:6px;border-bottom:none}
-  .gn-left{min-width:0;flex:1}
-  .gn-wk{font-size:.9rem;color:var(--fg);font-weight:600}
-  .gn-when{font-size:.82rem;color:var(--faint);margin-left:8px;font-weight:400}
-  .gn-teaser{font-size:.93rem;color:var(--muted);margin:5px 0 0;line-height:1.55}
-  .gn-pdfs{display:flex;gap:7px;flex-shrink:0;padding-top:2px}
-  .gn-pdf{font-size:.8rem;border:1px solid var(--line);border-radius:4px;padding:4px 10px;color:var(--muted);
-        white-space:nowrap;background:var(--card);text-decoration:none}
-  .gn-pdf:hover{border-color:var(--accent);color:var(--accent)}
-  .gn-ph{color:var(--faint);font-style:italic}
-  @media (max-width:560px){.gn-row{flex-direction:column;gap:10px}.gn-pdfs{padding-top:0}}
-  @media(max-width:600px){body{font-size:17px}h2{font-size:1.6rem}.lead{font-size:1.15rem}}
+/* ---------- publications ---------- */
+.seg{display:inline-flex;gap:2px;padding:3px;margin:16px 0 0;border:1px solid var(--line-2);border-radius:999px}
+.seg button{appearance:none;border:0;background:none;cursor:pointer;font-size:var(--fs-micro);font-weight:500;color:var(--ink-2);padding:5px 12px;border-radius:999px;transition:background-color .2s,color .2s}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.pub-count{font-size:var(--fs-micro);color:var(--ink-3);margin:12px 0 0}
+.year{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);column-gap:var(--gap);padding:26px 0 8px;border-top:1px solid var(--line)}
+.year[hidden]{display:none}
+.year h3{position:sticky;top:calc(var(--head-h) + 22px);align-self:start;font-size:var(--fs-lead);line-height:1.2;font-weight:400;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums;margin:0}
+.refs{list-style:none;margin:0;padding:0;max-width:44rem}
+.ref{padding:0 0 24px}
+.ref[hidden]{display:none}
+.ref-title{font-size:var(--fs-body);line-height:1.45;font-weight:500;letter-spacing:-.014em;color:var(--ink);margin:0 0 6px}
+.ref-title a{color:inherit;text-decoration:none}
+.ref-title a:hover{color:var(--accent);text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent)}
+.ref-by{font-size:var(--fs-small);line-height:1.55;color:var(--ink-2);margin:0 0 3px}
+.ref-by .self{color:var(--ink);font-weight:600}
+.ref-in{font-size:var(--fs-small);line-height:1.55;color:var(--ink-3);margin:0}
+.ref-in a{color:var(--ink-3);text-decoration-color:color-mix(in srgb,currentColor 35%,transparent)}
+.ref-in a:hover{color:var(--accent)}
+.ref-in .sep{padding:0 .45em;color:var(--line-2)}
+@media (max-width:860px){.year{grid-template-columns:minmax(0,1fr);row-gap:14px}.year h3{position:static}}
 
-  /* ---- GeoLab: research tools, grouped by category ---- */
-  .gl-cat{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);scroll-margin-top:70px}
-  .gl-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .gl-head h3{margin:0 0 8px;font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
-  .gl-tag{font-size:.86rem;color:var(--faint)}
-  .gl-card{padding:0;overflow:hidden}
-  .gl-card>:not(.gl-media){margin-left:24px;margin-right:24px}
-  .gl-card .kicker{display:block}
-  .gl-card .facts{margin-top:16px;margin-bottom:0}
-  .gl-card .links{margin-top:18px;margin-bottom:8px}
-  .gl-card .gl-note{margin-bottom:20px}
-  .gl-card .gl-made{font-size:.88rem;color:var(--muted);margin-top:-4px}
-  .gl-card .gl-made strong{color:var(--fg);font-weight:600}
-  .gl-media{display:block;border-bottom:1px solid var(--line);margin-bottom:18px;background:var(--card);text-decoration:none}
-  .gl-media img{display:block;width:100%;height:auto}
+/* ---------- media & features ---------- */
+figure{margin:0}
+.media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--soft)}
+.media img{width:100%}
+figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3);margin:12px 0 0;max-width:44rem}
+.feature{margin:clamp(28px,4vh,40px) 0 0}
+.feature .media{margin-bottom:12px}
+.kicker{font-size:var(--fs-micro);line-height:1.5;letter-spacing:.005em;color:var(--ink-3);margin:28px 0 8px}
+.feature h3{font-size:var(--fs-head);line-height:1.2;letter-spacing:-.022em;font-weight:500;margin:0 0 12px;max-width:22em}
+.byline{font-size:var(--fs-small);color:var(--ink-2);margin:0 0 18px}
+.feature p{max-width:38em}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);max-width:44rem}
+.stats div{min-width:0}
+.stats b{display:block;font-size:var(--fs-head);line-height:1.1;font-weight:400;letter-spacing:-.024em;font-variant-numeric:tabular-nums}
+.stats span{display:block;font-size:var(--fs-micro);line-height:1.4;color:var(--ink-3);margin-top:6px}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}}
+.note{font-size:var(--fs-micro);line-height:1.55;color:var(--ink-3);margin:18px 0 0;max-width:44rem}
+.steps{list-style:none;margin:0;padding:0;max-width:44rem}
+.steps li{display:grid;grid-template-columns:18px minmax(0,1fr);column-gap:12px;padding:10px 0;border-top:1px solid var(--line);color:var(--ink-2)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps li::before{content:"";width:10px;height:10px;margin-top:.42em;border:1.5px solid var(--ink-3);border-radius:2px}
+.steps li.done{color:var(--ink)}
+.steps li.done::before{border-color:var(--sun);background:var(--sun);border-radius:50%}
+
+/* GeoCrimps: reels + crimps */
+.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start;max-width:calc((100% - 54px) * .75 + 36px)}  /* reel columns = crimp columns */
+.reel,.crimp{appearance:none;background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;color:inherit;display:block;width:100%;border-radius:var(--r)}
+.reel-media{position:relative;display:block;aspect-ratio:9/16;border-radius:var(--r-lg);overflow:hidden;background:var(--soft)}
+.reel-media img,.crimp-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.reel:hover .reel-media img,.crimp:hover .crimp-media img{transform:scale(1.025)}
+.play{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgb(251 244 239 / .92);
+  display:grid;place-items:center;box-shadow:0 2px 10px rgb(20 14 10 / .25)}
+.play::after{content:"";margin-left:3px;border-style:solid;border-width:6.5px 0 6.5px 10px;border-color:transparent transparent transparent #2e241e}
+.reel-cap,.crimp-cap{display:block;margin-top:10px;font-size:var(--fs-small);line-height:1.4;font-weight:500;letter-spacing:-.008em}
+.reel-cap small,.crimp-cap small{display:block;margin-top:3px;font-size:var(--fs-micro);font-weight:400;color:var(--ink-3)}
+.crimps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 18px;align-items:start}
+.crimp-media{display:block;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--soft)}
+@media (max-width:720px){.crimps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.reels{max-width:none}}
+@media (max-width:520px){.reels{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-right:calc(-1 * var(--pad));padding-right:var(--pad);scrollbar-width:none}.reels::-webkit-scrollbar{display:none}.reel{scroll-snap-align:start}}
+.empty{font-size:var(--fs-small);color:var(--ink-3);font-style:italic}
+
+/* lightbox */
+.lb{border:0;padding:0;background:transparent;max-width:min(92vw,560px);max-height:92vh;overflow:visible;color:#efe8df}
+.lb::backdrop{background:rgb(14 16 26 / .9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lb[open]{animation:fade .25s var(--ease)}
+.lb-stage{display:flex;align-items:center;justify-content:center}
+.lb-stage img,.lb-stage video{max-width:min(92vw,560px);max-height:80vh;width:auto;height:auto;border-radius:var(--r-lg);background:#000}
+.lb-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:var(--fs-small)}
+.lb-cap{margin:0;color:#efe8df}
+.lb-cap a{color:#f3bb93}
+.lb-btns{display:flex;gap:8px;flex:none}
+.lb-btn{appearance:none;width:38px;height:38px;border-radius:50%;border:1px solid rgb(239 232 223 / .28);background:rgb(239 232 223 / .08);color:#efe8df;cursor:pointer;display:grid;place-items:center}
+.lb-btn:hover{background:rgb(239 232 223 / .18)}
+.lb-btn svg{width:16px;height:16px}
+.lb-btn[hidden]{display:none}
+
+/* ---------- GeoNews ---------- */
+.gn-meta{font-size:var(--fs-micro);line-height:1.6;color:var(--ink-3);margin:8px 0 0 16px}
+.gn-meta b{display:block;font-size:var(--fs-small);font-weight:500;color:var(--ink);letter-spacing:-.006em}
+.gn-meta .go{font-size:var(--fs-micro)}
+.gn-files{display:flex;gap:14px;margin-top:10px}
+.gn-issue{max-width:44rem;font-size:var(--fs-small);line-height:1.6}
+.gn-issue>p:first-child{font-size:var(--fs-body);line-height:1.6}
+.gn-issue p{margin:0 0 .9em}
+.gn-issue h2{font-size:var(--fs-lead);line-height:1.3;font-weight:500;letter-spacing:-.018em;margin:40px 0 14px;padding-top:22px;border-top:1px solid var(--line)}
+.gn-issue h3{font-size:var(--fs-body);font-weight:600;letter-spacing:-.012em;margin:28px 0 10px}
+.gn-issue ul,.gn-issue ol{padding-left:0;margin:0 0 1em;list-style:none}
+.gn-issue li{position:relative;padding:0 0 12px 18px;margin:0}
+.gn-issue li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:1px;background:var(--line-2)}
+.gn-issue blockquote{margin:0 0 24px;padding:16px 20px;background:var(--soft);border-radius:var(--r);color:var(--ink-2)}
+.gn-issue blockquote p:last-child{margin:0}
+.gn-issue hr{display:none}
+.gn-issue em{color:var(--ink-2)}
+.gn-issue code{font-family:inherit;font-size:.94em;font-variant-numeric:tabular-nums;background:var(--soft);padding:.08em .38em;border-radius:3px;color:var(--ink)}
+.gn-dot{display:inline-block;width:.6em;height:.6em;border-radius:1.5px;vertical-align:.02em;margin:0 .12em}
+.gn-red{background:var(--dot-red)}.gn-yel{background:var(--dot-yel)}.gn-grn{background:var(--dot-grn)}.gn-gry{background:var(--dot-gry)}
+.gn-list{list-style:none;margin:0;padding:0;max-width:44rem}
+.gn-row{display:grid;grid-template-columns:8.5em minmax(0,1fr);column-gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+.gn-row:first-child{border-top:0;padding-top:0}
+.gn-week{font-size:var(--fs-small);font-weight:500;line-height:1.45;font-variant-numeric:tabular-nums}
+.gn-week time{display:block;font-size:var(--fs-micro);font-weight:400;color:var(--ink-3);margin-top:2px}
+.gn-teaser{font-size:var(--fs-small);line-height:1.55;color:var(--ink-2);margin:0}
+.gn-files.row-files{margin-top:6px;font-size:var(--fs-micro)}
+.gn-ph{font-size:var(--fs-small);color:var(--ink-3);font-style:italic}
+@media (max-width:520px){.gn-row{grid-template-columns:minmax(0,1fr);row-gap:4px}}
+
+/* ---------- footer ---------- */
+.site-foot{position:relative}
+.band{display:flex;height:4px}
+.band span{display:block;height:100%}
+.foot{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:var(--gap);padding:clamp(44px,7vh,72px) 0 clamp(32px,5vh,48px)}
+.foot-brand .brand{margin:0}
+.foot-brand p{font-size:var(--fs-small);line-height:1.55;color:var(--ink-2);margin:16px 0 0;max-width:22em}
+.foot h2{font-size:var(--fs-micro);font-weight:500;color:var(--ink-3);letter-spacing:.005em;margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:var(--fs-small)}
+.foot a{color:var(--ink-2);text-decoration:none}
+.foot a:hover{color:var(--ink)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;padding:20px 0 40px;border-top:1px solid var(--line);
+  font-size:var(--fs-micro);line-height:1.55;color:var(--ink-3)}
+.foot-base p{margin:0;max-width:52em}
+@media (max-width:860px){.foot{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1 / -1}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{.site-head,.menu,.band,.lb{display:none}.panel{display:block!important}.sky,.water{background:none;margin:0;padding:24px 0}}
+.lead strong{font-weight:500;color:var(--ink)}
+.lead em{font-style:italic;color:var(--ink)}
+
+/* home: index of projects */
+.index{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;max-width:52rem}
+.index li{border-top:1px solid var(--line)}
+.index li:nth-child(-n+2){border-top:0}
+.index a{display:block;height:100%;padding:18px 0 24px;color:var(--ink);text-decoration:none}
+.index li:nth-child(-n+2) a{padding-top:0}
+.ix-k{display:block;font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3);margin-bottom:6px}
+.ix-t{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:var(--fs-lead);line-height:1.25;font-weight:500;letter-spacing:-.018em;transition:color .2s}
+.ix-t .arr{font-size:var(--fs-body);font-weight:400;color:var(--ink-3);transition:transform .25s var(--ease),color .2s}
+.ix-d{display:block;font-size:var(--fs-small);line-height:1.55;color:var(--ink-2);margin-top:8px;max-width:30em}
+.index a:hover .ix-t,.index a:hover .arr{color:var(--accent)}
+.index a:hover .arr{transform:translateX(3px)}
+@media (max-width:640px){.index{grid-template-columns:minmax(0,1fr)}.index li:nth-child(2){border-top:1px solid var(--line)}.index li:nth-child(2) a{padding-top:18px}}
+
 </style>
 <!-- GoatCounter: privacy-friendly visitor stats (dashboard: mlfischer.goatcounter.com) -->
-<script data-goatcounter="https://mlfischer.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://mlfischer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="lang-en">
 <a class="skip" href="#main"><span class="en">Skip to content</span><span class="de">Zum Inhalt</span></a>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="topbar">
-      <div class="langsw">
-        <button data-lang="en" class="active">EN</button><span class="div">/</span><button data-lang="de">DE</button>
-      </div>
+<header class="site-head" id="top">
+  <div class="wrap head">
+    <a class="brand" href="#ueber" data-tab="ueber" aria-label="Markus Fischer — home">
+      <svg class="mark" viewBox="0 18.35 120 82.05" aria-hidden="true" focusable="false"><clipPath id="hz-h"><rect width="120" height="96"/></clipPath><g clip-path="url(#hz-h)"><rect class="s s1" x="10" y="86" width="12" height="12"/><rect class="s s2" x="26.5" y="68.5" width="15" height="15" rx="1.88"/><rect class="s s3" x="45.62" y="51.62" width="18.75" height="18.75" rx="4.69"/><rect class="s s4" x="66.28" y="35.28" width="23.44" height="23.44" rx="8.79"/><rect class="s s5" x="87.35" y="19.35" width="29.3" height="29.3" rx="14.65"/></g><rect class="hz" y="96" width="120" height="3.4" rx="1.7"/></svg><span class="brand-name" aria-hidden="true">Markus Fischer</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#ueber" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></a>
+      <a href="#publikationen" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></a>
+      <a href="#expertise" data-tab="expertise">Expertise</a>
+      <a href="#geonews" data-tab="geonews">GeoNews</a>
+      <a href="#geolab" data-tab="geolab">GeoLab</a>
+      <a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a>
+      <a href="#klimamusik" data-tab="klimamusik">ClimateMusic</a>
+    </nav>
+    <div class="langsw" role="group" aria-label="Language / Sprache">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button>
     </div>
-    <div class="hero-grid">
-      <div class="hero-text">
-        <p class="wordmark">Spatial Perspective</p>
-        <h1>Markus Fischer</h1>
-        <p class="role">
-          <span class="en">Geoscientist working on palaeoclimate, University of Potsdam</span>
-          <span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam</span>
-        </p>
-      </div>
-      <div class="farbraum-wrap">
-<svg class="farbraum" id="farbraum" viewBox="0 0 207 207" role="img" aria-labelledby="fr-t">
-<title id="fr-t">Sunrise from the colour space of Ernst Haeckel's watercolour of the Kelani river: 100 squares, each 1 % of the painting</title>
-<rect x="0" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="21" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="42" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="63" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="84" y="0" width="18" height="18" rx="2" class="fr-sage"/><rect x="105" y="0" width="18" height="18" rx="2" class="fr-sage"/><rect x="126" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="147" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="168" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="189" y="0" width="18" height="18" rx="2" class="fr-slate"/><rect x="0" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="21" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="42" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="63" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="84" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="105" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="126" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="147" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="168" y="21" width="18" height="18" rx="2" class="fr-sage"/><rect x="189" y="21" width="18" height="18" rx="2" class="fr-slate"/><rect x="0" y="42" width="18" height="18" rx="2" class="fr-sage"/><rect x="21" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="42" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="63" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="84" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="105" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="126" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="147" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="168" y="42" width="18" height="18" rx="2" class="fr-mist"/><rect x="189" y="42" width="18" height="18" rx="2" class="fr-sage"/><rect x="0" y="63" width="18" height="18" rx="2" class="fr-mist"/><rect x="21" y="63" width="18" height="18" rx="2" class="fr-mist"/><rect x="42" y="63" width="18" height="18" rx="2" class="fr-khaki"/><rect x="63" y="63" width="18" height="18" rx="2" class="fr-khaki"/><rect x="84" y="63" width="18" height="18" rx="2" class="fr-moss"/><rect x="105" y="63" width="18" height="18" rx="2" class="fr-moss"/><rect x="126" y="63" width="18" height="18" rx="2" class="fr-khaki"/><rect x="147" y="63" width="18" height="18" rx="2" class="fr-khaki"/><rect x="168" y="63" width="18" height="18" rx="2" class="fr-mist"/><rect x="189" y="63" width="18" height="18" rx="2" class="fr-mist"/><rect x="0" y="84" width="18" height="18" rx="2" class="fr-mist"/><rect x="21" y="84" width="18" height="18" rx="2" class="fr-khaki"/><rect x="42" y="84" width="18" height="18" rx="2" class="fr-rust"/><rect x="63" y="84" width="18" height="18" rx="2" class="fr-cloud"/><rect x="84" y="84" width="18" height="18" rx="2" class="fr-cloud"/><rect x="105" y="84" width="18" height="18" rx="2" class="fr-cloud"/><rect x="126" y="84" width="18" height="18" rx="2" class="fr-rust"/><rect x="147" y="84" width="18" height="18" rx="2" class="fr-rust"/><rect x="168" y="84" width="18" height="18" rx="2" class="fr-khaki"/><rect x="189" y="84" width="18" height="18" rx="2" class="fr-mist"/><rect x="0" y="105" width="18" height="18" rx="2" class="fr-khaki"/><rect x="21" y="105" width="18" height="18" rx="2" class="fr-moss"/><rect x="42" y="105" width="18" height="18" rx="2" class="fr-cloud"/><rect x="63" y="105" width="18" height="18" rx="2" class="fr-cloud"/><rect x="84" y="105" width="18" height="18" rx="2" class="fr-cloud"/><rect x="105" y="105" width="18" height="18" rx="2" class="fr-cloud"/><rect x="126" y="105" width="18" height="18" rx="2" class="fr-cloud"/><rect x="147" y="105" width="18" height="18" rx="2" class="fr-cloud"/><rect x="168" y="105" width="18" height="18" rx="2" class="fr-moss"/><rect x="189" y="105" width="18" height="18" rx="2" class="fr-khaki"/><rect x="0" y="126" width="18" height="18" rx="2" class="fr-khaki"/><rect x="21" y="126" width="18" height="18" rx="2" class="fr-moss"/><rect x="42" y="126" width="18" height="18" rx="2" class="fr-cloud"/><rect x="63" y="126" width="18" height="18" rx="2" class="fr-cloud"/><rect x="84" y="126" width="18" height="18" rx="2" class="fr-cloud"/><rect x="105" y="126" width="18" height="18" rx="2" class="fr-cloud"/><rect x="126" y="126" width="18" height="18" rx="2" class="fr-cloud"/><rect x="147" y="126" width="18" height="18" rx="2" class="fr-cloud"/><rect x="168" y="126" width="18" height="18" rx="2" class="fr-moss"/><rect x="189" y="126" width="18" height="18" rx="2" class="fr-khaki"/><rect x="0" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="21" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="42" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="63" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="84" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="105" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="126" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="147" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="168" y="147" width="18" height="18" rx="2" class="fr-olive"/><rect x="189" y="147" width="18" height="18" rx="2" class="fr-shade"/><rect x="0" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="21" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="42" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="63" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="84" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="105" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="126" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="147" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="168" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="189" y="168" width="18" height="18" rx="2" class="fr-shade"/><rect x="0" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="21" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="42" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="63" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="84" y="189" width="18" height="18" rx="2" class="fr-shade"/><rect x="105" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="126" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="147" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="168" y="189" width="18" height="18" rx="2" class="fr-umber"/><rect x="189" y="189" width="18" height="18" rx="2" class="fr-umber"/>
-</svg>
-<script>/* sunrise: same 100 squares, pre-dawn -> risen sun (light theme once on load; dark theme stays at the blue hour) */
-(function(){var g=document.getElementById("farbraum");if(!g)return;var R=g.querySelectorAll("rect"),K=["cloud", "mist", "shade", "olive", "umber", "moss", "khaki", "sage", "slate", "rust"],
-RISE="8888778888777777777871111111171166556611169000996165000000566500000056333333333222222222224444244444",PRE="8888788888777777777771111111171116666111666555566659000009950000000000333333333222222222224444244444",D=[521, 494, 472, 457, 449, 449, 457, 472, 494, 521, 454, 422, 397, 379, 369, 369, 379, 397, 422, 454, 392, 355, 324, 301, 290, 290, 301, 324, 355, 392, 338, 294, 255, 226, 210, 210, 226, 255, 294, 338, 296, 244, 196, 156, 131, 131, 156, 196, 244, 296, 271, 213, 156, 101, 56, 56, 101, 156, 213, 271, 269, 210, 152, 94, 44, 44, 94, 152, 210, 269, 289, 236, 186, 143, 116, 116, 143, 186, 236, 289, 329, 283, 243, 212, 194, 194, 212, 243, 283, 329, 381, 342, 310, 286, 274, 274, 286, 310, 342, 381];
-function paint(code,anim){for(var i=0;i<R.length;i++){R[i].style.transitionDelay=anim?D[i]+"ms":"0ms";R[i].setAttribute("class","fr-"+K[+code[i]]);}}
-var dark=matchMedia("(prefers-color-scheme: dark)"),calm=matchMedia("(prefers-reduced-motion: reduce)");
-function set(){if(dark.matches){paint(PRE,false);return;}if(calm.matches){paint(RISE,false);return;}
- paint(PRE,false);requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(function(){paint(RISE,true);},250);});});}
-set();try{dark.addEventListener("change",set);}catch(e){}})();</script>
-      </div>
-    </div>
+    <button class="menu-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i><span class="en">Menu</span><span class="de">Menü</span></button>
   </div>
 </header>
 
-<div class="below">
-<nav class="tabs">
-  <div class="wrap">
-    <button class="tab-btn active" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></button>
-    <button class="tab-btn" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></button>
-    <button class="tab-btn" data-tab="expertise"><span class="en">Expertise</span><span class="de">Expertise</span></button>
-    <button class="tab-btn" data-tab="geonews">GeoNews</button>
-    <button class="tab-btn" data-tab="geolab">GeoLab</button>
-    <button class="tab-btn" data-tab="klettergeologie">GeoCrimps</button>
-    <button class="tab-btn" data-tab="klimamusik">ClimateMusic</button>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="wrap" style="display:flex;flex-direction:column;min-height:100%">
+    <div class="menu-top">
+      <a class="brand" href="#ueber" data-tab="ueber" aria-label="Markus Fischer — home"><svg class="mark" viewBox="0 18.35 120 82.05" aria-hidden="true" focusable="false"><clipPath id="hz-m"><rect width="120" height="96"/></clipPath><g clip-path="url(#hz-m)"><rect class="s s1" x="10" y="86" width="12" height="12"/><rect class="s s2" x="26.5" y="68.5" width="15" height="15" rx="1.88"/><rect class="s s3" x="45.62" y="51.62" width="18.75" height="18.75" rx="4.69"/><rect class="s s4" x="66.28" y="35.28" width="23.44" height="23.44" rx="8.79"/><rect class="s s5" x="87.35" y="19.35" width="29.3" height="29.3" rx="14.65"/></g><rect class="hz" y="96" width="120" height="3.4" rx="1.7"/></svg><span class="brand-name" aria-hidden="true">Markus Fischer</span></a>
+      <button class="menu-close" type="button"><span class="en">Close</span><span class="de">Schließen</span></button>
+    </div>
+    <nav aria-label="Main">
+      <a href="#ueber" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></a>
+      <a href="#publikationen" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></a>
+      <a href="#expertise" data-tab="expertise">Expertise</a>
+      <a href="#geonews" data-tab="geonews">GeoNews</a>
+      <a href="#geolab" data-tab="geolab">GeoLab</a>
+      <a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a>
+      <a href="#klimamusik" data-tab="klimamusik">ClimateMusic</a>
+    </nav>
+    <div class="langsw" role="group" aria-label="Language / Sprache">
+      <button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="de" aria-pressed="false">Deutsch</button>
+    </div>
   </div>
-</nav>
+</dialog>
 
-<main class="wrap" id="main" tabindex="-1">
+<main id="main" tabindex="-1">
 
-  <section class="panel active" id="ueber">
-    <h2><span class="en">About</span><span class="de">Über</span></h2>
-    <img class="portrait" src="portrait.jpg" alt="Markus Fischer">
-    <p class="lead en">I am a postdoc in the Palaeoclimate Dynamics group at the University of
-       Potsdam. I study how water comes and goes in drylands and East African rift lakes over long
-       timescales — and how to reconstruct it from sediments, models and time series.</p>
-    <p class="lead de">Ich arbeite als Postdoc in der AG Paläoklimadynamik an der Universität
-       Potsdam. Mich interessiert, wie Wasser in Trockengebieten und ostafrikanischen Riftseen über
-       lange Zeiträume kommt und geht — und wie man das aus Sedimenten, Modellen und Zeitreihen
-       rekonstruiert.</p>
-    <p class="muted en">Alongside that I write about climbing geology, experiment with turning
-       climate data into sound, and collect occasional notes.</p>
-    <p class="muted de">Daneben schreibe ich über Klettergeologie, experimentiere mit der Vertonung
-       von Klimadaten und sammle hier gelegentlich Notizen.</p>
+  <!-- ============================== ABOUT ============================== -->
+  <section class="panel is-active" id="ueber" aria-labelledby="t-ueber">
+    <div class="sky is-home"><div class="wrap">
+      <p class="eyebrow"><span class="en">Geoscientist working on palaeoclimate, University of Potsdam</span><span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam</span></p>
+      <h1 class="display" id="t-ueber"><span class="en">How water comes and goes in drylands and East African rift lakes.</span><span class="de">Wie Wasser in Trockengebieten und ostafrikanischen Riftseen kommt und geht.</span></h1>
+      <p class="lead en">I am a postdoc in the Palaeoclimate Dynamics group at the University of Potsdam and study this
+         over long timescales — and how to reconstruct it from sediments, models and time series.</p>
+      <p class="lead de">Ich arbeite als Postdoc in der AG Paläoklimadynamik an der Universität Potsdam und untersuche
+         das über lange Zeiträume — und wie man es aus Sedimenten, Modellen und Zeitreihen rekonstruiert.</p>
+    </div></div>
+    <div class="water"><div class="wrap">
 
-    <h3><span class="en">Background</span><span class="de">Werdegang</span></h3>
-    <ul class="cv">
-      <li><span class="yr"><span class="en">since 2022</span><span class="de">seit 2022</span></span><br>
-        <span class="en"><span class="w">Postdoc</span>, Palaeoclimate Dynamics group, University of Potsdam (Campus Golm)</span>
-        <span class="de"><span class="w">Postdoc</span>, AG Paläoklimadynamik, Universität Potsdam (Campus Golm)</span></li>
-      <li><span class="yr">2019 – 2022</span><br>
-        <span class="en"><span class="w">PhD (Dr. rer. nat.)</span>, University of Tübingen &amp; Senckenberg Centre for Human Evolution and Paleoenvironment — scholarship of the Stiftung der deutschen Wirtschaft</span>
-        <span class="de"><span class="w">Promotion (Dr. rer. nat.)</span>, Universität Tübingen &amp; Senckenberg Centre for Human Evolution and Paleoenvironment — Stipendium der Stiftung der deutschen Wirtschaft</span></li>
-      <li><span class="yr">2014 – 2018</span><br>
-        <span class="en"><span class="w">M.Sc. Physical Geography</span>, University of Leipzig</span>
-        <span class="de"><span class="w">M.Sc. Physische Geographie</span>, Universität Leipzig</span></li>
-      <li><span class="yr">2010 – 2014</span><br>
-        <span class="en"><span class="w">B.Sc. Geography</span>, University of Leipzig</span>
-        <span class="de"><span class="w">B.Sc. Geographie</span>, Universität Leipzig</span></li>
-    </ul>
+      <section class="row" aria-labelledby="r-profile">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-profile"><span class="en">Profile</span><span class="de">Profil</span></h2>
+          <img class="portrait" src="/portrait.jpg" alt="Markus Fischer" width="720" height="720" loading="lazy">
+        </div>
+        <div class="body">
+          <p class="prose en">Alongside that I write about <a href="#klettergeologie">climbing geology</a>, experiment with
+             <a href="#klimamusik">turning climate data into sound</a>, and collect occasional notes.</p>
+          <p class="prose de">Daneben schreibe ich über <a href="#klettergeologie">Klettergeologie</a>, experimentiere mit der
+             <a href="#klimamusik">Vertonung von Klimadaten</a> und sammle hier gelegentlich Notizen.</p>
+          <ul class="linklist linkgrid">
+            <li><a href="mailto:markus.lothar.fischer@uni-potsdam.de"><span><span class="en">Email</span><span class="de">E-Mail</span></span><span class="arr" aria-hidden="true">→</span></a></li>
+            <li><a href="https://orcid.org/0000-0001-9493-4450">ORCID<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://scholar.google.com/citations?user=29uQRgsAAAAJ&amp;hl=de">Google Scholar<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.uni-potsdam.de/en/geo/research/paleoclimate-dynamics/members"><span><span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span></span><span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.researchgate.net/profile/Markus-Fischer-32">ResearchGate<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://github.com/MLFischer">GitHub<span class="arr" aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+      </section>
 
-    <h3><span class="en">Peer review</span><span class="de">Gutachtertätigkeit</span></h3>
-    <p class="muted en">Reviewer for scientific journals (verified via <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a>):</p>
-    <p class="muted de">Gutachter für Fachzeitschriften (über <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a> verifiziert):</p>
-    <ul class="revlist">
-      <li><span>Nature Communications</span></li>
-      <li><span>Nature Geoscience</span></li>
-      <li><span>Quaternary International</span></li>
-      <li><span>International Journal of Earth Sciences</span></li>
-      <li><span>Palaeogeography, Palaeoclimatology, Palaeoecology</span></li>
-    </ul>
+      <section class="row" aria-labelledby="r-work">
+        <div class="rubric-col"><h2 class="rubric" id="r-work"><span class="en">Projects</span><span class="de">Projekte</span></h2></div>
+        <div class="body">
+          <ul class="index">
+            <li><a href="#geonews"><span class="ix-k"><span class="en">Weekly digest</span><span class="de">Wochen-Digest</span></span>
+              <span class="ix-t">GeoNews<span class="arr" aria-hidden="true">→</span></span>
+              <span class="ix-d"><span class="en">Quaternary palaeoclimate, East African rift dynamics, palaeohydrology and time-series analysis — a new issue every Monday.</span><span class="de">Quartäre Paläoklimaforschung, ostafrikanische Riftdynamik, Paläohydrologie und Zeitreihenanalyse — jeden Montag eine neue Ausgabe.</span></span></a></li>
+            <li><a href="#geolab"><span class="ix-k"><span class="en">Research tools</span><span class="de">Forschungswerkzeuge</span></span>
+              <span class="ix-t">GeoLab<span class="arr" aria-hidden="true">→</span></span>
+              <span class="ix-d"><span class="en">Tools and working material from my research, such as a literature map around IODP³ Expedition 506S.</span><span class="de">Werkzeuge und Arbeitsmaterial aus meiner Forschung, etwa eine Literaturkarte zu IODP³-Expedition 506S.</span></span></a></li>
+            <li><a href="#klettergeologie"><span class="ix-k">ClimbingEarth &amp; GeoCrimps</span>
+              <span class="ix-t"><span><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></span><span class="arr" aria-hidden="true">→</span></span>
+              <span class="ix-d"><span class="en">Why does a rock feel and climb the way it does? A long-read series in Boulder Magazine, plus short reels.</span><span class="de">Warum fühlt sich ein Fels so an — und warum klettert er sich so? Eine Artikelreihe im Boulder Magazine und kurze Reels.</span></span></a></li>
+            <li><a href="#klimamusik"><span class="ix-k"><span class="en">Sonification</span><span class="de">Sonifikation</span></span>
+              <span class="ix-t">ClimateMusic<span class="arr" aria-hidden="true">→</span></span>
+              <span class="ix-d"><span class="en"><em>climate · time · sound</em> turns real climate records into music, live in the browser.</span><span class="de"><em>climate · time · sound</em> übersetzt echte Klimareihen live im Browser in Musik.</span></span></a></li>
+          </ul>
+        </div>
+      </section>
 
-    <h3><span class="en">Talks &amp; media</span><span class="de">Vorträge &amp; Medien</span></h3>
-    <p class="muted en">A podcast conversation about my doctoral research, my path into science, and what
-       fascinates me at the interface of anthropology and palaeoenvironmental research (University of Potsdam).</p>
-    <p class="muted de">Ein Podcast-Gespräch über meine Promotion, meinen Werdegang und was mich an der
-       Schnittstelle von Anthropologie und Paläoumweltforschung fasziniert (Universität Potsdam).</p>
-    <a class="mediacard" href="https://videoup.uni-potsdam.de/Panopto/Pages/Viewer.aspx?id=e17a1908-c894-4f1b-aa4b-b2e600896843" target="_blank" rel="noopener">
-      <span class="play" aria-hidden="true">&#9654;</span>
-      <span class="mc-text">
-        <span class="mc-title"><span class="en">Listen on Panopto</span><span class="de">Auf Panopto anhören</span></span>
-        <span class="mc-sub"><span class="en">University of Potsdam, opens in a new tab</span><span class="de">Universität Potsdam, öffnet in neuem Tab</span></span>
-      </span>
-    </a>
+      <section class="row" aria-labelledby="r-cv">
+        <div class="rubric-col"><h2 class="rubric" id="r-cv"><span class="en">Background</span><span class="de">Werdegang</span></h2></div>
+        <div class="body">
+          <ol class="cv">
+            <li><span class="when"><span class="en">since 2022</span><span class="de">seit 2022</span></span>
+              <span class="what"><span class="en">Postdoc, Palaeoclimate Dynamics group<span class="inst">University of Potsdam (Campus Golm)</span></span><span class="de">Postdoc, AG Paläoklimadynamik<span class="inst">Universität Potsdam (Campus Golm)</span></span></span></li>
+            <li><span class="when">2019 – 2022</span>
+              <span class="what"><span class="en">PhD (Dr. rer. nat.)<span class="inst">University of Tübingen &amp; Senckenberg Centre for Human Evolution and Paleoenvironment — scholarship of the Stiftung der deutschen Wirtschaft</span></span><span class="de">Promotion (Dr. rer. nat.)<span class="inst">Universität Tübingen &amp; Senckenberg Centre for Human Evolution and Paleoenvironment — Stipendium der Stiftung der deutschen Wirtschaft</span></span></span></li>
+            <li><span class="when">2014 – 2018</span>
+              <span class="what"><span class="en">M.Sc. Physical Geography<span class="inst">University of Leipzig</span></span><span class="de">M.Sc. Physische Geographie<span class="inst">Universität Leipzig</span></span></span></li>
+            <li><span class="when">2010 – 2014</span>
+              <span class="what"><span class="en">B.Sc. Geography<span class="inst">University of Leipzig</span></span><span class="de">B.Sc. Geographie<span class="inst">Universität Leipzig</span></span></span></li>
+          </ol>
+        </div>
+      </section>
 
-    <div class="links">
-      <a href="mailto:markus.lothar.fischer@uni-potsdam.de"><span class="en">Email</span><span class="de">E-Mail</span></a>
-      <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a>
-      <a href="https://scholar.google.com/citations?user=29uQRgsAAAAJ&hl=de">Google Scholar</a>
-      <a href="https://www.uni-potsdam.de/en/geo/research/paleoclimate-dynamics/members"><span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span></a>
-      <a href="https://www.researchgate.net/profile/Markus-Fischer-32">ResearchGate</a>
-      <a href="https://github.com/MLFischer">GitHub</a>
-    </div>
+      <section class="row" aria-labelledby="r-review">
+        <div class="rubric-col"><h2 class="rubric" id="r-review"><span class="en">Peer review</span><span class="de">Gutachtertätigkeit</span></h2></div>
+        <div class="body">
+          <p class="en">Reviewer for scientific journals (verified via <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a>):</p>
+          <p class="de">Gutachter für Fachzeitschriften (über <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a> verifiziert):</p>
+          <ul class="sq">
+            <li>Nature Communications</li>
+            <li>Nature Geoscience</li>
+            <li>Quaternary International</li>
+            <li>International Journal of Earth Sciences</li>
+            <li>Palaeogeography, Palaeoclimatology, Palaeoecology</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="row" aria-labelledby="r-talks">
+        <div class="rubric-col"><h2 class="rubric" id="r-talks"><span class="en">Talks &amp; media</span><span class="de">Vorträge &amp; Medien</span></h2></div>
+        <div class="body">
+          <p class="en">A podcast conversation about my doctoral research, my path into science, and what
+             fascinates me at the interface of anthropology and palaeoenvironmental research (University of Potsdam).</p>
+          <p class="de">Ein Podcast-Gespräch über meine Promotion, meinen Werdegang und was mich an der
+             Schnittstelle von Anthropologie und Paläoumweltforschung fasziniert (Universität Potsdam).</p>
+          <div class="actions">
+            <a class="btn" href="https://videoup.uni-potsdam.de/Panopto/Pages/Viewer.aspx?id=e17a1908-c894-4f1b-aa4b-b2e600896843" target="_blank" rel="noopener"><span class="en">Listen on Panopto</span><span class="de">Auf Panopto anhören</span><span class="arr" aria-hidden="true">↗</span></a>
+            <span class="note" style="margin:0"><span class="en">University of Potsdam, opens in a new tab</span><span class="de">Universität Potsdam, öffnet in neuem Tab</span></span>
+          </div>
+        </div>
+      </section>
+
+    </div></div>
   </section>
 
-  <section class="panel" id="publikationen">
-    <h2><span class="en">Research &amp; publications</span><span class="de">Forschung &amp; Publikationen</span></h2>
-    <p class="lead en">Data-driven palaeoclimate researcher focused on climate dynamics, system
-       coupling, and human–environment interactions. I integrate sediment records, mechanistic and
-       data-driven models, and time-series analysis to understand climate and Earth-system dynamics
-       across scales.</p>
-    <p class="lead de">Datengetriebener Paläoklimaforscher mit Fokus auf Klimadynamik, System-Kopplung
-       und Mensch-Umwelt-Interaktionen. Ich verbinde Sedimentarchive, mechanistische und
-       datengetriebene Modelle sowie Zeitreihenanalyse, um Klima- und Erdsystemdynamik über
-       verschiedene Skalen hinweg zu verstehen.</p>
-    <p class="muted small en">Current direction: metaparameters in Earth-system science — measures that
-       make environmental processes comparable and translatable across scales, including their link to
-       the biosphere and human systems.</p>
-    <p class="muted small de">Aktuelle Richtung: Metaparameter in der Erdsystemwissenschaft — Maße, die
-       Umweltprozesse skalenübergreifend vergleichbar und übersetzbar machen, samt ihrer Kopplung an
-       die Biosphäre und den Menschen.</p>
-    <p class="muted en">Regional focus: southern Ethiopia (Chew Bahir basin), extended to pan-African
-       climate coupling and comparative drylands (Willandra Lakes, Australia). 15 peer-reviewed papers,
-       plus two scientific-drilling workshop reports as a consortium member.</p>
-    <p class="muted de">Regionaler Schwerpunkt: Südäthiopien (Chew-Bahir-Becken), erweitert auf
-       pan-afrikanische Klimakopplung und vergleichende Trockengebiete (Willandra Lakes, Australien).
-       15 begutachtete Arbeiten, dazu zwei Workshop-Berichte zu Forschungsbohrungen als Konsortiumsmitglied.</p>
-    <div class="filterbar">
-      <button class="chip active" data-filter="all"><span class="en">All</span><span class="de">Alle</span></button>
-      <button class="chip" data-filter="first"><span class="en">First author</span><span class="de">Erstautor</span></button>
-    </div>
-    <ol class="refs">
-      <li class="yrhead">2026</li>
-      <li class="ref" data-role="co">Foerster, V., Asrat, A., Bronk Ramsey, C., Brown, E. T., Deino, A., Erbello, A., Fischer, M. L., Gebregiorgis, D., Junginger, A., Kaboth-Bahr, S., Lane, C. S., Opitz, S., Noren, A., Roberts, H. M., Tiedemann, R., Vidal, C.-M., Viehberg, F., Vogelsang, R., Zachow, C., Zinaye, B., Cohen, A. S., Lamb, H. F., Schaebitz, F. &amp; Trauth, M. H. (2026). Scientific deep drilling in the Chew Bahir basin: advantages and pitfalls of two overlapping sediment cores. <em>Scientific Drilling, 35</em>, 61–81.<div class="meta"><a href="https://doi.org/10.5194/sd-35-61-2026">doi.org/10.5194/sd-35-61-2026</a></div></li>
-      <li class="ref" data-role="co">Hein, M., Kasper, T., Samudra, A. B., Theuerkauf, M., Fischer, M. L., … Urban, B. (2026). Towards an 'absolute' timing of biostratigraphic and environmental phases from the Saalian late glacial to the Weichselian pleniglacial in central Europe—insights from a lacustrine succession in Lichtenberg, northern Germany. <em>Boreas.</em> Advance online publication.<div class="meta"><a href="https://doi.org/10.1111/bor.70066">doi.org/10.1111/bor.70066</a></div></li>
-      <li class="ref" data-role="co">Lemma, B., Beil, L., Bromm, T., Glaser, B., Stein, M., Kobe, F., Fischer, M. L., Trauth, M. H., Gosling, W. D., Foerster, V., Schaebitz, F., Tarasov, P. E. &amp; Kaboth-Bahr, S. (2026). Hierarchical controls on charcoal signatures: a framework for interpreting paleo-fire proxies. <em>Organic Geochemistry, 221</em>, 105298.<div class="meta"><a href="https://doi.org/10.1016/j.orggeochem.2026.105298">doi.org/10.1016/j.orggeochem.2026.105298</a></div></li>
-      <li class="ref" data-role="co">Torfstein, A., Aizenshtat-Soffer, E., Armon, M., … Zachow, C. &amp; the KIND consortium (2026). Workshop report: Lake KINneret Drilling (KIND) – reconstructing Pliocene–Quaternary hydroclimate and seismic history of the Levant. <em>Scientific Drilling, 35</em>, 255–273.<div class="meta"><a href="https://doi.org/10.5194/sd-35-255-2026">doi.org/10.5194/sd-35-255-2026</a>, <span class="en">as a member of the KIND consortium</span><span class="de">als Mitglied des KIND-Konsortiums</span></div></li>
-      <li class="ref" data-role="co">Zielhofer, C., Rabiger-Völlmer, J., Westermann, H., Fischer, M. L., Schneider, B., Lindauer, S., Khosravichenar, A., Bauch, M., Pohle, M. &amp; Werban, U. (2026). Fluvial deposits of the Ahr river (western Germany) reveal recurring high-magnitude flood events over the last 1,500 years. <em>Earth Surface Processes and Landforms, 51</em>(1).<div class="meta"><a href="https://doi.org/10.1002/esp.70219">doi.org/10.1002/esp.70219</a></div></li>
+  <!-- ============================== RESEARCH ============================== -->
+  <section class="panel" id="publikationen" aria-labelledby="t-publikationen">
+    <div class="sky"><div class="wrap">
+      <h1 class="title" id="t-publikationen"><span class="en">Research &amp; publications</span><span class="de">Forschung &amp; Publikationen</span></h1>
+      <p class="lead en">Data-driven palaeoclimate researcher focused on climate dynamics, system
+         coupling, and human–environment interactions. I integrate sediment records, mechanistic and
+         data-driven models, and time-series analysis to understand climate and Earth-system dynamics
+         across scales.</p>
+      <p class="lead de">Datengetriebener Paläoklimaforscher mit Fokus auf Klimadynamik, System-Kopplung
+         und Mensch-Umwelt-Interaktionen. Ich verbinde Sedimentarchive, mechanistische und
+         datengetriebene Modelle sowie Zeitreihenanalyse, um Klima- und Erdsystemdynamik über
+         verschiedene Skalen hinweg zu verstehen.</p>
+    </div></div>
+    <div class="water"><div class="wrap">
 
-      <li class="yrhead">2025</li>
-      <li class="ref" data-role="co">Fitzsimmons, K. E., Fischer, M. L., Smith, T., Lauer, T., Nowatzki, M., Mishra, K. &amp; Murray-Wallace, C. V. (2025). Long-term hydrologic connectivity on the Australian dryland margins: evidence from the Willandra Lakes World Heritage Area over the last 60 ky. <em>Journal of Quaternary Science, 40</em>(5), 876–892.<div class="meta"><a href="https://doi.org/10.1002/jqs.3717">doi.org/10.1002/jqs.3717</a></div></li>
-      <li class="ref" data-role="co">Gosling, W. D., Chevalier, M., Fischer, M. L., Holewijn, M., Finch, J., Gil-Romera, G., Hill, T., Houngnon, A., Leonardi, M., Manica, A. &amp; Kaboth-Bahr, S. (2025). A multi-model approach to the spatial and temporal characterization of the African Humid Period. <em>Quaternary International, 744</em>, 109933.<div class="meta"><a href="https://doi.org/10.1016/j.quaint.2025.109933">doi.org/10.1016/j.quaint.2025.109933</a></div></li>
+      <section class="row" aria-labelledby="r-focus">
+        <div class="rubric-col"><h2 class="rubric" id="r-focus"><span class="en">Focus</span><span class="de">Schwerpunkt</span></h2></div>
+        <div class="body">
+          <p class="en">Current direction: metaparameters in Earth-system science — measures that
+             make environmental processes comparable and translatable across scales, including their link to
+             the biosphere and human systems.</p>
+          <p class="de">Aktuelle Richtung: Metaparameter in der Erdsystemwissenschaft — Maße, die
+             Umweltprozesse skalenübergreifend vergleichbar und übersetzbar machen, samt ihrer Kopplung an
+             die Biosphäre und den Menschen.</p>
+          <p class="muted en">Regional focus: southern Ethiopia (Chew Bahir basin), extended to pan-African
+             climate coupling and comparative drylands (Willandra Lakes, Australia). 15 peer-reviewed papers,
+             plus two scientific-drilling workshop reports as a consortium member.</p>
+          <p class="muted de">Regionaler Schwerpunkt: Südäthiopien (Chew-Bahir-Becken), erweitert auf
+             pan-afrikanische Klimakopplung und vergleichende Trockengebiete (Willandra Lakes, Australien).
+             15 begutachtete Arbeiten, dazu zwei Workshop-Berichte zu Forschungsbohrungen als Konsortiumsmitglied.</p>
+        </div>
+      </section>
 
-      <li class="yrhead">2024</li>
-      <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Munz, P. M., Asrat, A., Foerster, V., Kaboth-Bahr, S., Marwan, N., Schaebitz, F., Schwanghart, W. &amp; Trauth, M. H. (2024). Spatio-temporal variations of climate along possible African-Arabian routes of <em>H. sapiens</em> expansion. <em>Quaternary Science Advances, 14</em>, 100174.<div class="meta"><a href="https://doi.org/10.1016/j.qsa.2024.100174">doi.org/10.1016/j.qsa.2024.100174</a></div></li>
-      <li class="ref" data-role="co">Foubert, A., Keir, D., Atnafu, B., Kidane, T. &amp; the ADD-ON Workshop Consortium (2024). Workshop report: Afar Dallol Drilling – ONset of sedimentary processes in an active rift basin (ADD-ON). <em>Scientific Drilling, 33</em>, 207–218.<div class="meta"><a href="https://doi.org/10.5194/sd-33-207-2024">doi.org/10.5194/sd-33-207-2024</a>, <span class="en">as a member of the ADD-ON Workshop Consortium</span><span class="de">als Mitglied des ADD-ON-Workshop-Konsortiums</span></div></li>
-      <li class="ref" data-role="co">Trauth, M. H., Asrat, A., Fischer, M. L., Foerster, V., Kaboth-Bahr, S., Lamb, H. F., Marwan, N., Roberts, H. M. &amp; Schaebitz, F. (2024). Combining orbital tuning and direct dating approaches to age-depth model development for Chew Bahir, Ethiopia. <em>Quaternary Science Advances, 15</em>, 100208.<div class="meta"><a href="https://doi.org/10.1016/j.qsa.2024.100208">doi.org/10.1016/j.qsa.2024.100208</a></div></li>
-      <li class="ref" data-role="co">Trauth, M. H., Asrat, A., Fischer, M. L., Hopcroft, P. O., Foerster, V., Kaboth-Bahr, S., Kindermann, K., Lamb, H. F., Marwan, N., Maslin, M. A., Schaebitz, F. &amp; Valdes, P. J. (2024). Early warning signals of the termination of the African Humid Period(s). <em>Nature Communications, 15</em>(1), 3697.<div class="meta"><a href="https://doi.org/10.1038/s41467-024-47921-1">doi.org/10.1038/s41467-024-47921-1</a></div></li>
-
-      <li class="yrhead">2023</li>
-      <li class="ref" data-role="co">Scholz, S., Westermann, H., Hegemann, R., Popp, M., Richter, T., Fischer, M. L. &amp; Zielhofer, C. (2023). An international stratigraphic dataset and geological map of the Ahr River catchment, Germany. <em>Data in Brief, 51</em>, 109677.<div class="meta"><a href="https://doi.org/10.1016/j.dib.2023.109677">doi.org/10.1016/j.dib.2023.109677</a></div></li>
-
-      <li class="yrhead">2022</li>
-      <li class="ref" data-role="co">Hildebrand, E., Grillo, K. M., Chritz, K. L., Fischer, M. L., Goldstein, S. T., Janzen, A., Junginger, A., Kinyanjui, R. N., Ndiema, E., Sawchuk, E., Beyin, A. &amp; Pfeiffer, S. K. (2022). Buffering new risks? Environmental, social and economic changes in the Turkana Basin during and after the African Humid Period. <em>The Holocene, 32</em>(12), 1373–1392.<div class="meta"><a href="https://doi.org/10.1177/09596836221121766">doi.org/10.1177/09596836221121766</a></div></li>
-      <li class="ref" data-role="co">Markowska, M., Martin, A. N., Vonhof, H. B., Guinoiseau, D., Fischer, M. L., Zinaye, B., Galer, S. J. G., Asrat, A. &amp; Junginger, A. (2022). A multi-isotope and modelling approach for constraining hydro-connectivity in the East African Rift System, southern Ethiopia. <em>Quaternary Science Reviews, 279</em>, 107387.<div class="meta"><a href="https://doi.org/10.1016/j.quascirev.2022.107387">doi.org/10.1016/j.quascirev.2022.107387</a></div></li>
-      <li class="ref" data-role="co">von Suchodoletz, H., Kirkitadze, G., Koff, T., Fischer, M. L., Poch, R. M., Khosravichenar, A., Schneider, B., Glaser, B., Lindauer, S., Hoth, S., Skokan, A., Navrozashvili, L., Lobjanidze, M., Akhalaia, M., Losaberidze, L. &amp; Elashvili, M. (2022). Human-environmental interactions and seismic activity in a Late Bronze to Early Iron Age settlement center in the southeastern Caucasus. <em>Frontiers in Earth Science, 10</em>, 964188.<div class="meta"><a href="https://doi.org/10.3389/feart.2022.964188">doi.org/10.3389/feart.2022.964188</a></div></li>
-
-      <li class="yrhead">2021</li>
-      <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Bachofer, F., Yost, C. L., Bludau, I. J. E., Schepers, C., Foerster, V., Lamb, H., Schäbitz, F., Asrat, A., Trauth, M. H. &amp; Junginger, A. (2021). A phytolith supported biosphere-hydrosphere predictive model for southern Ethiopia: insights into paleoenvironmental changes and human landscape preferences since the Last Glacial Maximum. <em>Geosciences, 11</em>(10), 418.<div class="meta"><a href="https://doi.org/10.3390/geosciences11100418">doi.org/10.3390/geosciences11100418</a></div></li>
-
-      <li class="yrhead">2020</li>
-      <li class="ref" data-role="first"><span class="self">Fischer, M. L.</span>, Markowska, M., Bachofer, F., Foerster, V. E., Asrat, A., Zielhofer, C., Trauth, M. H. &amp; Junginger, A. (2020). Determining the pace and magnitude of lake level changes in southern Ethiopia over the last 20,000 years using lake balance modeling and SEBAL. <em>Frontiers in Earth Science, 8</em>, 197.<div class="meta"><a href="https://doi.org/10.3389/feart.2020.00197">doi.org/10.3389/feart.2020.00197</a></div></li>
-    </ol>
+      <section class="row pubs" aria-labelledby="r-pubs">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-pubs"><span class="en">Publications</span><span class="de">Publikationen</span></h2>
+          <div class="seg" role="group" aria-label="Filter">
+            <button type="button" data-filter="all" aria-pressed="true"><span class="en">All</span><span class="de">Alle</span></button>
+            <button type="button" data-filter="first" aria-pressed="false"><span class="en">First author</span><span class="de">Erstautor</span></button>
+          </div>
+          <p class="pub-count" aria-live="polite"></p>
+        </div>
+        <div class="body">
+          <p class="muted en">Newest first. Complete and current: <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a> · <a href="https://scholar.google.com/citations?user=29uQRgsAAAAJ&amp;hl=de">Google Scholar</a></p>
+          <p class="muted de">Neueste zuerst. Vollständig und aktuell: <a href="https://orcid.org/0000-0001-9493-4450">ORCID</a> · <a href="https://scholar.google.com/citations?user=29uQRgsAAAAJ&amp;hl=de">Google Scholar</a></p>
+        </div>
+      </section>
+      <div class="year" data-year="2026">
+        <h3 class="num">2026</h3>
+        <ol class="refs">
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.5194/sd-35-61-2026">Scientific deep drilling in the Chew Bahir basin: advantages and pitfalls of two overlapping sediment cores</a></p>
+            <p class="ref-by">Foerster, V., Asrat, A., Bronk Ramsey, C., Brown, E. T., Deino, A., Erbello, A., <span class="self">Fischer, M. L.</span>, Gebregiorgis, D., Junginger, A., Kaboth-Bahr, S., Lane, C. S., Opitz, S., Noren, A., Roberts, H. M., Tiedemann, R., Vidal, C.-M., Viehberg, F., Vogelsang, R., Zachow, C., Zinaye, B., Cohen, A. S., Lamb, H. F., Schaebitz, F. &amp; Trauth, M. H.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Scientific Drilling, 35</em>, 61–81</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.5194/sd-35-61-2026">doi.org/10.5194/sd-35-61-2026</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1111/bor.70066">Towards an ‘absolute’ timing of biostratigraphic and environmental phases from the Saalian late glacial to the Weichselian pleniglacial in central Europe—insights from a lacustrine succession in Lichtenberg, northern Germany</a></p>
+            <p class="ref-by">Hein, M., Kasper, T., Samudra, A. B., Theuerkauf, M., <span class="self">Fischer, M. L.</span>, … Urban, B.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Boreas.</em> Advance online publication</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1111/bor.70066">doi.org/10.1111/bor.70066</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1016/j.orggeochem.2026.105298">Hierarchical controls on charcoal signatures: a framework for interpreting paleo-fire proxies</a></p>
+            <p class="ref-by">Lemma, B., Beil, L., Bromm, T., Glaser, B., Stein, M., Kobe, F., <span class="self">Fischer, M. L.</span>, Trauth, M. H., Gosling, W. D., Foerster, V., Schaebitz, F., Tarasov, P. E. &amp; Kaboth-Bahr, S.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Organic Geochemistry, 221</em>, 105298</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1016/j.orggeochem.2026.105298">doi.org/10.1016/j.orggeochem.2026.105298</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.5194/sd-35-255-2026">Workshop report: Lake KINneret Drilling (KIND) – reconstructing Pliocene–Quaternary hydroclimate and seismic history of the Levant</a></p>
+            <p class="ref-by">Torfstein, A., Aizenshtat-Soffer, E., Armon, M., … Zachow, C. &amp; the KIND consortium</p>
+            <p class="ref-in"><span class="ref-venue"><em>Scientific Drilling, 35</em>, 255–273</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.5194/sd-35-255-2026">doi.org/10.5194/sd-35-255-2026</a><span class="sep" aria-hidden="true">·</span><span class="en">as a member of the KIND consortium</span><span class="de">als Mitglied des KIND-Konsortiums</span></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1002/esp.70219">Fluvial deposits of the Ahr river (western Germany) reveal recurring high-magnitude flood events over the last 1,500 years</a></p>
+            <p class="ref-by">Zielhofer, C., Rabiger-Völlmer, J., Westermann, H., <span class="self">Fischer, M. L.</span>, Schneider, B., Lindauer, S., Khosravichenar, A., Bauch, M., Pohle, M. &amp; Werban, U.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Earth Surface Processes and Landforms, 51</em>(1)</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1002/esp.70219">doi.org/10.1002/esp.70219</a></p>
+          </li>
+        </ol>
+      </div>
+      <div class="year" data-year="2025">
+        <h3 class="num">2025</h3>
+        <ol class="refs">
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1002/jqs.3717">Long-term hydrologic connectivity on the Australian dryland margins: evidence from the Willandra Lakes World Heritage Area over the last 60 ky</a></p>
+            <p class="ref-by">Fitzsimmons, K. E., <span class="self">Fischer, M. L.</span>, Smith, T., Lauer, T., Nowatzki, M., Mishra, K. &amp; Murray-Wallace, C. V.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Journal of Quaternary Science, 40</em>(5), 876–892</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1002/jqs.3717">doi.org/10.1002/jqs.3717</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1016/j.quaint.2025.109933">A multi-model approach to the spatial and temporal characterization of the African Humid Period</a></p>
+            <p class="ref-by">Gosling, W. D., Chevalier, M., <span class="self">Fischer, M. L.</span>, Holewijn, M., Finch, J., Gil-Romera, G., Hill, T., Houngnon, A., Leonardi, M., Manica, A. &amp; Kaboth-Bahr, S.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Quaternary International, 744</em>, 109933</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1016/j.quaint.2025.109933">doi.org/10.1016/j.quaint.2025.109933</a></p>
+          </li>
+        </ol>
+      </div>
+      <div class="year" data-year="2024">
+        <h3 class="num">2024</h3>
+        <ol class="refs">
+          <li class="ref" data-role="first">
+            <p class="ref-title"><a href="https://doi.org/10.1016/j.qsa.2024.100174">Spatio-temporal variations of climate along possible African-Arabian routes of <em>H. sapiens</em> expansion</a></p>
+            <p class="ref-by"><span class="self">Fischer, M. L.</span>, Munz, P. M., Asrat, A., Foerster, V., Kaboth-Bahr, S., Marwan, N., Schaebitz, F., Schwanghart, W. &amp; Trauth, M. H.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Quaternary Science Advances, 14</em>, 100174</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1016/j.qsa.2024.100174">doi.org/10.1016/j.qsa.2024.100174</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.5194/sd-33-207-2024">Workshop report: Afar Dallol Drilling – ONset of sedimentary processes in an active rift basin (ADD-ON)</a></p>
+            <p class="ref-by">Foubert, A., Keir, D., Atnafu, B., Kidane, T. &amp; the ADD-ON Workshop Consortium</p>
+            <p class="ref-in"><span class="ref-venue"><em>Scientific Drilling, 33</em>, 207–218</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.5194/sd-33-207-2024">doi.org/10.5194/sd-33-207-2024</a><span class="sep" aria-hidden="true">·</span><span class="en">as a member of the ADD-ON Workshop Consortium</span><span class="de">als Mitglied des ADD-ON-Workshop-Konsortiums</span></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1016/j.qsa.2024.100208">Combining orbital tuning and direct dating approaches to age-depth model development for Chew Bahir, Ethiopia</a></p>
+            <p class="ref-by">Trauth, M. H., Asrat, A., <span class="self">Fischer, M. L.</span>, Foerster, V., Kaboth-Bahr, S., Lamb, H. F., Marwan, N., Roberts, H. M. &amp; Schaebitz, F.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Quaternary Science Advances, 15</em>, 100208</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1016/j.qsa.2024.100208">doi.org/10.1016/j.qsa.2024.100208</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1038/s41467-024-47921-1">Early warning signals of the termination of the African Humid Period(s)</a></p>
+            <p class="ref-by">Trauth, M. H., Asrat, A., <span class="self">Fischer, M. L.</span>, Hopcroft, P. O., Foerster, V., Kaboth-Bahr, S., Kindermann, K., Lamb, H. F., Marwan, N., Maslin, M. A., Schaebitz, F. &amp; Valdes, P. J.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Nature Communications, 15</em>(1), 3697</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1038/s41467-024-47921-1">doi.org/10.1038/s41467-024-47921-1</a></p>
+          </li>
+        </ol>
+      </div>
+      <div class="year" data-year="2023">
+        <h3 class="num">2023</h3>
+        <ol class="refs">
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1016/j.dib.2023.109677">An international stratigraphic dataset and geological map of the Ahr River catchment, Germany</a></p>
+            <p class="ref-by">Scholz, S., Westermann, H., Hegemann, R., Popp, M., Richter, T., <span class="self">Fischer, M. L.</span> &amp; Zielhofer, C.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Data in Brief, 51</em>, 109677</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1016/j.dib.2023.109677">doi.org/10.1016/j.dib.2023.109677</a></p>
+          </li>
+        </ol>
+      </div>
+      <div class="year" data-year="2022">
+        <h3 class="num">2022</h3>
+        <ol class="refs">
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1177/09596836221121766">Buffering new risks? Environmental, social and economic changes in the Turkana Basin during and after the African Humid Period</a></p>
+            <p class="ref-by">Hildebrand, E., Grillo, K. M., Chritz, K. L., <span class="self">Fischer, M. L.</span>, Goldstein, S. T., Janzen, A., Junginger, A., Kinyanjui, R. N., Ndiema, E., Sawchuk, E., Beyin, A. &amp; Pfeiffer, S. K.</p>
+            <p class="ref-in"><span class="ref-venue"><em>The Holocene, 32</em>(12), 1373–1392</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1177/09596836221121766">doi.org/10.1177/09596836221121766</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.1016/j.quascirev.2022.107387">A multi-isotope and modelling approach for constraining hydro-connectivity in the East African Rift System, southern Ethiopia</a></p>
+            <p class="ref-by">Markowska, M., Martin, A. N., Vonhof, H. B., Guinoiseau, D., <span class="self">Fischer, M. L.</span>, Zinaye, B., Galer, S. J. G., Asrat, A. &amp; Junginger, A.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Quaternary Science Reviews, 279</em>, 107387</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.1016/j.quascirev.2022.107387">doi.org/10.1016/j.quascirev.2022.107387</a></p>
+          </li>
+          <li class="ref" data-role="co">
+            <p class="ref-title"><a href="https://doi.org/10.3389/feart.2022.964188">Human-environmental interactions and seismic activity in a Late Bronze to Early Iron Age settlement center in the southeastern Caucasus</a></p>
+            <p class="ref-by">von Suchodoletz, H., Kirkitadze, G., Koff, T., <span class="self">Fischer, M. L.</span>, Poch, R. M., Khosravichenar, A., Schneider, B., Glaser, B., Lindauer, S., Hoth, S., Skokan, A., Navrozashvili, L., Lobjanidze, M., Akhalaia, M., Losaberidze, L. &amp; Elashvili, M.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Frontiers in Earth Science, 10</em>, 964188</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.3389/feart.2022.964188">doi.org/10.3389/feart.2022.964188</a></p>
+          </li>
+        </ol>
+      </div>
+      <div class="year" data-year="2021">
+        <h3 class="num">2021</h3>
+        <ol class="refs">
+          <li class="ref" data-role="first">
+            <p class="ref-title"><a href="https://doi.org/10.3390/geosciences11100418">A phytolith supported biosphere-hydrosphere predictive model for southern Ethiopia: insights into paleoenvironmental changes and human landscape preferences since the Last Glacial Maximum</a></p>
+            <p class="ref-by"><span class="self">Fischer, M. L.</span>, Bachofer, F., Yost, C. L., Bludau, I. J. E., Schepers, C., Foerster, V., Lamb, H., Schäbitz, F., Asrat, A., Trauth, M. H. &amp; Junginger, A.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Geosciences, 11</em>(10), 418</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.3390/geosciences11100418">doi.org/10.3390/geosciences11100418</a></p>
+          </li>
+        </ol>
+      </div>
+      <div class="year" data-year="2020">
+        <h3 class="num">2020</h3>
+        <ol class="refs">
+          <li class="ref" data-role="first">
+            <p class="ref-title"><a href="https://doi.org/10.3389/feart.2020.00197">Determining the pace and magnitude of lake level changes in southern Ethiopia over the last 20,000 years using lake balance modeling and SEBAL</a></p>
+            <p class="ref-by"><span class="self">Fischer, M. L.</span>, Markowska, M., Bachofer, F., Foerster, V. E., Asrat, A., Zielhofer, C., Trauth, M. H. &amp; Junginger, A.</p>
+            <p class="ref-in"><span class="ref-venue"><em>Frontiers in Earth Science, 8</em>, 197</span><span class="sep" aria-hidden="true">·</span><a href="https://doi.org/10.3389/feart.2020.00197">doi.org/10.3389/feart.2020.00197</a></p>
+          </li>
+        </ol>
+      </div>
+    </div></div>
   </section>
 
-  <section class="panel" id="expertise">
-    <h2><span class="en">Expertise</span><span class="de">Expertise</span></h2>
-    <p class="en">I work where Earth-system science, data science and scientific computing meet —
-       reconstructing past climate and environmental change, and what it meant for human evolution.
-       Field and lab data meet numerical climate models, statistics and modern data science, across
-       timescales from millennia to millions of years.</p>
-    <p class="en">The focus is palaeoclimatology, Quaternary science and the climate dynamics of Africa
-       and the Mediterranean: integrating high-resolution proxy archives, climate simulations and
-       spatial data to trace regional climate variability, environmental change and possible migration
-       corridors of early hominins.</p>
-    <p class="en">Methodologically I sit between statistics, time-series analysis and machine learning —
-       PCA, random forests, Monte-Carlo and uncertainty analysis, and nonlinear methods like Recurrence
-       Quantification Analysis (RQA) for determinism and tipping points. Much of it is reproducible
-       scientific software and automated pipelines, mostly in MATLAB and R. Alongside: designing
-       projects, writing papers and grants, running international workshops — and making Earth-system
-       processes legible through visualisation and interactive tools.</p>
+  <!-- ============================== EXPERTISE ============================== -->
+  <section class="panel" id="expertise" aria-labelledby="t-expertise">
+    <div class="sky"><div class="wrap">
+      <h1 class="title" id="t-expertise">Expertise</h1>
+      <p class="lead en">I work where Earth-system science, data science and scientific computing meet —
+         reconstructing past climate and environmental change, and what it meant for human evolution.
+         Field and lab data meet numerical climate models, statistics and modern data science, across
+         timescales from millennia to millions of years.</p>
+      <p class="lead de">Ich arbeite dort, wo Erdsystemwissenschaft, Data Science und Scientific Computing
+         zusammenkommen — und rekonstruiere vergangene Klima- und Umweltveränderungen
+         und ihre Bedeutung für die Evolution des Menschen. Feld- und Labordaten treffen auf numerische
+         Klimamodelle, Statistik und moderne Data Science, über Zeitskalen von Jahrtausenden bis
+         Jahrmillionen.</p>
+    </div></div>
+    <div class="water"><div class="wrap">
 
-    <p class="de">Ich arbeite dort, wo Erdsystemwissenschaft, Data Science und Scientific Computing
-       zusammenkommen — und rekonstruiere vergangene Klima- und Umweltveränderungen
-       und ihre Bedeutung für die Evolution des Menschen. Feld- und Labordaten treffen auf numerische
-       Klimamodelle, Statistik und moderne Data Science, über Zeitskalen von Jahrtausenden bis
-       Jahrmillionen.</p>
-    <p class="de">Schwerpunkte sind Paläoklimatologie, Quartärforschung und die Klimadynamik Afrikas und
-       des Mittelmeerraums: die Integration hochauflösender Proxyarchive, Klimasimulationen und
-       räumlicher Daten, um regionale Klimavariabilität, Umweltwandel und mögliche Migrationskorridore
-       früher Homininen quantitativ zu fassen.</p>
-    <p class="de">Methodisch bewege ich mich zwischen Statistik, Zeitreihenanalyse und Machine Learning —
-       PCA, Random Forests, Monte-Carlo- und Unsicherheitsanalysen sowie nichtlineare Verfahren wie
-       Recurrence Quantification Analysis (RQA) für Determinismus und Kipppunkte. Ein großer Teil ist
-       reproduzierbare wissenschaftliche Software und automatisierte Pipelines, überwiegend in MATLAB
-       und R. Dazu: Projekte konzipieren, Publikationen und Anträge schreiben, internationale Workshops
-       organisieren — und Erdsystemprozesse lesbar machen, über Visualisierung und interaktive Tools.</p>
+      <section class="row" aria-labelledby="r-ex-focus">
+        <div class="rubric-col"><h2 class="rubric" id="r-ex-focus"><span class="en">Focus</span><span class="de">Schwerpunkte</span></h2></div>
+        <div class="body">
+          <p class="en">The focus is palaeoclimatology, Quaternary science and the climate dynamics of Africa
+             and the Mediterranean: integrating high-resolution proxy archives, climate simulations and
+             spatial data to trace regional climate variability, environmental change and possible migration
+             corridors of early hominins.</p>
+          <p class="de">Schwerpunkte sind Paläoklimatologie, Quartärforschung und die Klimadynamik Afrikas und
+             des Mittelmeerraums: die Integration hochauflösender Proxyarchive, Klimasimulationen und
+             räumlicher Daten, um regionale Klimavariabilität, Umweltwandel und mögliche Migrationskorridore
+             früher Homininen quantitativ zu fassen.</p>
+        </div>
+      </section>
 
-    <h3><span class="en">Research areas</span><span class="de">Forschungsfelder</span></h3>
-    <div class="facts">
-      <span class="fact"><span class="en">Palaeoclimatology</span><span class="de">Paläoklimatologie</span></span>
-      <span class="fact"><span class="en">Quaternary science</span><span class="de">Quartärforschung</span></span>
-      <span class="fact"><span class="en">Climate dynamics</span><span class="de">Klimadynamik</span></span>
-      <span class="fact"><span class="en">Human–environment interactions</span><span class="de">Mensch-Umwelt-Interaktionen</span></span>
-      <span class="fact"><span class="en">Earth-system science</span><span class="de">Erdsystemwissenschaften</span></span>
-      <span class="fact"><span class="en">Proxy–model integration</span><span class="de">Proxy-Modell-Integration</span></span>
-    </div>
+      <section class="row" aria-labelledby="r-ex-methods">
+        <div class="rubric-col"><h2 class="rubric" id="r-ex-methods"><span class="en">Methods</span><span class="de">Methoden</span></h2></div>
+        <div class="body">
+          <p class="en">Methodologically I sit between statistics, time-series analysis and machine learning —
+             PCA, random forests, Monte-Carlo and uncertainty analysis, and nonlinear methods like Recurrence
+             Quantification Analysis (RQA) for determinism and tipping points. Much of it is reproducible
+             scientific software and automated pipelines, mostly in MATLAB and R. Alongside: designing
+             projects, writing papers and grants, running international workshops — and making Earth-system
+             processes legible through visualisation and interactive tools.</p>
+          <p class="de">Methodisch bewege ich mich zwischen Statistik, Zeitreihenanalyse und Machine Learning —
+             PCA, Random Forests, Monte-Carlo- und Unsicherheitsanalysen sowie nichtlineare Verfahren wie
+             Recurrence Quantification Analysis (RQA) für Determinismus und Kipppunkte. Ein großer Teil ist
+             reproduzierbare wissenschaftliche Software und automatisierte Pipelines, überwiegend in MATLAB
+             und R. Dazu: Projekte konzipieren, Publikationen und Anträge schreiben, internationale Workshops
+             organisieren — und Erdsystemprozesse lesbar machen, über Visualisierung und interaktive Tools.</p>
+        </div>
+      </section>
 
+      <section class="row" aria-labelledby="r-ex-areas">
+        <div class="rubric-col"><h2 class="rubric" id="r-ex-areas"><span class="en">Research areas</span><span class="de">Forschungsfelder</span></h2></div>
+        <div class="body">
+          <ul class="sq">
+            <li><span class="en">Palaeoclimatology</span><span class="de">Paläoklimatologie</span></li>
+            <li><span class="en">Quaternary science</span><span class="de">Quartärforschung</span></li>
+            <li><span class="en">Climate dynamics</span><span class="de">Klimadynamik</span></li>
+            <li><span class="en">Human–environment interactions</span><span class="de">Mensch-Umwelt-Interaktionen</span></li>
+            <li><span class="en">Earth-system science</span><span class="de">Erdsystemwissenschaften</span></li>
+            <li><span class="en">Proxy–model integration</span><span class="de">Proxy-Modell-Integration</span></li>
+          </ul>
+        </div>
+      </section>
+
+    </div></div>
   </section>
-
 
   <!-- geonews:start -->
-  <section class="panel" id="geonews">
-    <h2>GeoNews</h2>
-    <p class="lead en">An automatically generated weekly digest on Quaternary palaeoclimate
-       research, East African rift dynamics, palaeohydrology and time-series analysis — plus
-       funding calls, research policy and community deadlines. New issue every Monday.</p>
-    <p class="lead de">Ein automatisiert erstellter Wochen-Digest zu quartärer Paläoklimaforschung,
-       ostafrikanischer Riftdynamik, Paläohydrologie und Zeitreihenanalyse — dazu Fördercalls,
-       Wissenschaftspolitik und Community-Termine. Jeden Montag eine neue Ausgabe.</p>
-    <p class="muted en">A research workflow screens new publications and sources each week, scores
-       them against a fixed set of criteria and assembles the issue. The thematic profile follows
-       my own research interests, so this is a focused digest rather than a complete survey of the
-       field. Selection and summaries are machine-generated and reviewed before publication — where
-       in doubt, the linked original source governs.</p>
-    <p class="muted de">Ein Recherche-Workflow sichtet wöchentlich neue Publikationen und Quellen,
-       bewertet sie nach festen Kriterien und setzt daraus die Ausgabe zusammen. Das Themenprofil
-       folgt meinen eigenen Forschungsinteressen — es ist also ein fokussierter Digest und keine
-       vollständige Übersicht des Fachs. Auswahl und Kurztexte entstehen maschinell und werden vor
-       der Veröffentlichung gesichtet; im Zweifel gilt die verlinkte Originalquelle.</p>
-    <div class="gn-bar">
-      <span class="gn-badge"><span class="en">Automated</span><span class="de">Automatisiert</span></span>
-      <span class="gn-badge"><span class="en">Weekly on Mondays</span><span class="de">Wöchentlich montags</span></span>
-      <span class="gn-badge">EN / DE</span>
-    </div>
-    <div id="gn-latest"><p class="gn-ph"><span class="en">Loading the latest issue…</span><span class="de">Aktuelle Ausgabe wird geladen…</span></p></div>
-    <div id="gn-archive"></div>
+  <!-- ============================== GEONEWS ============================== -->
+  <section class="panel" id="geonews" aria-labelledby="t-geonews">
+    <div class="sky"><div class="wrap">
+      <h1 class="title" id="t-geonews">GeoNews</h1>
+      <p class="lead en">An automatically generated weekly digest on Quaternary palaeoclimate
+         research, East African rift dynamics, palaeohydrology and time-series analysis — plus
+         funding calls, research policy and community deadlines. New issue every Monday.</p>
+      <p class="lead de">Ein automatisiert erstellter Wochen-Digest zu quartärer Paläoklimaforschung,
+         ostafrikanischer Riftdynamik, Paläohydrologie und Zeitreihenanalyse — dazu Fördercalls,
+         Wissenschaftspolitik und Community-Termine. Jeden Montag eine neue Ausgabe.</p>
+      <ul class="facts-line">
+        <li><span class="en">Automated</span><span class="de">Automatisiert</span></li>
+        <li><span class="en">Weekly on Mondays</span><span class="de">Wöchentlich montags</span></li>
+        <li>EN / DE</li>
+      </ul>
+    </div></div>
+    <div class="water"><div class="wrap">
+
+      <section class="row" aria-labelledby="r-gn-latest">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-gn-latest"><span class="en">Latest issue</span><span class="de">Aktuelle Ausgabe</span></h2>
+          <div class="gn-meta" id="gn-meta"></div>
+        </div>
+        <div class="body" id="gn-latest"><p class="gn-ph"><span class="en">Loading the latest issue…</span><span class="de">Aktuelle Ausgabe wird geladen…</span></p></div>
+      </section>
+
+      <section class="row" aria-labelledby="r-gn-how">
+        <div class="rubric-col"><h2 class="rubric" id="r-gn-how"><span class="en">How it is made</span><span class="de">So entsteht es</span></h2></div>
+        <div class="body">
+          <p class="en">A research workflow screens new publications and sources each week, scores
+             them against a fixed set of criteria and assembles the issue. The thematic profile follows
+             my own research interests, so this is a focused digest rather than a complete survey of the
+             field. Selection and summaries are machine-generated and reviewed before publication — where
+             in doubt, the linked original source governs.</p>
+          <p class="de">Ein Recherche-Workflow sichtet wöchentlich neue Publikationen und Quellen,
+             bewertet sie nach festen Kriterien und setzt daraus die Ausgabe zusammen. Das Themenprofil
+             folgt meinen eigenen Forschungsinteressen — es ist also ein fokussierter Digest und keine
+             vollständige Übersicht des Fachs. Auswahl und Kurztexte entstehen maschinell und werden vor
+             der Veröffentlichung gesichtet; im Zweifel gilt die verlinkte Originalquelle.</p>
+        </div>
+      </section>
+
+      <section class="row" aria-labelledby="r-gn-archive">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-gn-archive"><span class="en">Archive</span><span class="de">Archiv</span></h2>
+          <p class="rubric-note"><span class="en">Every issue as a PDF, week by week — English and German.</span><span class="de">Jede Ausgabe als PDF, Woche für Woche — englisch und deutsch.</span></p>
+        </div>
+        <div class="body" id="gn-archive"></div>
+      </section>
+
+    </div></div>
   </section>
   <!-- geonews:end -->
 
-  <section class="panel" id="geolab">
-    <h2>GeoLab</h2>
-    <p class="lead en">Tools and working material from my research — each built for a concrete
-       question and shared here in case it is useful to others.</p>
-    <p class="lead de">Werkzeuge und Arbeitsmaterial aus meiner Forschung — jeweils für eine
-       konkrete Frage gebaut und hier geteilt, falls sie auch anderen nützen.</p>
+  <!-- ============================== GEOLAB ============================== -->
+  <section class="panel" id="geolab" aria-labelledby="t-geolab">
+    <div class="sky"><div class="wrap">
+      <h1 class="title" id="t-geolab">GeoLab</h1>
+      <p class="lead en">Tools and working material from my research — each built for a concrete
+         question and shared here in case it is useful to others.</p>
+      <p class="lead de">Werkzeuge und Arbeitsmaterial aus meiner Forschung — jeweils für eine
+         konkrete Frage gebaut und hier geteilt, falls sie auch anderen nützen.</p>
+    </div></div>
+    <div class="water"><div class="wrap">
 
-    <div class="gl-cat" id="literatursuche">
-      <div class="gl-head">
-        <h3><span class="en">Literature search</span><span class="de">Literatursuche</span></h3>
-        <span class="gl-tag"><span class="en">Literature maps</span><span class="de">Literaturkarten</span></span>
-      </div>
-      <p class="muted en">Systematic literature maps: retrieval along a defined scope, text and
-         citation analysis, an interactive map and the complete dataset.</p>
-      <p class="muted de">Systematische Literaturkarten: Recherche entlang eines festgelegten
-         Rahmens, Text- und Zitationsanalyse, eine interaktive Karte und der vollständige Datensatz.</p>
+      <section class="row" id="literatursuche" aria-labelledby="r-gl-lit">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-gl-lit"><span class="en">Literature search</span><span class="de">Literatursuche</span></h2>
+          <p class="rubric-note"><span class="en">Literature maps</span><span class="de">Literaturkarten</span></p>
+        </div>
+        <div class="body">
+          <p class="muted en">Systematic literature maps: retrieval along a defined scope, text and
+             citation analysis, an interactive map and the complete dataset.</p>
+          <p class="muted de">Systematische Literaturkarten: Recherche entlang eines festgelegten
+             Rahmens, Text- und Zitationsanalyse, eine interaktive Karte und der vollständige Datensatz.</p>
 
-      <article class="card gl-card">
-        <a class="gl-media" href="geolab/exp506s-literature-map/">
-          <img loading="lazy" src="geolab/exp506s-literature-map/figures/preview.jpg" width="1200" height="630"
-               alt="Topic map of the literature around IODP³ Expedition 506S: 17,722 works in 30 topic clusters">
-        </a>
-        <span class="kicker">IODP³ Expedition 506S (SIGNALS)</span>
-        <h3 style="margin-top:6px"><span class="en">Literature map around Expedition 506S</span><span class="de">Literaturkarte zu Expedition 506S</span></h3>
-        <p class="en">Which literature exists on the 30 DSDP, ODP and IODP sites that IODP³
-           Expedition 506S (SIGNALS) brings together, and how does the field around them hang
-           together? 17,722 works drawn from OpenAlex, Crossref, OpenCitations and Semantic Scholar,
-           scoped by the expedition's Scientific Prospectus and grouped into 30 topic clusters by
-           text and citation similarity. The interactive map turns any selection into an APA&nbsp;7
-           reference list or a RIS file for Zotero, Citavi or EndNote.</p>
-        <p class="de">Welche Literatur gibt es zu den 30 Bohrlokationen aus DSDP, ODP und IODP, die
-           IODP³-Expedition 506S (SIGNALS) zusammenführt, und wie hängt das Feld darum zusammen?
-           17.722 Arbeiten aus OpenAlex, Crossref, OpenCitations und Semantic Scholar, abgegrenzt
-           nach dem Scientific Prospectus der Expedition und nach Text- und Zitationsähnlichkeit in
-           30 Themencluster gruppiert. Die interaktive Karte macht aus jeder Auswahl eine
-           Literaturliste nach APA&nbsp;7 oder eine RIS-Datei für Zotero, Citavi oder EndNote.</p>
-        <p class="gl-made en">Made with <strong>Claude Science</strong> and <strong>Claude Opus</strong> (Anthropic).</p>
-        <p class="gl-made de">Erstellt mit <strong>Claude Science</strong> und <strong>Claude Opus</strong> (Anthropic).</p>
-        <div class="facts">
-          <span class="fact"><span class="en">17,722 works</span><span class="de">17.722 Arbeiten</span></span>
-          <span class="fact"><span class="en">30 topic clusters</span><span class="de">30 Themencluster</span></span>
-          <span class="fact"><span class="en">30 target sites</span><span class="de">30 Bohrlokationen</span></span>
-          <span class="fact"><span class="en">107 prospectus references</span><span class="de">107 Prospectus-Referenzen</span></span>
+          <article class="feature">
+            <a class="media" href="/geolab/exp506s-literature-map/" aria-label="Literature map around Expedition 506S">
+              <picture>
+                <source srcset="/assets/geolab-topic-map-dark.jpg" media="(prefers-color-scheme: dark)">
+                <img loading="lazy" src="/assets/geolab-topic-map-light.jpg" width="1500" height="1000"
+                     alt="Topic map of the literature around IODP³ Expedition 506S: 17,722 works, coloured by six super-themes">
+              </picture>
+            </a>
+            <p class="caption en">Topic map (UMAP) of all 17,722 works, coloured by six super-themes; rings mark the 107 references of the Scientific Prospectus.</p>
+            <p class="caption de">Themenkarte (UMAP) aller 17.722 Arbeiten, eingefärbt nach sechs Oberthemen; Ringe markieren die 107 Referenzen des Scientific Prospectus.</p>
+            <p class="kicker">IODP³ Expedition 506S (SIGNALS)</p>
+            <h3><span class="en">Literature map around Expedition 506S</span><span class="de">Literaturkarte zu Expedition 506S</span></h3>
+            <p class="en">Which literature exists on the 30 DSDP, ODP and IODP sites that IODP³
+               Expedition 506S (SIGNALS) brings together, and how does the field around them hang
+               together? 17,722 works drawn from OpenAlex, Crossref, OpenCitations and Semantic Scholar,
+               scoped by the expedition's Scientific Prospectus and grouped into 30 topic clusters by
+               text and citation similarity. The interactive map turns any selection into an APA&nbsp;7
+               reference list or a RIS file for Zotero, Citavi or EndNote.</p>
+            <p class="de">Welche Literatur gibt es zu den 30 Bohrlokationen aus DSDP, ODP und IODP, die
+               IODP³-Expedition 506S (SIGNALS) zusammenführt, und wie hängt das Feld darum zusammen?
+               17.722 Arbeiten aus OpenAlex, Crossref, OpenCitations und Semantic Scholar, abgegrenzt
+               nach dem Scientific Prospectus der Expedition und nach Text- und Zitationsähnlichkeit in
+               30 Themencluster gruppiert. Die interaktive Karte macht aus jeder Auswahl eine
+               Literaturliste nach APA&nbsp;7 oder eine RIS-Datei für Zotero, Citavi oder EndNote.</p>
+            <p class="byline en">Made with <strong>Claude Science</strong> and <strong>Claude Opus</strong> (Anthropic).</p>
+            <p class="byline de">Erstellt mit <strong>Claude Science</strong> und <strong>Claude Opus</strong> (Anthropic).</p>
+            <div class="stats">
+              <div><b class="en">17,722</b><b class="de">17.722</b><span class="en">works</span><span class="de">Arbeiten</span></div>
+              <div><b>30</b><span class="en">topic clusters</span><span class="de">Themencluster</span></div>
+              <div><b>30</b><span class="en">target sites</span><span class="de">Bohrlokationen</span></div>
+              <div><b>107</b><span class="en">prospectus references</span><span class="de">Prospectus-Referenzen</span></div>
+            </div>
+            <div class="actions">
+              <a class="btn" href="/geolab/exp506s-literature-map/Exp506S_interactive_literature_map.html"><span class="en">Open the interactive map</span><span class="de">Interaktive Karte öffnen</span><span class="arr" aria-hidden="true">↗</span></a>
+              <a class="go int" href="/geolab/exp506s-literature-map/"><span class="en">Read the report</span><span class="de">Bericht lesen (englisch)</span><span class="arr" aria-hidden="true">→</span></a>
+              <a class="go int" href="/geolab/exp506s-literature-map/#files"><span class="en">Data &amp; downloads</span><span class="de">Daten &amp; Downloads</span><span class="arr" aria-hidden="true">→</span></a>
+            </div>
+            <p class="note en">As of 2 November 2026. The interactive map is a single
+               20&nbsp;MB page with a German interface and works best on a desktop.</p>
+            <p class="note de">Stand: 2. November 2026. Die interaktive Karte ist eine
+               einzelne Seite mit 20&nbsp;MB und lässt sich am Desktop am besten bedienen.</p>
+          </article>
         </div>
-        <div class="links">
-          <a href="geolab/exp506s-literature-map/"><span class="en">Read the report</span><span class="de">Bericht lesen (englisch)</span></a>
-          <a href="geolab/exp506s-literature-map/Exp506S_interactive_literature_map.html"><span class="en">Open the interactive map</span><span class="de">Interaktive Karte öffnen</span></a>
-          <a href="geolab/exp506s-literature-map/#files"><span class="en">Data &amp; downloads</span><span class="de">Daten &amp; Downloads</span></a>
-        </div>
-        <p class="small muted gl-note en">As of 2 November 2026. The interactive map is a single
-           20&nbsp;MB page with a German interface and works best on a desktop.</p>
-        <p class="small muted gl-note de">Stand: 2. November 2026. Die interaktive Karte ist eine
-           einzelne Seite mit 20&nbsp;MB und lässt sich am Desktop am besten bedienen.</p>
-      </article>
-    </div>
+      </section>
+
+    </div></div>
   </section>
 
-  <section class="panel" id="klettergeologie">
-    <h2><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></h2>
-    <p class="lead en">Why does a rock feel and climb the way it does? Two formats on the same
-       question: <strong>ClimbingEarth</strong>, a long-read series in Boulder Magazine,
-       and <strong>GeoCrimps</strong>, short reels and illustrated posts.</p>
-    <p class="lead de">Warum fühlt sich ein Fels so an — und warum klettert er sich so? Zwei Formate
-       zur selben Frage: <strong>ClimbingEarth</strong>, eine Artikelreihe im Boulder Magazine,
-       und <strong>GeoCrimps</strong>, kurze Reels und illustrierte Posts.</p>
+  <!-- ============================== CLIMBING GEOLOGY ============================== -->
+  <section class="panel" id="klettergeologie" aria-labelledby="t-klettergeologie">
+    <div class="sky"><div class="wrap">
+      <h1 class="title" id="t-klettergeologie"><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></h1>
+      <p class="lead en">Why does a rock feel and climb the way it does? Two formats on the same
+         question: <strong>ClimbingEarth</strong>, a long-read series in Boulder Magazine,
+         and <strong>GeoCrimps</strong>, short reels and illustrated posts.</p>
+      <p class="lead de">Warum fühlt sich ein Fels so an — und warum klettert er sich so? Zwei Formate
+         zur selben Frage: <strong>ClimbingEarth</strong>, eine Artikelreihe im Boulder Magazine,
+         und <strong>GeoCrimps</strong>, kurze Reels und illustrierte Posts.</p>
+    </div></div>
+    <div class="water"><div class="wrap">
 
-    <div class="kg-block" id="climbingearth">
-      <div class="kg-head">
-        <h3>ClimbingEarth</h3>
-        <span class="kg-tag"><span class="en">Boulder Magazine series</span><span class="de">Reihe im Boulder Magazine</span></span>
-      </div>
-      <p class="muted en">A series at the interface of geology and climbing: what does the way a rock
-         formed reveal about how it feels and how it climbs?</p>
-      <p class="muted de">Eine Reihe an der Schnittstelle von Geologie und Klettern: Was verrät die
-         Entstehung eines Gesteins darüber, wie es sich anfühlt und klettern lässt?</p>
-
-      <article class="card ce-card">
-        <a class="ce-spread" href="klettergeologie-sandstein.pdf" target="_blank" rel="noopener">
-          <img loading="lazy" src="assets/climbingearth-sandstein-spread.jpg" width="1400" height="1018"
-               alt="Opening spread of the article: sandstone boulder at Děčínský Sněžník, headline Sandstein — Millionen Jahre Griffmodellierung">
-        </a>
-        <span class="kicker"><span class="en">Boulder Magazine, part 1</span><span class="de">Boulder Magazine, Teil 1</span></span>
-        <h3 style="margin-top:6px">Sandstein — Millionen Jahre Griffmodellierung in Sněžník und Fontainebleau</h3>
-        <p class="byline">Markus Fischer &amp; Philipp Krause, <span class="en">photos by</span><span class="de">Fotos:</span> Ludwig Ander-Donath</p>
-        <p class="en">Two iconic sandstone bouldering areas compared: the finely sorted "Sables de
-           Fontainebleau" of the Paris Basin and the Elbe sandstone at Děčínský Sněžník. Why do they
-           look stylistically similar yet differ so clearly? Grain size, sorting and cementation
-           govern weathering, friction and hold types — from silica crusts and the Lusatian Overthrust
-           to Arduino's historical subdivision of Earth history.</p>
-        <p class="de">Zwei ikonische Sandstein-Bouldergebiete im Vergleich: die feinst sortierten
-           „Sables de Fontainebleau" im Pariser Becken und der Elbsandstein am Děčínský Sněžník. Warum
-           ähneln sie sich im Stil und unterscheiden sich zugleich deutlich? Korngröße, Sortierung und
-           Zementation entscheiden über Verwitterung, Reibung und Grifftypen — von Silikatkrusten über
-           die Lausitzer Überschiebung bis zu Arduinos historischer Gliederung der Erdgeschichte.</p>
-        <div class="links">
-          <a href="klettergeologie-sandstein.pdf" target="_blank" rel="noopener"><span class="en">Read the PDF</span><span class="de">PDF lesen</span></a>
-          <a href="https://www.boulder-mag.de">Boulder Magazine</a>
+      <section class="row" id="climbingearth" aria-labelledby="r-ce">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-ce">ClimbingEarth</h2>
+          <p class="rubric-note"><span class="en">Boulder Magazine series</span><span class="de">Reihe im Boulder Magazine</span></p>
         </div>
-      </article>
+        <div class="body">
+          <p class="muted en">A series at the interface of geology and climbing: what does the way a rock
+             formed reveal about how it feels and how it climbs?</p>
+          <p class="muted de">Eine Reihe an der Schnittstelle von Geologie und Klettern: Was verrät die
+             Entstehung eines Gesteins darüber, wie es sich anfühlt und klettern lässt?</p>
 
-      <div class="series">
-        <h4><span class="en">About the series</span><span class="de">Zur Reihe</span></h4>
-        <p class="muted small en">Each installment takes a rock or a geological epoch and translates it
-           into climbing and bouldering character — building, piece by piece, a "stratigraphy of climbing".</p>
-        <p class="muted small de">Jede Folge nimmt ein Gestein oder eine erdgeschichtliche Epoche und
-           übersetzt sie in Kletter- und Bouldercharakter — so entsteht nach und nach eine
-           „Stratigraphie des Kletterns".</p>
-        <ul>
-          <li class="done"><span class="en">Part 1: Sandstone (Fontainebleau &amp; Sněžník), published</span><span class="de">Teil 1: Sandstein (Fontainebleau &amp; Sněžník), erschienen</span></li>
-          <li><span class="en">Next issue: gneiss in the Alps and Magic Wood</span><span class="de">Nächste Ausgabe: Gneis in den Alpen und im Magic Wood</span></li>
-          <li><span class="en">Later: the Palaeozoic, as announced in the article</span><span class="de">Später: das Paläozoikum, wie im Artikel angekündigt</span></li>
-        </ul>
-      </div>
-    </div>
+          <article class="feature">
+            <a class="media" href="/klettergeologie-sandstein.pdf" target="_blank" rel="noopener" aria-label="Read the article (PDF)">
+              <img loading="lazy" src="/assets/climbingearth-sandstein-1600.jpg" srcset="/assets/climbingearth-sandstein-800.jpg 800w, /assets/climbingearth-sandstein-1600.jpg 1600w"
+                   sizes="(min-width: 1240px) 816px, (min-width: 860px) 70vw, 92vw" width="1600" height="1067"
+                   alt="Sandstone boulder at Děčínský Sněžník in evening light, framed by birches">
+            </a>
+            <p class="caption"><span class="en">Děčínský Sněžník. Photo:</span><span class="de">Děčínský Sněžník. Foto:</span> Ludwig Ander-Donath</p>
+            <p class="kicker"><span class="en">Boulder Magazine, part 1</span><span class="de">Boulder Magazine, Teil 1</span></p>
+            <h3>Sandstein — Millionen Jahre Griffmodellierung in Sněžník und Fontainebleau</h3>
+            <p class="byline">Markus Fischer &amp; Philipp Krause, <span class="en">photos by</span><span class="de">Fotos:</span> Ludwig Ander-Donath</p>
+            <p class="en">Two iconic sandstone bouldering areas compared: the finely sorted “Sables de
+               Fontainebleau” of the Paris Basin and the Elbe sandstone at Děčínský Sněžník. Why do they
+               look stylistically similar yet differ so clearly? Grain size, sorting and cementation
+               govern weathering, friction and hold types — from silica crusts and the Lusatian Overthrust
+               to Arduino's historical subdivision of Earth history.</p>
+            <p class="de">Zwei ikonische Sandstein-Bouldergebiete im Vergleich: die feinst sortierten
+               „Sables de Fontainebleau“ im Pariser Becken und der Elbsandstein am Děčínský Sněžník. Warum
+               ähneln sie sich im Stil und unterscheiden sich zugleich deutlich? Korngröße, Sortierung und
+               Zementation entscheiden über Verwitterung, Reibung und Grifftypen — von Silikatkrusten über
+               die Lausitzer Überschiebung bis zu Arduinos historischer Gliederung der Erdgeschichte.</p>
+            <div class="actions">
+              <a class="btn" href="/klettergeologie-sandstein.pdf" target="_blank" rel="noopener"><span class="en">Read the PDF</span><span class="de">PDF lesen</span><span class="arr" aria-hidden="true">↗</span></a>
+              <a class="go" href="https://www.boulder-mag.de">Boulder Magazine<span class="arr" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
 
-    <div class="kg-block" id="geocrimps">
-      <div class="kg-head">
-        <h3>GeoCrimps</h3>
-        <span class="kg-tag"><span class="en">New reels on Tuesdays and Fridays</span><span class="de">Neue Reels dienstags und freitags</span></span>
-      </div>
-      <p class="muted en">Started in July 2026 as daily illustrated posts, and continuing since October as
-         animated reels: one rock, one hold, one piece of Earth history at a time. Small holds, big Earth.</p>
-      <p class="muted de">Im Juli 2026 als tägliche illustrierte Posts gestartet, seit Oktober als animierte
-         Reels: ein Gestein, ein Griff, ein Stück Erdgeschichte nach dem anderen. Kleine Griffe, große Erde.</p>
+          <h3 class="sub"><span class="en">About the series</span><span class="de">Zur Reihe</span></h3>
+          <p class="muted en">Each installment takes a rock or a geological epoch and translates it
+             into climbing and bouldering character — building, piece by piece, a “stratigraphy of climbing”.</p>
+          <p class="muted de">Jede Folge nimmt ein Gestein oder eine erdgeschichtliche Epoche und
+             übersetzt sie in Kletter- und Bouldercharakter — so entsteht nach und nach eine
+             „Stratigraphie des Kletterns“.</p>
+          <ul class="steps">
+            <li class="done"><span class="en">Part 1: Sandstone (Fontainebleau &amp; Sněžník), published</span><span class="de">Teil 1: Sandstein (Fontainebleau &amp; Sněžník), erschienen</span></li>
+            <li><span class="en">Next issue: gneiss in the Alps and Magic Wood</span><span class="de">Nächste Ausgabe: Gneis in den Alpen und im Magic Wood</span></li>
+            <li><span class="en">Later: the Palaeozoic, as announced in the article</span><span class="de">Später: das Paläozoikum, wie im Artikel angekündigt</span></li>
+          </ul>
+        </div>
+      </section>
 
-      <p class="kg-label"><span class="en">Featured reels</span><span class="de">Ausgewählte Reels</span></p>
-      <div class="reel-row" id="gc-best"></div>
+      <section class="row" id="geocrimps" aria-labelledby="r-gc">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-gc">GeoCrimps</h2>
+          <p class="rubric-note"><span class="en">New reels on Tuesdays and Fridays</span><span class="de">Neue Reels dienstags und freitags</span></p>
+        </div>
+        <div class="body">
+          <p class="muted en">Started in July 2026 as daily illustrated posts, and continuing since October as
+             animated reels: one rock, one hold, one piece of Earth history at a time. Small holds, big Earth.</p>
+          <p class="muted de">Im Juli 2026 als tägliche illustrierte Posts gestartet, seit Oktober als animierte
+             Reels: ein Gestein, ein Griff, ein Stück Erdgeschichte nach dem anderen. Kleine Griffe, große Erde.</p>
 
-      <p class="kg-label"><span class="en">Latest reels</span><span class="de">Neueste Reels</span></p>
-      <div class="reel-row" id="gc-latest"><p class="ph"><span class="en">Loading reels…</span><span class="de">Reels werden geladen…</span></p></div>
+          <h3 class="sub"><span class="en">Featured reels</span><span class="de">Ausgewählte Reels</span></h3>
+          <div class="reels" id="gc-best"></div>
 
-      <p class="kg-label"><span class="en">From the crimp archive</span><span class="de">Aus dem Crimp-Archiv</span></p>
-      <div class="crimp-grid" id="gc-crimps"></div>
+          <h3 class="sub"><span class="en">Latest reels</span><span class="de">Neueste Reels</span></h3>
+          <div class="reels" id="gc-latest"><p class="empty"><span class="en">Loading reels…</span><span class="de">Reels werden geladen…</span></p></div>
 
-      <div class="links">
-        <a href="https://www.instagram.com/geocrimps/" target="_blank" rel="noopener">Instagram @geocrimps</a>
-        <a href="https://bsky.app/profile/geocrimps.bsky.social" target="_blank" rel="noopener">Bluesky @geocrimps</a>
-      </div>
-    </div>
+          <h3 class="sub"><span class="en">From the crimp archive</span><span class="de">Aus dem Crimp-Archiv</span><span>#001–#050</span></h3>
+          <div class="crimps" id="gc-crimps"></div>
 
-    <dialog class="lb" id="gc-lightbox" aria-label="GeoCrimps">
-      <div class="lb-inner">
-        <button class="lb-close" type="button" aria-label="Close / Schließen">&times;</button>
+          <div class="actions">
+            <a class="go" href="https://www.instagram.com/geocrimps/" target="_blank" rel="noopener">Instagram @geocrimps<span class="arr" aria-hidden="true">↗</span></a>
+            <a class="go" href="https://bsky.app/profile/geocrimps.bsky.social" target="_blank" rel="noopener">Bluesky @geocrimps<span class="arr" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <dialog class="lb" id="gc-lightbox" aria-label="GeoCrimps">
         <div class="lb-stage"></div>
         <div class="lb-bar">
-          <button class="lb-prev" type="button" aria-label="Previous slide / Vorherige Folie">&#8249;</button>
-          <div class="lb-cap"><span class="lb-num"></span><span class="lb-title"></span></div>
-          <button class="lb-next" type="button" aria-label="Next slide / Nächste Folie">&#8250;</button>
+          <p class="lb-cap"><span class="lb-num"></span> <span class="lb-title"></span></p>
+          <div class="lb-btns">
+            <button class="lb-btn lb-prev" type="button" aria-label="Previous slide / Vorherige Folie"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+            <button class="lb-btn lb-next" type="button" aria-label="Next slide / Nächste Folie"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+            <button class="lb-btn lb-close" type="button" aria-label="Close / Schließen"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+          </div>
         </div>
-      </div>
-    </dialog>
+      </dialog>
+
+    </div></div>
   </section>
 
-  <section class="panel" id="klimamusik">
-    <h2>ClimateMusic</h2>
-    <p class="muted en">Making climate data audible: <em>climate · time · sound</em> turns real climate
-       records into music live in the browser — warmer = higher, extremes = accents, one month = one
-       beat. A bilingual (EN/DE) teaching tool for music, climate and time series.</p>
-    <p class="muted de">Klimadaten hörbar machen: <em>climate · time · sound</em> übersetzt echte
-       Klimareihen live im Browser in Musik — wärmer = höher, Extreme = Akzente, ein Monat = ein
-       Schlag. Ein zweisprachiges (EN/DE) Lehrwerkzeug zu Musik, Klima und Zeitreihen.</p>
-    <div class="card">
-      <span class="kicker"><span class="en">Web Audio project in JavaScript, runs without a server</span><span class="de">Web-Audio-Projekt in JavaScript, läuft ohne Server</span></span>
-      <h3 style="margin-top:6px">climate · time · sound</h3>
-      <p class="en">Three modes: <strong>learn</strong> (guided signal path data → mapping → sound,
-         with a live legend), <strong>studio</strong> (twelve finished style scores driven by the
-         same mapping rules) and <strong>paleo</strong> (deep time as a multitrack piece from real
-         records — including LR04, EPICA CO₂, Milankovitch cycles and Chew Bahir/HSPDP). It runs as a
-         static page, exports to WAV and is shareable by link.</p>
-      <p class="de">Drei Modi: <strong>learn</strong> (geführter Signalweg Daten → Übersetzung →
-         Klang, mit Live-Legende), <strong>studio</strong> (zwölf fertige Stil-Partituren nach
-         denselben Mapping-Regeln) und <strong>paleo</strong> (Tiefenzeit als Mehrspur-Stück aus
-         echten Reihen — u. a. LR04, EPICA-CO₂, Milankovitch-Zyklen und Chew Bahir/HSPDP). Läuft als
-         statische Seite, exportiert als WAV und ist per Link teilbar.</p>
-      <p class="small muted en">Core idea: styles change only tempo, timbre and rhythm — never the
-         data or the rules. Sonification as a design decision on top of honest data.</p>
-      <p class="small muted de">Kerngedanke: Die Stile ändern nur Tempo, Klangfarbe und Rhythmus —
-         nie die Daten oder die Regeln. Sonifikation als gestalterische Entscheidung auf ehrlichen Daten.</p>
-      <div class="links">
-        <a href="https://mlfischer.github.io/climate-time-sound/"><span class="en">Live demo</span><span class="de">Live-Demo</span></a>
-        <a href="https://github.com/MLFischer/climate-time-sound">Repository</a>
-      </div>
-    </div>
+  <!-- ============================== CLIMATE MUSIC ============================== -->
+  <section class="panel" id="klimamusik" aria-labelledby="t-klimamusik">
+    <div class="sky"><div class="wrap">
+      <h1 class="title" id="t-klimamusik">ClimateMusic</h1>
+      <p class="lead en">Making climate data audible: <em>climate · time · sound</em> turns real climate
+         records into music live in the browser — warmer = higher, extremes = accents, one month = one
+         beat. A bilingual (EN/DE) teaching tool for music, climate and time series.</p>
+      <p class="lead de">Klimadaten hörbar machen: <em>climate · time · sound</em> übersetzt echte
+         Klimareihen live im Browser in Musik — wärmer = höher, Extreme = Akzente, ein Monat = ein
+         Schlag. Ein zweisprachiges (EN/DE) Lehrwerkzeug zu Musik, Klima und Zeitreihen.</p>
+    </div></div>
+    <div class="water"><div class="wrap">
+
+      <section class="row" aria-labelledby="r-cts">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-cts">climate · time · sound</h2>
+          <p class="rubric-note"><span class="en">Web Audio project in JavaScript, runs without a server</span><span class="de">Web-Audio-Projekt in JavaScript, läuft ohne Server</span></p>
+        </div>
+        <div class="body">
+          <p class="en">Three modes:</p>
+          <p class="de">Drei Modi:</p>
+          <dl class="modes">
+            <div><dt>learn</dt><dd><span class="en">guided signal path data → mapping → sound, with a live legend</span><span class="de">geführter Signalweg Daten → Übersetzung → Klang, mit Live-Legende</span></dd></div>
+            <div><dt>studio</dt><dd><span class="en">twelve finished style scores driven by the same mapping rules</span><span class="de">zwölf fertige Stil-Partituren nach denselben Mapping-Regeln</span></dd></div>
+            <div><dt>paleo</dt><dd><span class="en">deep time as a multitrack piece from real records — including LR04, EPICA CO₂, Milankovitch cycles and Chew Bahir/HSPDP</span><span class="de">Tiefenzeit als Mehrspur-Stück aus echten Reihen — u. a. LR04, EPICA-CO₂, Milankovitch-Zyklen und Chew Bahir/HSPDP</span></dd></div>
+          </dl>
+          <p class="en" style="margin-top:20px">It runs as a static page, exports to WAV and is shareable by link.</p>
+          <p class="de" style="margin-top:20px">Läuft als statische Seite, exportiert als WAV und ist per Link teilbar.</p>
+          <p class="muted en">Core idea: styles change only tempo, timbre and rhythm — never the
+             data or the rules. Sonification as a design decision on top of honest data.</p>
+          <p class="muted de">Kerngedanke: Die Stile ändern nur Tempo, Klangfarbe und Rhythmus —
+             nie die Daten oder die Regeln. Sonifikation als gestalterische Entscheidung auf ehrlichen Daten.</p>
+          <div class="actions">
+            <a class="btn" href="https://mlfischer.github.io/climate-time-sound/"><span class="en">Live demo</span><span class="de">Live-Demo</span><span class="arr" aria-hidden="true">↗</span></a>
+            <a class="go" href="https://github.com/MLFischer/climate-time-sound">Repository<span class="arr" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+    </div></div>
   </section>
 
 </main>
 
-<footer>
+<footer class="site-foot">
   <div class="band" aria-hidden="true"><span style="flex:9;background:var(--fr-umber)"></span><span style="flex:12;background:var(--fr-shade)"></span><span style="flex:9;background:var(--fr-slate)"></span><span style="flex:3;background:var(--fr-rust)"></span><span style="flex:9;background:var(--fr-olive)"></span><span style="flex:13;background:var(--fr-sage)"></span><span style="flex:10;background:var(--fr-khaki)"></span><span style="flex:6;background:var(--fr-moss)"></span><span style="flex:14;background:var(--fr-mist)"></span><span style="flex:15;background:var(--fr-cloud)"></span></div>
-  <div class="wrap"><picture class="foot-mark"><source srcset="assets/logo-mark-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/logo-mark.svg" alt="" width="34" height="23"></picture>© <span id="y"></span> Markus Fischer, <span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span>
-    <span class="credit"><span class="en">Colours measured from Ernst Haeckel's watercolour “Urwald am Blauen Fluß (Kelany-Ganga)”, Ceylon 1882.</span><span class="de">Farben gemessen an Ernst Haeckels Aquarell „Urwald am Blauen Fluß (Kelany-Ganga)“, Ceylon 1882.</span></span></div>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="#ueber" data-tab="ueber" aria-label="Markus Fischer — home"><svg class="mark" viewBox="0 18.35 120 82.05" aria-hidden="true" focusable="false"><clipPath id="hz-f"><rect width="120" height="96"/></clipPath><g clip-path="url(#hz-f)"><rect class="s s1" x="10" y="86" width="12" height="12"/><rect class="s s2" x="26.5" y="68.5" width="15" height="15" rx="1.88"/><rect class="s s3" x="45.62" y="51.62" width="18.75" height="18.75" rx="4.69"/><rect class="s s4" x="66.28" y="35.28" width="23.44" height="23.44" rx="8.79"/><rect class="s s5" x="87.35" y="19.35" width="29.3" height="29.3" rx="14.65"/></g><rect class="hz" y="96" width="120" height="3.4" rx="1.7"/></svg><span class="brand-name" aria-hidden="true">Markus Fischer</span></a>
+        <p><span class="en">Geoscientist working on palaeoclimate, University of Potsdam.</span><span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam.</span></p>
+      </div>
+      <div>
+        <h2><span class="en">Pages</span><span class="de">Seiten</span></h2>
+        <ul><li><a href="#ueber" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></a></li><li><a href="#publikationen" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></a></li><li><a href="#expertise" data-tab="expertise">Expertise</a></li><li><a href="#geonews" data-tab="geonews">GeoNews</a></li><li><a href="#geolab" data-tab="geolab">GeoLab</a></li><li><a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a></li><li><a href="#klimamusik" data-tab="klimamusik">ClimateMusic</a></li></ul>
+      </div>
+      <div>
+        <h2><span class="en">Elsewhere</span><span class="de">Anderswo</span></h2>
+        <ul>
+          <li><a href="mailto:markus.lothar.fischer@uni-potsdam.de"><span class="en">Email</span><span class="de">E-Mail</span></a></li>
+          <li><a href="https://orcid.org/0000-0001-9493-4450">ORCID</a></li>
+          <li><a href="https://scholar.google.com/citations?user=29uQRgsAAAAJ&amp;hl=de">Google Scholar</a></li>
+          <li><a href="https://www.researchgate.net/profile/Markus-Fischer-32">ResearchGate</a></li>
+          <li><a href="https://github.com/MLFischer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>© <span id="y">2026</span> Markus Fischer · <span class="en">University of Potsdam</span><span class="de">Universität Potsdam</span></p>
+      <p><span class="en">Set in Inter. Colours measured from Ernst Haeckel's watercolour “Urwald am Blauen Fluß (Kelany-Ganga)”, Ceylon 1882.</span><span class="de">Gesetzt in Inter. Farben gemessen an Ernst Haeckels Aquarell „Urwald am Blauen Fluß (Kelany-Ganga)“, Ceylon 1882.</span></p>
+    </div>
+  </div>
 </footer>
-</div>
 
 <script>
-  document.getElementById('y').textContent=new Date().getFullYear();
-  // Language
-  const body=document.body;
-  function setLang(l){
-    body.classList.toggle('lang-de',l==='de');
-    body.classList.toggle('lang-en',l==='en');
-    document.documentElement.lang=l;
-    document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
-    try{localStorage.setItem('lang',l)}catch(e){}
+(function(){
+'use strict';
+var body=document.body, root=document.documentElement;
+var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var lang=function(){return body.classList.contains('lang-de')?'de':'en'};
+var y=$('#y'); if(y) y.textContent=new Date().getFullYear();
+
+/* ---------- language ---------- */
+var TITLES={ueber:null,publikationen:['Research & publications','Forschung & Publikationen'],expertise:['Expertise','Expertise'],
+  geonews:['GeoNews','GeoNews'],geolab:['GeoLab','GeoLab'],klettergeologie:['Climbing geology','Klettergeologie'],klimamusik:['ClimateMusic','ClimateMusic']};
+var current='ueber';
+function setTitle(){var t=TITLES[current];document.title=t?t[lang()==='de'?1:0]+' — Markus Fischer':'Markus Fischer';}
+function setLang(l){
+  body.classList.toggle('lang-de',l==='de');body.classList.toggle('lang-en',l!=='de');root.lang=l;
+  $$('.langsw button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
+  try{localStorage.setItem('lang',l)}catch(e){}
+  setTitle();pubCount();
+}
+$$('.langsw button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+
+/* ---------- panels & routing (hash = panel or an element inside one) ---------- */
+var panels=$$('.panel');
+function panelOf(id){var el=id&&document.getElementById(id);if(!el)return null;
+  var p=el.classList.contains('panel')?el:el.closest('.panel');return p?{panel:p,el:el}:null;}
+function show(id){
+  current=id;
+  panels.forEach(function(p){p.classList.toggle('is-active',p.id===id)});
+  $$('[data-tab]').forEach(function(a){if(a.dataset.tab===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  setTitle();
+  if(id==='klettergeologie')KG.build();
+  if(id==='geonews')GN.load();
+}
+function route(hash,push){
+  var hit=panelOf(hash), id=hit?hit.panel.id:'ueber';
+  show(id);
+  if(push){try{history.pushState(null,'',hit&&!(id==='ueber'&&hit.el===hit.panel)?'#'+hash:location.pathname+location.search)}catch(e){}}
+  if(hit&&hit.el!==hit.panel){requestAnimationFrame(function(){hit.el.scrollIntoView({block:'start'})})}
+  else window.scrollTo(0,0);
+}
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+  var h=a.getAttribute('href').slice(1);if(!panelOf(h))return;   // e.g. skip link: default behaviour
+  e.preventDefault();closeMenu();route(h,true);
+});
+window.addEventListener('popstate',function(){route(location.hash.slice(1),false)});
+
+/* ---------- header: frosted once the page scrolls ---------- */
+var head=$('.site-head'),ticking=false;
+function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(function(){head.classList.toggle('is-stuck',window.scrollY>6);ticking=false})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ---------- mobile menu ---------- */
+var menu=$('#menu'),mbtn=$('.menu-btn');
+function closeMenu(){if(menu&&menu.open){menu.close()}}
+if(menu&&mbtn){
+  mbtn.addEventListener('click',function(){if(typeof menu.showModal==='function'){menu.showModal();mbtn.setAttribute('aria-expanded','true')}});
+  menu.addEventListener('close',function(){mbtn.setAttribute('aria-expanded','false')});
+  $('.menu-close',menu).addEventListener('click',closeMenu);
+  window.matchMedia('(min-width: 1061px)').addEventListener('change',function(m){if(m.matches)closeMenu()});
+}
+
+/* ---------- publications filter ---------- */
+var filter='all';
+function pubCount(){
+  var c=$('.pub-count');if(!c)return;
+  var n=$$('.ref').filter(function(r){return !r.hidden}).length;
+  c.textContent=lang()==='de'
+    ?(filter==='all'?n+' Publikationen':n+' als Erstautor')
+    :(filter==='all'?n+' publications':n+' as first author');
+}
+$$('.seg button').forEach(function(b){b.addEventListener('click',function(){
+  filter=b.dataset.filter;
+  $$('.seg button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+  $$('.ref').forEach(function(r){r.hidden=!(filter==='all'||r.dataset.role===filter)});
+  $$('.year').forEach(function(y){y.hidden=!$('.ref:not([hidden])',y)});
+  pubCount();
+})});
+
+/* ---------- GeoCrimps: reels + crimp archive, shown on-site in a lightbox ----------
+   Built on first opening of the tab, so visitors who never open it load none of the media. */
+var KG=(function(){
+  var BASE='https://mlfischer.github.io/geocrimps-assets/';
+  // Featured reels: chosen from the Instagram insights report of 26 Oct 2026
+  // (v2/kennzahlen/verlauf.csv): r001 = most views and likes, r002 = best watch-through
+  // and lowest skip rate, r005 = fastest start (views per day). Swap ids here to re-curate.
+  var FEATURED=[
+    {id:'r001',slug:'2026-10-12_whodunit-01',fmt:'WHODUNIT #01',en:'Nobody drilled these holes.',de:'Diese Löcher hat niemand gebohrt.'},
+    {id:'r002',slug:'2026-10-13_holdid-01',fmt:'HOLD ID #01',en:'Why does this edge stick out?',de:'Warum steht diese Leiste vor?'},
+    {id:'r005',slug:'2026-10-23_holdid-02',fmt:'HOLD ID #02',en:'Tufa on limestone: how did this hold form?',de:'Sinter am Kalk: Wie ist dieser Griff entstanden?'}
+  ];
+  // Crimp archive (V1 "Bedrock", posts #001–#050): editorial selection across rock, climate and Earth history.
+  var CRIMPS=[
+    ['001','Why Font feels like glass',1],['007','When the Sahara was green',1],
+    ['011','Why granite splits into perfect cracks',4],['012','Tufa: the rock that grows',4],
+    ['018',"You're climbing a coral reef",4],['025','Devils Tower is a cracked cooling body',4],
+    ['035','800,000 years of air',4],['042','The day the ocean rusted',4]
+  ].map(function(a){var n=a[0];return {post:n,title:a[1],slides:a[2]===1?[BASE+'v1/'+n+'.png']:[1,2,3,4].map(function(s){return BASE+'v1/'+n+'_'+s+'.png'})}});
+  var fmtName=function(f){return String(f||'').toLowerCase().replace(/^\w/,function(c){return c.toUpperCase()}).replace(/\bid\b/,'ID')};
+  var dlg=$('#gc-lightbox'),stage=$('.lb-stage',dlg),num=$('.lb-num',dlg),ttl=$('.lb-title',dlg),prev=$('.lb-prev',dlg),next=$('.lb-next',dlg);
+  var cur=null,idx=0,built=false;
+  function both(en,de){return en===de?esc(en):'<span class="en">'+esc(en)+'</span><span class="de">'+esc(de)+'</span>'}
+  function reelCard(r){
+    var b=document.createElement('button');b.type='button';b.className='reel';
+    b.innerHTML='<span class="reel-media"><img loading="lazy" decoding="async" src="'+esc(BASE+'reels/'+r.slug+'.jpg')+'" alt="">'
+      +'<span class="play" aria-hidden="true"></span></span>'
+      +'<span class="reel-cap">'+both(r.en,r.de)+'<small>'+esc(fmtName(r.fmt))+'</small></span>';
+    b.addEventListener('click',function(){open({kind:'reel',item:r})});
+    return b;
   }
-  document.querySelectorAll('.langsw button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-  let saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
-  setLang(saved);
-  // Tabs
-  const btns=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.panel');
-  function show(id){btns.forEach(x=>x.classList.toggle('active',x.dataset.tab===id));
-    panels.forEach(p=>p.classList.toggle('active',p.id===id));
-    // narrow screens: scroll the tab bar so the active tab is visible
-    const ab=document.querySelector('.tab-btn.active'),nw=document.querySelector('nav.tabs .wrap');
-    if(ab&&nw&&nw.scrollWidth>nw.clientWidth){const r=ab.getBoundingClientRect(),w=nw.getBoundingClientRect();
-      nw.scrollBy({left:(r.left+r.width/2)-(w.left+w.width/2),behavior:'smooth'});}
-    if(id==='klettergeologie'&&window.KG)KG.build();}
-  btns.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.tab);history.replaceState(null,'','#'+b.dataset.tab);window.scrollTo({top:0,behavior:'smooth'});}));
-  // Tab bar: transparent on the water, frosted once it sticks
-  (function(){var nav=document.querySelector('nav.tabs'),hero=document.querySelector('header.hero');if(!nav||!hero)return;
-    if(!('IntersectionObserver' in window)){nav.classList.add('stuck');return;}
-    new IntersectionObserver(function(e){nav.classList.toggle('stuck',!e[0].isIntersecting);}).observe(hero);})();
-  if(location.hash){const el=document.getElementById(location.hash.slice(1)),pn=el&&el.closest('.panel');
-    if(pn){show(pn.id);if(pn!==el)setTimeout(()=>el.scrollIntoView({block:'start'}),60);}}
-  // Publication filter
-  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
-    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));c.classList.add('active');
-    const f=c.dataset.filter;
-    document.querySelectorAll('.refs .ref').forEach(li=>{li.style.display=(f==='all'||li.dataset.role===f)?'':'none';});
-    document.querySelectorAll('.refs .yrhead').forEach(h=>{h.style.display=(f==='all')?'':'none';});
-  }));
-  // Climbing geology tab: GeoCrimps reels + crimp archive, shown on-site in a lightbox.
-  // Built on first opening of the tab, so visitors who never open it load none of the media.
-  var KG=(function(){
-    const BASE='https://mlfischer.github.io/geocrimps-assets/';
-    // Featured reels: chosen from the Instagram insights report of 26 Oct 2026
-    // (v2/kennzahlen/verlauf.csv): r001 = most views and likes, r002 = best watch-through
-    // and lowest skip rate, r005 = fastest start (views per day). Swap ids here to re-curate.
-    const FEATURED=[
-      {id:'r001',slug:'2026-10-12_whodunit-01',fmt:'WHODUNIT #01',en:'Nobody drilled these holes.',de:'Diese Löcher hat niemand gebohrt.'},
-      {id:'r002',slug:'2026-10-13_holdid-01',fmt:'HOLD ID #01',en:'Why does this edge stick out?',de:'Warum steht diese Leiste vor?'},
-      {id:'r005',slug:'2026-10-23_holdid-02',fmt:'HOLD ID #02',en:'Tufa on limestone: how did this hold form?',de:'Sinter am Kalk: Wie ist dieser Griff entstanden?'}
-    ];
-    // Crimp archive (V1 "Bedrock", posts #001–#050): editorial selection across rock, climate and Earth history.
-    const CRIMPS=[
-      ['001','Why Font feels like glass',1],['007','When the Sahara was green',1],
-      ['011','Why granite splits into perfect cracks',4],['012','Tufa: the rock that grows',4],
-      ['018',"You're climbing a coral reef",4],['025','Devils Tower is a cracked cooling body',4],
-      ['035','800,000 years of air',4],['042','The day the ocean rusted',4]
-    ].map(([n,t,k])=>({post:n,title:t,slides:k===1?[BASE+'v1/'+n+'.png']:[1,2,3,4].map(s=>BASE+'v1/'+n+'_'+s+'.png')}));
+  function crimpCard(c){
+    var b=document.createElement('button');b.type='button';b.className='crimp';
+    b.innerHTML='<span class="crimp-media"><img loading="lazy" decoding="async" src="'+esc(c.slides[0])+'" alt=""></span>'
+      +'<span class="crimp-cap">'+esc(c.title)+'<small>GeoCrimp #'+esc(c.post)+(c.slides.length>1?' · '+c.slides.length+(lang()==='de'?' Folien':' slides'):'')+'</small></span>';
+    b.addEventListener('click',function(){open({kind:'crimp',item:c})});
+    return b;
+  }
+  function render(){
+    if(cur.kind==='reel'){
+      var r=cur.item;
+      stage.innerHTML='<video controls autoplay playsinline preload="metadata" poster="'+esc(BASE+'reels/'+r.slug+'.jpg')+'">'
+        +'<source src="'+esc(BASE+'reels/'+r.slug+'.mp4')+'" type="video/mp4"></video>';
+      num.textContent=fmtName(r.fmt)+' ·';ttl.textContent=lang()==='de'?r.de:r.en;
+      prev.hidden=next.hidden=true;
+    }else{
+      var c=cur.item,n=c.slides.length;
+      stage.innerHTML='<img src="'+esc(c.slides[idx])+'" alt="'+esc(c.title+(n>1?' — '+(idx+1)+'/'+n:''))+'">';
+      num.textContent='GeoCrimp #'+c.post+(n>1?' · '+(idx+1)+'/'+n:'')+' ·';ttl.textContent=c.title;
+      prev.hidden=next.hidden=n<2;prev.disabled=idx===0;next.disabled=idx===n-1;
+    }
+  }
+  function open(o){cur=o;idx=0;render();if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
+  function close(){$$('video',stage).forEach(function(v){v.pause()});stage.innerHTML='';
+    if(dlg.open&&typeof dlg.close==='function')dlg.close();else dlg.removeAttribute('open');}
+  function step(d){if(!cur||cur.kind!=='crimp')return;var n=cur.item.slides.length;idx=Math.max(0,Math.min(n-1,idx+d));render();}
+  $('.lb-close',dlg).addEventListener('click',close);
+  prev.addEventListener('click',function(){step(-1)});next.addEventListener('click',function(){step(1)});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
+  dlg.addEventListener('close',function(){$$('video',stage).forEach(function(v){v.pause()});stage.innerHTML='';});
+  dlg.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
+  function captionTitle(c){ // "FORMAT #01 · First sentence. Rest…" -> "First sentence."
+    var s=String(c||'').split('\n')[0].replace(/^[^·]*·\s*/,'');
+    var m=s.match(/^.*?[?.!](?=\s|$)/);return (m?m[0]:s).trim();
+  }
+  function build(){
+    if(built)return;built=true;
+    var best=$('#gc-best'),latest=$('#gc-latest'),crimps=$('#gc-crimps');
+    FEATURED.forEach(function(r){best.appendChild(reelCard(r))});
+    CRIMPS.forEach(function(c){crimps.appendChild(crimpCard(c))});
+    fetch(BASE+'v2/reels.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(q){
+      var skip={};FEATURED.forEach(function(f){skip[f.id]=1});
+      var items=(q.reels||[]).filter(function(r){return r&&r.status==='published'&&!r.hold&&r.slug&&!skip[r.id]})
+        .sort(function(a,b){return String(b.published_at||'').localeCompare(String(a.published_at||''))}).slice(0,3)
+        .map(function(r){var t=captionTitle(r.caption);return {id:r.id,slug:r.slug,fmt:(r.format||'Reel')+(r.nr?' #'+String(r.nr).padStart(2,'0'):''),en:t,de:t}});
+      latest.innerHTML='';
+      if(!items.length){latest.innerHTML='<p class="empty"><span class="en">New reels appear here automatically.</span><span class="de">Neue Reels erscheinen hier automatisch.</span></p>';return;}
+      items.forEach(function(r){latest.appendChild(reelCard(r))});
+    }).catch(function(){latest.innerHTML='<p class="empty"><span class="en">Could not load the latest reels — see </span><span class="de">Die neuesten Reels konnten nicht geladen werden — siehe </span><a href="https://www.instagram.com/geocrimps/">@geocrimps</a>.</p>';});
+  }
+  return {build:build};
+})();
 
-    const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-    const fmtName=f=>String(f||'').toLowerCase().replace(/^\w/,c=>c.toUpperCase()).replace(/\bid\b/,'ID');
-    const lang=()=>document.body.classList.contains('lang-de')?'de':'en';
-    const dlg=document.getElementById('gc-lightbox');
-    const stage=dlg.querySelector('.lb-stage'),num=dlg.querySelector('.lb-num'),ttl=dlg.querySelector('.lb-title');
-    const prev=dlg.querySelector('.lb-prev'),next=dlg.querySelector('.lb-next');
-    let cur=null,idx=0,built=false;
-
-    function reelCard(r){
-      const b=document.createElement('button');b.type='button';b.className='reel-card';
-      b.innerHTML='<span class="reel-media"><img loading="lazy" src="'+esc(BASE+'reels/'+r.slug+'.jpg')+'" alt="">'
-        +'<span class="reel-play" aria-hidden="true"></span></span>'
-        +'<span class="reel-fmt">'+esc(fmtName(r.fmt))+'</span>'
-        +'<span class="reel-title">'+(r.en===r.de?esc(r.en)
-          :'<span class="en">'+esc(r.en)+'</span><span class="de">'+esc(r.de)+'</span>')+'</span>';
-      b.addEventListener('click',()=>open({kind:'reel',item:r}));
-      return b;
-    }
-    function crimpCard(c){
-      const b=document.createElement('button');b.type='button';b.className='crimp-card';
-      b.innerHTML='<img loading="lazy" src="'+esc(c.slides[0])+'" alt="">'
-        +'<span class="crimp-meta"><span class="crimp-num">GeoCrimp #'+esc(c.post)+'</span>'
-        +'<span class="crimp-title">'+esc(c.title)+'</span></span>'
-        +(c.slides.length>1?'<span class="crimp-count" aria-hidden="true">1/'+c.slides.length+'</span>':'');
-      b.addEventListener('click',()=>open({kind:'crimp',item:c}));
-      return b;
-    }
-    function render(){
-      if(cur.kind==='reel'){
-        const r=cur.item;
-        stage.innerHTML='<video controls autoplay playsinline preload="metadata" poster="'+esc(BASE+'reels/'+r.slug+'.jpg')+'">'
-          +'<source src="'+esc(BASE+'reels/'+r.slug+'.mp4')+'" type="video/mp4"></video>';
-        stage.className='lb-stage is-reel';
-        num.textContent=fmtName(r.fmt);ttl.textContent=lang()==='de'?r.de:r.en;
-        prev.hidden=next.hidden=true;
-      }else{
-        const c=cur.item,n=c.slides.length;
-        stage.innerHTML='<img src="'+esc(c.slides[idx])+'" alt="'+esc(c.title+(n>1?' — '+(idx+1)+'/'+n:''))+'">';
-        stage.className='lb-stage is-crimp';
-        num.textContent='GeoCrimp #'+c.post+(n>1?', '+(idx+1)+'/'+n:'');ttl.textContent=c.title;
-        prev.hidden=next.hidden=n<2;prev.disabled=idx===0;next.disabled=idx===n-1;
-      }
-    }
-    function open(o){cur=o;idx=0;render();if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
-    function close(){stage.querySelectorAll('video').forEach(v=>v.pause());stage.innerHTML='';
-      if(dlg.open&&typeof dlg.close==='function')dlg.close();else dlg.removeAttribute('open');}
-    function step(d){if(!cur||cur.kind!=='crimp')return;const n=cur.item.slides.length;
-      idx=Math.max(0,Math.min(n-1,idx+d));render();}
-    dlg.querySelector('.lb-close').addEventListener('click',close);
-    prev.addEventListener('click',()=>step(-1));next.addEventListener('click',()=>step(1));
-    dlg.addEventListener('click',e=>{if(e.target===dlg)close();});          // click on backdrop
-    dlg.addEventListener('close',()=>{stage.querySelectorAll('video').forEach(v=>v.pause());stage.innerHTML='';});
-    dlg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
-
-    function captionTitle(c){ // "FORMAT #01 · First sentence. Rest…" -> "First sentence."
-      const s=String(c||'').split('\n')[0].replace(/^[^·]*·\s*/,'');
-      const m=s.match(/^.*?[?.!](?=\s|$)/);return (m?m[0]:s).trim();
-    }
-    function build(){
-      if(built)return;built=true;
-      const best=document.getElementById('gc-best'),latest=document.getElementById('gc-latest'),crimps=document.getElementById('gc-crimps');
-      FEATURED.forEach(r=>best.appendChild(reelCard(r)));
-      CRIMPS.forEach(c=>crimps.appendChild(crimpCard(c)));
-      fetch(BASE+'v2/reels.json?t='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(q=>{
-        const skip=new Set(FEATURED.map(f=>f.id));
-        const items=(q.reels||[]).filter(r=>r&&r.status==='published'&&!r.hold&&r.slug&&!skip.has(r.id))
-          .sort((a,b)=>String(b.published_at||'').localeCompare(String(a.published_at||''))).slice(0,3)
-          .map(r=>{const t=captionTitle(r.caption);return {id:r.id,slug:r.slug,fmt:(r.format||'Reel')+(r.nr?' #'+String(r.nr).padStart(2,'0'):''),en:t,de:t};});
-        latest.innerHTML='';
-        if(!items.length){latest.innerHTML='<p class="ph"><span class="en">New reels appear here automatically.</span><span class="de">Neue Reels erscheinen hier automatisch.</span></p>';return;}
-        items.forEach(r=>latest.appendChild(reelCard(r)));
-      }).catch(()=>{latest.innerHTML='<p class="ph"><span class="en">Could not load the latest reels — see </span><span class="de">Die neuesten Reels konnten nicht geladen werden — siehe </span><a href="https://www.instagram.com/geocrimps/">@geocrimps</a>.</p>';});
-    }
-    return {build};
-  })();
-  if(document.getElementById('klettergeologie').classList.contains('active'))KG.build(); // opened via #hash before KG existed
-
-  // GeoNews — loads issues.json live, so each new Monday issue appears automatically.
-  (function(){
-    var host=document.getElementById('gn-latest'), arch=document.getElementById('gn-archive');
-    if(!host) return;
-    var SRC='geonews/issues.json';
-    function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-    function nice(ds,lang){
-      var p=String(ds).split('-'), d=new Date(+p[0],+p[1]-1,+p[2]);
-      return d.toLocaleDateString(lang==='de'?'de-DE':'en-GB',
-        {year:'numeric',month:'long',day:'numeric'});
-    }
-    function fail(){host.innerHTML='<p class="gn-ph"><span class="en">The latest issue could not be '
-      +'loaded right now.</span><span class="de">Die aktuelle Ausgabe konnte gerade nicht geladen '
-      +'werden.</span></p>';}
-    // eine Archivzeile: Woche + Datum, Teaser, PDF-Buttons je Sprache
-    function row(it,base,isCurrent){
-      // PDF-Buttons sind sprachneutral beschriftet und in beiden Modi sichtbar
-      var pdfs='';
-      if(it.pdf_en) pdfs+='<a class="gn-pdf" href="'+esc(base+it.pdf_en)+'">PDF EN</a>';
-      if(it.pdf_de) pdfs+='<a class="gn-pdf" href="'+esc(base+it.pdf_de)+'">PDF DE</a>';
-      var cur='';
-      if(isCurrent) cur='<span class="gn-badge" style="margin-left:8px">'
-        +'<span class="en">current</span><span class="de">aktuell</span></span>';
-      return '<li class="gn-row'+(isCurrent?' gn-cur':'')+'"><div class="gn-left">'
-        +'<span class="en"><span class="gn-wk">'+esc(it.week_en)+'</span>'
-        +'<span class="gn-when">'+esc(nice(it.date,'en'))+'</span>'+cur
-        +'<p class="gn-teaser">'+esc(it.teaser_en||'')+'</p></span>'
-        +'<span class="de"><span class="gn-wk">'+esc(it.week_de)+'</span>'
-        +'<span class="gn-when">'+esc(nice(it.date,'de'))+'</span>'+cur
-        +'<p class="gn-teaser">'+esc(it.teaser_de||'')+'</p></span>'
-        +'</div><div class="gn-pdfs">'+pdfs+'</div></li>';
-    }
-    fetch(SRC+'?t='+Date.now(),{cache:'no-store'}).then(function(r){
-      if(!r.ok) throw new Error(r.status); return r.json();
-    }).then(function(q){
-      var base=q.base_url||'', list=(q.issues||[]).slice();
-      if(!list.length){host.innerHTML='<p class="gn-ph"><span class="en">No issues yet.</span>'
-        +'<span class="de">Noch keine Ausgaben.</span></p>';return;}
+/* ---------- GeoNews: loads issues.json live, so each new Monday issue appears automatically ---------- */
+var GN=(function(){
+  var SRC='/geonews/issues.json',loaded=false;
+  var meta=$('#gn-meta'),host=$('#gn-latest'),arch=$('#gn-archive');
+  var DOTS={'🔴':'gn-red','🟡':'gn-yel','🟢':'gn-grn','⚪':'gn-gry'};
+  function dots(html){ // traffic-light emoji -> Kelani squares; ∼ -> ~
+    return String(html).replace(/(🔴|🟡|🟢|⚪)︎?️?/g,function(m,e){return '<span class="gn-dot '+DOTS[e]+'" aria-hidden="true"></span>'})
+      .replace(/∼/g,'~');
+  }
+  function nice(ds,l){var p=String(ds).split('-'),d=new Date(+p[0],+p[1]-1,+p[2]);
+    return d.toLocaleDateString(l==='de'?'de-DE':'en-GB',{year:'numeric',month:'long',day:'numeric'});}
+  function files(it,base){var s='';
+    if(it.pdf_en)s+='<a class="go" href="'+esc(base+it.pdf_en)+'">PDF EN<span class="arr" aria-hidden="true">↓</span></a>';
+    if(it.pdf_de)s+='<a class="go" href="'+esc(base+it.pdf_de)+'">PDF DE<span class="arr" aria-hidden="true">↓</span></a>';
+    return s;}
+  function fail(){host.innerHTML='<p class="gn-ph"><span class="en">The latest issue could not be loaded right now.</span><span class="de">Die aktuelle Ausgabe konnte gerade nicht geladen werden.</span></p>';}
+  function load(){
+    if(loaded||!host)return;loaded=true;
+    fetch(SRC+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(q){
+      var base=new URL(q.base_url||'geonews/',location.origin+'/').href,list=(q.issues||[]).slice();
+      if(!list.length){host.innerHTML='<p class="gn-ph"><span class="en">No issues yet.</span><span class="de">Noch keine Ausgaben.</span></p>';return;}
       var cur=list[0];
-      return Promise.all([
-        fetch(base+cur.html_en).then(function(r){return r.text();}),
-        fetch(base+cur.html_de).then(function(r){return r.text();})
-      ]).then(function(parts){
-        var head='<div class="gn-bar" style="margin-bottom:6px">'
-          +'<span class="gn-badge"><span class="en">'+esc(cur.week_en)+' · '+esc(nice(cur.date,'en'))
-          +'</span><span class="de">'+esc(cur.week_de)+' · '+esc(nice(cur.date,'de'))+'</span></span>';
-        if(cur.pdf_en) head+='<a class="gn-pdf" href="'+esc(base+cur.pdf_en)+'">PDF EN</a>';
-        if(cur.pdf_de) head+='<a class="gn-pdf" href="'+esc(base+cur.pdf_de)+'">PDF DE</a>';
-        head+='</div>';
-        host.innerHTML=head
-          +'<div class="gn-issue en">'+parts[0]+'</div>'
-          +'<div class="gn-issue de">'+parts[1]+'</div>';
-        if(!arch) return;
-        // Archiv listet ALLE Ausgaben, neueste zuerst
+      meta.innerHTML='<span class="en"><b>'+esc(cur.week_en)+'</b>'+esc(nice(cur.date,'en'))+'</span>'
+        +'<span class="de"><b>'+esc(cur.week_de)+'</b>'+esc(nice(cur.date,'de'))+'</span>'
+        +'<span class="gn-files">'+files(cur,base)+'</span>';
+      return Promise.all([fetch(base+cur.html_en).then(function(r){return r.text()}),fetch(base+cur.html_de).then(function(r){return r.text()})]).then(function(parts){
+        host.innerHTML='<div class="gn-issue en">'+dots(parts[0])+'</div><div class="gn-issue de">'+dots(parts[1])+'</div>';
         var rows='';
-        list.forEach(function(it,i){rows+=row(it,base,i===0);});
-        arch.innerHTML='<div class="gn-arch">'
-          +'<h3><span class="en">Archive</span><span class="de">Archiv</span></h3>'
-          +'<p class="gn-note"><span class="en">Every issue as a PDF, week by week — '
-          +'English and German.</span><span class="de">Jede Ausgabe als PDF, Woche für Woche — '
-          +'englisch und deutsch.</span></p><ol>'+rows+'</ol></div>';
+        list.forEach(function(it){
+          rows+='<li class="gn-row"><div class="gn-week num"><span class="en">'+esc(it.week_en)+'<time datetime="'+esc(it.date)+'">'+esc(nice(it.date,'en'))+'</time></span>'
+            +'<span class="de">'+esc(it.week_de)+'<time datetime="'+esc(it.date)+'">'+esc(nice(it.date,'de'))+'</time></span></div>'
+            +'<div><p class="gn-teaser"><span class="en">'+dots(esc(it.teaser_en||''))+'</span><span class="de">'+dots(esc(it.teaser_de||''))+'</span></p>'
+            +'<div class="gn-files row-files">'+files(it,base)+'</div></div></li>';
+        });
+        arch.innerHTML='<ol class="gn-list">'+rows+'</ol>';
       });
     }).catch(fail);
-  })();
+  }
+  return {load:load};
+})();
+
+/* ---------- start ---------- */
+var saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
+setLang(saved==='de'?'de':'en');
+route(location.hash.slice(1),false);
+})();
+
 </script>
 </body>
 </html>
