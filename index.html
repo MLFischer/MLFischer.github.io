@@ -48,7 +48,7 @@
   --m1:#464549;--m2:#6a675b;--m3:#9a8e75;--m4:#a18b3a;--m5:#c0613b;--m-line:#2e241e;
   --dot-red:#b84a2c;--dot-yel:#b28324;--dot-grn:#698722;--dot-gry:#a39a92;
 
-  /* type: 13 · 15 · 17 · 21 · 26 · 34–46 · 40–72 */
+  /* type: 13 · 15 · 17 · 21 · 26 · 34–46 */
   --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --fs-micro:.8125rem;
   --fs-small:.9375rem;
@@ -56,7 +56,6 @@
   --fs-lead:clamp(1.125rem,1.04rem + .45vw,1.3125rem);
   --fs-head:clamp(1.375rem,1.27rem + .5vw,1.625rem);
   --fs-title:clamp(2.125rem,1.55rem + 2.4vw,2.875rem);
-  --fs-display:clamp(2.375rem,1.25rem + 4.6vw,4.5rem);
 
   /* layout */
   --page:1240px;--pad:clamp(20px,4.4vw,56px);--gap:clamp(20px,3vw,40px);
@@ -153,16 +152,14 @@ body:not(.lang-de) .de,body.lang-de .en{display:none!important}
 .panel{display:none}
 .panel.is-active{display:block;animation:fade .45s var(--ease)}
 @keyframes fade{from{opacity:.001}to{opacity:1}}
-.sky{margin-top:calc(-1 * var(--head-h));padding:calc(var(--head-h) + clamp(48px,8vh,96px)) 0 clamp(52px,8vh,92px);
+.sky{margin-top:calc(-1 * var(--head-h));padding:calc(var(--head-h) + clamp(36px,6vh,76px)) 0 clamp(40px,6vh,72px);
   background:linear-gradient(180deg,var(--sky-0) 0%,var(--sky-1) 56%,var(--sky-2) 100%)}
-.sky.is-home{position:relative;isolation:isolate;padding-top:calc(var(--head-h) + clamp(56px,15vh,176px));padding-bottom:clamp(56px,11vh,128px)}
+.sky.is-home{position:relative;isolation:isolate}
 /* first visit of the home page: the sky brightens from blue hour to morning */
 .sky.is-home::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,var(--dawn-0) 0%,var(--dawn-1) 56%,var(--dawn-2) 100%);animation:dawn 2.8s .15s cubic-bezier(.4,0,.2,1) both}
 @keyframes dawn{from{opacity:1}to{opacity:0}}
 .water{padding-bottom:clamp(72px,11vh,136px);
   background:linear-gradient(180deg,var(--water-0) 0,var(--water-1) 170px,color-mix(in oklab,var(--water-1) 38%,var(--bg)) 400px,var(--bg) 620px) no-repeat}
-.eyebrow{font-size:var(--fs-small);line-height:1.5;color:var(--ink-2);margin:0 0 clamp(16px,2.4vh,24px)}
-.display{font-size:var(--fs-display);line-height:1.04;letter-spacing:-.03em;font-weight:400;max-width:14.5em;margin:0}
 .title{font-size:var(--fs-title);line-height:1.08;letter-spacing:-.026em;font-weight:400;max-width:17em;margin:0}
 .lead{font-size:var(--fs-lead);line-height:1.5;letter-spacing:-.016em;color:var(--ink-2);max-width:33em;margin:clamp(18px,2.6vh,28px) 0 0}
 .facts-line{display:flex;flex-wrap:wrap;gap:6px 18px;margin:22px 0 0;padding:0;list-style:none;font-size:var(--fs-small);color:var(--ink-2)}
@@ -433,12 +430,13 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
   <!-- ============================== ABOUT ============================== -->
   <section class="panel is-active" id="ueber" aria-labelledby="t-ueber">
     <div class="sky is-home"><div class="wrap">
-      <p class="eyebrow"><span class="en">Geoscientist working on palaeoclimate, University of Potsdam</span><span class="de">Geowissenschaftler mit Schwerpunkt Paläoklima, Universität Potsdam</span></p>
-      <h1 class="display" id="t-ueber"><span class="en">How water comes and goes in drylands and East African rift lakes.</span><span class="de">Wie Wasser in Trockengebieten und ostafrikanischen Riftseen kommt und geht.</span></h1>
-      <p class="lead en">I am a postdoc in the Palaeoclimate Dynamics group at the University of Potsdam and study this
-         over long timescales — and how to reconstruct it from sediments, models and time series.</p>
-      <p class="lead de">Ich arbeite als Postdoc in der AG Paläoklimadynamik an der Universität Potsdam und untersuche
-         das über lange Zeiträume — und wie man es aus Sedimenten, Modellen und Zeitreihen rekonstruiert.</p>
+      <h1 class="title" id="t-ueber">Markus Fischer</h1>
+      <p class="lead en">I am a postdoc in the Palaeoclimate Dynamics group at the University of Potsdam.
+         I study how water comes and goes in drylands and East African rift lakes over long timescales —
+         and how to reconstruct it from sediments, models and time series.</p>
+      <p class="lead de">Ich arbeite als Postdoc in der AG Paläoklimadynamik an der Universität Potsdam.
+         Mich interessiert, wie Wasser in Trockengebieten und ostafrikanischen Riftseen über lange
+         Zeiträume kommt und geht — und wie man das aus Sedimenten, Modellen und Zeitreihen rekonstruiert.</p>
     </div></div>
     <div class="water"><div class="wrap">
 
