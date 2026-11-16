@@ -2,6 +2,19 @@
   "base_url": "geonews/",
   "issues": [
     {
+      "date": "2026-11-16",
+      "week_de": "KW 47/2026",
+      "week_en": "Week 47/2026",
+      "title_de": "GeoNews — KW 47/2026",
+      "title_en": "GeoNews — Week 47/2026",
+      "teaser_de": "Rund 40 bewertete Arbeiten, diese Woche vier 🔴 Must-reads, alle mit einsehbarem Abstract. Schwerpunkte: schwellenartige Klimaantworten auf orbitalen Antrieb, Homininen an pleistozänen Paläoseen, Datierung pleistozäner Grundwässer und dekadische …",
+      "teaser_en": "About 40 scored papers, this week with four 🔴 must-reads, all with an accessible abstract. Focal points: threshold-like climate responses to orbital forcing, hominins at Pleistocene palaeolakes, dating Pleistocene groundwater and decadal lake-level …",
+      "html_de": "issues/2026-11-16/de.html",
+      "html_en": "issues/2026-11-16/en.html",
+      "pdf_de": "issues/2026-11-16/GeoNews_2026-11-16_DE.pdf",
+      "pdf_en": "issues/2026-11-16/GeoNews_2026-11-16_EN.pdf"
+    },
+    {
       "date": "2026-11-09",
       "week_de": "KW 46/2026",
       "week_en": "Week 46/2026",
@@ -184,5 +197,5 @@
       "pdf_en": "issues/2026-07-20/GeoNews_2026-07-20_EN.pdf"
     }
   ],
-  "updated": "2026-11-09T09:37:18+00:00"
+  "updated": "2026-11-16T08:16:15+00:00"
 }
