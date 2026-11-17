@@ -380,10 +380,10 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
 .exp-meta{font-size:var(--fs-micro);color:var(--ink-3)}
 
 /* embedded player (Talks & media): loads the third-party frame only on click.
-   Placeholder = blue hour with the sun just below the horizon (same palette as the logo and the header sky). */
+   Placeholder = a piece of night sky (the dark header sky) with the sun just below the lower edge. */
 .embed{position:relative;aspect-ratio:16/9;max-width:44rem;margin:24px 0 0;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
-  background:radial-gradient(85% 55% at 50% 122%,rgb(192 97 59 / .42),rgb(192 97 59 / 0) 72%),
-             linear-gradient(180deg,#141a2b 0%,#1c1d31 55%,#2d2436 100%);
+  background:radial-gradient(85% 55% at 50% 122%,rgb(192 97 59 / .36),rgb(192 97 59 / 0) 72%),
+             linear-gradient(180deg,#111523 0%,#1c1b2f 56%,#3c2733 100%);   /* dark dawn-zenith/-lilac/-horizon in both themes */
   outline:1px solid rgb(255 255 255 / .07);outline-offset:-1px}
 .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
 .embed-start{appearance:none;position:absolute;inset:0;width:100%;border:0;background:none;cursor:pointer;color:#efe8df;font:inherit;
