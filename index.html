@@ -23,6 +23,11 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
+<script>/* sunrise in the home header: once per visit, only when the visit starts on the home page */
+(function(){var h=location.hash;if(h&&h!=='#'&&h!=='#ueber')return;
+try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return}catch(e){}
+try{if(sessionStorage.getItem('kelani-dawn'))return;sessionStorage.setItem('kelani-dawn','1')}catch(e){}
+document.documentElement.classList.add('dawn')})();</script>
 <style>
 /* ==========================================================================
    Kelani · mlfischer.github.io · v2
@@ -43,6 +48,7 @@
   --ink:#2e241e;--ink-2:#5c534c;--ink-3:#675e57;
   --accent:#33407a;--accent-2:#24306a;--sun:#c0613b;
   --sky-0:#e8eef0;--sky-1:#f1eef4;--sky-2:#f9e3d7;
+  --dawn-0:#d3dce3;--dawn-1:#e2dbe9;--dawn-2:#efcfc3;
   --water-0:#f1dcd5;--water-1:#f7f0ee;
   --m1:#464549;--m2:#6a675b;--m3:#9a8e75;--m4:#a18b3a;--m5:#c0613b;--m-line:#2e241e;
   --dot-red:#b84a2c;--dot-yel:#b28324;--dot-grn:#698722;--dot-gry:#a39a92;
@@ -66,6 +72,7 @@
   --ink:#efe8df;--ink-2:#c4bfcb;--ink-3:#a7a2b0;
   --accent:#f3bb93;--accent-2:#f8d0b2;--sun:#ec9577;
   --sky-0:#111523;--sky-1:#1c1b2f;--sky-2:#3c2733;
+  --dawn-0:#0b0e18;--dawn-1:#141325;--dawn-2:#241a26;
   --water-0:#2a1b25;--water-1:#1b1c2c;
   --m1:#7d7a86;--m2:#8f8a7c;--m3:#9a8e75;--m4:#c3b063;--m5:#ec9577;--m-line:#efe8df;
   --dot-red:#cc6347;--dot-yel:#b78a2c;--dot-grn:#7a9938;--dot-gry:#6f6b7a;
@@ -152,6 +159,14 @@ body:not(.lang-de) .de,body.lang-de .en{display:none!important}
 @keyframes fade{from{opacity:.001}to{opacity:1}}
 .sky{margin-top:calc(-1 * var(--head-h));padding:calc(var(--head-h) + clamp(36px,6vh,76px)) 0 clamp(40px,6vh,72px);
   background:linear-gradient(180deg,var(--sky-0) 0%,var(--sky-1) 56%,var(--sky-2) 100%)}
+/* sunrise: the home header brightens from blue hour to morning once per visit.
+   html.dawn is set in <head> only when a visit starts on the home page; app.js removes it when the
+   animation ends or the visitor leaves the home panel, so switching tabs never replays it. */
+.sky.is-home{position:relative;isolation:isolate}
+.sky.is-home::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;
+  background:linear-gradient(180deg,var(--dawn-0) 0%,var(--dawn-1) 56%,var(--dawn-2) 100%)}
+.dawn .sky.is-home::before{animation:dawn 2.8s .15s cubic-bezier(.4,0,.2,1) backwards}
+@keyframes dawn{from{opacity:1}to{opacity:0}}
 
 .water{padding-bottom:clamp(72px,11vh,136px);
   background:linear-gradient(180deg,var(--water-0) 0,var(--water-1) 170px,color-mix(in oklab,var(--water-1) 38%,var(--bg)) 400px,var(--bg) 620px) no-repeat}
@@ -1127,6 +1142,7 @@ function panelOf(id){var el=id&&document.getElementById(id);if(!el)return null;
   var p=el.classList.contains('panel')?el:el.closest('.panel');return p?{panel:p,el:el}:null;}
 function show(id){
   current=id;
+  if(id!=='ueber')document.documentElement.classList.remove('dawn');   // leaving home ends the sunrise for good
   panels.forEach(function(p){p.classList.toggle('is-active',p.id===id)});
   $$('[data-tab]').forEach(function(a){if(a.dataset.tab===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   setTitle();
@@ -1162,6 +1178,13 @@ if(menu&&mbtn){
   $('.menu-close',menu).addEventListener('click',closeMenu);
   window.matchMedia('(min-width: 1061px)').addEventListener('change',function(m){if(m.matches)closeMenu()});
 }
+
+/* ---------- sunrise in the home header: runs once, then the class goes so tab switches never replay it ---------- */
+(function(){var d=document.documentElement;if(!d.classList.contains('dawn'))return;
+  var end=function(){d.classList.remove('dawn')}, s=$('.sky.is-home');
+  if(s)s.addEventListener('animationend',function(e){if(e.animationName==='dawn')end()});
+  setTimeout(end,3400);
+})();
 
 /* ---------- embedded player: third-party frame only after a click (no request to the host before) ---------- */
 $$('.embed').forEach(function(box){
