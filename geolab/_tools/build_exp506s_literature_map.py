@@ -522,7 +522,7 @@ PAGE = """<!DOCTYPE html>
   <div class="wrap head">
     <a class="brand" href="/" aria-label="Markus Fischer — home"><svg class="mark" viewBox="0 18.35 120 82.05" aria-hidden="true" focusable="false"><clipPath id="hz-r"><rect width="120" height="96"/></clipPath><g clip-path="url(#hz-r)"><rect class="s s1" x="10" y="86" width="12" height="12"/><rect class="s s2" x="26.5" y="68.5" width="15" height="15" rx="1.88"/><rect class="s s3" x="45.62" y="51.62" width="18.75" height="18.75" rx="4.69"/><rect class="s s4" x="66.28" y="35.28" width="23.44" height="23.44" rx="8.79"/><rect class="s s5" x="87.35" y="19.35" width="29.3" height="29.3" rx="14.65"/></g><rect class="hz" y="96" width="120" height="3.4" rx="1.7"/></svg><span class="brand-name" aria-hidden="true">Markus Fischer</span></a>
     <nav class="nav" aria-label="Main">
-      <a href="/#ueber">About</a><a href="/#publikationen">Research</a><a href="/#expertise">Expertise</a><a href="/#geonews">GeoNews</a><a href="/#geolab" aria-current="page">GeoLab</a><a href="/#klettergeologie">GeoCrimps</a><a href="/#klimamusik">ClimateMusic</a>
+      <a href="/#ueber">About</a><a href="/#publikationen">Research</a><a href="/#expertise">Expertise</a><a href="/#geonews">GeoNews</a><a href="/#geolab" aria-current="page">GeoLab</a><a href="/#klettergeologie">GeoCrimps</a>
     </nav>
     <a class="back" href="/#geolab">← GeoLab</a>
   </div>

@@ -43,7 +43,6 @@
   --ink:#2e241e;--ink-2:#5c534c;--ink-3:#675e57;
   --accent:#33407a;--accent-2:#24306a;--sun:#c0613b;
   --sky-0:#e8eef0;--sky-1:#f1eef4;--sky-2:#f9e3d7;
-  --dawn-0:#d3dce3;--dawn-1:#e2dbe9;--dawn-2:#efcfc3;
   --water-0:#f1dcd5;--water-1:#f7f0ee;
   --m1:#464549;--m2:#6a675b;--m3:#9a8e75;--m4:#a18b3a;--m5:#c0613b;--m-line:#2e241e;
   --dot-red:#b84a2c;--dot-yel:#b28324;--dot-grn:#698722;--dot-gry:#a39a92;
@@ -67,7 +66,6 @@
   --ink:#efe8df;--ink-2:#c4bfcb;--ink-3:#a7a2b0;
   --accent:#f3bb93;--accent-2:#f8d0b2;--sun:#ec9577;
   --sky-0:#111523;--sky-1:#1c1b2f;--sky-2:#3c2733;
-  --dawn-0:#0b0e18;--dawn-1:#141325;--dawn-2:#241a26;
   --water-0:#2a1b25;--water-1:#1b1c2c;
   --m1:#7d7a86;--m2:#8f8a7c;--m3:#9a8e75;--m4:#c3b063;--m5:#ec9577;--m-line:#efe8df;
   --dot-red:#cc6347;--dot-yel:#b78a2c;--dot-grn:#7a9938;--dot-gry:#6f6b7a;
@@ -154,10 +152,7 @@ body:not(.lang-de) .de,body.lang-de .en{display:none!important}
 @keyframes fade{from{opacity:.001}to{opacity:1}}
 .sky{margin-top:calc(-1 * var(--head-h));padding:calc(var(--head-h) + clamp(36px,6vh,76px)) 0 clamp(40px,6vh,72px);
   background:linear-gradient(180deg,var(--sky-0) 0%,var(--sky-1) 56%,var(--sky-2) 100%)}
-.sky.is-home{position:relative;isolation:isolate}
-/* first visit of the home page: the sky brightens from blue hour to morning */
-.sky.is-home::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,var(--dawn-0) 0%,var(--dawn-1) 56%,var(--dawn-2) 100%);animation:dawn 2.8s .15s cubic-bezier(.4,0,.2,1) both}
-@keyframes dawn{from{opacity:1}to{opacity:0}}
+
 .water{padding-bottom:clamp(72px,11vh,136px);
   background:linear-gradient(180deg,var(--water-0) 0,var(--water-1) 170px,color-mix(in oklab,var(--water-1) 38%,var(--bg)) 400px,var(--bg) 620px) no-repeat}
 .title{font-size:var(--fs-title);line-height:1.08;letter-spacing:-.026em;font-weight:400;max-width:17em;margin:0}
@@ -363,18 +358,44 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
 .lead em{font-style:italic;color:var(--ink)}
 
 /* home: index of projects */
-.index{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;max-width:52rem}
-.index li{border-top:1px solid var(--line)}
-.index li:nth-child(-n+2){border-top:0}
-.index a{display:block;height:100%;padding:18px 0 24px;color:var(--ink);text-decoration:none}
-.index li:nth-child(-n+2) a{padding-top:0}
+.index{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;max-width:52rem}
+.index a{display:block;height:100%;padding:0 0 8px;color:var(--ink);text-decoration:none}
 .ix-k{display:block;font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3);margin-bottom:6px}
 .ix-t{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:var(--fs-lead);line-height:1.25;font-weight:500;letter-spacing:-.018em;transition:color .2s}
 .ix-t .arr{font-size:var(--fs-body);font-weight:400;color:var(--ink-3);transition:transform .25s var(--ease),color .2s}
 .ix-d{display:block;font-size:var(--fs-small);line-height:1.55;color:var(--ink-2);margin-top:8px;max-width:30em}
 .index a:hover .ix-t,.index a:hover .arr{color:var(--accent)}
 .index a:hover .arr{transform:translateX(3px)}
-@media (max-width:640px){.index{grid-template-columns:minmax(0,1fr)}.index li:nth-child(2){border-top:1px solid var(--line)}.index li:nth-child(2) a{padding-top:18px}}
+@media (max-width:1000px){.index{grid-template-columns:minmax(0,1fr)}.index li+li{border-top:1px solid var(--line)}.index li+li a{padding-top:18px}.index a{padding-bottom:20px}}
+
+/* GeoLab: experiments (lab-notebook entries, quieter than a feature) */
+.exps{list-style:none;margin:26px 0 0;padding:0;max-width:44rem}
+.exp{padding:22px 0 4px;border-top:1px solid var(--line)}
+.exp-k{display:flex;align-items:center;gap:10px;font-size:var(--fs-micro);line-height:1.4;color:var(--ink-3);margin:0 0 10px}
+.tag{display:inline-block;font-size:var(--fs-micro);line-height:1.4;font-weight:500;color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:1px 9px}
+.exp h3{font-size:var(--fs-lead);line-height:1.3;font-weight:500;letter-spacing:-.018em;margin:0 0 10px}
+.exp p{font-size:var(--fs-small);line-height:1.6;color:var(--ink-2);margin:0 0 .8em}
+.exp p.exp-lead{font-size:var(--fs-body);line-height:1.6;color:var(--ink)}
+.exp .actions{margin-top:16px}
+.exp-meta{font-size:var(--fs-micro);color:var(--ink-3)}
+
+/* embedded player (Talks & media): loads the third-party frame only on click.
+   Placeholder = blue hour with the sun just below the horizon (same palette as the logo and the header sky). */
+.embed{position:relative;aspect-ratio:16/9;max-width:44rem;margin:24px 0 0;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
+  background:radial-gradient(85% 55% at 50% 122%,rgb(192 97 59 / .42),rgb(192 97 59 / 0) 72%),
+             linear-gradient(180deg,#141a2b 0%,#1c1d31 55%,#2d2436 100%);
+  outline:1px solid rgb(255 255 255 / .07);outline-offset:-1px}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.embed-start{appearance:none;position:absolute;inset:0;width:100%;border:0;background:none;cursor:pointer;color:#efe8df;font:inherit;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px}
+.embed-start:focus-visible{outline:2px solid #efe8df;outline-offset:-8px;border-radius:calc(var(--r-lg) + 2px)}
+.embed-start .play{position:static;width:58px;height:58px;margin-bottom:10px;transition:transform .25s var(--ease)}
+.embed-start .play::after{margin-left:4px;border-width:9px 0 9px 14px}
+.embed-start:hover .play{transform:scale(1.06)}
+.embed-t{font-size:var(--fs-lead);line-height:1.3;font-weight:500;letter-spacing:-.016em}
+.embed-s{font-size:var(--fs-micro);line-height:1.45;color:#c4bfcb}
+@media (max-width:520px){.embed-start .play{width:48px;height:48px;margin-bottom:4px}.embed-t{font-size:var(--fs-body)}}
+.embed + .note{margin-top:10px}
 
 </style>
 <!-- GoatCounter: privacy-friendly visitor stats (dashboard: mlfischer.goatcounter.com) -->
@@ -395,7 +416,6 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
       <a href="#geonews" data-tab="geonews">GeoNews</a>
       <a href="#geolab" data-tab="geolab">GeoLab</a>
       <a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a>
-      <a href="#klimamusik" data-tab="klimamusik">ClimateMusic</a>
     </nav>
     <div class="langsw" role="group" aria-label="Language / Sprache">
       <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button>
@@ -417,7 +437,6 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
       <a href="#geonews" data-tab="geonews">GeoNews</a>
       <a href="#geolab" data-tab="geolab">GeoLab</a>
       <a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a>
-      <a href="#klimamusik" data-tab="klimamusik">ClimateMusic</a>
     </nav>
     <div class="langsw" role="group" aria-label="Language / Sprache">
       <button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="de" aria-pressed="false">Deutsch</button>
@@ -468,15 +487,12 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
             <li><a href="#geonews"><span class="ix-k"><span class="en">Weekly digest</span><span class="de">Wochen-Digest</span></span>
               <span class="ix-t">GeoNews<span class="arr" aria-hidden="true">→</span></span>
               <span class="ix-d"><span class="en">Quaternary palaeoclimate, East African rift dynamics, palaeohydrology and time-series analysis — a new issue every Monday.</span><span class="de">Quartäre Paläoklimaforschung, ostafrikanische Riftdynamik, Paläohydrologie und Zeitreihenanalyse — jeden Montag eine neue Ausgabe.</span></span></a></li>
-            <li><a href="#geolab"><span class="ix-k"><span class="en">Research tools</span><span class="de">Forschungswerkzeuge</span></span>
+            <li><a href="#geolab"><span class="ix-k"><span class="en">Open lab</span><span class="de">Offenes Labor</span></span>
               <span class="ix-t">GeoLab<span class="arr" aria-hidden="true">→</span></span>
-              <span class="ix-d"><span class="en">Tools and working material from my research, such as a literature map around IODP³ Expedition 506S.</span><span class="de">Werkzeuge und Arbeitsmaterial aus meiner Forschung, etwa eine Literaturkarte zu IODP³-Expedition 506S.</span></span></a></li>
+              <span class="ix-d"><span class="en">Research tools and AI experiments, from a literature map around IODP³ Expedition 506S to climate data turned into music.</span><span class="de">Forschungswerkzeuge und KI-Experimente, von einer Literaturkarte zu IODP³-Expedition 506S bis zu Klimadaten als Musik.</span></span></a></li>
             <li><a href="#klettergeologie"><span class="ix-k">ClimbingEarth &amp; GeoCrimps</span>
               <span class="ix-t"><span><span class="en">Climbing geology</span><span class="de">Klettergeologie</span></span><span class="arr" aria-hidden="true">→</span></span>
               <span class="ix-d"><span class="en">Why does a rock feel and climb the way it does? A long-read series in Boulder Magazine, plus short reels.</span><span class="de">Warum fühlt sich ein Fels so an — und warum klettert er sich so? Eine Artikelreihe im Boulder Magazine und kurze Reels.</span></span></a></li>
-            <li><a href="#klimamusik"><span class="ix-k"><span class="en">Sonification</span><span class="de">Sonifikation</span></span>
-              <span class="ix-t">ClimateMusic<span class="arr" aria-hidden="true">→</span></span>
-              <span class="ix-d"><span class="en"><em>climate · time · sound</em> turns real climate records into music, live in the browser.</span><span class="de"><em>climate · time · sound</em> übersetzt echte Klimareihen live im Browser in Musik.</span></span></a></li>
           </ul>
         </div>
       </section>
@@ -519,10 +535,15 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
              fascinates me at the interface of anthropology and palaeoenvironmental research (University of Potsdam).</p>
           <p class="de">Ein Podcast-Gespräch über meine Promotion, meinen Werdegang und was mich an der
              Schnittstelle von Anthropologie und Paläoumweltforschung fasziniert (Universität Potsdam).</p>
-          <div class="actions">
-            <a class="btn" href="https://videoup.uni-potsdam.de/Panopto/Pages/Viewer.aspx?id=e17a1908-c894-4f1b-aa4b-b2e600896843" target="_blank" rel="noopener"><span class="en">Listen on Panopto</span><span class="de">Auf Panopto anhören</span><span class="arr" aria-hidden="true">↗</span></a>
-            <span class="note" style="margin:0"><span class="en">University of Potsdam, opens in a new tab</span><span class="de">Universität Potsdam, öffnet in neuem Tab</span></span>
+          <div class="embed" data-src="https://videoup.uni-potsdam.de/Panopto/Pages/Embed.aspx?id=e17a1908-c894-4f1b-aa4b-b2e600896843&amp;autoplay=true&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;captions=false&amp;interactivity=all"
+               data-title="Podcast: Markus Fischer, University of Potsdam (Panopto)">
+            <button class="embed-start" type="button">
+              <span class="play" aria-hidden="true"></span>
+              <span class="embed-t"><span class="en">Play the podcast</span><span class="de">Podcast abspielen</span></span>
+              <span class="embed-s"><span class="en">University of Potsdam player (Panopto), loads when you click</span><span class="de">Player der Universität Potsdam (Panopto), lädt erst beim Klick</span></span>
+            </button>
           </div>
+          <p class="note"><a href="https://videoup.uni-potsdam.de/Panopto/Pages/Viewer.aspx?id=e17a1908-c894-4f1b-aa4b-b2e600896843" target="_blank" rel="noopener"><span class="en">Open on Panopto</span><span class="de">Auf Panopto öffnen</span>&nbsp;↗</a></p>
         </div>
       </section>
 
@@ -823,10 +844,16 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
   <section class="panel" id="geolab" aria-labelledby="t-geolab">
     <div class="sky"><div class="wrap">
       <h1 class="title" id="t-geolab">GeoLab</h1>
-      <p class="lead en">Tools and working material from my research — each built for a concrete
-         question and shared here in case it is useful to others.</p>
-      <p class="lead de">Werkzeuge und Arbeitsmaterial aus meiner Forschung — jeweils für eine
-         konkrete Frage gebaut und hier geteilt, falls sie auch anderen nützen.</p>
+      <p class="lead en">An open lab for the new AI era: research tools, working material and
+         experiments, built with AI and shared as they are&nbsp;— in case they are useful to others.</p>
+      <p class="lead de">Ein offenes Versuchslabor für die neue KI-Zeit: Forschungswerkzeuge,
+         Arbeitsmaterial und Experimente, mit KI gebaut und so geteilt, wie sie sind&nbsp;— falls sie
+         auch anderen nützen.</p>
+      <ul class="facts-line">
+        <li><span class="en">Open lab</span><span class="de">Offenes Labor</span></li>
+        <li><span class="en">Built with AI</span><span class="de">Mit KI gebaut</span></li>
+        <li><span class="en">Work in progress</span><span class="de">Im Aufbau</span></li>
+      </ul>
     </div></div>
     <div class="water"><div class="wrap">
 
@@ -883,6 +910,51 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
             <p class="note de">Stand: 2. November 2026. Die interaktive Karte ist eine
                einzelne Seite mit 20&nbsp;MB und lässt sich am Desktop am besten bedienen.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="row" id="experimente" aria-labelledby="r-gl-exp">
+        <div class="rubric-col">
+          <h2 class="rubric" id="r-gl-exp"><span class="en">Experimental vibe coding &amp; AI applications</span><span class="de">Experimentelles Vibe Coding &amp; KI-Anwendungen</span></h2>
+          <p class="rubric-note"><span class="en">Prototypes, not products</span><span class="de">Prototypen, keine Produkte</span></p>
+        </div>
+        <div class="body">
+          <p class="muted en">Small applications built with AI assistance to try out an idea quickly —
+             open experiments that may change or be rebuilt from scratch.</p>
+          <p class="muted de">Kleine Anwendungen, mit KI-Unterstützung gebaut, um eine Idee schnell
+             auszuprobieren — offene Versuche, die sich ändern oder ganz neu entstehen können.</p>
+
+          <ul class="exps">
+            <li class="exp" id="klimamusik">
+              <p class="exp-k"><span class="tag">Experiment</span>ClimateMusic</p>
+              <h3>climate · time · sound</h3>
+              <p class="exp-lead en">Making climate data audible: real climate records turned into music
+                 live in the browser — warmer = higher, extremes = accents, one month = one beat. A bilingual
+                 (EN/DE) teaching tool for music, climate and time series.</p>
+              <p class="exp-lead de">Klimadaten hörbar machen: echte Klimareihen, live im Browser in Musik
+                 übersetzt — wärmer = höher, Extreme = Akzente, ein Monat = ein Schlag. Ein zweisprachiges
+                 (EN/DE) Lehrwerkzeug zu Musik, Klima und Zeitreihen.</p>
+              <p class="en">Three modes: <em>learn</em> (guided signal path data → mapping → sound, with a live
+                 legend), <em>studio</em> (twelve finished style scores driven by the same mapping rules) and
+                 <em>paleo</em> (deep time as a multitrack piece from real records — including LR04, EPICA CO₂,
+                 Milankovitch cycles and Chew Bahir/HSPDP). It runs as a static page, exports to WAV and is
+                 shareable by link.</p>
+              <p class="de">Drei Modi: <em>learn</em> (geführter Signalweg Daten → Übersetzung → Klang, mit
+                 Live-Legende), <em>studio</em> (zwölf fertige Stil-Partituren nach denselben Mapping-Regeln) und
+                 <em>paleo</em> (Tiefenzeit als Mehrspur-Stück aus echten Reihen — u. a. LR04, EPICA-CO₂,
+                 Milankovitch-Zyklen und Chew Bahir/HSPDP). Läuft als statische Seite, exportiert als WAV und
+                 ist per Link teilbar.</p>
+              <p class="en">Core idea: styles change only tempo, timbre and rhythm — never the data or the
+                 rules. Sonification as a design decision on top of honest data.</p>
+              <p class="de">Kerngedanke: Die Stile ändern nur Tempo, Klangfarbe und Rhythmus — nie die Daten
+                 oder die Regeln. Sonifikation als gestalterische Entscheidung auf ehrlichen Daten.</p>
+              <div class="actions">
+                <a class="go" href="https://mlfischer.github.io/climate-time-sound/"><span class="en">Open the experiment</span><span class="de">Experiment öffnen</span><span class="arr" aria-hidden="true">↗</span></a>
+                <a class="go" href="https://github.com/MLFischer/climate-time-sound"><span class="en">Code on GitHub</span><span class="de">Code auf GitHub</span><span class="arr" aria-hidden="true">↗</span></a>
+                <span class="exp-meta"><span class="en">Web Audio in JavaScript, runs without a server</span><span class="de">Web Audio in JavaScript, läuft ohne Server</span></span>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -995,48 +1067,6 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
     </div></div>
   </section>
 
-  <!-- ============================== CLIMATE MUSIC ============================== -->
-  <section class="panel" id="klimamusik" aria-labelledby="t-klimamusik">
-    <div class="sky"><div class="wrap">
-      <h1 class="title" id="t-klimamusik">ClimateMusic</h1>
-      <p class="lead en">Making climate data audible: <em>climate · time · sound</em> turns real climate
-         records into music live in the browser — warmer = higher, extremes = accents, one month = one
-         beat. A bilingual (EN/DE) teaching tool for music, climate and time series.</p>
-      <p class="lead de">Klimadaten hörbar machen: <em>climate · time · sound</em> übersetzt echte
-         Klimareihen live im Browser in Musik — wärmer = höher, Extreme = Akzente, ein Monat = ein
-         Schlag. Ein zweisprachiges (EN/DE) Lehrwerkzeug zu Musik, Klima und Zeitreihen.</p>
-    </div></div>
-    <div class="water"><div class="wrap">
-
-      <section class="row" aria-labelledby="r-cts">
-        <div class="rubric-col">
-          <h2 class="rubric" id="r-cts">climate · time · sound</h2>
-          <p class="rubric-note"><span class="en">Web Audio project in JavaScript, runs without a server</span><span class="de">Web-Audio-Projekt in JavaScript, läuft ohne Server</span></p>
-        </div>
-        <div class="body">
-          <p class="en">Three modes:</p>
-          <p class="de">Drei Modi:</p>
-          <dl class="modes">
-            <div><dt>learn</dt><dd><span class="en">guided signal path data → mapping → sound, with a live legend</span><span class="de">geführter Signalweg Daten → Übersetzung → Klang, mit Live-Legende</span></dd></div>
-            <div><dt>studio</dt><dd><span class="en">twelve finished style scores driven by the same mapping rules</span><span class="de">zwölf fertige Stil-Partituren nach denselben Mapping-Regeln</span></dd></div>
-            <div><dt>paleo</dt><dd><span class="en">deep time as a multitrack piece from real records — including LR04, EPICA CO₂, Milankovitch cycles and Chew Bahir/HSPDP</span><span class="de">Tiefenzeit als Mehrspur-Stück aus echten Reihen — u. a. LR04, EPICA-CO₂, Milankovitch-Zyklen und Chew Bahir/HSPDP</span></dd></div>
-          </dl>
-          <p class="en" style="margin-top:20px">It runs as a static page, exports to WAV and is shareable by link.</p>
-          <p class="de" style="margin-top:20px">Läuft als statische Seite, exportiert als WAV und ist per Link teilbar.</p>
-          <p class="muted en">Core idea: styles change only tempo, timbre and rhythm — never the
-             data or the rules. Sonification as a design decision on top of honest data.</p>
-          <p class="muted de">Kerngedanke: Die Stile ändern nur Tempo, Klangfarbe und Rhythmus —
-             nie die Daten oder die Regeln. Sonifikation als gestalterische Entscheidung auf ehrlichen Daten.</p>
-          <div class="actions">
-            <a class="btn" href="https://mlfischer.github.io/climate-time-sound/"><span class="en">Live demo</span><span class="de">Live-Demo</span><span class="arr" aria-hidden="true">↗</span></a>
-            <a class="go" href="https://github.com/MLFischer/climate-time-sound">Repository<span class="arr" aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </section>
-
-    </div></div>
-  </section>
-
 </main>
 
 <footer class="site-foot">
@@ -1049,7 +1079,7 @@ figcaption,.caption{font-size:var(--fs-micro);line-height:1.5;color:var(--ink-3)
       </div>
       <div>
         <h2><span class="en">Pages</span><span class="de">Seiten</span></h2>
-        <ul><li><a href="#ueber" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></a></li><li><a href="#publikationen" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></a></li><li><a href="#expertise" data-tab="expertise">Expertise</a></li><li><a href="#geonews" data-tab="geonews">GeoNews</a></li><li><a href="#geolab" data-tab="geolab">GeoLab</a></li><li><a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a></li><li><a href="#klimamusik" data-tab="klimamusik">ClimateMusic</a></li></ul>
+        <ul><li><a href="#ueber" data-tab="ueber"><span class="en">About</span><span class="de">Über</span></a></li><li><a href="#publikationen" data-tab="publikationen"><span class="en">Research</span><span class="de">Forschung</span></a></li><li><a href="#expertise" data-tab="expertise">Expertise</a></li><li><a href="#geonews" data-tab="geonews">GeoNews</a></li><li><a href="#geolab" data-tab="geolab">GeoLab</a></li><li><a href="#klettergeologie" data-tab="klettergeologie">GeoCrimps</a></li></ul>
       </div>
       <div>
         <h2><span class="en">Elsewhere</span><span class="de">Anderswo</span></h2>
@@ -1080,7 +1110,7 @@ var y=$('#y'); if(y) y.textContent=new Date().getFullYear();
 
 /* ---------- language ---------- */
 var TITLES={ueber:null,publikationen:['Research & publications','Forschung & Publikationen'],expertise:['Expertise','Expertise'],
-  geonews:['GeoNews','GeoNews'],geolab:['GeoLab','GeoLab'],klettergeologie:['Climbing geology','Klettergeologie'],klimamusik:['ClimateMusic','ClimateMusic']};
+  geonews:['GeoNews','GeoNews'],geolab:['GeoLab','GeoLab'],klettergeologie:['Climbing geology','Klettergeologie']};
 var current='ueber';
 function setTitle(){var t=TITLES[current];document.title=t?t[lang()==='de'?1:0]+' — Markus Fischer':'Markus Fischer';}
 function setLang(l){
@@ -1132,6 +1162,17 @@ if(menu&&mbtn){
   $('.menu-close',menu).addEventListener('click',closeMenu);
   window.matchMedia('(min-width: 1061px)').addEventListener('change',function(m){if(m.matches)closeMenu()});
 }
+
+/* ---------- embedded player: third-party frame only after a click (no request to the host before) ---------- */
+$$('.embed').forEach(function(box){
+  var b=$('.embed-start',box);if(!b)return;
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src=box.dataset.src;f.title=box.dataset.title||'';f.allow='autoplay; fullscreen';f.allowFullscreen=true;
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    box.innerHTML='';box.appendChild(f);f.focus();
+  });
+});
 
 /* ---------- publications filter ---------- */
 var filter='all';
